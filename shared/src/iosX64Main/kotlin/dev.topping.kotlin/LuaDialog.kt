@@ -6,7 +6,7 @@ import kotlin.reflect.KCallable
 
 actual open class LuaDialog : KTInterface
 {
-   var luaDialog: cocoapods.toppingios.LuaDialog? = null
+   var luaDialog: cocoapods.Topping.LuaDialog? = null
    actual companion object {
         actual val DIALOG_TYPE_NORMAL: Int = 0x01
         actual val DIALOG_TYPE_PROGRESS: Int = 0x02
@@ -15,12 +15,12 @@ actual open class LuaDialog : KTInterface
         actual val DIALOG_TYPE_TIMEPICKER: Int = 0x10
         actual fun MessageBox(context: LuaContext?, title: String?, content: String?)
         {
-            cocoapods.toppingios.LuaDialog.MessageBox(context?.luaContext, title, content)
+            cocoapods.Topping.LuaDialog.MessageBox(context?.luaContext, title, content)
         }
         actual fun Create(context: LuaContext?, dialogType: Int): LuaDialog?
         {
             val pobj = LuaDialog()
-            val pres = cocoapods.toppingios.LuaDialog.Create(context?.luaContext, dialogType)
+            val pres = cocoapods.Topping.LuaDialog.Create(context?.luaContext, dialogType)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -84,7 +84,7 @@ actual open class LuaDialog : KTInterface
    actual fun SetDateSelectedListener(func: KCallable<Unit>?)
    {
        val kt: KTWrap<Unit> = KTWrap<Unit>()
-       val lt: cocoapods.toppingios.LuaTranslator = cocoapods.toppingios.LuaTranslator()
+       val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
        lt.nobj = StableRef.create(kt).asCPointer()
        lt.kFRetF = kt.Init(this, func)
        luaDialog?.SetDateSelectedListener(lt)
@@ -92,7 +92,7 @@ actual open class LuaDialog : KTInterface
    actual fun SetTimeSelectedListener(func: KCallable<Unit>?)
    {
        val kt: KTWrap<Unit> = KTWrap<Unit>()
-       val lt: cocoapods.toppingios.LuaTranslator = cocoapods.toppingios.LuaTranslator()
+       val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
        lt.nobj = StableRef.create(kt).asCPointer()
        lt.kFRetF = kt.Init(this, func)
        luaDialog?.SetTimeSelectedListener(lt)
@@ -103,6 +103,6 @@ actual open class LuaDialog : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaDialog = par as cocoapods.toppingios.LuaDialog?
+       luaDialog = par as cocoapods.Topping.LuaDialog?
    }
 }

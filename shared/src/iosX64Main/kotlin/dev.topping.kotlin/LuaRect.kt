@@ -2,19 +2,19 @@ package dev.topping.kotlin
 
 actual open class LuaRect : KTInterface
 {
-   var luaRect: cocoapods.toppingios.LuaRect? = null
+   var luaRect: cocoapods.Topping.LuaRect? = null
    actual companion object {
         actual fun CreateRect(): LuaRect?
         {
             val pobj = LuaRect()
-            val pres = cocoapods.toppingios.LuaRect.CreateRect()
+            val pres = cocoapods.Topping.LuaRect.CreateRect()
             pobj.SetNativeObject(pres)
             return pobj
         }
         actual fun CreateRectPar(left: Float?, top: Float?, right: Float?, bottom: Float?): LuaRect?
         {
             val pobj = LuaRect()
-            val pres = cocoapods.toppingios.LuaRect.CreateRectPar(left!!, top!!, right!!, bottom!!)
+            val pres = cocoapods.Topping.LuaRect.CreateRectPar(left!!, top!!, right!!, bottom!!)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -45,6 +45,6 @@ actual open class LuaRect : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaRect = par as cocoapods.toppingios.LuaRect?
+       luaRect = par as cocoapods.Topping.LuaRect?
    }
 }

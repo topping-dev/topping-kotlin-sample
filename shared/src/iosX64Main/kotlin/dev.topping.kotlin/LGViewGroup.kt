@@ -2,12 +2,12 @@ package dev.topping.kotlin
 
 actual open class LGViewGroup : LGView()
 {
-   var lgViewGroup: cocoapods.toppingios.LGViewGroup? = null
+   var lgViewGroup: cocoapods.Topping.LGViewGroup? = null
    actual companion object {
         actual fun Create(lc: LuaContext?): LGViewGroup?
         {
             val pobj = LGViewGroup()
-            val pres = cocoapods.toppingios.LGViewGroup.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGViewGroup.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -19,6 +19,6 @@ actual open class LGViewGroup : LGView()
     open override fun SetNativeObject(par :Any?)
    {
        super.SetNativeObject(par)
-       lgViewGroup = par as cocoapods.toppingios.LGViewGroup?
+       lgViewGroup = par as cocoapods.Topping.LGViewGroup?
    }
 }

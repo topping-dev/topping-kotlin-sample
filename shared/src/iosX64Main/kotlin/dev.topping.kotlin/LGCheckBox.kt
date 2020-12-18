@@ -6,12 +6,12 @@ import kotlin.reflect.KCallable
 
 actual open class LGCheckBox : LGCompoundButton()
 {
-   var lgCheckBox: cocoapods.toppingios.LGCheckBox? = null
+   var lgCheckBox: cocoapods.Topping.LGCheckBox? = null
    actual companion object {
         actual fun Create(lc: LuaContext?): LGCheckBox?
         {
             val pobj = LGCheckBox()
-            val pres = cocoapods.toppingios.LGCheckBox.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGCheckBox.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -19,7 +19,7 @@ actual open class LGCheckBox : LGCompoundButton()
    actual fun SetOnCheckedChangedListener(func: KCallable<Unit>?)
    {
        val kt: KTWrap<Unit> = KTWrap<Unit>()
-       val lt: cocoapods.toppingios.LuaTranslator = cocoapods.toppingios.LuaTranslator()
+       val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
        lt.nobj = StableRef.create(kt).asCPointer()
        lt.kFRetF = kt.Init(this, func)
        lgCheckBox?.SetOnCheckedChangedListener(lt)
@@ -31,6 +31,6 @@ actual open class LGCheckBox : LGCompoundButton()
     open override fun SetNativeObject(par :Any?)
    {
        super.SetNativeObject(par)
-       lgCheckBox = par as cocoapods.toppingios.LGCheckBox?
+       lgCheckBox = par as cocoapods.Topping.LGCheckBox?
    }
 }

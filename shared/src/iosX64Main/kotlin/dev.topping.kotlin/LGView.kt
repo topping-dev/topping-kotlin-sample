@@ -6,12 +6,12 @@ import kotlin.reflect.KCallable
 
 actual open class LGView : KTInterface
 {
-   var lgView: cocoapods.toppingios.LGView? = null
+   var lgView: cocoapods.Topping.LGView? = null
    actual companion object {
         actual fun Create(lc: LuaContext?): LGView?
         {
             val pobj = LGView()
-            val pres = cocoapods.toppingios.LGView.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGView.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -34,12 +34,12 @@ actual open class LGView : KTInterface
    }
    actual fun SetBackgroundRef(backgroundRef: LuaRef?)
    {
-       lgView?.SetBackgroundRef(backgroundRef?.GetNativeObject() as cocoapods.toppingios.LuaRef)
+       lgView?.SetBackgroundRef(backgroundRef?.GetNativeObject() as cocoapods.Topping.LuaRef)
    }
    actual fun SetOnClickListener(func: KCallable<Unit>?)
    {
        val kt: KTWrap<Unit> = KTWrap<Unit>()
-       val lt: cocoapods.toppingios.LuaTranslator = cocoapods.toppingios.LuaTranslator()
+       val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
        lt.nobj = StableRef.create(kt).asCPointer()
        lt.kFRetF = kt.Init(this, func)
        lgView?.SetOnClickListener(lt)
@@ -50,6 +50,6 @@ actual open class LGView : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       lgView = par as cocoapods.toppingios.LGView?
+       lgView = par as cocoapods.Topping.LGView?
    }
 }

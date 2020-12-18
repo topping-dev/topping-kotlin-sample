@@ -2,7 +2,7 @@ package dev.topping.kotlin
 
 actual open class LuaMapImage : KTInterface
 {
-   var luaMapImage: cocoapods.toppingios.LuaMapImage? = null
+   var luaMapImage: cocoapods.Topping.LuaMapImage? = null
    actual fun SetBearing(bearing: Float)
    {
        luaMapImage?.SetBearing(bearing)
@@ -41,6 +41,6 @@ actual open class LuaMapImage : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaMapImage = par as cocoapods.toppingios.LuaMapImage?
+       luaMapImage = par as cocoapods.Topping.LuaMapImage?
    }
 }

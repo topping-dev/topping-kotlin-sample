@@ -10,12 +10,12 @@ import kotlin.reflect.KCallable
 
 actual open class LGAdapterView : KTInterface
 {
-   var lgAdapterView: cocoapods.toppingios.LGAdapterView? = null
+   var lgAdapterView: cocoapods.Topping.LGAdapterView? = null
    actual companion object {
         actual fun Create(lc: LuaContext?, id: String?): LGAdapterView?
         {
             val pobj = LGAdapterView()
-            val pres = cocoapods.toppingios.LGAdapterView.Create(lc?.luaContext, id)
+            val pres = cocoapods.Topping.LGAdapterView.Create(lc?.luaContext, id)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -46,7 +46,7 @@ actual open class LGAdapterView : KTInterface
    actual fun SetOnAdapterView(func: KCallable<Unit>?)
    {
        val kt: KTWrap<Unit> = KTWrap<Unit>()
-       val lt: cocoapods.toppingios.LuaTranslator = cocoapods.toppingios.LuaTranslator()
+       val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
        lt.nobj = StableRef.create(kt).asCPointer()
        lt.kFRetF = kt.Init(this, func)
        lgAdapterView?.SetOnAdapterView(lt)
@@ -57,6 +57,6 @@ actual open class LGAdapterView : KTInterface
    }
         open override fun SetNativeObject(par :Any?)
    {
-       lgAdapterView = par as cocoapods.toppingios.LGAdapterView?
+       lgAdapterView = par as cocoapods.Topping.LGAdapterView?
    }
 }

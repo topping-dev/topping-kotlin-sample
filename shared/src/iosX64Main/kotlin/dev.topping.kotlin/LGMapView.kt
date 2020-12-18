@@ -6,12 +6,12 @@ import platform.darwin.NSObject
 
 actual open class LGMapView : LGView()
 {
-   var lgMapView: cocoapods.toppingios.LGMapView? = null
+   var lgMapView: cocoapods.Topping.LGMapView? = null
    actual companion object {
         actual fun Create(lc: LuaContext?, apikey: String?): LGMapView?
         {
             val pobj = LGMapView()
-            val pres = cocoapods.toppingios.LGMapView.Create(lc?.luaContext, apikey)
+            val pres = cocoapods.Topping.LGMapView.Create(lc?.luaContext, apikey)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -62,6 +62,6 @@ actual open class LGMapView : LGView()
     open override fun SetNativeObject(par :Any?)
    {
        super.SetNativeObject(par)
-       lgMapView = par as cocoapods.toppingios.LGMapView?
+       lgMapView = par as cocoapods.Topping.LGMapView?
    }
 }

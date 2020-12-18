@@ -6,12 +6,12 @@ import kotlin.reflect.KCallable
 
 actual open class LGDatePicker : LGFrameLayout()
 {
-   var lgDatePicker: cocoapods.toppingios.LGDatePicker? = null
+   var lgDatePicker: cocoapods.Topping.LGDatePicker? = null
    actual companion object {
         actual fun Create(lc: LuaContext?): LGDatePicker?
         {
             val pobj = LGDatePicker()
-            val pres = cocoapods.toppingios.LGDatePicker.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGDatePicker.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -35,7 +35,7 @@ actual open class LGDatePicker : LGFrameLayout()
    actual fun SetOnDateChangedListener(func: KCallable<Unit>?)
    {
        val kt: KTWrap<Unit> = KTWrap<Unit>()
-       val lt: cocoapods.toppingios.LuaTranslator = cocoapods.toppingios.LuaTranslator()
+       val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
        lt.nobj = StableRef.create(kt).asCPointer()
        lt.kFRetF = kt.Init(this, func)
        lgDatePicker?.SetOnDateChangedListener(lt)
@@ -47,6 +47,6 @@ actual open class LGDatePicker : LGFrameLayout()
     open override fun SetNativeObject(par :Any?)
    {
        super.SetNativeObject(par)
-       lgDatePicker = par as cocoapods.toppingios.LGDatePicker?
+       lgDatePicker = par as cocoapods.Topping.LGDatePicker?
    }
 }

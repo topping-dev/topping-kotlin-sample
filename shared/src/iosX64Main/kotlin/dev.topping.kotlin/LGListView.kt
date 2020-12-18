@@ -2,12 +2,12 @@ package dev.topping.kotlin
 
 actual open class LGListView : LGAbsListView()
 {
-   var lgListView: cocoapods.toppingios.LGListView? = null
+   var lgListView: cocoapods.Topping.LGListView? = null
    actual companion object {
         actual fun Create(lc: LuaContext?): LGAbsListView?
         {
             val pobj = LGListView()
-            val pres = cocoapods.toppingios.LGListView.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGListView.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -30,6 +30,6 @@ actual open class LGListView : LGAbsListView()
     open override fun SetNativeObject(par :Any?)
    {
        super.SetNativeObject(par)
-       lgListView = par as cocoapods.toppingios.LGListView?
+       lgListView = par as cocoapods.Topping.LGListView?
    }
 }

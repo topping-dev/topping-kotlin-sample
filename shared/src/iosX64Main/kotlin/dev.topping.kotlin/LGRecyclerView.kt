@@ -2,7 +2,7 @@ package dev.topping.kotlin
 
 actual open class LGRecyclerView : LGView()
 {
-   var lgRecyclerView: cocoapods.toppingios.LGRecyclerView? = null
+   var lgRecyclerView: cocoapods.Topping.LGRecyclerView? = null
    actual fun GetAdapter(): LGRecyclerViewAdapter?
    {
        val pobj = LGRecyclerViewAdapter()
@@ -21,6 +21,6 @@ actual open class LGRecyclerView : LGView()
     open override fun SetNativeObject(par :Any?)
    {
        super.SetNativeObject(par)
-       lgRecyclerView = par as cocoapods.toppingios.LGRecyclerView?
+       lgRecyclerView = par as cocoapods.Topping.LGRecyclerView?
    }
 }

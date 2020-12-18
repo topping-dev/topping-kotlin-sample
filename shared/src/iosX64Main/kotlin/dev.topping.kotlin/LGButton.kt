@@ -2,12 +2,12 @@ package dev.topping.kotlin
 
 actual open class LGButton : LGTextView()
 {
-   var lgButton: cocoapods.toppingios.LGButton? = null
+   var lgButton: cocoapods.Topping.LGButton? = null
    actual companion object {
         actual fun Create(lc: LuaContext?): LGButton?
         {
             val pobj = LGButton()
-            val pres = cocoapods.toppingios.LGButton.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGButton.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -19,6 +19,6 @@ actual open class LGButton : LGTextView()
     open override fun SetNativeObject(par :Any?)
    {
        super.SetNativeObject(par)
-       lgButton = par as cocoapods.toppingios.LGButton?
+       lgButton = par as cocoapods.Topping.LGButton?
    }
 }

@@ -2,12 +2,12 @@ package dev.topping.kotlin
 
 actual open class LuaViewInflator : KTInterface
 {
-   var luaViewInflator: cocoapods.toppingios.LuaViewInflator? = null
+   var luaViewInflator: cocoapods.Topping.LuaViewInflator? = null
    actual companion object {
         actual fun Create(lc: LuaContext?): LuaViewInflator?
         {
             val pobj = LuaViewInflator()
-            val pres = cocoapods.toppingios.LuaViewInflator.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LuaViewInflator.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -22,6 +22,6 @@ actual open class LuaViewInflator : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaViewInflator = par as cocoapods.toppingios.LuaViewInflator?
+       luaViewInflator = par as cocoapods.Topping.LuaViewInflator?
    }
 }

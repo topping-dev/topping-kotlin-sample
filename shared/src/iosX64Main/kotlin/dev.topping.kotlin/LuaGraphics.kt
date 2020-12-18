@@ -2,7 +2,7 @@ package dev.topping.kotlin
 
 actual open class LuaGraphics : KTInterface
 {
-   var luaGraphics: cocoapods.toppingios.LuaGraphics? = null
+   var luaGraphics: cocoapods.Topping.LuaGraphics? = null
    actual fun SetPen(r: Int, g: Int, b: Int)
    {
        luaGraphics?.SetPen(r, g, b)
@@ -169,6 +169,6 @@ actual open class LuaGraphics : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaGraphics = par as cocoapods.toppingios.LuaGraphics?
+       luaGraphics = par as cocoapods.Topping.LuaGraphics?
    }
 }

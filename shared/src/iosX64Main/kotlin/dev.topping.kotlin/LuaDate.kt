@@ -2,26 +2,26 @@ package dev.topping.kotlin
 
 actual open class LuaDate : KTInterface
 {
-   var luaDate: cocoapods.toppingios.LuaDate? = null
+   var luaDate: cocoapods.Topping.LuaDate? = null
    actual companion object {
         actual fun Now(): LuaDate?
         {
             val pobj = LuaDate()
-            val pres = cocoapods.toppingios.LuaDate.Now()
+            val pres = cocoapods.Topping.LuaDate.Now()
             pobj.SetNativeObject(pres)
             return pobj
         }
         actual fun CreateDate(day: Int, month: Int, year: Int): LuaDate?
         {
             val pobj = LuaDate()
-            val pres = cocoapods.toppingios.LuaDate.CreateDate(day, month, year)
+            val pres = cocoapods.Topping.LuaDate.CreateDate(day, month, year)
             pobj.SetNativeObject(pres)
             return pobj
         }
         actual fun CreateDateWithTime(day: Int, month: Int, year: Int, hour: Int, minute: Int, second: Int): LuaDate?
         {
             val pobj = LuaDate()
-            val pres = cocoapods.toppingios.LuaDate.CreateDateWithTime(day, month, year, hour, minute, second)
+            val pres = cocoapods.Topping.LuaDate.CreateDateWithTime(day, month, year, hour, minute, second)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -92,6 +92,6 @@ actual open class LuaDate : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaDate = par as cocoapods.toppingios.LuaDate?
+       luaDate = par as cocoapods.Topping.LuaDate?
    }
 }

@@ -2,12 +2,12 @@ package dev.topping.kotlin
 
 actual open class LuaRef : KTInterface
 {
-   var luaRef: cocoapods.toppingios.LuaRef? = null
+   var luaRef: cocoapods.Topping.LuaRef? = null
    actual companion object {
         actual fun GetRef(ctx: LuaContext?, id: String?): LuaRef?
         {
             val pobj = LuaRef()
-            val pres = cocoapods.toppingios.LuaRef.GetRef(ctx?.luaContext!!, id!!)
+            val pres = cocoapods.Topping.LuaRef.GetRef(ctx?.luaContext!!, id!!)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -18,6 +18,6 @@ actual open class LuaRef : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaRef = par as cocoapods.toppingios.LuaRef?
+       luaRef = par as cocoapods.Topping.LuaRef?
    }
 }

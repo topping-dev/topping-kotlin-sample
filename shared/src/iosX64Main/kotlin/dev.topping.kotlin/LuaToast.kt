@@ -2,13 +2,13 @@ package dev.topping.kotlin
 
 actual open class LuaToast : KTInterface
 {
-   var luaToast: cocoapods.toppingios.LuaToast? = null
+   var luaToast: cocoapods.Topping.LuaToast? = null
    actual companion object {
         actual val TOAST_SHORT: Int = 2000
         actual val TOAST_LONG: Int = 5000
         actual fun Show(context: LuaContext?, text: String?, duration: Int?)
         {
-            cocoapods.toppingios.LuaToast.Show(context?.luaContext, text, duration!!)
+            cocoapods.Topping.LuaToast.Show(context?.luaContext, text, duration!!)
         }
    }
     open override fun GetNativeObject(): Any?
@@ -17,6 +17,6 @@ actual open class LuaToast : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaToast = par as cocoapods.toppingios.LuaToast?
+       luaToast = par as cocoapods.Topping.LuaToast?
    }
 }

@@ -2,12 +2,12 @@ package dev.topping.kotlin
 
 actual open class LGTableRow : LGLinearLayout()
 {
-   var lgTableRow: cocoapods.toppingios.LGTableRow? = null
+   var lgTableRow: cocoapods.Topping.LGTableRow? = null
    actual companion object {
         actual fun Create(lc: LuaContext?): LGTableRow?
         {
             val pobj = LGTableRow()
-            val pres = cocoapods.toppingios.LGTableRow.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGTableRow.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -19,6 +19,6 @@ actual open class LGTableRow : LGLinearLayout()
     open override fun SetNativeObject(par :Any?)
    {
        super.SetNativeObject(par)
-       lgTableRow = par as cocoapods.toppingios.LGTableRow?
+       lgTableRow = par as cocoapods.Topping.LGTableRow?
    }
 }

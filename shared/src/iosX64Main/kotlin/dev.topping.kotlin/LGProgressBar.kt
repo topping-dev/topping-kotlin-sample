@@ -2,12 +2,12 @@ package dev.topping.kotlin
 
 actual open class LGProgressBar : LGView()
 {
-   var lgProgressBar: cocoapods.toppingios.LGProgressBar? = null
+   var lgProgressBar: cocoapods.Topping.LGProgressBar? = null
    actual companion object {
         actual fun Create(lc: LuaContext?): LGProgressBar?
         {
             val pobj = LGProgressBar()
-            val pres = cocoapods.toppingios.LGProgressBar.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGProgressBar.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -31,6 +31,6 @@ actual open class LGProgressBar : LGView()
     open override fun SetNativeObject(par :Any?)
    {
        super.SetNativeObject(par)
-       lgProgressBar = par as cocoapods.toppingios.LGProgressBar?
+       lgProgressBar = par as cocoapods.Topping.LGProgressBar?
    }
 }

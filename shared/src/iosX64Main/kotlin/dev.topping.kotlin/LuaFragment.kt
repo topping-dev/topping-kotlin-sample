@@ -2,19 +2,19 @@ package dev.topping.kotlin
 
 actual open class LuaFragment : KTInterface
 {
-   var luaFragment: cocoapods.toppingios.LuaFragment? = null
+   var luaFragment: cocoapods.Topping.LuaFragment? = null
    actual companion object {
         actual fun Create(lc: LuaContext?, luaId: String?): LuaFragment?
         {
             val pobj = LuaFragment()
-            val pres = cocoapods.toppingios.LuaFragment.Create(lc?.luaContext, luaId)
+            val pres = cocoapods.Topping.LuaFragment.Create(lc?.luaContext, luaId)
             pobj.SetNativeObject(pres)
             return pobj
         }
         actual fun CreateWithUI(lc: LuaContext?, luaId: String?, ui: String?): LuaFragment?
         {
             val pobj = LuaFragment()
-            val pres = cocoapods.toppingios.LuaFragment.CreateWithUI(lc?.luaContext, luaId, ui)
+            val pres = cocoapods.Topping.LuaFragment.CreateWithUI(lc?.luaContext, luaId, ui)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -64,6 +64,6 @@ actual open class LuaFragment : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaFragment = par as cocoapods.toppingios.LuaFragment?
+       luaFragment = par as cocoapods.Topping.LuaFragment?
    }
 }

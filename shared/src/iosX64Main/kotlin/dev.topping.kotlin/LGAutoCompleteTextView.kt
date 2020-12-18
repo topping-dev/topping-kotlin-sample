@@ -2,12 +2,12 @@ package dev.topping.kotlin
 
 actual open class LGAutoCompleteTextView : LGEditText()
 {
-   var lgAutoCompleteTextView: cocoapods.toppingios.LGAutoCompleteTextView? = null
+   var lgAutoCompleteTextView: cocoapods.Topping.LGAutoCompleteTextView? = null
    actual companion object {
         actual fun Create(lc: LuaContext?): LGAutoCompleteTextView?
         {
             val pobj = LGAutoCompleteTextView()
-            val pres = cocoapods.toppingios.LGAutoCompleteTextView.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGAutoCompleteTextView.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -19,6 +19,6 @@ actual open class LGAutoCompleteTextView : LGEditText()
     open override fun SetNativeObject(par :Any?)
    {
        super.SetNativeObject(par)
-       lgAutoCompleteTextView = par as cocoapods.toppingios.LGAutoCompleteTextView?
+       lgAutoCompleteTextView = par as cocoapods.Topping.LGAutoCompleteTextView?
    }
 }

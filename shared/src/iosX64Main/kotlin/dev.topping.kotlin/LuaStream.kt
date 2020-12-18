@@ -2,7 +2,7 @@ package dev.topping.kotlin
 
 actual open class LuaStream : KTInterface
 {
-   var luaStream: cocoapods.toppingios.LuaStream? = null
+   var luaStream: cocoapods.Topping.LuaStream? = null
    actual fun GetStream(): LuaObjectStore?
    {
        val pobj = LuaObjectStore()
@@ -36,6 +36,6 @@ actual open class LuaStream : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaStream = par as cocoapods.toppingios.LuaStream?
+       luaStream = par as cocoapods.Topping.LuaStream?
    }
 }

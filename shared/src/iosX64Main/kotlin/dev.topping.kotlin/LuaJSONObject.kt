@@ -2,12 +2,12 @@ package dev.topping.kotlin
 
 actual open class LuaJSONObject : KTInterface
 {
-   var luaJSONObject: cocoapods.toppingios.LuaJSONObject? = null
+   var luaJSONObject: cocoapods.Topping.LuaJSONObject? = null
    actual companion object {
         actual fun CreateJSOFromString(str: String?): LuaJSONObject?
         {
             val pobj = LuaJSONObject()
-            val pres = cocoapods.toppingios.LuaJSONObject.CreateJSOFromString(str)
+            val pres = cocoapods.Topping.LuaJSONObject.CreateJSOFromString(str)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -52,6 +52,6 @@ actual open class LuaJSONObject : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaJSONObject = par as cocoapods.toppingios.LuaJSONObject?
+       luaJSONObject = par as cocoapods.Topping.LuaJSONObject?
    }
 }

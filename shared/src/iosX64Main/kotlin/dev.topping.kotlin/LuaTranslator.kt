@@ -2,7 +2,7 @@ package dev.topping.kotlin
 
 actual open class LuaTranslator : KTInterface
 {
-   var luaTranslator: cocoapods.toppingios.LuaTranslator? = null
+   var luaTranslator: cocoapods.Topping.LuaTranslator? = null
    actual companion object {
         actual fun Register(obj: Any?, functionName: String?): LuaTranslator?
         {
@@ -16,6 +16,6 @@ actual open class LuaTranslator : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaTranslator = par as cocoapods.toppingios.LuaTranslator?
+       luaTranslator = par as cocoapods.Topping.LuaTranslator?
    }
 }

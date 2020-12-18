@@ -2,19 +2,19 @@ package dev.topping.kotlin
 
 actual open class LuaPoint : KTInterface
 {
-   var luaPoint: cocoapods.toppingios.LuaPoint? = null
+   var luaPoint: cocoapods.Topping.LuaPoint? = null
    actual companion object {
         actual fun CreatePoint(): LuaPoint?
         {
             val pobj = LuaPoint()
-            val pres = cocoapods.toppingios.LuaPoint.CreatePoint()
+            val pres = cocoapods.Topping.LuaPoint.CreatePoint()
             pobj.SetNativeObject(pres)
             return pobj
         }
         actual fun CreatePointPar(x: Float?, y: Float?): LuaPoint?
         {
             val pobj = LuaPoint()
-            val pres = cocoapods.toppingios.LuaPoint.CreatePointPar(x!!, y!!)
+            val pres = cocoapods.Topping.LuaPoint.CreatePointPar(x!!, y!!)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -37,6 +37,6 @@ actual open class LuaPoint : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaPoint = par as cocoapods.toppingios.LuaPoint?
+       luaPoint = par as cocoapods.Topping.LuaPoint?
    }
 }

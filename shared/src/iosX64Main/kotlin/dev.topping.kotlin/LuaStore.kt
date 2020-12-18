@@ -2,30 +2,30 @@ package dev.topping.kotlin
 
 actual open class LuaStore : KTInterface
 {
-   var luaStore: cocoapods.toppingios.LuaStore? = null
+   var luaStore: cocoapods.Topping.LuaStore? = null
    actual companion object {
         actual fun SetString(key: String?, value: String?)
         {
-            cocoapods.toppingios.LuaStore.SetString(key, value)
+            cocoapods.Topping.LuaStore.SetString(key, value)
         }
         actual fun SetNumber(key: String?, value: Double)
         {
-            cocoapods.toppingios.LuaStore.SetNumber(key, value)
+            cocoapods.Topping.LuaStore.SetNumber(key, value)
         }
         actual fun Get(key: String?): Any?
         {
             val pobj = LuaStore()
-            val pres = cocoapods.toppingios.LuaStore.Get(key)
-            pobj.SetNativeObject(pres as cocoapods.toppingios.LuaStore)
+            val pres = cocoapods.Topping.LuaStore.Get(key)
+            pobj.SetNativeObject(pres as cocoapods.Topping.LuaStore)
             return pobj
         }
         actual fun GetString(key: String?): String?
         {
-            return cocoapods.toppingios.LuaStore.GetString(key)
+            return cocoapods.Topping.LuaStore.GetString(key)
         }
         actual fun GetNumber(key: String?): Double?
         {
-            return cocoapods.toppingios.LuaStore.GetNumber(key)
+            return cocoapods.Topping.LuaStore.GetNumber(key)
         }
    }
     open override fun GetNativeObject(): Any?
@@ -34,6 +34,6 @@ actual open class LuaStore : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaStore = par as cocoapods.toppingios.LuaStore?
+       luaStore = par as cocoapods.Topping.LuaStore?
    }
 }

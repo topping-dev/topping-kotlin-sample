@@ -4,12 +4,12 @@ import kotlin.reflect.KCallable
 
 actual open class LGTextView : LGView()
 {
-   var lgTextView: cocoapods.toppingios.LGTextView? = null
+   var lgTextView: cocoapods.Topping.LGTextView? = null
    actual companion object {
         actual fun Create(lc: LuaContext?): LGTextView?
         {
             val pobj = LGTextView()
-            val pres = cocoapods.toppingios.LGTextView.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGTextView.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -38,6 +38,6 @@ actual open class LGTextView : LGView()
     open override fun SetNativeObject(par :Any?)
    {
        super.SetNativeObject(par)
-       lgTextView = par as cocoapods.toppingios.LGTextView?
+       lgTextView = par as cocoapods.Topping.LGTextView?
    }
 }

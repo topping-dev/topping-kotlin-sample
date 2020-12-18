@@ -2,7 +2,7 @@ package dev.topping.kotlin
 
 actual open class LuaMapPolyline : KTInterface
 {
-   var luaMapPolyline: cocoapods.toppingios.LuaMapPolyline? = null
+   var luaMapPolyline: cocoapods.Topping.LuaMapPolyline? = null
    actual fun SetColor(color: LuaColor?)
    {
        luaMapPolyline?.SetColor(color?.luaColor)
@@ -25,6 +25,6 @@ actual open class LuaMapPolyline : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaMapPolyline = par as cocoapods.toppingios.LuaMapPolyline?
+       luaMapPolyline = par as cocoapods.Topping.LuaMapPolyline?
    }
 }

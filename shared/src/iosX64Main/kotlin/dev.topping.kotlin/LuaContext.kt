@@ -2,12 +2,12 @@ package dev.topping.kotlin
 
 actual open class LuaContext : KTInterface
 {
-   var luaContext: cocoapods.toppingios.LuaContext? = null
+   var luaContext: cocoapods.Topping.LuaContext? = null
    actual companion object {
         actual fun CreateLuaContext(context: Any?): LuaContext?
         {
             val pobj = LuaContext()
-            val pres = cocoapods.toppingios.LuaContext()
+            val pres = cocoapods.Topping.LuaContext()
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -18,6 +18,6 @@ actual open class LuaContext : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaContext = par as cocoapods.toppingios.LuaContext?
+       luaContext = par as cocoapods.Topping.LuaContext?
    }
 }

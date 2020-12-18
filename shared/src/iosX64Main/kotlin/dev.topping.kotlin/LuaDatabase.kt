@@ -2,13 +2,13 @@ package dev.topping.kotlin
 
 actual open class LuaDatabase : KTInterface
 {
-   var luaDatabase: cocoapods.toppingios.LuaDatabase? = null
+   var luaDatabase: cocoapods.Topping.LuaDatabase? = null
    actual companion object {
         actual fun Create(context: LuaContext?): LuaDatabase?
         {
             val pobj = LuaDatabase()
-            val pres = cocoapods.toppingios.LuaDatabase.Create(context?.luaContext)
-            pobj.SetNativeObject(pres as cocoapods.toppingios.LuaDatabase)
+            val pres = cocoapods.Topping.LuaDatabase.Create(context?.luaContext)
+            pobj.SetNativeObject(pres as cocoapods.Topping.LuaDatabase)
             return pobj
         }
    }
@@ -71,6 +71,6 @@ actual open class LuaDatabase : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaDatabase = par as cocoapods.toppingios.LuaDatabase?
+       luaDatabase = par as cocoapods.Topping.LuaDatabase?
    }
 }

@@ -2,12 +2,12 @@ package dev.topping.kotlin
 
 actual open class LGFrameLayout : LGViewGroup()
 {
-   var lgFrameLayout: cocoapods.toppingios.LGFrameLayout? = null
+   var lgFrameLayout: cocoapods.Topping.LGFrameLayout? = null
    actual companion object {
         actual fun Create(lc: LuaContext?): LGFrameLayout?
         {
             val pobj = LGFrameLayout()
-            val pres = cocoapods.toppingios.LGFrameLayout.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGFrameLayout.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -19,6 +19,6 @@ actual open class LGFrameLayout : LGViewGroup()
     open override fun SetNativeObject(par :Any?)
    {
        super.SetNativeObject(par)
-       lgFrameLayout = par as cocoapods.toppingios.LGFrameLayout?
+       lgFrameLayout = par as cocoapods.Topping.LGFrameLayout?
    }
 }

@@ -2,7 +2,7 @@ package dev.topping.kotlin
 
 actual open class LuaMapMarker : KTInterface
 {
-   var luaMapMarker: cocoapods.toppingios.LuaMapMarker? = null
+   var luaMapMarker: cocoapods.Topping.LuaMapMarker? = null
    actual fun SetDraggable(draggable: Boolean)
    {
        luaMapMarker?.SetDraggable(draggable)
@@ -33,6 +33,6 @@ actual open class LuaMapMarker : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaMapMarker = par as cocoapods.toppingios.LuaMapMarker?
+       luaMapMarker = par as cocoapods.Topping.LuaMapMarker?
    }
 }

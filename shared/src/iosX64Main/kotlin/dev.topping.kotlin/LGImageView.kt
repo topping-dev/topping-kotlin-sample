@@ -2,12 +2,12 @@ package dev.topping.kotlin
 
 actual open class LGImageView : LGView()
 {
-   var lgImageView: cocoapods.toppingios.LGImageView? = null
+   var lgImageView: cocoapods.Topping.LGImageView? = null
    actual companion object {
         actual fun Create(lc: LuaContext?, luaId: String?): LGImageView?
         {
             val pobj = LGImageView()
-            val pres = cocoapods.toppingios.LGImageView.Create(lc?.luaContext, luaId)
+            val pres = cocoapods.Topping.LGImageView.Create(lc?.luaContext, luaId)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -27,6 +27,6 @@ actual open class LGImageView : LGView()
     open override fun SetNativeObject(par :Any?)
    {
        super.SetNativeObject(par)
-       lgImageView = par as cocoapods.toppingios.LGImageView?
+       lgImageView = par as cocoapods.Topping.LGImageView?
    }
 }

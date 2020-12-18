@@ -6,12 +6,12 @@ import kotlin.reflect.KCallable
 
 actual open class LGEditText : LGTextView()
 {
-   var lgEditText: cocoapods.toppingios.LGEditText? = null
+   var lgEditText: cocoapods.Topping.LGEditText? = null
    actual companion object {
         actual fun Create(lc: LuaContext?): LGEditText?
         {
             val pobj = LGEditText()
-            val pres = cocoapods.toppingios.LGEditText.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGEditText.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -19,7 +19,7 @@ actual open class LGEditText : LGTextView()
     actual fun SetTextChangedListener(func: KCallable<Unit>?)
     {
         val kt: KTWrap<Unit> = KTWrap<Unit>()
-        val lt: cocoapods.toppingios.LuaTranslator = cocoapods.toppingios.LuaTranslator()
+        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
         lt.nobj = StableRef.create(kt).asCPointer()
         lt.kFRetF = kt.Init(this, func)
         lgEditText?.SetTextChangedListener(lt)
@@ -27,7 +27,7 @@ actual open class LGEditText : LGTextView()
     actual fun SetBeforeTextChangedListener(func: KCallable<Unit>?)
     {
         val kt: KTWrap<Unit> = KTWrap<Unit>()
-        val lt: cocoapods.toppingios.LuaTranslator = cocoapods.toppingios.LuaTranslator()
+        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
         lt.nobj = StableRef.create(kt).asCPointer()
         lt.kFRetF = kt.Init(this, func)
         lgEditText?.SetBeforeTextChangedListener(lt)
@@ -35,7 +35,7 @@ actual open class LGEditText : LGTextView()
     actual fun SetAfterTextChangedListener(func: KCallable<Unit>?)
     {
         val kt: KTWrap<Unit> = KTWrap<Unit>()
-        val lt: cocoapods.toppingios.LuaTranslator = cocoapods.toppingios.LuaTranslator()
+        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
         lt.nobj = StableRef.create(kt).asCPointer()
         lt.kFRetF = kt.Init(this, func)
         lgEditText?.SetAfterTextChangedListener(lt)
@@ -47,6 +47,6 @@ actual open class LGEditText : LGTextView()
     open override fun SetNativeObject(par :Any?)
    {
        super.SetNativeObject(par)
-       lgEditText = par as cocoapods.toppingios.LGEditText?
+       lgEditText = par as cocoapods.Topping.LGEditText?
    }
 }

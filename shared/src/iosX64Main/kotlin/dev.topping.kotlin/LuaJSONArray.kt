@@ -2,7 +2,7 @@ package dev.topping.kotlin
 
 actual open class LuaJSONArray : KTInterface
 {
-   var luaJSONArray: cocoapods.toppingios.LuaJSONArray? = null
+   var luaJSONArray: cocoapods.Topping.LuaJSONArray? = null
    actual fun Count(): Int?
    {
        return luaJSONArray?.Count()
@@ -47,6 +47,6 @@ actual open class LuaJSONArray : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaJSONArray = par as cocoapods.toppingios.LuaJSONArray?
+       luaJSONArray = par as cocoapods.Topping.LuaJSONArray?
    }
 }

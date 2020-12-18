@@ -2,12 +2,12 @@ package dev.topping.kotlin
 
 actual open class LuaBuffer : KTInterface
 {
-   var luaBuffer: cocoapods.toppingios.LuaBuffer? = null
+   var luaBuffer: cocoapods.Topping.LuaBuffer? = null
    actual companion object {
         actual fun Create(capacity: Int): LuaBuffer?
         {
             val pobj = LuaBuffer()
-            val pres = cocoapods.toppingios.LuaBuffer.Create(capacity)
+            val pres = cocoapods.Topping.LuaBuffer.Create(capacity)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -26,6 +26,6 @@ actual open class LuaBuffer : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaBuffer = par as cocoapods.toppingios.LuaBuffer?
+       luaBuffer = par as cocoapods.Topping.LuaBuffer?
    }
 }

@@ -2,13 +2,13 @@ package dev.topping.kotlin
 
 actual open class LuaNativeCall : KTInterface
 {
-   //var luaNativeCall: cocoapods.toppingios.LuaNativeCall? = null
+   //var luaNativeCall: cocoapods.Topping.LuaNativeCall? = null
    actual companion object {
         actual fun Call(self: Any?, func: String?, params: HashMap<Int?, Any?>?): LuaObjectStore?
         {
             /*val pobj = LuaObjectStore()
-            val pres = cocoapods.toppingios.LuaNativeCall.Call(self, func, params)
-            pobj.SetNativeObject(pres as cocoapods.toppingios.LuaObjectStore)
+            val pres = cocoapods.Topping.LuaNativeCall.Call(self, func, params)
+            pobj.SetNativeObject(pres as cocoapods.Topping.LuaObjectStore)
             return pobj*/
             return null
         }

@@ -1,6 +1,6 @@
 package dev.topping.kotlin
 
-import cocoapods.toppingios.LuaNativeObject
+import cocoapods.Topping.LuaNativeObject
 import kotlinx.cinterop.StableRef
 import kotlinx.cinterop.staticCFunction
 import platform.darwin.NSObject
@@ -8,12 +8,12 @@ import kotlin.reflect.KCallable
 
 actual open class LuaHttpClient : KTInterface
 {
-   var luaHttpClient: cocoapods.toppingios.LuaHttpClient? = null
+   var luaHttpClient: cocoapods.Topping.LuaHttpClient? = null
    actual companion object {
         actual fun Create(tag: String?): LuaHttpClient?
         {
             val pobj = LuaHttpClient()
-            val pres = cocoapods.toppingios.LuaHttpClient.Create(tag)
+            val pres = cocoapods.Topping.LuaHttpClient.Create(tag)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -68,7 +68,7 @@ actual open class LuaHttpClient : KTInterface
    actual fun SetOnFinishListener(func: KCallable<Unit>?)
    {
        val kt: KTWrap<Unit> = KTWrap<Unit>()
-       val lt: cocoapods.toppingios.LuaTranslator = cocoapods.toppingios.LuaTranslator()
+       val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
        lt.nobj = StableRef.create(kt).asCPointer()
        lt.kFRetF = kt.Init(this, func)
        luaHttpClient?.SetOnFinishListener(lt)
@@ -76,7 +76,7 @@ actual open class LuaHttpClient : KTInterface
    actual fun SetOnFailListener(func: KCallable<Unit>?)
    {
        val kt: KTWrap<Unit> = KTWrap<Unit>()
-       val lt: cocoapods.toppingios.LuaTranslator = cocoapods.toppingios.LuaTranslator()
+       val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
        lt.nobj = StableRef.create(kt).asCPointer()
        lt.kFRetF = kt.Init(this, func)
        luaHttpClient?.SetOnFailListener(lt)
@@ -87,6 +87,6 @@ actual open class LuaHttpClient : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaHttpClient = par as cocoapods.toppingios.LuaHttpClient?
+       luaHttpClient = par as cocoapods.Topping.LuaHttpClient?
    }
 }

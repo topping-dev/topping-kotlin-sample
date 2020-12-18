@@ -6,12 +6,12 @@ import kotlin.reflect.KCallable
 
 actual open class LGRadioButton : LGCompoundButton()
 {
-   var lgRadioButton: cocoapods.toppingios.LGRadioButton? = null
+   var lgRadioButton: cocoapods.Topping.LGRadioButton? = null
    actual companion object {
         actual fun Create(lc: LuaContext?): LGRadioButton?
         {
             val pobj = LGRadioButton()
-            val pres = cocoapods.toppingios.LGRadioButton.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGRadioButton.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -23,6 +23,6 @@ actual open class LGRadioButton : LGCompoundButton()
     open override fun SetNativeObject(par :Any?)
    {
        super.SetNativeObject(par)
-       lgRadioButton = par as cocoapods.toppingios.LGRadioButton?
+       lgRadioButton = par as cocoapods.Topping.LGRadioButton?
    }
 }

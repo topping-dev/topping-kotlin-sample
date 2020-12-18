@@ -2,7 +2,7 @@ package dev.topping.kotlin
 
 actual open class LuaColor : KTInterface
 {
-   var luaColor: cocoapods.toppingios.LuaColor? = null
+   var luaColor: cocoapods.Topping.LuaColor? = null
    actual companion object {
         actual val BLACK: Int = 0xff000000.toInt()
         actual val BLUE: Int = 0xff0000ff.toInt()
@@ -19,21 +19,21 @@ actual open class LuaColor : KTInterface
         actual fun FromString(colorStr: String?): LuaColor?
         {
             val pobj = LuaColor()
-            val pres = cocoapods.toppingios.LuaColor.FromString(colorStr)
+            val pres = cocoapods.Topping.LuaColor.FromString(colorStr)
             pobj.SetNativeObject(pres)
             return pobj
         }
         actual fun CreateFromARGB(alpha: Int, red: Int, green: Int, blue: Int): LuaColor?
         {
             val pobj = LuaColor()
-            val pres = cocoapods.toppingios.LuaColor.CreateFromARGB(alpha, red, green, blue)
+            val pres = cocoapods.Topping.LuaColor.CreateFromARGB(alpha, red, green, blue)
             pobj.SetNativeObject(pres)
             return pobj
         }
         actual fun CreateFromRGB(red: Int, green: Int, blue: Int): LuaColor?
         {
             val pobj = LuaColor()
-            val pres = cocoapods.toppingios.LuaColor.CreateFromRGB(red, green, blue)
+            val pres = cocoapods.Topping.LuaColor.CreateFromRGB(red, green, blue)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -48,6 +48,6 @@ actual open class LuaColor : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaColor = par as cocoapods.toppingios.LuaColor?
+       luaColor = par as cocoapods.Topping.LuaColor?
    }
 }

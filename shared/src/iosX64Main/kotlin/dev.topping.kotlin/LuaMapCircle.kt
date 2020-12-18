@@ -2,7 +2,7 @@ package dev.topping.kotlin
 
 actual open class LuaMapCircle : KTInterface
 {
-   var luaMapCircle: cocoapods.toppingios.LuaMapCircle? = null
+   var luaMapCircle: cocoapods.Topping.LuaMapCircle? = null
    actual fun SetCenter(center: LuaPoint?)
    {
        luaMapCircle?.SetCenter(center?.luaPoint)
@@ -45,6 +45,6 @@ actual open class LuaMapCircle : KTInterface
    }
     open override fun SetNativeObject(par :Any?)
    {
-       luaMapCircle = par as cocoapods.toppingios.LuaMapCircle?
+       luaMapCircle = par as cocoapods.Topping.LuaMapCircle?
    }
 }

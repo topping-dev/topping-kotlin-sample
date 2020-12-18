@@ -32,7 +32,14 @@ kotlin {
         ios.deploymentTarget = "10.0"
         summary = "Kotlin sample project with CocoaPods dependencies"
         homepage = "https://github.com/Kotlin/kotlin-with-cocoapods-sample"
+        /*pod("Topping") {
+            //version = "1.0"
+            source = url("http://localhost:1313/toppingbig.zip", flatten = true)
+        }*/
         pod("Topping")
+        {
+            moduleName = "topping"
+        }
         frameworkName = "toppingios"
     }
 
@@ -51,7 +58,7 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation("com.google.android.material:material:1.2.0")
-                implementation("com.github.topping-dev:topping-android:v0.1.0")
+                implementation("dev.topping:toppingandroid:0.1.0")
             }
         }
         val androidTest by getting {

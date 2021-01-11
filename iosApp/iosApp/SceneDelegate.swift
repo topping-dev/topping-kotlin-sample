@@ -2,6 +2,7 @@ import UIKit
 import SwiftUI
 import shared
 
+@available(iOS 13.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -16,7 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             self.window = window
-            Platform().Init(self.window)
+            class Complete:GenericOnComplete {
+                func onComplete() {
+                    
+                }
+            }
+            Platform.Companion().Init(activityOrWindow: self.window as Any, onComplete: Complete())
             window.makeKeyAndVisible()
         }
     }

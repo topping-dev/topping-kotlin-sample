@@ -18,11 +18,12 @@ actual open class LuaThread : KTInterface
             val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
             dev.topping.android.LuaThread.RunOnBackground(lt)
         }
-        actual fun NewThread(func: KCallable<Unit>?): LuaThread?
+        actual fun New(func: KCallable<Unit>?): LuaThread?
         {
             val pobj = LuaThread()
             val kt: KTWrap<Unit> = KTWrap<Unit>()
             val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
+            //TODO:change this to New
             val pres = dev.topping.android.LuaThread.NewThread(lt)
             pobj.SetNativeObject(pres)
             return pobj
@@ -34,7 +35,7 @@ actual open class LuaThread : KTInterface
    }
    actual fun Wait(milliseconds: Long)
    {
-       luaThread?.Wait(milliseconds)
+       luaThread?.Wait(milliseconds.toInt())
    }
    actual fun Notify()
    {

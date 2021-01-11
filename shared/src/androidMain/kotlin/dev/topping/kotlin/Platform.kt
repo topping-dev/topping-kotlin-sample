@@ -13,15 +13,15 @@ actual class Platform actual constructor() {
 
         actual fun Init(activityOrWindow: Any, onComplete: GenericOnComplete) {
             KTEntry.Init()
-            luaContext = dev.topping.android.luagui.LuaContext.CreateLuaContext(activity as Activity?)
+            luaContext = dev.topping.android.luagui.LuaContext.CreateLuaContext(activityOrWindow as Activity?)
 
             val luaEngine = dev.topping.android.ToppingEngine.getInstance()
             val ht = HandlerThread("Lua Loader Thread", Process.THREAD_PRIORITY_URGENT_DISPLAY)
             ht.start()
 
-            val handler: dev.topping.android.backend.LuaLoadHandler = object : dev.topping.android.backend.LuaLoadHandler(activity as Activity?, ht.looper) {
+            val handler: dev.topping.android.backend.LuaLoadHandler = object : dev.topping.android.backend.LuaLoadHandler(activityOrWindow as Activity?, ht.looper) {
                 override fun OnFinished() {
-                    var lf: dev.topping.android.LuaForm = activity as dev.topping.android.LuaForm;
+                    var lf: dev.topping.android.LuaForm = activityOrWindow as dev.topping.android.LuaForm;
                     luaId = luaEngine.GetMainForm()
                     val initUI = luaEngine.GetMainUI()
                     if (initUI.compareTo("") != 0) {

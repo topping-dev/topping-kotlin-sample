@@ -1,6 +1,6 @@
 package dev.topping.kotlin
 
-actual open class LGListViewFragment : KTInterface
+open class LGListViewFragment : KTInterface
 {
    var lgListViewFragment: android.widget.LGListViewFragment? = null
     open override fun GetNativeObject(): Any?

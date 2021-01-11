@@ -37,10 +37,6 @@ kotlin {
             source = url("http://localhost:1313/toppingbig.zip", flatten = true)
         }*/
         pod("Topping")
-        {
-            moduleName = "topping"
-        }
-        frameworkName = "toppingios"
     }
 
     sourceSets {

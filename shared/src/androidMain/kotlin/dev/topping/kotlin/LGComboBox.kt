@@ -18,11 +18,11 @@ actual open class LGComboBox : LGEditText()
    {
        lgComboBox?.AddComboItem(id, tag)
    }
-   actual fun ShowCustom(value: Int?)
+   fun ShowCustom(value: Int?)
    {
        lgComboBox?.ShowCustom(value)
    }
-   actual fun ShowDelete(value: Int?)
+   fun ShowDelete(value: Int?)
    {
        lgComboBox?.ShowDelete(value)
    }

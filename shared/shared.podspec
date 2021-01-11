@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
     spec.summary                  = 'Kotlin sample project with CocoaPods dependencies'
 
     spec.static_framework         = true
-    spec.vendored_frameworks      = "build/cocoapods/framework/toppingios.framework"
+    spec.vendored_frameworks      = "build/cocoapods/framework/shared.framework"
     spec.libraries                = "c++"
     spec.module_name              = "#{spec.name}_umbrella"
 

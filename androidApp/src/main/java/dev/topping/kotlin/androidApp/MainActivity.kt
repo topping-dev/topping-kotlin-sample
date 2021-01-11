@@ -2,19 +2,18 @@ package dev.topping.kotlin.androidApp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import dev.topping.kotlin.shared.Greeting
-import android.widget.TextView
-
-fun greet(): String {
-    return Greeting().greeting()
-}
+import dev.topping.kotlin.Platform
+import dev.topping.kotlin.GenericOnComplete
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val tv: TextView = findViewById(R.id.text_view)
-        tv.text = greet()
+        Platform.Init(this, object : GenericOnComplete {
+            override fun onComplete() {
+
+            }
+        })
     }
 }

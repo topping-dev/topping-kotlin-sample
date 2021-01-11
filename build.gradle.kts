@@ -10,9 +10,11 @@ buildscript {
         classpath("com.android.tools.build:gradle:4.0.1")
     }
 }
-group = "dev.topping.kotlin"
-version = "1.0-SNAPSHOT"
 
-repositories {
-    mavenCentral()
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
 }

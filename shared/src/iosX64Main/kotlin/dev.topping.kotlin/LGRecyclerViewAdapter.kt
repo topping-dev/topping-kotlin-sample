@@ -35,7 +35,7 @@ actual open class LGRecyclerViewAdapter : KTInterface
    }
    actual fun SetOnItemSelected(func: KCallable<Unit>?)
    {
-       val kt: KTWrap<Unit> = KTWrap<Unit>()
+       val kt: KTWrap = KTWrap()
        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
        lt.nobj = StableRef.create(kt).asCPointer()
        lt.kFRetF = kt.Init(this, func)
@@ -43,7 +43,7 @@ actual open class LGRecyclerViewAdapter : KTInterface
    }
    actual fun SetOnCreateViewHolder(func: KCallable<Any>?)
    {
-       val kt: KTWrap<Any> = KTWrap<Any>()
+       val kt: KTWrap = KTWrap()
        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
        lt.nobj = StableRef.create(kt).asCPointer()
        lt.kFRetF = kt.Init(this, func)
@@ -51,7 +51,7 @@ actual open class LGRecyclerViewAdapter : KTInterface
    }
    actual fun SetOnBindViewHolder(func: KCallable<Unit>?)
    {
-       val kt: KTWrap<Unit> = KTWrap<Unit>()
+       val kt: KTWrap = KTWrap()
        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
        lt.nobj = StableRef.create(kt).asCPointer()
        lt.kFRetF = kt.Init(this, func)
@@ -59,7 +59,7 @@ actual open class LGRecyclerViewAdapter : KTInterface
    }
    actual fun SetGetItemViewType(func: KCallable<Int>?)
    {
-       val kt: KTWrap<Int> = KTWrap<Int>()
+       val kt: KTWrap = KTWrap()
        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
        lt.nobj = StableRef.create(kt).asCPointer()
        lt.kFRetF = kt.Init(this, func)

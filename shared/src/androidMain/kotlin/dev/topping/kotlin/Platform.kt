@@ -12,7 +12,6 @@ actual class Platform actual constructor() {
         private var retBindingMap: HashMap<Any, Any>? = null
 
         actual fun Init(activityOrWindow: Any, onComplete: GenericOnComplete) {
-            KTEntry.Init()
             luaContext = dev.topping.android.luagui.LuaContext.CreateLuaContext(activityOrWindow as Activity?)
 
             val luaEngine = dev.topping.android.ToppingEngine.getInstance()
@@ -21,6 +20,7 @@ actual class Platform actual constructor() {
 
             val handler: dev.topping.android.backend.LuaLoadHandler = object : dev.topping.android.backend.LuaLoadHandler(activityOrWindow as Activity?, ht.looper) {
                 override fun OnFinished() {
+                    KTEntry.Init()
                     var lf: dev.topping.android.LuaForm = activityOrWindow as dev.topping.android.LuaForm;
                     luaId = luaEngine.GetMainForm()
                     val initUI = luaEngine.GetMainUI()

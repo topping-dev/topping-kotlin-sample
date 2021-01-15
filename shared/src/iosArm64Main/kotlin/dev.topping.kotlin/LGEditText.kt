@@ -18,7 +18,7 @@ actual open class LGEditText : LGTextView()
    }
     actual fun SetTextChangedListener(func: KCallable<Unit>?)
     {
-        val kt: KTWrap<Unit> = KTWrap<Unit>()
+        val kt: KTWrap = KTWrap()
         val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
         lt.nobj = StableRef.create(kt).asCPointer()
         lt.kFRetF = kt.Init(this, func)
@@ -26,7 +26,7 @@ actual open class LGEditText : LGTextView()
     }
     actual fun SetBeforeTextChangedListener(func: KCallable<Unit>?)
     {
-        val kt: KTWrap<Unit> = KTWrap<Unit>()
+        val kt: KTWrap = KTWrap()
         val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
         lt.nobj = StableRef.create(kt).asCPointer()
         lt.kFRetF = kt.Init(this, func)
@@ -34,7 +34,7 @@ actual open class LGEditText : LGTextView()
     }
     actual fun SetAfterTextChangedListener(func: KCallable<Unit>?)
     {
-        val kt: KTWrap<Unit> = KTWrap<Unit>()
+        val kt: KTWrap = KTWrap()
         val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
         lt.nobj = StableRef.create(kt).asCPointer()
         lt.kFRetF = kt.Init(this, func)

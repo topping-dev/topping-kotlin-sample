@@ -10,7 +10,7 @@ actual open class LuaThread : KTInterface
    actual companion object {
         actual fun RunOnUIThread(func: KCallable<Unit>?)
         {
-            val kt: KTWrap<Unit> = KTWrap<Unit>()
+            val kt: KTWrap = KTWrap()
             val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
             lt.nobj = StableRef.create(kt).asCPointer()
             lt.kFRetF = kt.Init(this, func)
@@ -18,7 +18,7 @@ actual open class LuaThread : KTInterface
         }
         actual fun RunOnBackground(func: KCallable<Unit>?)
         {
-            val kt: KTWrap<Unit> = KTWrap<Unit>()
+            val kt: KTWrap = KTWrap()
             val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
             lt.nobj = StableRef.create(kt).asCPointer()
             lt.kFRetF = kt.Init(this, func)
@@ -27,7 +27,7 @@ actual open class LuaThread : KTInterface
         actual fun New(func: KCallable<Unit>?): LuaThread?
         {
             val pobj = LuaThread()
-            val kt: KTWrap<Unit> = KTWrap<Unit>()
+            val kt: KTWrap = KTWrap()
             val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
             lt.nobj = StableRef.create(kt).asCPointer()
             lt.kFRetF = kt.Init(this, func)

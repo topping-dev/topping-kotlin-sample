@@ -30,11 +30,10 @@ kotlin {
 
     cocoapods {
         ios.deploymentTarget = "10.0"
-        summary = "Kotlin sample project with CocoaPods dependencies"
-        homepage = "https://github.com/Kotlin/kotlin-with-cocoapods-sample"
-        /*pod("Topping") {
-            //version = "1.0"
-            source = url("http://localhost:1313/toppingbig.zip", flatten = true)
+        summary = "Topping Engine kotlin sample"
+        homepage = "https://github.com/topping-dev/topping-kotlin-sample"
+        /*specRepos {
+            url("https://github.com/Deadknight/dk-specs.git")
         }*/
         pod("Topping")
     }

@@ -22,7 +22,7 @@ actual open class LuaForm : KTInterface
         actual val FORM_EVENT_NFC: Int = 11
         actual fun RegisterFormEvent(luaId: String?, event: Int, func: KCallable<Unit>?)
         {
-            val kt: KTWrap<Unit> = KTWrap<Unit>()
+            val kt: KTWrap = KTWrap()
             val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
             lt.nobj = StableRef.create(kt).asCPointer()
             lt.kFRetF = kt.Init(this, func)

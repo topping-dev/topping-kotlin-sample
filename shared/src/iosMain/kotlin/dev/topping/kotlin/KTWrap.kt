@@ -1,6 +1,10 @@
 package dev.topping.kotlin
 
 import kotlinx.cinterop.*
+import platform.Foundation.NSLog
+import platform.Foundation.NSNumber
+import platform.Foundation.numberWithInt
+import platform.darwin.NSObject
 import kotlin.reflect.KCallable
 import kotlin.reflect.KClass
 import kotlin.reflect.KFunction
@@ -13,17 +17,22 @@ import kotlin.reflect.KFunction6
 import kotlin.reflect.KFunction7
 import kotlin.reflect.KFunction8
 
-class KTWrap<T> {
+class KTWrap {
     companion object {
         fun Wrap(objIn: Any?): Any?
         {
-            val bindings = Platform.GetBindings()
             if(objIn == null)
                 return null
 
-            if(bindings?.containsKey(objIn::class)!!)
+            val bindings = Platform.GetBindings()
+
+            var itemName : String = objIn.toString()
+            itemName = itemName.split(":")[0]
+            itemName = itemName.substring(1)
+
+            if(bindings?.containsKey(itemName)!!)
             {
-                val cls = bindings[objIn::class] as KClass<*>
+                val cls = bindings[itemName] as KClass<*>
                 val obj = KTClass.createInstance(cls)
                 if(obj is KTInterface)
                 {
@@ -37,97 +46,90 @@ class KTWrap<T> {
     }
 
     var obj: Any? = null
-    var funcStore: KFunction<T>? = null
-    var funcStore1: KFunction1<Any?, T>? = null
-    var funcStore2: KFunction2<Any?, Any?, T>? = null
-    var funcStore3: KFunction3<Any?, Any?, Any?, T>? = null
-    var funcStore4: KFunction4<Any?, Any?, Any?, Any?, T>? = null
-    var funcStore5: KFunction5<Any?, Any?, Any?, Any?, Any?, T>? = null
-    var funcStore6: KFunction6<Any?, Any?, Any?, Any?, Any?, Any?, T>? = null
-    var funcStore7: KFunction7<Any?, Any?, Any?, Any?, Any?, Any?, Any?, T>? = null
-    var funcStore8: KFunction8<Any?, Any?, Any?, Any?, Any?, Any?, Any?, Any?, T>? = null
+    var func: KCallable<Any?>? = null
+    var funcStore: KFunction<Any?>? = null
+    var funcStore1: KFunction1<Any?, Any?>? = null
+    var funcStore2: KFunction2<Any?, Any?, Any?>? = null
+    var funcStore3: KFunction3<Any?, Any?, Any?, Any?>? = null
+    var funcStore4: KFunction4<Any?, Any?, Any?, Any?, Any?>? = null
+    var funcStore5: KFunction5<Any?, Any?, Any?, Any?, Any?, Any?>? = null
+    var funcStore6: KFunction6<Any?, Any?, Any?, Any?, Any?, Any?, Any?>? = null
+    var funcStore7: KFunction7<Any?, Any?, Any?, Any?, Any?, Any?, Any?, Any?>? = null
+    var funcStore8: KFunction8<Any?, Any?, Any?, Any?, Any?, Any?, Any?, Any?, Any?>? = null
 
-    fun Init(obj: Any?, func: KCallable<T>?): CPointer<CFunction<(COpaquePointer?, List<Any?>?) -> COpaquePointer?>> {
-        if(func is KFunction<*>)
-            Init(obj, func as KFunction<T>)
-        else if(func is KFunction1<*, *>)
-            Init(obj, func as KFunction1<Any?, T>)
-        else if(func is KFunction2<*, *, *>)
-            Init(obj, func as KFunction2<Any?, Any?, T>)
-        else if(func is KFunction3<*, *, *, *>)
-            Init(obj, func as KFunction3<Any?, Any?, Any?, T>)
-        else if(func is KFunction4<*, *, *, *, *>)
-            Init(obj, func as KFunction4<Any?, Any?, Any?, Any?, T>)
-        else if(func is KFunction5<*, *, *, *, *, *>)
-            Init(obj, func as KFunction5<Any?, Any?, Any?, Any?, Any?, T>)
-        else if(func is KFunction6<*, *, *, *, *, *, *>)
-            Init(obj, func as KFunction6<Any?, Any?, Any?, Any?, Any?, Any?, T>)
-        else if(func is KFunction7<*, *, *, *, *, *, *, *>)
-            Init(obj, func as KFunction7<Any?, Any?, Any?, Any?, Any?, Any?, Any?, T>)
-        else /*if(func is KFunction8<*, *, *, *, *, *, *, *, *>)*/
-            Init(obj, func as KFunction8<Any?, Any?, Any?, Any?, Any?, Any?, Any?, Any?, T>)
+    fun Init(obj: Any?, func: KCallable<Any?>?): CPointer<CFunction<(COpaquePointer?, Int, List<Any?>?) -> NSObject?>> {
+        NSLog(func.toString())
+        this.obj = obj
+        this.func = func
 
-        return staticCFunction<COpaquePointer?, List<Any?>?, COpaquePointer?> { obj: COpaquePointer?, vars: List<Any?>? ->
-            val v = obj?.asStableRef<KTWrap<*>>()
-            StableRef.create(v?.get()?.funToCall(vars!!)!!).asCPointer()
+        return staticCFunction<COpaquePointer?, Int, List<Any?>?, NSObject?> { obj: COpaquePointer?, self: Int, vars: List<Any?>? ->
+            val v = obj?.asStableRef<KTWrap>()
+            v?.get()?.funToCall(self, vars!!)!!
         }
     }
 
-    fun Init(obj: Any?, func: KFunction<T>?) {
+    fun Init(obj: Any?, func: KFunction<Any?>?) {
         this.obj = obj
         this.funcStore = func
     }
 
-    fun Init(obj: Any?, func: KFunction1<Any?, T>?) {
+    fun Init(obj: Any?, func: KFunction1<Any?, Any?>?) {
         this.obj = obj
         this.funcStore1 = func
     }
 
-    fun Init(obj: Any?, func: KFunction2<Any?, Any?, T>?) {
+    fun Init(obj: Any?, func: KFunction2<Any?, Any?, Any?>?) {
         this.obj = obj
         this.funcStore2 = func
     }
 
-    fun Init(obj: Any?, func: KFunction3<Any?, Any?, Any?, T>?) {
+    fun Init(obj: Any?, func: KFunction3<Any?, Any?, Any?, Any?>?) {
         this.obj = obj
         this.funcStore3 = func
     }
 
-    fun Init(obj: Any?, func: KFunction4<Any?, Any?, Any?, Any?, T>?) {
+    fun Init(obj: Any?, func: KFunction4<Any?, Any?, Any?, Any?, Any?>?) {
         this.obj = obj
         this.funcStore4 = func
     }
 
-    fun Init(obj: Any?, func: KFunction5<Any?, Any?, Any?, Any?, Any?, T>?) {
+    fun Init(obj: Any?, func: KFunction5<Any?, Any?, Any?, Any?, Any?, Any?>?) {
         this.obj = obj
         this.funcStore5 = func
     }
 
-    fun Init(obj: Any?, func: KFunction6<Any?, Any?, Any?, Any?, Any?, Any?, T>?) {
+    fun Init(obj: Any?, func: KFunction6<Any?, Any?, Any?, Any?, Any?, Any?, Any?>?) {
         this.obj = obj
         this.funcStore6 = func
     }
 
-    fun Init(obj: Any?, func: KFunction7<Any?, Any?, Any?, Any?, Any?, Any?, Any?, T>?) {
+    fun Init(obj: Any?, func: KFunction7<Any?, Any?, Any?, Any?, Any?, Any?, Any?, Any?>?) {
         this.obj = obj
         this.funcStore7 = func
     }
 
-    fun Init(obj: Any?, func: KFunction8<Any?, Any?, Any?, Any?, Any?, Any?, Any?, Any?, T>?) {
+    fun Init(obj: Any?, func: KFunction8<Any?, Any?, Any?, Any?, Any?, Any?, Any?, Any?, Any?>?) {
         this.obj = obj
         this.funcStore8 = func
     }
 
-    fun funToCall(vars: List<Any?>?): T?
+    fun funToCall(self: Int, vars: List<Any?>?): NSObject?
     {
         val valsWrapped: ArrayList<Any> = arrayListOf()
         val bindings = Platform.GetBindings()
         val retBindings = Platform.GetRetBindings()
         for((count, item) in vars!!.withIndex())
         {
-            if(item != null && bindings?.containsKey(item::class)!!)
+			var itemName : String? = null
+			if(item != null)
+			{
+				itemName = item.toString();
+				itemName = itemName.split(":")[0];
+				itemName = itemName.substring(1);
+			}
+            if(item != null && bindings?.containsKey(itemName)!!)
             {
-                val cls = bindings[item::class] as KClass<*>
+                val cls = bindings[itemName] as KClass<*>
                 val obj = KTClass.createInstance(cls)
                 if(obj is KTInterface)
                 {
@@ -141,6 +143,29 @@ class KTWrap<T> {
         }
 
         var ret: Any? = null
+        var varsSize = vars.size
+        if(self == 0)
+            varsSize++
+        if(varsSize == 0)
+            Init(this.obj, this.func as KFunction<Any?>)
+        else if(varsSize == 1)
+            Init(this.obj, this.func as KFunction1<Any?, Any?>)
+        else if(varsSize == 2)
+            Init(this.obj, this.func as KFunction2<Any?, Any?, Any?>)
+        else if(varsSize == 3)
+            Init(this.obj, this.func as KFunction3<Any?, Any?, Any?, Any?>)
+        else if(varsSize == 4)
+            Init(this.obj, this.func as KFunction4<Any?, Any?, Any?, Any?, Any?>)
+        else if(varsSize == 5)
+            Init(this.obj, this.func as KFunction5<Any?, Any?, Any?, Any?, Any?, Any?>)
+        else if(varsSize == 6)
+            Init(this.obj, this.func as KFunction6<Any?, Any?, Any?, Any?, Any?, Any?, Any?>)
+        else if(varsSize == 7)
+            Init(this.obj, this.func as KFunction7<Any?, Any?, Any?, Any?, Any?, Any?, Any?, Any?>)
+        else /*if(func is KFunction8<*, *, *, *, *, *, *, *, *>)*/
+            Init(this.obj, this.func as KFunction8<Any?, Any?, Any?, Any?, Any?, Any?, Any?, Any?, Any?>)
+        if(self == 1)
+            this.obj = null
         if(funcStore1 != null)
         {
             if(obj != null)
@@ -199,7 +224,8 @@ class KTWrap<T> {
         }
 
         val retWrapped: Any?
-        if(ret != null) {
+        ////TODO:ret is Unit not working ??
+        if(ret != null && ret.toString() != "kotlin.Unit") {
             if (ret is KTInterface) {
                 retWrapped = (ret as KTInterface).GetNativeObject()
             }
@@ -207,8 +233,8 @@ class KTWrap<T> {
                 retWrapped = ret
         }
         else
-            retWrapped = null
+            retWrapped = NSNumber.numberWithInt(1)
 
-        return retWrapped as T
+        return retWrapped as NSObject?
     }
 }

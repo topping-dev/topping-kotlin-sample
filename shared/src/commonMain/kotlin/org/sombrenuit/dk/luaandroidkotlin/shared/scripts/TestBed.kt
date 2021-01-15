@@ -39,11 +39,11 @@ class TestBed {
                 LuaToast.Show(form?.GetContext(), "Toast test", 2000);
         }
 
-        fun onCreateViewHolder(adapter: LGRecyclerViewAdapter?, parent: LGView?, type: Int, context: LuaContext?) : LGView?
+        fun onCreateViewHolder(adapter: LGRecyclerViewAdapter?, parent: LGView?, type: Int, context: LuaContext?) : Any
         {
             val inflator = LuaViewInflator.Create(context)
             val viewToRet = inflator?.ParseFile("testbedAdapter.xml", parent)
-            return viewToRet
+            return viewToRet!!
         }
 
         fun onBindViewHolder(adapter: LGRecyclerViewAdapter?, view: LGView?, index: Int, obj:Any?)
@@ -52,7 +52,7 @@ class TestBed {
             tvTitle?.SetText(obj as String)
         }
 
-        fun onGetItemViewType(adapter: LGRecyclerViewAdapter, type: Int) : Int {
+        fun onGetItemViewType(adapter: LGRecyclerViewAdapter?, type: Int) : Int {
             return 1
         }
 

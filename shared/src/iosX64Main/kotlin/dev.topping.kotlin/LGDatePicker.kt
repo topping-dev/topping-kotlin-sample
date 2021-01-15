@@ -34,7 +34,7 @@ actual open class LGDatePicker : LGFrameLayout()
    }
    actual fun SetOnDateChangedListener(func: KCallable<Unit>?)
    {
-       val kt: KTWrap<Unit> = KTWrap<Unit>()
+       val kt: KTWrap = KTWrap()
        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
        lt.nobj = StableRef.create(kt).asCPointer()
        lt.kFRetF = kt.Init(this, func)

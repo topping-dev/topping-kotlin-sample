@@ -2,10 +2,12 @@ package dev.topping.kotlin.androidApp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import dev.topping.android.LuaForm
+import dev.topping.android.backend.LuaInterface
 import dev.topping.kotlin.Platform
 import dev.topping.kotlin.GenericOnComplete
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : LuaForm(), LuaInterface {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

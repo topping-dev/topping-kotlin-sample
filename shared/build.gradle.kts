@@ -53,7 +53,7 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation("com.google.android.material:material:1.2.0")
-                implementation("dev.topping:toppingandroid:0.1.0")
+                implementation("dev.topping:toppingandroid:0.1.1")
             }
         }
         val androidTest by getting {

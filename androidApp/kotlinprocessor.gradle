@@ -1,0 +1,33 @@
+def applicationId = ""
+project.afterEvaluate {
+    project.android.applicationVariants.all { variant ->
+        applicationId = [variant.mergedFlavor.applicationId, variant.buildType.applicationIdSuffix].findAll().join()
+    }
+}
+
+gradle.taskGraph.afterTask { Task task, TaskState state ->
+    if(task.path.contains("generateDebugResources")
+            || task.path.contains("generateReleaseResources"))
+    {
+        def val = applicationId.replace(".", "/");
+        println "${buildDir}/generated/source/r/" + val + "/"
+
+    }
+}
+
+gradle.taskGraph.afterTask { Task task, TaskState state ->
+    if(task.path.contains("process") && task.path.contains("Resources"))
+    {
+        println "Generating LR"
+        def outputType = "debug"
+        if(task.path.contains("Release"))
+            outputType = "release"
+        println "java -jar ${projectDir}/parser.jar 2 ${buildDir}/intermediates/compile_and_runtime_not_namespaced_r_class_jar/" + outputType + "/R.jar ${projectDir}/../shared/src/commonMain/kotlin/dev/topping/kotlin/ " + applicationId + ".R"
+        String[] args = ["cmd", "/c", "java -jar ${projectDir}/parser.jar 2 ${buildDir}/intermediates/compile_and_runtime_not_namespaced_r_class_jar/" + outputType + "/R.jar ${projectDir}/../shared/src/commonMain/kotlin/dev/topping/kotlin/ " + applicationId + ".R"]
+        def proc = args.execute()
+        proc.in.eachLine {line -> println line}
+        //proc.out.eachLine {line -> println line}
+        //proc.err.eachLine {line -> println 'ERROR: ' + line}
+        proc.waitFor()
+    }
+}

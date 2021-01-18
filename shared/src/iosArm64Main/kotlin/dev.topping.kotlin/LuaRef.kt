@@ -4,6 +4,14 @@ actual open class LuaRef : KTInterface
 {
    var luaRef: cocoapods.Topping.LuaRef? = null
    actual companion object {
+       actual fun WithValue(key: String, obj: Any): LuaRef
+       {
+           val pobj = LuaRef()
+           val pres = cocoapods.Topping.LuaRef()
+           pres.idRef = key
+           pobj.SetNativeObject(pres)
+           return pobj
+       }
         actual fun GetRef(ctx: LuaContext?, id: String?): LuaRef?
         {
             val pobj = LuaRef()

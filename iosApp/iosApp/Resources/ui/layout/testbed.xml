@@ -7,13 +7,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#7993AB">
-<androidx.appcompat.widget.Toolbar
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:title="test"/>
-<androidx.recyclerview.widget.RecyclerView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    lua:id="ListViewTest"
-    android:background="#ffffff"/>
+    <LGToolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="test"/>
+    <LGRecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        lua:id="ListViewTest"
+        android:background="#ffffff"/>
 </LinearLayout>

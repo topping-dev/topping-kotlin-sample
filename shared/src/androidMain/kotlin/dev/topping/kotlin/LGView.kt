@@ -33,7 +33,7 @@ actual open class LGView : KTInterface
    actual fun SetBackgroundRef(backgroundRef: LuaRef?)
    {
        //TODO:fix this on android update
-       //lgView?.SetBackgroundRef(backgroundRef?.luaRef.)
+       //lgView?.SetBackgroundRef(backgroundRef!!)
    }
    actual fun SetOnClickListener(func: KCallable<Unit>?)
    {

@@ -3,6 +3,7 @@ package dev.topping.kotlin
 import android.app.Activity
 import android.os.HandlerThread
 import android.os.Process
+import dev.topping.entry.KTEntry
 
 actual class Platform actual constructor() {
     actual companion object {

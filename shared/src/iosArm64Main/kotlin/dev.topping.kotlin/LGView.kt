@@ -36,14 +36,21 @@ actual open class LGView : KTInterface
    {
        lgView?.SetBackgroundRef(backgroundRef?.GetNativeObject() as cocoapods.Topping.LuaRef)
    }
-   actual fun SetOnClickListener(func: KCallable<Unit>?)
-   {
-       val kt: KTWrap = KTWrap()
-       val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-       lt.nobj = StableRef.create(kt).asCPointer()
-       lt.kFRetF = kt.Init(this, func)
-       lgView?.SetOnClickListener(lt)
-   }
+    actual fun SetOnClickListener(func: KCallable<Unit>?)
+    {
+        if(SetOnClickListenerInternal(func!!))
+            return
+        val kt: KTWrap = KTWrap()
+        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
+        lt.nobj = StableRef.create(kt).asCPointer()
+        lt.kFRetF = kt.Init(this, func)
+        lgView?.SetOnClickListener(lt)
+    }
+
+    open fun SetOnClickListenerInternal(func: KCallable<Unit>) : Boolean
+    {
+        return false;
+    }
     open override fun GetNativeObject(): Any?
    {
        return lgView

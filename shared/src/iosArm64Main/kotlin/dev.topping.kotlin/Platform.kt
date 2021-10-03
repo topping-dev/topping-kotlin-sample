@@ -1,5 +1,6 @@
 package dev.topping.kotlin
 
+import dev.topping.entry.KTEntry
 import platform.UIKit.UIWindow
 
 actual class Platform actual constructor() {

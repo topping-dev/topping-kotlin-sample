@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LGTextView : LGView()
 {
    var lgTextView: cocoapods.Topping.LGTextView? = null

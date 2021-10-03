@@ -58,7 +58,6 @@ class KTWrap {
     var funcStore8: KFunction8<Any?, Any?, Any?, Any?, Any?, Any?, Any?, Any?, Any?>? = null
 
     fun Init(obj: Any?, func: KCallable<Any?>?): CPointer<CFunction<(COpaquePointer?, Int, List<Any?>?) -> NSObject?>> {
-        NSLog(func.toString())
         this.obj = obj
         this.func = func
 
@@ -127,9 +126,9 @@ class KTWrap {
 				itemName = itemName.split(":")[0];
 				itemName = itemName.substring(1);
 			}
-            if(item != null && bindings?.containsKey(itemName)!!)
+            if(item != null && bindings?.containsKey(itemName as String)!!)
             {
-                val cls = bindings[itemName] as KClass<*>
+                val cls = bindings[itemName as String] as KClass<*>
                 val obj = KTClass.createInstance(cls)
                 if(obj is KTInterface)
                 {

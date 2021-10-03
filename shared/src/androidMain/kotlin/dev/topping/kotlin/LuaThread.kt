@@ -23,8 +23,7 @@ actual open class LuaThread : KTInterface
             val pobj = LuaThread()
             val kt: KTWrap<Unit> = KTWrap<Unit>()
             val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
-            //TODO:change this to New
-            val pres = dev.topping.android.LuaThread.NewThread(lt)
+            val pres = dev.topping.android.LuaThread.New(lt)
             pobj.SetNativeObject(pres)
             return pobj
         }

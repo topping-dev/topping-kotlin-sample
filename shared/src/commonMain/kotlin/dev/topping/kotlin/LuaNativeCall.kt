@@ -3,6 +3,7 @@ package dev.topping.kotlin
 expect open class LuaNativeCall
 {
    companion object {
-        fun Call(self: Any?, func: String?, params: HashMap<Int?, Any?>?): LuaObjectStore?
+        fun Call(obj: Any?, func: String?, params: ArrayList<Any?>?): LuaObjectStore?
+        fun CallClass(cls: String?, func: String?, params: ArrayList<Any?>?): LuaObjectStore?
    }
 }

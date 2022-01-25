@@ -63,16 +63,16 @@ class TestBed {
             pAdapter?.SetOnCreateViewHolder(::onCreateViewHolder as KCallable<Any>)
             pAdapter?.SetOnBindViewHolder(::onBindViewHolder)
             pAdapter?.SetGetItemViewType(::onGetItemViewType as KCallable<Int>)
-            pAdapter?.AddValue(0, "Form Ui");
-            pAdapter?.AddValue(1, "Horizontal Scroll View");
-            pAdapter?.AddValue(2, "Vertical Scroll View");
-            pAdapter?.AddValue(3, "Map");
-            pAdapter?.AddValue(4, "Message Box");
-            pAdapter?.AddValue(5, "Date Picker Dialog");
-            pAdapter?.AddValue(6, "Time Picker Dialog");
-            pAdapter?.AddValue(7, "Toast");
-            (pGUI as LGRecyclerView).SetAdapter(pAdapter);
-            pAdapter?.Notify();
+            pAdapter?.AddValue(0, "Form Ui")
+            pAdapter?.AddValue(1, "Horizontal Scroll View")
+            pAdapter?.AddValue(2, "Vertical Scroll View")
+            pAdapter?.AddValue(3, "Map")
+            pAdapter?.AddValue(4, "Message Box")
+            pAdapter?.AddValue(5, "Date Picker Dialog")
+            pAdapter?.AddValue(6, "Time Picker Dialog")
+            pAdapter?.AddValue(7, "Toast")
+            (pGUI as LGRecyclerView).SetAdapter(pAdapter)
+            pAdapter?.Notify()
         }
     }
 }

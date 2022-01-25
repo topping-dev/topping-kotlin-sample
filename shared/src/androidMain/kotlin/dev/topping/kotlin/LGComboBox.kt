@@ -14,9 +14,9 @@ actual open class LGComboBox : LGEditText()
             return pobj
         }
    }
-   actual fun AddComboItem(id: String?, tag: Any?)
+   actual fun AddItem(id: String?, tag: Any?)
    {
-       lgComboBox?.AddComboItem(id, tag)
+       lgComboBox?.AddItem(id, tag)
    }
    fun ShowCustom(value: Int?)
    {

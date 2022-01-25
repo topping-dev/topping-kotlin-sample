@@ -30,6 +30,10 @@ actual open class LGTextView : LGView()
    {
        lgTextView?.SetTextColor(color)
    }
+    actual fun SetTextColorRef(ref: LuaRef?)
+    {
+        lgTextView?.SetTextColorRef(ref?.luaRef)
+    }
 
     open override fun GetNativeObject(): Any?
    {

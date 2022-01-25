@@ -16,7 +16,7 @@ class KTEntry {
                 "formTestLL",
                 LuaForm.FORM_EVENT_CREATE,
                 Form::FormTestLL_Constructor
-            );
+            )
         }
     }
 }

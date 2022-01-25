@@ -22,10 +22,10 @@ class Form {
             val checkbox = pGUI.GetViewById ("formTestCheckBox") as LGCheckBox
             checkbox.SetOnCheckedChangedListener(::TestCheckBox_CheckedChanged)
             val combobox = pGUI.GetViewById ("formTestComboBox") as LGComboBox
-            combobox.AddComboItem("Item 1", 1)
-            combobox.AddComboItem("Item 2", 2)
-            combobox.AddComboItem("Item 3", 3)
-            combobox.AddComboItem("Item 4", 4)
+            combobox.AddItem("Item 1", 1)
+            combobox.AddItem("Item 2", 2)
+            combobox.AddItem("Item 3", 3)
+            combobox.AddItem("Item 4", 4)
             combobox.SetOnComboChangedListener(::TestComboBox_Changed)
             val edittext = pGUI.GetViewById ("formTestEt") as LGEditText
             val pb = pGUI.GetViewById ("formTestProgressBar") as LGProgressBar

@@ -11,4 +11,5 @@ expect open class LGTextView : LGView
    fun SetTextRef(ref: LuaRef?)
    fun GetText(): String?
    fun SetTextColor(color: String?)
+   fun SetTextColorRef(ref: LuaRef?)
 }

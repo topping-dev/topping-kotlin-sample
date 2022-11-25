@@ -18,11 +18,10 @@ kotlin {
         homepage = "https://github.com/topping-dev/topping-kotlin-sample"
         ios.deploymentTarget = "11.0"
         frameworkName = "shared"
-        //podfile = project.file("../iosApp/Podfile")
-        specRepos {
+        podfile = project.file("../iosApp/Podfile")
+        /*specRepos {
             url("https://github.com/Deadknight/dk-specs.git")
-            //url("https://github.com/CocoaPods/Specs")
-        }
+        }*/
         pod("Topping", "0.1.7")
     }
 

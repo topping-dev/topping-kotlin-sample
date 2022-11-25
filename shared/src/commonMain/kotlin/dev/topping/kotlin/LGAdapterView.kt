@@ -9,8 +9,8 @@ expect open class LGAdapterView
    }
    fun AddSection(header: String?, id: String?): LGAdapterView?
    fun RemoveSection(header: String?)
-   fun AddValue(id: Int?, value: Any?)
-   fun RemoveValue(id: Int?)
+   fun AddValue(value: Any?)
+   fun RemoveValue(value: Any?)
    fun Clear()
    fun SetOnAdapterView(func: KCallable<Unit>?)
 }

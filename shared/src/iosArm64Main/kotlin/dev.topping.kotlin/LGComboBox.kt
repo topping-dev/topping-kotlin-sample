@@ -21,6 +21,12 @@ actual open class LGComboBox : LGEditText()
    {
        lgComboBox?.AddItem(id, tag as NSObject)
    }
+    actual fun SetItems(map: Map<String?, Any?>)
+    {
+        map.forEach {
+            lgComboBox?.AddItem(it.key, it.value as NSObject)
+        }
+    }
    actual fun SetSelected(index: Int)
    {
        lgComboBox?.SetSelected(index)

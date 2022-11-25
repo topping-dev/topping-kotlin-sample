@@ -34,7 +34,7 @@ actual open class LuaThread : KTInterface
    }
    actual fun Wait(milliseconds: Long)
    {
-       luaThread?.Wait(milliseconds.toInt())
+       luaThread?.Wait(milliseconds)
    }
    actual fun Notify()
    {

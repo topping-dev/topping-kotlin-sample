@@ -18,6 +18,10 @@ actual open class LGComboBox : LGEditText()
    {
        lgComboBox?.AddItem(id, tag)
    }
+    actual fun SetItems(map: Map<String?, Any?>)
+    {
+        lgComboBox?.SetItems(map)
+    }
    fun ShowCustom(value: Int?)
    {
        lgComboBox?.ShowCustom(value)

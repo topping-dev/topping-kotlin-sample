@@ -51,6 +51,12 @@ actual open class LGView : KTInterface
     {
         return false;
     }
+
+    actual open fun findNavController() : LuaNavController
+    {
+        return KTWrap.Wrap(lgView?.findNavControllerInternal()) as LuaNavController
+    }
+
     open override fun GetNativeObject(): Any?
    {
        return lgView

@@ -7,8 +7,8 @@ expect open class LGRecyclerViewAdapter
    companion object {
         fun Create(lc: LuaContext?, id: String?): LGRecyclerViewAdapter?
    }
-   fun AddValue(id: Int?, value: Any?)
-   fun RemoveValue(id: Int?)
+   fun AddValue(value: Any?)
+   fun RemoveValue(value: Any?)
    fun Clear()
    fun Notify()
    fun SetOnItemSelected(func: KCallable<Unit>?)

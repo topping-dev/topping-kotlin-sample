@@ -41,6 +41,10 @@ actual open class LGView : KTInterface
        val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
        lgView?.SetOnClickListener(lt)
    }
+    actual open fun findNavController() : LuaNavController
+    {
+        return KTWrap.Wrap(lgView?.findNavController()) as LuaNavController
+    }
     open override fun GetNativeObject(): Any?
    {
        return lgView

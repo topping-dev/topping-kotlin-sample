@@ -16,6 +16,9 @@ actual open class LuaViewInflator : KTInterface
    {
        return KTWrap.Wrap(luaViewInflator?.ParseFile(filename, parent?.lgView)) as LGView?
    }
+    actual fun Inflate(id: LuaRef, parent: LGView?): LGView? {
+        return KTWrap.Wrap(luaViewInflator?.Inflate(id.luaRef, parent?.lgView)) as LGView?
+    }
     open override fun GetNativeObject(): Any?
    {
        return luaViewInflator

@@ -43,6 +43,15 @@ class KTWrap {
 
             return objIn
         }
+
+        fun UnWrap(objIn: Any?): NSObject?
+        {
+            if(objIn is KTInterface) {
+                return objIn.GetNativeObject() as NSObject?
+            }
+
+            return objIn as NSObject?
+        }
     }
 
     var obj: Any? = null
@@ -135,6 +144,10 @@ class KTWrap {
                     val v = vars[count]
                     (obj as KTInterface).SetNativeObject(v)
                     valsWrapped.add(obj)
+                }
+                else
+                {
+                    print("Unknown objc native class " + itemName)
                 }
             }
             else

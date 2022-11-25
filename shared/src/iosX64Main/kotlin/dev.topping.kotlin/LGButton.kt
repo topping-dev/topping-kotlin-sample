@@ -33,6 +33,6 @@ actual open class LGButton : LGTextView()
     open override fun SetNativeObject(par :Any?)
    {
        super.SetNativeObject(par)
-       //lgButton = par as cocoapods.Topping.LGButton?
+       lgButton = par as cocoapods.Topping.LGButton?
    }
 }

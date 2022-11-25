@@ -2,6 +2,8 @@ package dev.topping.kotlin
 
 import kotlinx.cinterop.StableRef
 import kotlinx.cinterop.staticCFunction
+import platform.Foundation.NSMutableDictionary
+import platform.Foundation.NSString
 import platform.darwin.NSObject
 import kotlin.reflect.KCallable
 
@@ -19,11 +21,13 @@ actual open class LGComboBox : LGEditText()
    }
    actual fun AddItem(id: String?, tag: Any?)
    {
-       lgComboBox?.AddComboItem(id, tag as NSObject)
+       lgComboBox?.AddItem(id, tag as NSObject)
    }
     actual fun SetItems(map: Map<String?, Any?>)
     {
-
+        map.forEach {
+            lgComboBox?.AddItem(it.key, it.value as NSObject)
+        }
     }
    actual fun SetSelected(index: Int)
    {

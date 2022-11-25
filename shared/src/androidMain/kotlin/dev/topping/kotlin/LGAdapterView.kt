@@ -25,13 +25,13 @@ actual open class LGAdapterView : KTInterface
    {
        lgAdapterView?.RemoveSection(header)
    }
-   actual fun AddValue(id: Int?, value: Any?)
+   actual fun AddValue(value: Any?)
    {
-       lgAdapterView?.AddValue(id, value)
+       lgAdapterView?.AddValue(value)
    }
-   actual fun RemoveValue(id: Int?)
+   actual fun RemoveValue(value: Any?)
    {
-       lgAdapterView?.RemoveValue(id)
+       lgAdapterView?.RemoveValue(value)
    }
    actual fun Clear()
    {

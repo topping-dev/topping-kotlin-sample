@@ -13,4 +13,5 @@ expect open class LGView
    fun SetBackground(background: String?)
    fun SetBackgroundRef(backgroundRef: LuaRef?)
    fun SetOnClickListener(func: KCallable<Unit>?)
+   fun findNavController() : LuaNavController
 }

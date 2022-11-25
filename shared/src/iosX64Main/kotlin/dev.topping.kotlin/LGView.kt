@@ -48,7 +48,12 @@ actual open class LGView : KTInterface
 
     open fun SetOnClickListenerInternal(func: KCallable<Unit>) : Boolean
     {
-       return false;
+       return false
+    }
+
+    actual open fun findNavController() : LuaNavController
+    {
+        return KTWrap.Wrap(lgView?.findNavControllerInternal()) as LuaNavController
     }
 
     open override fun GetNativeObject(): Any?

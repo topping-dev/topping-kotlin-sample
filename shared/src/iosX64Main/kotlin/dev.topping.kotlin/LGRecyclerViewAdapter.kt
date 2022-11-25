@@ -17,13 +17,13 @@ actual open class LGRecyclerViewAdapter : KTInterface
             return pobj
         }
    }
-   actual fun AddValue(id: Int?, value: Any?)
+   actual fun AddValue(value: Any?)
    {
-       lgRecyclerViewAdapter?.AddValue(id!!, value as NSObject)
+       lgRecyclerViewAdapter?.AddValue(value as NSObject)
    }
-   actual fun RemoveValue(id: Int?)
+   actual fun RemoveValue(value: Any?)
    {
-       lgRecyclerViewAdapter?.RemoveValue(id!!)
+       lgRecyclerViewAdapter?.RemoveValue(value as NSObject)
    }
    actual fun Clear()
    {

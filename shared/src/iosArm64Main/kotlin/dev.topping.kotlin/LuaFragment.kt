@@ -1,9 +1,19 @@
 package dev.topping.kotlin
 
+import kotlinx.cinterop.StableRef
+import kotlin.reflect.KCallable
+
 actual open class LuaFragment : KTInterface
 {
    var luaFragment: cocoapods.Topping.LuaFragment? = null
    actual companion object {
+       actual val FRAGMENT_EVENT_CREATE = 0
+       actual val FRAGMENT_EVENT_CREATE_VIEW = 1
+       actual val FRAGMENT_EVENT_VIEW_CREATED = 2
+       actual val FRAGMENT_EVENT_RESUME = 3
+       actual val FRAGMENT_EVENT_PAUSE = 4
+       actual val FRAGMENT_EVENT_DESTROY = 5
+
         actual fun Create(lc: LuaContext?, luaId: String?): LuaFragment?
         {
             val pobj = LuaFragment()
@@ -18,46 +28,58 @@ actual open class LuaFragment : KTInterface
             pobj.SetNativeObject(pres)
             return pobj
         }
+       actual fun RegisterFragmentEvent(luaId: String?, event: Int, func: KCallable<Any?>?)
+       {
+           val kt: KTWrap = KTWrap()
+           val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
+           lt.nobj = StableRef.create(kt).asCPointer()
+           lt.kFRetF = kt.Init(this, func)
+           cocoapods.Topping.LuaFragment.RegisterFragmentEvent(luaId, event, lt)
+       }
    }
-   actual fun GetContext(): LuaContext?
+   actual open fun GetContext(): LuaContext?
    {
        val pobj = LuaContext()
        val obj = luaFragment?.GetContext()
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual fun IsInitialized(): Boolean?
+   actual open fun IsInitialized(): Boolean?
    {
        return luaFragment?.IsInitialized()
    }
-   actual fun GetViewById(lId: String?): LGView?
+   actual open fun GetViewById(lId: String?): LGView?
    {
        return KTWrap.Wrap(luaFragment?.GetViewById(lId)) as LGView?
    }
-   actual fun GetView(): LGView?
+   actual open fun GetView(): LGView?
    {
        return KTWrap.Wrap(luaFragment?.GetView()) as LGView?
    }
-   actual fun SetView(v: LGView?)
+   actual open fun SetView(v: LGView?)
    {
        luaFragment?.SetView(v?.lgView)
    }
-   actual fun SetViewXML(xml: String?)
+   actual open fun SetViewXML(xml: String?)
    {
        luaFragment?.SetViewXML(xml)
    }
-   actual fun SetViewId(luaId: String?)
+   actual open fun SetViewId(luaId: String?)
    {
        luaFragment?.SetViewId(luaId)
    }
-   actual fun SetTitle(str: String?)
+   actual open fun SetTitle(str: String?)
    {
        luaFragment?.SetTitle(str)
    }
-   actual fun Close()
+   actual open fun Close()
    {
        luaFragment?.Close()
    }
+    actual open fun getNavController(): LuaNavController
+    {
+        return KTWrap.Wrap(luaFragment?.getNavController()) as LuaNavController
+    }
     open override fun GetNativeObject(): Any?
    {
        return luaFragment

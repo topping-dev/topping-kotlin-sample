@@ -62,6 +62,15 @@ actual open class LuaForm : KTInterface
    {
        return KTWrap.Wrap(luaForm?.GetViewById(lId)) as LGView?
    }
+    actual fun GetViewById(lId: LuaRef?): LGView?
+    {
+        return KTWrap.Wrap(luaForm?.GetViewById((lId?.GetNativeObject() as cocoapods.Topping.LuaRef?)?.idRef)) as LGView?
+    }
+    actual fun GetBindings(): Map<String, LGView>?
+    {
+        //luaForm?.Bind,
+        return null
+    }
    actual fun GetView(): LGView?
    {
        return KTWrap.Wrap(luaForm?.GetView()) as LGView?
@@ -82,6 +91,14 @@ actual open class LuaForm : KTInterface
    {
        luaForm?.Close()
    }
+    actual fun GetLifecycle() : LuaLifecycle?
+    {
+        return KTWrap.Wrap(luaForm?.getLifecycleInner()) as LuaLifecycle
+    }
+    actual fun getFragmentManager() : LuaFragmentManager?
+    {
+        return KTWrap.Wrap(luaForm?.getSupportFragmentManager()) as LuaFragmentManager
+    }
     open override fun GetNativeObject(): Any?
    {
        return luaForm

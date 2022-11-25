@@ -24,6 +24,15 @@ class KTWrap<T> {
 
             return objIn
         }
+
+        fun UnWrap(objIn: Any?): Any?
+        {
+           if(objIn is KTInterface) {
+               return objIn.GetNativeObject()
+           }
+
+            return objIn
+        }
     }
 
     var obj: Any? = null

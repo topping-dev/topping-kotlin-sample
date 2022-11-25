@@ -22,20 +22,20 @@ actual open class LuaForm : KTInterface
         {
             val kt: KTWrap<Unit> = KTWrap<Unit>()
             val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(null, func))
-            dev.topping.android.LuaForm.RegisterFormEvent(luaId, event, lt)
+            dev.topping.android.LuaForm.RegisterFormEvent(luaId!!, event, lt)
         }
         actual fun Create(lc: LuaContext?, luaId: String?)
         {
-            dev.topping.android.LuaForm.Create(lc?.luaContext, luaId)
+            dev.topping.android.LuaForm.Create(lc?.luaContext!!, luaId)
         }
         actual fun CreateWithUI(lc: LuaContext?, luaId: String?, ui: String?)
         {
-            dev.topping.android.LuaForm.CreateWithUI(lc?.luaContext, luaId, ui)
+            dev.topping.android.LuaForm.CreateWithUI(lc?.luaContext!!, luaId, ui)
         }
         actual fun CreateForTab(lc: LuaContext?, luaId: String?): Any?
         {
             val pobj = LuaForm()
-            val pres = dev.topping.android.LuaForm.CreateForTab(lc?.luaContext, luaId)
+            val pres = dev.topping.android.LuaForm.CreateForTab(lc?.luaContext!!, luaId)
             pobj.SetNativeObject(pres as dev.topping.android.LuaForm)
             return pobj
         }
@@ -58,6 +58,18 @@ actual open class LuaForm : KTInterface
    {
        return KTWrap.Wrap(luaForm?.GetViewById(lId)) as LGView?
    }
+    actual fun GetViewById(lId: LuaRef?): LGView?
+    {
+        return KTWrap.Wrap(luaForm?.GetViewByIdRef(lId?.GetNativeObject() as dev.topping.android.luagui.LuaRef)) as LGView?
+    }
+    actual fun GetBindings(): Map<String, LGView>? {
+        val map = mutableMapOf<String, LGView>()
+        luaForm?.GetBindings()?.forEach {
+            map[it.key] = KTWrap.Wrap(it.value) as LGView
+        }
+
+        return map
+    }
    actual fun GetView(): LGView?
    {
        return KTWrap.Wrap(luaForm?.GetView()) as LGView?
@@ -78,6 +90,14 @@ actual open class LuaForm : KTInterface
    {
        luaForm?.Close()
    }
+   actual fun GetLifecycle() : LuaLifecycle? {
+        return null
+    }
+    actual fun getFragmentManager() : LuaFragmentManager? {
+        val fragmentManager = LuaFragmentManager()
+        fragmentManager.luaFragmentManager = luaForm?.getFragmentManagerInner()
+        return fragmentManager
+    }
     open override fun GetNativeObject(): Any?
    {
        return luaForm

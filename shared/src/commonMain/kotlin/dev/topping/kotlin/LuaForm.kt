@@ -25,9 +25,13 @@ expect open class LuaForm
    }
    fun GetContext(): LuaContext?
    fun GetViewById(lId: String?): LGView?
+   fun GetViewById(lId: LuaRef?): LGView?
+   fun GetBindings(): Map<String, LGView>?
    fun GetView(): LGView?
    fun SetView(v: LGView?)
    fun SetViewXML(xml: String?)
    fun SetTitle(str: String?)
    fun Close()
+   fun GetLifecycle() : LuaLifecycle?
+   fun getFragmentManager() : LuaFragmentManager?
 }

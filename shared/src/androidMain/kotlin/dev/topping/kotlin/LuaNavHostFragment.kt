@@ -15,7 +15,7 @@ actual open class LuaNavHostFragment : LuaFragment()
         actual fun Create(lc: LuaContext, luaId: String?): LuaNavHostFragment
         {
             val pobj = LuaNavHostFragment()
-            val pres = dev.topping.android.LuaNavHostFragment.Create(lc?.luaContext!!, luaId)
+            val pres = dev.topping.android.LuaNavHostFragment.Create(lc.luaContext!!, luaId)
             pobj.SetNativeObject(pres)
             return pobj
         }

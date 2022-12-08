@@ -1,143 +1,25 @@
 PODS:
   - ActionSheetPicker-3.0 (2.5.0)
   - GDataXML-HTML (1.4.1)
-  - MaterialComponents/ActivityIndicator (119.5.0):
-    - MaterialComponents/Palettes
-    - MaterialComponents/private/Application
-    - MDFInternationalization
-    - MotionAnimator (~> 2.0)
-  - MaterialComponents/AnimationTiming (119.5.0)
-  - MaterialComponents/AppBar (119.5.0):
-    - MaterialComponents/FlexibleHeader
-    - MaterialComponents/HeaderStackView
-    - MaterialComponents/NavigationBar
-    - MaterialComponents/private/Application
-    - MaterialComponents/private/Icons/ic_arrow_back
-    - MaterialComponents/private/UIMetrics
-    - MaterialComponents/ShadowElevations
-    - MaterialComponents/ShadowLayer
-    - MaterialComponents/Typography
-    - MDFInternationalization
-  - MaterialComponents/Availability (119.5.0)
-  - MaterialComponents/BottomAppBar (119.5.0):
-    - MaterialComponents/Buttons
-    - MaterialComponents/NavigationBar
-    - MaterialComponents/private/Math
-    - MDFInternationalization
-  - MaterialComponents/ButtonBar (119.5.0):
-    - MaterialComponents/Buttons
-    - MaterialComponents/private/Application
-    - MDFInternationalization
-  - MaterialComponents/Buttons (119.5.0):
-    - MaterialComponents/Elevation
-    - MaterialComponents/Ink
-    - MaterialComponents/private/Math
-    - MaterialComponents/Ripple
-    - MaterialComponents/ShadowElevations
-    - MaterialComponents/ShadowLayer
-    - MaterialComponents/ShapeLibrary
-    - MaterialComponents/Shapes
-    - MaterialComponents/Typography
-    - MDFInternationalization
-    - MDFTextAccessibility
-  - MaterialComponents/Elevation (119.5.0):
-    - MaterialComponents/Availability
-    - MaterialComponents/private/Color
-    - MaterialComponents/private/Math
-  - MaterialComponents/FlexibleHeader (119.5.0):
-    - MaterialComponents/Availability
-    - MaterialComponents/Elevation
-    - "MaterialComponents/FlexibleHeader+ShiftBehavior"
-    - "MaterialComponents/FlexibleHeader+ShiftBehaviorEnabledWithStatusBar"
-    - MaterialComponents/private/Application
-    - MaterialComponents/private/Math
-    - MaterialComponents/private/UIMetrics
-    - MaterialComponents/ShadowElevations
-    - MaterialComponents/ShadowLayer
-    - MDFTextAccessibility
-  - "MaterialComponents/FlexibleHeader+ShiftBehavior (119.5.0)"
-  - "MaterialComponents/FlexibleHeader+ShiftBehaviorEnabledWithStatusBar (119.5.0)":
-    - "MaterialComponents/FlexibleHeader+ShiftBehavior"
-  - MaterialComponents/HeaderStackView (119.5.0)
-  - MaterialComponents/Ink (119.5.0):
-    - MaterialComponents/Availability
-    - MaterialComponents/private/Color
-    - MaterialComponents/private/Math
-  - MaterialComponents/NavigationBar (119.5.0):
-    - MaterialComponents/ButtonBar
-    - MaterialComponents/Elevation
-    - MaterialComponents/private/Math
-    - MaterialComponents/Typography
-    - MDFInternationalization
-    - MDFTextAccessibility
-  - MaterialComponents/Palettes (119.5.0)
-  - MaterialComponents/private/Application (119.5.0)
-  - MaterialComponents/private/Color (119.5.0):
-    - MaterialComponents/Availability
-  - MaterialComponents/private/Icons/Base (119.5.0)
-  - MaterialComponents/private/Icons/ic_arrow_back (119.5.0):
-    - MaterialComponents/private/Icons/Base
-  - MaterialComponents/private/Math (119.5.0)
-  - MaterialComponents/private/UIMetrics (119.5.0):
-    - MaterialComponents/private/Application
-  - MaterialComponents/Ripple (119.5.0):
-    - MaterialComponents/AnimationTiming
-    - MaterialComponents/Availability
-    - MaterialComponents/private/Color
-    - MaterialComponents/private/Math
-  - MaterialComponents/ShadowElevations (119.5.0)
-  - MaterialComponents/ShadowLayer (119.5.0):
-    - MaterialComponents/ShadowElevations
-  - MaterialComponents/ShapeLibrary (119.5.0):
-    - MaterialComponents/private/Math
-    - MaterialComponents/Shapes
-  - MaterialComponents/Shapes (119.5.0):
-    - MaterialComponents/private/Color
-    - MaterialComponents/private/Math
-    - MaterialComponents/ShadowLayer
-  - MaterialComponents/Typography (119.5.0):
-    - MaterialComponents/private/Application
-    - MaterialComponents/private/Math
-    - MDFTextAccessibility
   - MBProgressHUD (1.2.0)
-  - MDFInternationalization (2.0.0)
-  - MDFTextAccessibility (2.0.1)
-  - MotionAnimator (2.8.1):
-    - MotionInterchange (~> 1.6)
-  - MotionInterchange (1.6.0)
   - shared (1.0):
     - Topping (= 0.1.7)
   - Toaster (2.3.0)
   - Topping (0.1.7):
     - ActionSheetPicker-3.0 (= 2.5.0)
     - GDataXML-HTML (= 1.4.1)
-    - MaterialComponents/ActivityIndicator (= 119.5.0)
-    - MaterialComponents/AppBar (= 119.5.0)
     - MBProgressHUD (= 1.2.0)
-    - MDFInternationalization (= 2.0.0)
     - Toaster (= 2.3.0)
 
 DEPENDENCIES:
-  - ActionSheetPicker-3.0
-  - GDataXML-HTML (~> 1.4.1)
-  - MaterialComponents/ActivityIndicator (= 119.5.0)
-  - MaterialComponents/BottomAppBar (= 119.5.0)
-  - MBProgressHUD (~> 1.2.0)
-  - MDFInternationalization (= 2.0.0)
   - shared (from `../shared`)
-  - Toaster (= 2.3.0)
   - Topping (= 0.1.7)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - ActionSheetPicker-3.0
     - GDataXML-HTML
-    - MaterialComponents
     - MBProgressHUD
-    - MDFInternationalization
-    - MDFTextAccessibility
-    - MotionAnimator
-    - MotionInterchange
     - Toaster
   https://github.com/Deadknight/dk-specs.git:
     - Topping
@@ -149,16 +31,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: 6d79f6f3b98e2b21d218dd65a39f634ff37a27e5
   GDataXML-HTML: a4f11079b48d9fe96ff1fe478943a317185227e2
-  MaterialComponents: 2cdc12c16528ed7e6f1d5bd6d6927c47f9f4e90f
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
-  MDFTextAccessibility: f4bb4cc2194286651b59a215fdeaa0e05dc90ba5
-  MotionAnimator: ee16aa30567c5bae0fb2750c132915829cfaaf8a
-  MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
   shared: a2b3332d3d36d24c488d86bdb0654ca785a6772e
   Toaster: c3473963c78e8cabbf6ea6f11ad0fdaae6f54987
-  Topping: 80b3a1a4dd075d995b33acbfb6113faeb15bba9d
+  Topping: bda8c0d656641679bc9063a4e43299ce457629f0
 
-PODFILE CHECKSUM: 47fee8bc4dd0bf2788716571d6897e0117c8b0b2
+PODFILE CHECKSUM: 4b8807d04ed259b1386bca4185bc3d39c74d119a
 
 COCOAPODS: 1.11.3

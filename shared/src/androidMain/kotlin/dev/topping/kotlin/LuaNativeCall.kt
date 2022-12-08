@@ -17,8 +17,7 @@ actual open class LuaNativeCall : KTInterface
            val pobj = LuaObjectStore()
            val pres = dev.topping.android.LuaNativeCall.CallClass(cls, func, params)
            pobj.SetNativeObject(pres as dev.topping.android.LuaObjectStore)
-           return pobj;
-           return null
+           return pobj
        }
    }
     open override fun GetNativeObject(): Any?

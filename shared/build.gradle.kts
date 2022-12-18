@@ -19,9 +19,9 @@ kotlin {
         ios.deploymentTarget = "11.0"
         frameworkName = "shared"
         podfile = project.file("../iosApp/Podfile")
-        /*specRepos {
+        specRepos {
             url("https://github.com/Deadknight/dk-specs.git")
-        }*/
+        }
         pod("Topping", "0.1.7")
     }
 

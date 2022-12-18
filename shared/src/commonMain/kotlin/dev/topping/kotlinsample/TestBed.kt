@@ -42,7 +42,7 @@ class TestBed {
         fun onCreateViewHolder(adapter: LGRecyclerViewAdapter?, parent: LGView?, type: Int, context: LuaContext?) : Any
         {
             val inflator = LuaViewInflator.Create(context)
-            val viewToRet = inflator?.ParseFile("testbedadapter.xml", parent)
+            val viewToRet = inflator?.Inflate(LR.layout.testbedadapter, parent)
             return viewToRet!!
         }
 

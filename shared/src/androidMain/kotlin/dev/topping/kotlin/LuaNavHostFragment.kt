@@ -6,11 +6,11 @@ actual open class LuaNavHostFragment : LuaFragment()
 {
    var luaNavHostFragment: dev.topping.android.LuaNavHostFragment? = null
    actual companion object {
-       actual fun RegisterFragmentEvent(luaId: String, event: Int, func: KCallable<Unit>?)
+       actual fun RegisterFragmentEvent(luaId: LuaRef, event: Int, func: KCallable<Unit>?)
        {
            val kt: KTWrap<Unit> = KTWrap<Unit>()
            val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(null, func))
-           dev.topping.android.LuaFragment.RegisterFragmentEvent(luaId, event, lt)
+           dev.topping.android.LuaFragment.RegisterFragmentEvent(luaId.luaRef!!, event, lt)
        }
         actual fun Create(lc: LuaContext, luaId: String?): LuaNavHostFragment
         {
@@ -42,9 +42,9 @@ actual open class LuaNavHostFragment : LuaFragment()
    {
        return luaNavHostFragment?.IsInitialized()!!
    }
-   actual override fun GetViewById(lId: String?): LGView?
+   actual override fun GetViewById(lId: LuaRef?): LGView?
    {
-       return KTWrap.Wrap(luaNavHostFragment?.GetViewById(lId)) as LGView?
+       return KTWrap.Wrap(luaNavHostFragment?.GetViewById(lId?.luaRef!!)) as LGView?
    }
    actual override fun GetView(): LGView?
    {

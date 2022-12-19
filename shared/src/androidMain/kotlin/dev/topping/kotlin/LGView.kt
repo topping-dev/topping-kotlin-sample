@@ -14,9 +14,9 @@ actual open class LGView : KTInterface
             return pobj
         }
    }
-   actual fun GetViewById(lId: String?): LGView?
+   actual fun GetViewById(lId: LuaRef?): LGView?
    {
-       return KTWrap.Wrap(lgView?.GetViewById(lId)) as LGView?
+       return KTWrap.Wrap(lgView?.GetViewById(lId?.luaRef)) as LGView?
    }
    actual fun SetEnabled(value: Boolean?)
    {
@@ -26,14 +26,9 @@ actual open class LGView : KTInterface
    {
        lgView?.SetFocusable(value)
    }
-   actual fun SetBackground(background: String?)
+   actual fun SetBackground(background: LuaRef?)
    {
-       lgView?.SetBackground(background)
-   }
-   actual fun SetBackgroundRef(backgroundRef: LuaRef?)
-   {
-       //TODO:fix this on android update
-       //lgView?.SetBackgroundRef(backgroundRef!!)
+       lgView?.SetBackground(background?.luaRef)
    }
    actual fun SetOnClickListener(func: KCallable<Unit>?)
    {

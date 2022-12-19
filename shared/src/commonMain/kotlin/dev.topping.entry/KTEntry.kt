@@ -1,5 +1,6 @@
 package dev.topping.entry
 
+import dev.topping.kotlin.LR
 import dev.topping.kotlin.LuaForm
 import dev.topping.kotlin.LuaFragment
 import dev.topping.kotlinsample.Form
@@ -9,24 +10,24 @@ class KTEntry {
     companion object {
         fun Init() {
             LuaForm.RegisterFormEvent(
-                "ListViewTest",
+                LR.id.ListViewTest,
                 LuaForm.FORM_EVENT_CREATE,
                 TestBed::ListViewTest_Constructor
             )
             LuaForm.RegisterFormEvent(
-                "formTestLL",
+                LR.id.formTestLL,
                 LuaForm.FORM_EVENT_CREATE,
                 Form::FormTestLL_Constructor
             )
             LuaForm.RegisterFormEvent(
-                "Main",
+                LR.id.Main,
                 LuaForm.FORM_EVENT_CREATE,
                 Form::Main_Constructor
             )
-            LuaFragment.RegisterFragmentEvent("menuFragment", LuaFragment.FRAGMENT_EVENT_CREATE_VIEW, Form::MenuFragment_Create_View)
-            LuaFragment.RegisterFragmentEvent("receiveFragment", LuaFragment.FRAGMENT_EVENT_CREATE_VIEW, Form::ReceiveFragment_Create_View)
+            LuaFragment.RegisterFragmentEvent(LR.id.menuFragment, LuaFragment.FRAGMENT_EVENT_CREATE_VIEW, Form::MenuFragment_Create_View)
+            LuaFragment.RegisterFragmentEvent(LR.id.receiveFragment, LuaFragment.FRAGMENT_EVENT_CREATE_VIEW, Form::ReceiveFragment_Create_View)
             LuaFragment.RegisterFragmentEvent(
-                "formTestLL",
+                LR.id.formTestLL,
                 LuaFragment.FRAGMENT_EVENT_CREATE,
                 Form::FormTestLL_Constructor
             )

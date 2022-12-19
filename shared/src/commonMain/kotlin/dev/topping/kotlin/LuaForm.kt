@@ -17,14 +17,13 @@ expect open class LuaForm
         val FORM_EVENT_KEYDOWN: Int
         val FORM_EVENT_KEYUP: Int
         val FORM_EVENT_NFC: Int
-        fun RegisterFormEvent(luaId: String?, event: Int, func: KCallable<Unit>?)
+        fun RegisterFormEvent(luaId: LuaRef?, event: Int, func: KCallable<Unit>?)
         fun Create(lc: LuaContext?, luaId: String?)
         fun CreateWithUI(lc: LuaContext?, luaId: String?, ui: String?)
         fun CreateForTab(lc: LuaContext?, luaId: String?): Any?
         fun GetActiveForm(): LuaForm?
    }
    fun GetContext(): LuaContext?
-   fun GetViewById(lId: String?): LGView?
    fun GetViewById(lId: LuaRef?): LGView?
    fun GetBindings(): Map<String, LGView>?
    fun GetView(): LGView?

@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LGTextView : LGView()
 {
    var lgTextView: android.widget.LGTextView? = null
@@ -14,25 +12,21 @@ actual open class LGTextView : LGView()
             return pobj
         }
    }
-   actual fun SetText(v: String?)
+   actual fun SetText(v: LuaRef?)
    {
-       lgTextView?.SetText(v)
+       lgTextView?.SetText(v?.luaRef)
    }
-   actual fun SetTextRef(ref: LuaRef?)
+   actual fun SetTextInternal(str: String?)
    {
-       lgTextView?.SetTextRef(ref?.luaRef)
+       lgTextView?.SetTextInternal(str)
    }
    actual fun GetText(): String?
    {
        return lgTextView?.GetText()
    }
-   actual fun SetTextColor(color: String?)
-   {
-       lgTextView?.SetTextColor(color)
-   }
-    actual fun SetTextColorRef(ref: LuaRef?)
+    actual fun SetTextColor(ref: LuaRef?)
     {
-        lgTextView?.SetTextColorRef(ref?.luaRef)
+        lgTextView?.SetTextColor(ref?.luaRef)
     }
     open override fun GetNativeObject(): Any?
    {

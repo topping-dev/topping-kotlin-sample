@@ -5,7 +5,7 @@ import kotlin.reflect.KCallable
 expect open class LuaNavHostFragment
 {
    companion object {
-      fun RegisterFragmentEvent(luaId: String, event: Int, func: KCallable<Unit>?)
+      fun RegisterFragmentEvent(luaId: LuaRef, event: Int, func: KCallable<Unit>?)
       fun Create(lc: LuaContext, luaId: String?): LuaNavHostFragment
       fun CreateWithUI(
          lc: LuaContext,
@@ -15,7 +15,7 @@ expect open class LuaNavHostFragment
    }
    fun GetContext(): LuaContext?
    fun IsInitialized(): Boolean
-   fun GetViewById(lId: String?): LGView?
+   fun GetViewById(lId: LuaRef?): LGView?
    fun GetView(): LGView?
    fun SetView(v: LGView?)
    fun SetViewXML(xml: String?)

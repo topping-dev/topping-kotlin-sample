@@ -13,11 +13,11 @@ expect open class LuaFragment
         val FRAGMENT_EVENT_DESTROY: Int
         fun Create(lc: LuaContext?, luaId: String?): LuaFragment?
         fun CreateWithUI(lc: LuaContext?, luaId: String?, ui: String?): LuaFragment?
-        fun RegisterFragmentEvent(luaId: String?, event: Int, func: KCallable<Any?>?)
+        fun RegisterFragmentEvent(luaId: LuaRef?, event: Int, func: KCallable<Any?>?)
    }
    fun GetContext(): LuaContext?
    fun IsInitialized(): Boolean?
-   fun GetViewById(lId: String?): LGView?
+   fun GetViewById(lId: LuaRef?): LGView?
    fun GetView(): LGView?
    fun SetView(v: LGView?)
    fun SetViewXML(xml: String?)

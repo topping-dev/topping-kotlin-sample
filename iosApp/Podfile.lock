@@ -16,7 +16,7 @@ DEPENDENCIES:
   - Topping (= 0.1.7)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/CocoaPods/Specs:
     - ActionSheetPicker-3.0
     - GDataXML-HTML
     - MBProgressHUD

@@ -48,8 +48,8 @@ class TestBed {
 
         fun onBindViewHolder(adapter: LGRecyclerViewAdapter?, view: LGView?, index: Int, obj:Any?)
         {
-            val tvTitle:LGTextView? = view?.GetViewById("testBedTitle") as LGTextView?
-            tvTitle?.SetText(obj as String)
+            val tvTitle:LGTextView? = view?.GetViewById(LR.id.testBedTitle) as LGTextView?
+            tvTitle?.SetTextInternal(obj as String)
         }
 
         fun onGetItemViewType(adapter: LGRecyclerViewAdapter?, type: Int) : Int {

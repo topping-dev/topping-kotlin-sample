@@ -13,11 +13,11 @@ actual open class LuaFragment : KTInterface
        actual val FRAGMENT_EVENT_PAUSE = 4
        actual val FRAGMENT_EVENT_DESTROY = 5
 
-       actual fun RegisterFragmentEvent(luaId: String?, event: Int, func: KCallable<Any?>?)
+       actual fun RegisterFragmentEvent(luaId: LuaRef?, event: Int, func: KCallable<Any?>?)
        {
            val kt: KTWrap<Any?> = KTWrap()
            val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(null, func))
-           dev.topping.android.LuaFragment.RegisterFragmentEvent(luaId!!, event, lt)
+           dev.topping.android.LuaFragment.RegisterFragmentEvent(luaId?.luaRef!!, event, lt)
        }
         actual fun Create(lc: LuaContext?, luaId: String?): LuaFragment?
         {
@@ -45,9 +45,9 @@ actual open class LuaFragment : KTInterface
    {
        return luaFragment?.IsInitialized()
    }
-   actual open fun GetViewById(lId: String?): LGView?
+   actual open fun GetViewById(lId: LuaRef?): LGView?
    {
-       return KTWrap.Wrap(luaFragment?.GetViewById(lId)) as LGView?
+       return KTWrap.Wrap(luaFragment?.GetViewById(lId?.luaRef!!)) as LGView?
    }
    actual open fun GetView(): LGView?
    {

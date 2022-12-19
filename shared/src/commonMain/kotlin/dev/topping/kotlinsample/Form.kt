@@ -18,18 +18,18 @@ class Form {
         }
 
         fun FormTestLL_Constructor(pGUI: LGView, luacontext: LuaContext) {
-            val button = pGUI.GetViewById("formTestButton") as LGButton
+            val button = pGUI.GetViewById(LR.id.formTestButton) as LGButton
             button.SetOnClickListener(Companion::TestButton_Click)
-            val checkbox = pGUI.GetViewById("formTestCheckBox") as LGCheckBox
+            val checkbox = pGUI.GetViewById(LR.id.formTestCheckBox) as LGCheckBox
             checkbox.SetOnCheckedChangedListener(Companion::TestCheckBox_CheckedChanged)
-            val combobox = pGUI.GetViewById("formTestComboBox") as LGComboBox
+            val combobox = pGUI.GetViewById(LR.id.formTestComboBox) as LGComboBox
             combobox.AddItem("Item 1", 1)
             combobox.AddItem("Item 2", 2)
             combobox.AddItem("Item 3", 3)
             combobox.AddItem("Item 4", 4)
             combobox.SetOnComboChangedListener(Companion::TestComboBox_Changed)
-            val edittext = pGUI.GetViewById("formTestEt") as LGEditText
-            val pb = pGUI.GetViewById("formTestProgressBar") as LGProgressBar
+            val edittext = pGUI.GetViewById(LR.id.formTestEt) as LGEditText
+            val pb = pGUI.GetViewById(LR.id.formTestProgressBar) as LGProgressBar
             pb.SetMax(100)
             pb.SetProgress(15)
         }
@@ -37,7 +37,7 @@ class Form {
         fun Main_Constructor(pGUI: LuaForm, luacontext: LuaContext) {
             val navController = pGUI.getFragmentManager()?.findFragmentById(LR.id.nav_host_fragment)
                 ?.getNavController()
-            val toolbar = pGUI.GetViewById("ToolbarTest") as LGToolbar?
+            val toolbar = pGUI.GetViewById(LR.id.ToolbarTest) as LGToolbar?
             LuaNavigationUI.setupWithNavController(toolbar!!, navController!!)
         }
 

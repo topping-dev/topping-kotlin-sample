@@ -29,7 +29,8 @@ dependencies {
     implementation ("androidx.core:core-ktx:1.3.2")
     implementation ("androidx.fragment:fragment:1.3.5")
     implementation ("androidx.fragment:fragment-ktx:1.3.5")
-    implementation(files("../shared/libs/toppingAndroid-debug.aar"))
+    //implementation(files("../shared/libs/toppingAndroid-debug.aar"))
+    implementation(files("../../topping-android/toppingAndroid/build/outputs/aar/toppingAndroid-debug.aar"))
     //implementation("dev.topping:toppingandroid:0.1.1")
 }
 

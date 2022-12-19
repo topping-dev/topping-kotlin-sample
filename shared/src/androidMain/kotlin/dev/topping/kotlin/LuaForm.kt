@@ -18,11 +18,11 @@ actual open class LuaForm : KTInterface
         actual val FORM_EVENT_KEYDOWN: Int = 9
         actual val FORM_EVENT_KEYUP: Int = 10
         actual val FORM_EVENT_NFC: Int = 11
-        actual fun RegisterFormEvent(luaId: String?, event: Int, func: KCallable<Unit>?)
+        actual fun RegisterFormEvent(luaId: LuaRef?, event: Int, func: KCallable<Unit>?)
         {
             val kt: KTWrap<Unit> = KTWrap<Unit>()
             val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(null, func))
-            dev.topping.android.LuaForm.RegisterFormEvent(luaId!!, event, lt)
+            dev.topping.android.LuaForm.RegisterFormEvent(luaId?.luaRef!!, event, lt)
         }
         actual fun Create(lc: LuaContext?, luaId: String?)
         {
@@ -54,13 +54,9 @@ actual open class LuaForm : KTInterface
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual fun GetViewById(lId: String?): LGView?
-   {
-       return KTWrap.Wrap(luaForm?.GetViewById(lId)) as LGView?
-   }
     actual fun GetViewById(lId: LuaRef?): LGView?
     {
-        return KTWrap.Wrap(luaForm?.GetViewByIdRef(lId?.GetNativeObject() as dev.topping.android.luagui.LuaRef)) as LGView?
+        return KTWrap.Wrap(luaForm?.GetViewById(lId?.luaRef!!)) as LGView?
     }
     actual fun GetBindings(): Map<String, LGView>? {
         val map = mutableMapOf<String, LGView>()

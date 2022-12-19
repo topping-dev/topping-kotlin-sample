@@ -10,65 +10,57 @@ actual open class LGToolbar : LGView()
     {
         lgToolbar?.SetMenu(ref?.GetNativeObject() as cocoapods.Topping.LuaRef)
     }
-    actual fun SetLogo(logo: LuaStream?)
+    actual fun SetLogo(logo: LuaRef?)
     {
-        lgToolbar?.SetLogo(logo?.GetNativeObject() as cocoapods.Topping.LuaStream)
+        lgToolbar?.SetLogo(logo?.luaRef)
     }
-    actual fun SetNavigationIcon(logo: LuaStream?)
+    actual fun SetNavigationIcon(logo: LuaRef?)
     {
-        lgToolbar?.SetNavigationIcon(logo?.GetNativeObject() as cocoapods.Topping.LuaStream)
+        lgToolbar?.SetNavigationIcon(logo?.luaRef)
     }
-    actual fun SetOverflowIcon(logo: LuaStream?)
+    actual fun SetOverflowIcon(logo: LuaRef?)
     {
-        lgToolbar?.SetOverflowIcon(logo?.GetNativeObject() as cocoapods.Topping.LuaStream)
+        lgToolbar?.SetOverflowIcon(logo?.luaRef)
     }
     actual fun GetTitle() : String?
     {
         return lgToolbar?.GetTitle()
     }
-    actual fun SetTitle(text: String?)
+    actual fun SetTitleInternal(text: String?)
     {
-        lgToolbar?.SetTitle(text)
+        lgToolbar?.SetTitleInternal(text)
     }
-    actual fun SetTitleRef(ref: LuaRef?)
+    actual fun SetTitle(ref: LuaRef?)
     {
-        lgToolbar?.SetTitleRef(ref?.GetNativeObject() as cocoapods.Topping.LuaRef)
+        lgToolbar?.SetTitle(ref?.luaRef)
     }
-    actual fun SetTitleTextColor(color: String?)
+    actual fun SetTitleTextColor(ref: LuaRef?)
     {
-        lgToolbar?.SetTitleTextColor(color)
-    }
-    actual fun SetTitleTextColorRef(ref: LuaRef?)
-    {
-        lgToolbar?.SetMenu(ref?.GetNativeObject() as cocoapods.Topping.LuaRef)
+        lgToolbar?.SetTitleTextColor(ref?.luaRef)
     }
     actual fun SetTitleTextApperance(ref: LuaRef?)
     {
-        lgToolbar?.SetMenu(ref?.GetNativeObject() as cocoapods.Topping.LuaRef)
+        lgToolbar?.SetTitleTextApperance(ref?.luaRef)
     }
     actual fun GetSubtitle() : String?
     {
         return lgToolbar?.GetSubtitle()
     }
-    actual fun SetSubtitle(text: String?)
+    actual fun SetSubtitleInternal(text: String?)
     {
-        lgToolbar?.SetSubtitle(text)
+        lgToolbar?.SetSubtitleInternal(text)
     }
-    actual fun SetSubtitleRef(ref: LuaRef?)
+    actual fun SetSubtitle(ref: LuaRef?)
     {
-        lgToolbar?.SetMenu(ref?.GetNativeObject() as cocoapods.Topping.LuaRef)
+        lgToolbar?.SetSubtitle(ref?.luaRef)
     }
-    actual fun SetSubtitleTextColor(color: String?)
+    actual fun SetSubtitleTextColor(ref: LuaRef?)
     {
-        lgToolbar?.SetSubtitleTextColor(color)
-    }
-    actual fun SetSubtitleTextColorRef(ref: LuaRef?)
-    {
-        lgToolbar?.SetSubtitleTextColorRef(ref?.GetNativeObject() as cocoapods.Topping.LuaRef)
+        lgToolbar?.SetSubtitleTextColor(ref?.luaRef)
     }
     actual fun SetSubtitleTextApperance(ref: LuaRef?)
     {
-        lgToolbar?.SetSubtitleTextApperance(ref?.GetNativeObject() as cocoapods.Topping.LuaRef)
+        lgToolbar?.SetSubtitleTextApperance(ref?.luaRef)
     }
     actual fun SetNavigationOnClickListener(func: KCallable<Unit>?)
     {

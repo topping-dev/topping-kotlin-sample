@@ -1,7 +1,6 @@
 package dev.topping.kotlin
 
 import kotlinx.cinterop.StableRef
-import kotlinx.cinterop.staticCFunction
 import kotlin.reflect.KCallable
 
 actual open class LGView : KTInterface
@@ -16,9 +15,9 @@ actual open class LGView : KTInterface
             return pobj
         }
    }
-   actual fun GetViewById(lId: String?): LGView?
+   actual fun GetViewById(lId: LuaRef?): LGView?
    {
-       return KTWrap.Wrap(lgView?.GetViewById(lId)) as LGView?
+       return KTWrap.Wrap(lgView?.GetViewById(lId?.luaRef)) as LGView?
    }
    actual fun SetEnabled(value: Boolean?)
    {
@@ -28,13 +27,9 @@ actual open class LGView : KTInterface
    {
        lgView?.SetFocusable(value!!)
    }
-   actual fun SetBackground(background: String?)
+   actual fun SetBackground(background: LuaRef?)
    {
-       lgView?.SetBackground(background)
-   }
-   actual fun SetBackgroundRef(backgroundRef: LuaRef?)
-   {
-       lgView?.SetBackgroundRef(backgroundRef?.GetNativeObject() as cocoapods.Topping.LuaRef)
+       lgView?.SetBackground(background?.GetNativeObject() as cocoapods.Topping.LuaRef)
    }
     actual fun SetOnClickListener(func: KCallable<Unit>?)
     {

@@ -28,13 +28,13 @@ actual open class LuaFragment : KTInterface
             pobj.SetNativeObject(pres)
             return pobj
         }
-       actual fun RegisterFragmentEvent(luaId: String?, event: Int, func: KCallable<Any?>?)
+       actual fun RegisterFragmentEvent(luaId: LuaRef?, event: Int, func: KCallable<Any?>?)
        {
            val kt: KTWrap = KTWrap()
            val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
            lt.nobj = StableRef.create(kt).asCPointer()
            lt.kFRetF = kt.Init(this, func)
-           cocoapods.Topping.LuaFragment.RegisterFragmentEvent(luaId, event, lt)
+           cocoapods.Topping.LuaFragment.RegisterFragmentEvent(luaId?.luaRef, event, lt)
        }
    }
    actual open fun GetContext(): LuaContext?
@@ -48,9 +48,9 @@ actual open class LuaFragment : KTInterface
    {
        return luaFragment?.IsInitialized()
    }
-   actual open fun GetViewById(lId: String?): LGView?
+   actual open fun GetViewById(lId: LuaRef?): LGView?
    {
-       return KTWrap.Wrap(luaFragment?.GetViewById(lId)) as LGView?
+       return KTWrap.Wrap(luaFragment?.GetViewById(lId?.luaRef)) as LGView?
    }
    actual open fun GetView(): LGView?
    {

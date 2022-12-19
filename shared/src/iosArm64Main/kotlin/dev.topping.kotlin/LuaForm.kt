@@ -1,7 +1,6 @@
 package dev.topping.kotlin
 
 import kotlinx.cinterop.StableRef
-import kotlinx.cinterop.staticCFunction
 import kotlin.reflect.KCallable
 
 actual open class LuaForm : KTInterface
@@ -20,13 +19,13 @@ actual open class LuaForm : KTInterface
         actual val FORM_EVENT_KEYDOWN: Int = 9
         actual val FORM_EVENT_KEYUP: Int = 10
         actual val FORM_EVENT_NFC: Int = 11
-        actual fun RegisterFormEvent(luaId: String?, event: Int, func: KCallable<Unit>?)
+        actual fun RegisterFormEvent(luaId: LuaRef?, event: Int, func: KCallable<Unit>?)
         {
             val kt: KTWrap = KTWrap()
             val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
             lt.nobj = StableRef.create(kt).asCPointer()
             lt.kFRetF = kt.Init(this, func)
-            cocoapods.Topping.LuaForm.RegisterFormEvent(luaId, event, lt)
+            cocoapods.Topping.LuaForm.RegisterFormEvent(luaId?.luaRef, event, lt)
         }
         actual fun Create(lc: LuaContext?, luaId: String?)
         {
@@ -58,13 +57,15 @@ actual open class LuaForm : KTInterface
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual fun GetViewById(lId: String?): LGView?
-   {
-       return KTWrap.Wrap(luaForm?.GetViewById(lId)) as LGView?
-   }
     actual fun GetViewById(lId: LuaRef?): LGView?
     {
-        return KTWrap.Wrap(luaForm?.GetViewById((lId?.GetNativeObject() as cocoapods.Topping.LuaRef?)?.idRef)) as LGView?
+        return KTWrap.Wrap(luaForm?.GetViewById((lId?.luaRef!!))) as LGView?
+    }
+    actual fun GetBindings(): Map<String, LGView>?
+    {
+        return luaForm?.GetBindings()?.entries?.associate {
+            it.key.toString() to (KTWrap.Wrap(it.value) as LGView)
+        }
     }
    actual fun GetView(): LGView?
    {
@@ -89,6 +90,10 @@ actual open class LuaForm : KTInterface
     actual fun GetLifecycle() : LuaLifecycle?
     {
         return KTWrap.Wrap(luaForm?.getLifecycleInner()) as LuaLifecycle
+    }
+    actual fun getFragmentManager() : LuaFragmentManager?
+    {
+        return KTWrap.Wrap(luaForm?.getSupportFragmentManager()) as LuaFragmentManager
     }
     open override fun GetNativeObject(): Any?
    {

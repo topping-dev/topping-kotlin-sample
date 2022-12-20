@@ -1,6 +1,5 @@
 package dev.topping.kotlin.androidApp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import dev.topping.android.LuaForm
 import dev.topping.android.backend.LuaInterface

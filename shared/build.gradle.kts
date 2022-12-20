@@ -83,5 +83,4 @@ android {
             res.srcDirs("src/androidTest/res")
         }
     }
-
 }

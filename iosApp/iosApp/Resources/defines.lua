@@ -10,7 +10,7 @@ PrimaryLoad = 3;
 ForceLoad = 1;
 
 -- Root folder of user interface files
-UIRoot = "ui";
+UIRoot = "res";
 
 -- Startup XML 
 -- Leaving this "", will create empty view for tab system

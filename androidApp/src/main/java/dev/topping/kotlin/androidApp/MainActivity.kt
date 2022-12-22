@@ -9,12 +9,16 @@ import dev.topping.kotlin.GenericOnComplete
 class MainActivity : LuaForm(), LuaInterface {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.empty)
 
         Platform.Init(this, object : GenericOnComplete {
             override fun onComplete() {
 
             }
         })
+    }
+
+    override fun GetId(): String {
+        return "Main"
     }
 }

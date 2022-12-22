@@ -9,14 +9,14 @@ actual open class LuaNavController : KTInterface
    var luaNavController: dev.topping.android.LuaNavController? = null
 
     actual fun navigate(target: LuaRef) {
-        luaNavController?.navigate(KTWrap.Wrap(target.GetNativeObject()) as dev.topping.android.luagui.LuaRef)
+        luaNavController?.navigate(target.luaRef)
     }
 
     actual fun navigate(
         target: LuaRef,
         args: Map<String, Any>
     ) {
-        luaNavController?.navigateArgs(KTWrap.Wrap(target.GetNativeObject()) as dev.topping.android.luagui.LuaRef,
+        luaNavController?.navigateArgs(target.luaRef,
             args as HashMap<String, Any>?
         )
     }
@@ -26,9 +26,9 @@ actual open class LuaNavController : KTInterface
         args: Map<String, Any>,
         navOptions: LuaNavOptions
     ) {
-        luaNavController?.navigateArgsOptions(KTWrap.Wrap(target.GetNativeObject()) as dev.topping.android.luagui.LuaRef,
+        luaNavController?.navigateArgsOptions(target.luaRef,
             args as HashMap<String, Any>?,
-            KTWrap.Wrap(navOptions.GetNativeObject()) as dev.topping.android.LuaNavOptions
+            navOptions.luaNavOptions
         )
     }
 

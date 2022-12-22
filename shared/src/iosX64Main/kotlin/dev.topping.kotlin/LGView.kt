@@ -29,7 +29,7 @@ actual open class LGView : KTInterface
    }
    actual fun SetBackground(background: LuaRef?)
    {
-       lgView?.SetBackground(background?.GetNativeObject() as cocoapods.Topping.LuaRef)
+       lgView?.SetBackground(background?.luaRef)
    }
    actual fun SetOnClickListener(func: KCallable<Unit>?)
    {

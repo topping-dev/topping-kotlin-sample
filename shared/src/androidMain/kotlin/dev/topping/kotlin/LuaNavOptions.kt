@@ -18,12 +18,12 @@ actual open class LuaNavOptions : KTInterface
             val pobj = LuaNavOptions()
             val pres = dev.topping.android.LuaNavOptions.create(
                 singleTop,
-                KTWrap.Wrap(popUpTo.GetNativeObject()) as dev.topping.android.luagui.LuaRef,
+                popUpTo.luaRef!!,
                 popUpToInclusive,
-                KTWrap.Wrap(enterAnim.GetNativeObject()) as dev.topping.android.luagui.LuaRef,
-                KTWrap.Wrap(exitAnim.GetNativeObject()) as dev.topping.android.luagui.LuaRef,
-                KTWrap.Wrap(popEnterAnim.GetNativeObject()) as dev.topping.android.luagui.LuaRef,
-                KTWrap.Wrap(popExitAnim.GetNativeObject()) as dev.topping.android.luagui.LuaRef,
+                enterAnim.luaRef!!,
+                exitAnim.luaRef!!,
+                popEnterAnim.luaRef!!,
+                popExitAnim.luaRef!!
             )
             pobj.SetNativeObject(pres)
             return pobj

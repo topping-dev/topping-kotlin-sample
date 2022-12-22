@@ -84,3 +84,8 @@ android {
         }
     }
 }
+
+task<Exec>("iosAppPodInstall") {
+    workingDir("${project.rootDir}/iosApp")
+    commandLine("pod", "install")
+}

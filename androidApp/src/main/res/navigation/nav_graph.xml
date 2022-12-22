@@ -6,8 +6,8 @@
     app:startDestination="@id/menuFragment">
     <fragment
         android:id="@+id/menuFragment"
-        android:name="MenuFragment"
-        android:label="@string/receive" >
+        android:name="dev.topping.android.LuaFragment"
+        android:label="@string/receive">
         <action
             android:id="@+id/action_menuFragment_to_receiveFragment"
             app:destination="@id/receiveFragment"
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/receiveFragment"
-        android:name="ReceiveFragment"
+        android:name="dev.topping.android.LuaFragment"
         android:label="@string/receive">
         <argument
             android:name="receiveType"

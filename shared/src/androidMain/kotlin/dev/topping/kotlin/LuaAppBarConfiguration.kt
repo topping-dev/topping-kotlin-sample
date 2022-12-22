@@ -11,11 +11,12 @@ actual open class LuaAppBarConfiguration : KTInterface
        {
            val pobj = LuaAppBarConfiguration()
            val pres = dev.topping.android.LuaAppBarConfiguration.create(singleTop,
-               popUpTo.GetNativeObject() as dev.topping.android.luagui.LuaRef, popUpToInclusive,
-               enterAnim.GetNativeObject() as dev.topping.android.luagui.LuaRef,
-               exitAnim.GetNativeObject() as dev.topping.android.luagui.LuaRef,
-               popEnterAnim.GetNativeObject() as dev.topping.android.luagui.LuaRef,
-               popExitAnim.GetNativeObject() as dev.topping.android.luagui.LuaRef)
+               popUpTo.luaRef!!,
+               popUpToInclusive,
+               enterAnim.luaRef!!,
+               exitAnim.luaRef!!,
+               popEnterAnim.luaRef!!,
+               popExitAnim.luaRef!!)
            pobj.SetNativeObject(pres)
            return pobj
        }
@@ -23,7 +24,7 @@ actual open class LuaAppBarConfiguration : KTInterface
    actual fun setTopLevelDestinations(ids: Array<LuaRef>)
    {
        luaAppBarConfiguration?.setTopLevelDestinations(ids.map {
-           it.GetNativeObject() as dev.topping.android.luagui.LuaRef
+           it.luaRef!!
        }.toTypedArray())
    }
     open override fun GetNativeObject(): Any?

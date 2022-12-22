@@ -2,6 +2,7 @@ package dev.topping.kotlin
 
 import kotlin.reflect.KCallable
 import kotlin.reflect.KClass
+import kotlin.reflect.full.superclasses
 
 class KTWrap<T> {
     companion object {
@@ -19,6 +20,18 @@ class KTWrap<T> {
                 {
                     (obj as KTInterface).SetNativeObject(objIn)
                     return obj
+                }
+            }
+            else {
+                val clsesSuper = objIn::class::superclasses
+                clsesSuper.get().forEach {
+                    val cls = bindings[objIn::class] as KClass<*>
+                    val obj = KTClass.createInstance(cls)
+                    if(obj is KTInterface)
+                    {
+                        (obj as KTInterface).SetNativeObject(objIn)
+                        return obj
+                    }
                 }
             }
 
@@ -45,16 +58,37 @@ class KTWrap<T> {
         return KTWrap<T>::funToCall as KCallable<T>
     }
 
+    private fun findBinding(kClass: KClass<out Any>): Any? {
+        val bindings = Platform.GetBindings()
+        val retBindings = Platform.GetRetBindings()
+        if(bindings?.containsKey(kClass) == true)
+        {
+            return bindings[kClass]
+        }
+        else {
+            kClass.superclasses.forEach {
+                if (bindings?.containsKey(it) == true) {
+                    return bindings[it]
+                }
+            }
+        }
+        return null
+    }
+
     fun funToCall(vararg vars: Any): T?
     {
         val valsWrapped: ArrayList<Any> = arrayListOf()
-        val bindings = Platform.GetBindings()
-        val retBindings = Platform.GetRetBindings()
+
         for((count, item) in vars.withIndex())
         {
-            if(item != null && bindings?.containsKey(item::class)!!)
+            if(item == null) {
+                valsWrapped.add(vars[count])
+                continue
+            }
+            var bindedClass = findBinding(item::class)
+            if(bindedClass != null)
             {
-                val cls = bindings[item::class] as KClass<*>
+                val cls = bindedClass as KClass<*>
                 val obj = KTClass.createInstance(cls)
                 if(obj is KTInterface)
                 {

@@ -3,6 +3,7 @@ package dev.topping.kotlin
 import android.app.Activity
 import android.os.HandlerThread
 import android.os.Process
+import dev.topping.android.ToppingEngine
 import dev.topping.entry.KTEntry
 
 actual class Platform actual constructor() {
@@ -13,25 +14,29 @@ actual class Platform actual constructor() {
         private var retBindingMap: HashMap<Any, Any>? = null
 
         actual fun Init(activityOrWindow: Any, onComplete: GenericOnComplete) {
-            KTEntry.Init()
             luaContext = dev.topping.android.luagui.LuaContext.CreateLuaContext(activityOrWindow as Activity?)
 
             val luaEngine = dev.topping.android.ToppingEngine.getInstance()
+            ToppingEngine.getInstance().SetContext(luaContext?.GetContext())
+            KTEntry.Init()
             val ht = HandlerThread("Lua Loader Thread", Process.THREAD_PRIORITY_URGENT_DISPLAY)
             ht.start()
 
             val handler: dev.topping.android.backend.LuaLoadHandler = object : dev.topping.android.backend.LuaLoadHandler(activityOrWindow as Activity?, ht.looper) {
                 override fun OnFinished() {
-                    var lf: dev.topping.android.LuaForm = activityOrWindow as dev.topping.android.LuaForm;
+                    val lf: dev.topping.android.LuaForm = activityOrWindow as dev.topping.android.LuaForm;
                     luaId = luaEngine.GetMainForm()
                     val initUI = luaEngine.GetMainUI()
                     if (initUI.compareTo("") != 0) {
                         val inflater = dev.topping.android.luagui.LuaViewInflator(luaContext)
-                        var view: android.widget.LGView? = inflater.ParseFile(initUI, null)
+                        val view: android.widget.LGView? = inflater.ParseFile(initUI, null)
                         lf.SetView(view)
                         lf.setContentView(view?.view);
                     }
-                    else dev.topping.android.LuaForm.OnFormEvent(lf, LuaForm.FORM_EVENT_CREATE, luaContext)
+                    lf.runOnUiThread {
+                        dev.topping.android.LuaForm.OnFormEvent(lf, LuaForm.FORM_EVENT_CREATE, luaContext)
+                    }
+                    //dev.topping.android.LuaForm.OnFormEvent(lf, LuaForm.FORM_EVENT_CREATE, luaContext)
                     ht.quit()
                     onComplete.onComplete();
                 }
@@ -56,7 +61,7 @@ actual class Platform actual constructor() {
                     android.widget.LGCompoundButton::class to LGCompoundButton::class,
                     android.widget.LGDatePicker::class to LGDatePicker::class,
                     android.widget.LGEditText::class to LGEditText::class,
-                    android.widget.LGFragmentContainerView::class to LGFragmentContainerView::class,
+                    androidx.fragment.app.LGFragmentContainerView::class to LGFragmentContainerView::class,
                     android.widget.LGFrameLayout::class to LGFrameLayout::class,
                     android.widget.LGHorizontalScrollView::class to LGHorizontalScrollView::class,
                     android.widget.LGImageView::class to LGImageView::class,
@@ -75,6 +80,7 @@ actual class Platform actual constructor() {
                     android.widget.LGViewGroup::class to LGViewGroup::class,
                     dev.topping.android.LuaAppBarConfiguration::class to LuaAppBarConfiguration::class,
                     dev.topping.android.LuaBuffer::class to LuaBuffer::class,
+                    dev.topping.android.LuaBundle::class to LuaBundle::class,
                     dev.topping.android.LuaColor::class to LuaColor::class,
                     dev.topping.android.luagui.LuaContext::class to LuaContext::class,
                     dev.topping.android.LuaCoroutineScope::class to LuaCoroutineScope::class,

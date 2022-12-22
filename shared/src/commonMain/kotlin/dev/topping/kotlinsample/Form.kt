@@ -45,8 +45,8 @@ class Form {
             pFragment: LuaFragment,
             luacontext: LuaContext,
             inflater: LuaViewInflator,
-            container: LGView,
-            savedInstanceState: Any
+            container: LGView?,
+            savedInstanceState: Any?
         ): LGView? {
             return inflater.Inflate(LR.layout.form, container)
         }
@@ -55,8 +55,8 @@ class Form {
             pFragment: LuaFragment,
             luacontext: LuaContext,
             inflater: LuaViewInflator,
-            container: LGView,
-            savedInstanceState: Any
+            container: LGView?,
+            savedInstanceState: Any?
         ): LGView? {
             return inflater.Inflate(LR.layout.frame, container)
         }

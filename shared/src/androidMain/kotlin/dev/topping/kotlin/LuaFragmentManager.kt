@@ -13,7 +13,10 @@ actual open class LuaFragmentManager : KTInterface
     }
 
     actual fun findFragmentById(id: Any) : LuaFragment? {
-        return KTWrap.Wrap(luaFragmentManager?.findFragmentById(id as Int)) as LuaFragment?
+        val fragment = luaFragmentManager?.findFragmentById((id as LuaRef).luaRef?.ref ?: 0)
+        if(fragment == null)
+            return null
+        return KTWrap.Wrap(fragment) as LuaFragment?
     }
 
     actual fun findFragmentByTag(tag: String) : LuaFragment? {

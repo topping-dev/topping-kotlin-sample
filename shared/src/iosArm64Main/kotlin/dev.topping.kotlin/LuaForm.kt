@@ -1,46 +1,16 @@
 package dev.topping.kotlin
 
-import kotlinx.cinterop.StableRef
-import kotlin.reflect.KCallable
-
 actual open class LuaForm : KTInterface
 {
    var luaForm: cocoapods.Topping.LuaForm? = null
    actual companion object {
-        actual val FORM_EVENT_CREATE: Int = 0
-        actual val FORM_EVENT_RESUME: Int = 1
-        actual val FORM_EVENT_PAUSE: Int = 2
-        actual val FORM_EVENT_DESTROY: Int = 3
-        actual val FORM_EVENT_UPDATE: Int = 4
-        actual val FORM_EVENT_PAINT: Int = 5
-        actual val FORM_EVENT_MOUSEDOWN: Int = 6
-        actual val FORM_EVENT_MOUSEUP: Int = 7
-        actual val FORM_EVENT_MOUSEMOVE: Int = 8
-        actual val FORM_EVENT_KEYDOWN: Int = 9
-        actual val FORM_EVENT_KEYUP: Int = 10
-        actual val FORM_EVENT_NFC: Int = 11
-        actual fun RegisterFormEvent(luaId: LuaRef?, event: Int, func: KCallable<Unit>?)
+        actual fun Create(lc: LuaContext?, luaId: LuaRef?)
         {
-            val kt: KTWrap = KTWrap()
-            val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-            lt.nobj = StableRef.create(kt).asCPointer()
-            lt.kFRetF = kt.Init(this, func)
-            cocoapods.Topping.LuaForm.RegisterFormEvent(luaId?.luaRef, event, lt)
+            cocoapods.Topping.LuaForm.Create(lc?.luaContext, luaId?.luaRef)
         }
-        actual fun Create(lc: LuaContext?, luaId: String?)
+        actual fun CreateWithUI(lc: LuaContext?, luaId: LuaRef?, ui: LuaRef?)
         {
-            cocoapods.Topping.LuaForm.Create(lc?.luaContext, luaId)
-        }
-        actual fun CreateWithUI(lc: LuaContext?, luaId: String?, ui: String?)
-        {
-            cocoapods.Topping.LuaForm.CreateWithUI(lc?.luaContext, luaId, ui)
-        }
-        actual fun CreateForTab(lc: LuaContext?, luaId: String?): Any?
-        {
-            val pobj = LuaForm()
-            val pres = cocoapods.Topping.LuaForm.CreateForTab(lc?.luaContext, luaId)
-            pobj.SetNativeObject(pres as cocoapods.Topping.LuaForm)
-            return pobj
+            cocoapods.Topping.LuaForm.CreateWithUI(lc?.luaContext, luaId?.luaRef, ui?.luaRef)
         }
         actual fun GetActiveForm(): LuaForm?
         {
@@ -75,9 +45,9 @@ actual open class LuaForm : KTInterface
    {
        luaForm?.SetView(v?.lgView)
    }
-   actual fun SetViewXML(xml: String?)
+   actual fun SetViewXML(xml: LuaRef?)
    {
-       luaForm?.SetViewXML(xml)
+       luaForm?.SetViewXML(xml?.luaRef)
    }
    actual fun SetTitle(str: String?)
    {

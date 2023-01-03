@@ -42,6 +42,8 @@ kotlin {
                 implementation ("androidx.lifecycle:lifecycle-common-java8:2.3.1")
                 implementation ("androidx.navigation:navigation-fragment-ktx:2.3.5")
                 implementation ("androidx.navigation:navigation-ui-ktx:2.3.5")
+                implementation ("androidx.navigation:navigation-dynamic-features-fragment:2.3.5")
+                implementation ("com.google.android.material:material:1.4.0")
                 //implementation(files("libs/toppingAndroid-debug.aar"))
                 implementation(files("../../topping-android/toppingAndroid/build/outputs/aar/toppingAndroid-debug.aar"))
                 //implementation("dev.topping:toppingandroid:0.1.2")

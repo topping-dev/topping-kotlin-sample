@@ -1,41 +1,30 @@
 package dev.topping.kotlin
 
-import kotlinx.cinterop.StableRef
-import kotlin.reflect.KCallable
-
 actual open class LuaFragment : KTInterface
 {
    var luaFragment: cocoapods.Topping.LuaFragment? = null
    actual companion object {
-       actual val FRAGMENT_EVENT_CREATE = 0
-       actual val FRAGMENT_EVENT_CREATE_VIEW = 1
-       actual val FRAGMENT_EVENT_VIEW_CREATED = 2
-       actual val FRAGMENT_EVENT_RESUME = 3
-       actual val FRAGMENT_EVENT_PAUSE = 4
-       actual val FRAGMENT_EVENT_DESTROY = 5
-
-        actual fun Create(lc: LuaContext?, luaId: String?): LuaFragment?
+        actual fun Create(lc: LuaContext?, luaId: LuaRef?): LuaFragment?
         {
             val pobj = LuaFragment()
-            val pres = cocoapods.Topping.LuaFragment.Create(lc?.luaContext, luaId)
+            val pres = cocoapods.Topping.LuaFragment.Create(lc?.luaContext, luaId?.luaRef)
             pobj.SetNativeObject(pres)
             return pobj
         }
-        actual fun CreateWithUI(lc: LuaContext?, luaId: String?, ui: String?): LuaFragment?
-        {
-            val pobj = LuaFragment()
-            val pres = cocoapods.Topping.LuaFragment.CreateWithUI(lc?.luaContext, luaId, ui)
-            pobj.SetNativeObject(pres)
-            return pobj
-        }
-       actual fun RegisterFragmentEvent(luaId: LuaRef?, event: Int, func: KCallable<Any?>?)
+       actual fun Create(lc: LuaContext?, luaId: LuaRef?, args: MutableMap<String, Any>): LuaFragment?
        {
-           val kt: KTWrap = KTWrap()
-           val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-           lt.nobj = StableRef.create(kt).asCPointer()
-           lt.kFRetF = kt.Init(this, func)
-           cocoapods.Topping.LuaFragment.RegisterFragmentEvent(luaId?.luaRef, event, lt)
+           val pobj = LuaFragment()
+           val pres = cocoapods.Topping.LuaFragment.Create(lc?.luaContext, luaId?.luaRef, args.toNSMutableDictionary())
+           pobj.SetNativeObject(pres)
+           return pobj
        }
+        actual fun CreateWithUI(lc: LuaContext?, luaId: LuaRef?, ui: LuaRef?, args: MutableMap<String, Any>): LuaFragment?
+        {
+            val pobj = LuaFragment()
+            val pres = cocoapods.Topping.LuaFragment.CreateWithUI(lc?.luaContext, luaId?.luaRef, ui?.luaRef, args.toNSMutableDictionary())
+            pobj.SetNativeObject(pres)
+            return pobj
+        }
    }
    actual open fun GetContext(): LuaContext?
    {
@@ -60,9 +49,9 @@ actual open class LuaFragment : KTInterface
    {
        luaFragment?.SetView(v?.lgView)
    }
-   actual open fun SetViewXML(xml: String?)
+   actual open fun SetViewXML(xml: LuaRef?)
    {
-       luaFragment?.SetViewXML(xml)
+       luaFragment?.SetViewXML(xml?.luaRef)
    }
    actual open fun SetViewId(luaId: String?)
    {

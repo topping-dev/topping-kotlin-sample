@@ -34,9 +34,8 @@ actual class Platform actual constructor() {
                         lf.setContentView(view?.view);
                     }
                     lf.runOnUiThread {
-                        dev.topping.android.LuaForm.OnFormEvent(lf, LuaForm.FORM_EVENT_CREATE, luaContext)
+                        dev.topping.android.LuaEvent.OnUIEvent(lf, dev.topping.android.LuaEvent.UI_EVENT_CREATE, luaContext)
                     }
-                    //dev.topping.android.LuaForm.OnFormEvent(lf, LuaForm.FORM_EVENT_CREATE, luaContext)
                     ht.quit()
                     onComplete.onComplete();
                 }
@@ -62,6 +61,7 @@ actual class Platform actual constructor() {
                     android.widget.LGDatePicker::class to LGDatePicker::class,
                     android.widget.LGEditText::class to LGEditText::class,
                     androidx.fragment.app.LGFragmentContainerView::class to LGFragmentContainerView::class,
+                    android.widget.LGFragmentStateAdapter::class to LGFragmentStateAdapter::class,
                     android.widget.LGFrameLayout::class to LGFrameLayout::class,
                     android.widget.LGHorizontalScrollView::class to LGHorizontalScrollView::class,
                     android.widget.LGImageView::class to LGImageView::class,
@@ -74,10 +74,12 @@ actual class Platform actual constructor() {
                     android.widget.LGRecyclerViewAdapter::class to LGRecyclerViewAdapter::class,
                     android.widget.LGRelativeLayout::class to LGRelativeLayout::class,
                     android.widget.LGScrollView::class to LGScrollView::class,
+                    android.widget.LGTabLayout::class to LGTabLayout::class,
                     android.widget.LGTextView::class to LGTextView::class,
                     android.widget.LGToolbar::class to LGToolbar::class,
                     android.widget.LGView::class to LGView::class,
                     android.widget.LGViewGroup::class to LGViewGroup::class,
+                    android.widget.LGViewPager::class to LGViewPager::class,
                     dev.topping.android.LuaAppBarConfiguration::class to LuaAppBarConfiguration::class,
                     dev.topping.android.LuaBuffer::class to LuaBuffer::class,
                     dev.topping.android.LuaBundle::class to LuaBundle::class,
@@ -89,6 +91,7 @@ actual class Platform actual constructor() {
                     dev.topping.android.LuaDefines::class to LuaDefines::class,
                     dev.topping.android.LuaDialog::class to LuaDialog::class,
                     dev.topping.android.LuaDispatchers::class to LuaDispatchers::class,
+                    dev.topping.android.LuaEvent::class to LuaEvent::class,
                     dev.topping.android.LuaForm::class to LuaForm::class,
                     dev.topping.android.LuaFragment::class to LuaFragment::class,
                     dev.topping.android.LuaFragmentManager::class to LuaFragmentManager::class,
@@ -115,7 +118,7 @@ actual class Platform actual constructor() {
                     dev.topping.android.LuaResource::class to LuaResource::class,
                     dev.topping.android.LuaStore::class to LuaStore::class,
                     dev.topping.android.LuaStream::class to LuaStream::class,
-                    dev.topping.android.LuaTabForm::class to LuaTabForm::class,
+                    dev.topping.android.LuaTab::class to LuaTab::class,
                     dev.topping.android.LuaThread::class to LuaThread::class,
                     dev.topping.android.LuaToast::class to LuaToast::class,
                     dev.topping.android.LuaTranslator::class to LuaTranslator::class,

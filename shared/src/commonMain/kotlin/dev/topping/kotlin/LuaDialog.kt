@@ -10,13 +10,16 @@ expect open class LuaDialog
         val DIALOG_TYPE_PROGRESS_INDETERMINATE: Int
         val DIALOG_TYPE_DATEPICKER: Int
         val DIALOG_TYPE_TIMEPICKER: Int
-        fun MessageBox(context: LuaContext?, title: String?, content: String?)
+        fun MessageBox(context: LuaContext?, title: LuaRef?, content: LuaRef?)
+        fun MessageBoxInternal(context: LuaContext?, title: String?, content: String?)
         fun Create(context: LuaContext?, dialogType: Int): LuaDialog?
    }
-   fun SetPositiveButton(title: String?, action: LuaTranslator?)
-   fun SetNegativeButton(title: String?, action: LuaTranslator?)
+    fun SetPositiveButton(title: LuaRef?, action: LuaTranslator?)
+   fun SetPositiveButtonInternal(title: String?, action: LuaTranslator?)
+    fun SetNegativeButton(title: LuaRef?, action: LuaTranslator?)
+   fun SetNegativeButtonInternal(title: String?, action: LuaTranslator?)
    fun SetTitle(title: String?)
-   fun SetTitleRef(titleRef: LuaRef?)
+   fun SetTitle(titleRef: LuaRef?)
    fun SetMessage(message: String?)
    fun SetMessage(messageRef: LuaRef?)
    fun SetProgress(value: Int?)

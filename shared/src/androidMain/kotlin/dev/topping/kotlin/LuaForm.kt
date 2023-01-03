@@ -1,43 +1,16 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LuaForm : KTInterface
 {
    var luaForm: dev.topping.android.LuaForm? = null
    actual companion object {
-        actual val FORM_EVENT_CREATE: Int = 0
-        actual val FORM_EVENT_RESUME: Int = 1
-        actual val FORM_EVENT_PAUSE: Int = 2
-        actual val FORM_EVENT_DESTROY: Int = 3
-        actual val FORM_EVENT_UPDATE: Int = 4
-        actual val FORM_EVENT_PAINT: Int = 5
-        actual val FORM_EVENT_MOUSEDOWN: Int = 6
-        actual val FORM_EVENT_MOUSEUP: Int = 7
-        actual val FORM_EVENT_MOUSEMOVE: Int = 8
-        actual val FORM_EVENT_KEYDOWN: Int = 9
-        actual val FORM_EVENT_KEYUP: Int = 10
-        actual val FORM_EVENT_NFC: Int = 11
-        actual fun RegisterFormEvent(luaId: LuaRef?, event: Int, func: KCallable<Unit>?)
+        actual fun Create(lc: LuaContext?, luaId: LuaRef?)
         {
-            val kt: KTWrap<Unit> = KTWrap<Unit>()
-            val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(null, func))
-            dev.topping.android.LuaForm.RegisterFormEvent(luaId?.luaRef!!, event, lt)
+            dev.topping.android.LuaForm.Create(lc?.luaContext!!, luaId?.luaRef)
         }
-        actual fun Create(lc: LuaContext?, luaId: String?)
+        actual fun CreateWithUI(lc: LuaContext?, luaId: LuaRef?, ui: LuaRef?)
         {
-            dev.topping.android.LuaForm.Create(lc?.luaContext!!, luaId)
-        }
-        actual fun CreateWithUI(lc: LuaContext?, luaId: String?, ui: String?)
-        {
-            dev.topping.android.LuaForm.CreateWithUI(lc?.luaContext!!, luaId, ui)
-        }
-        actual fun CreateForTab(lc: LuaContext?, luaId: String?): Any?
-        {
-            val pobj = LuaForm()
-            val pres = dev.topping.android.LuaForm.CreateForTab(lc?.luaContext!!, luaId)
-            pobj.SetNativeObject(pres as dev.topping.android.LuaForm)
-            return pobj
+            dev.topping.android.LuaForm.CreateWithUI(lc?.luaContext!!, luaId?.luaRef, ui?.luaRef)
         }
         actual fun GetActiveForm(): LuaForm?
         {
@@ -74,9 +47,9 @@ actual open class LuaForm : KTInterface
    {
        luaForm?.SetView(v?.lgView)
    }
-   actual fun SetViewXML(xml: String?)
+   actual fun SetViewXML(xml: LuaRef?)
    {
-       luaForm?.SetViewXML(xml)
+       luaForm?.SetViewXML(xml?.luaRef)
    }
    actual fun SetTitle(str: String?)
    {

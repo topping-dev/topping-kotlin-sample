@@ -8,19 +8,19 @@ class TestBed {
         fun onItemSelected(adapter: LGRecyclerViewAdapter?, parent: LGView?, detail: LGView?, index: Int, data: Any?) {
             val form = LuaForm.GetActiveForm()
             if(index == 0)
-                LuaForm.CreateWithUI(form?.GetContext(), "formTest", "form.xml")
+                LuaForm.CreateWithUI(form?.GetContext(), LR.id.formTestLL, LR.layout.form)
             else if(index == 1)
-                LuaForm.CreateWithUI(form?.GetContext(), "hsvTest", "hsv.xml")
+                LuaForm.CreateWithUI(form?.GetContext(), LR.id.hsvTestLL, LR.layout.hsv)
             else if(index == 2)
-                LuaForm.CreateWithUI(form?.GetContext(), "svTest", "sv.xml")
+                LuaForm.CreateWithUI(form?.GetContext(), LR.id.svTestLL, LR.layout.sv)
             else if(index == 3)
                 LuaLog.D("asd", "asd")
             else if(index == 4)
-                LuaDialog.MessageBox(form?.GetContext(), "Title", "Message");
+                LuaDialog.MessageBoxInternal(form?.GetContext(), "Title", "Message");
             else if(index == 5) {
                 val datePicker = LuaDialog.Create(form?.GetContext(), LuaDialog.DIALOG_TYPE_DATEPICKER);
-                datePicker?.SetPositiveButton("Ok", null)
-                datePicker?.SetNegativeButton("Cancel", null)
+                datePicker?.SetPositiveButtonInternal("Ok", null)
+                datePicker?.SetNegativeButtonInternal("Cancel", null)
                 datePicker?.SetTitle("Title")
                 datePicker?.SetMessage("Message")
                 datePicker?.SetDateManual(17, 7, 1985)
@@ -28,8 +28,8 @@ class TestBed {
             }
             else if(index == 6) {
                 val timePicker = LuaDialog.Create(form?.GetContext(), LuaDialog.DIALOG_TYPE_TIMEPICKER);
-                timePicker?.SetPositiveButton("Ok", null)
-                timePicker?.SetNegativeButton("Cancel", null)
+                timePicker?.SetPositiveButtonInternal("Ok", null)
+                timePicker?.SetNegativeButtonInternal("Cancel", null)
                 timePicker?.SetTitle("Title")
                 timePicker?.SetMessage("Message")
                 timePicker?.SetTimeManual(17, 7)

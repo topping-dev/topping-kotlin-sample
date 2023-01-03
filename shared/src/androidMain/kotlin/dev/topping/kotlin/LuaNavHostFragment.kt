@@ -1,36 +1,8 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LuaNavHostFragment : LuaFragment()
 {
    var luaNavHostFragment: dev.topping.android.LuaNavHostFragment? = null
-   actual companion object {
-       actual fun RegisterFragmentEvent(luaId: LuaRef, event: Int, func: KCallable<Unit>?)
-       {
-           val kt: KTWrap<Unit> = KTWrap<Unit>()
-           val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(null, func))
-           dev.topping.android.LuaFragment.RegisterFragmentEvent(luaId.luaRef!!, event, lt)
-       }
-        actual fun Create(lc: LuaContext, luaId: String?): LuaNavHostFragment
-        {
-            val pobj = LuaNavHostFragment()
-            val pres = dev.topping.android.LuaNavHostFragment.Create(lc.luaContext!!, luaId)
-            pobj.SetNativeObject(pres)
-            return pobj
-        }
-        actual fun CreateWithUI(
-            lc: LuaContext,
-            luaId: String?,
-            ui: String?
-        ): LuaNavHostFragment
-        {
-            val pobj = LuaNavHostFragment()
-            val pres = dev.topping.android.LuaNavHostFragment.CreateWithUI(lc.luaContext!!, luaId, ui)
-            pobj.SetNativeObject(pres)
-            return pobj
-        }
-   }
    actual override fun GetContext(): LuaContext?
    {
        val pobj = LuaContext()
@@ -54,9 +26,9 @@ actual open class LuaNavHostFragment : LuaFragment()
    {
        luaNavHostFragment?.SetView(v?.lgView!!)
    }
-   actual override fun SetViewXML(xml: String?)
+   actual override fun SetViewXML(xml: LuaRef?)
    {
-       luaNavHostFragment?.SetViewXML(xml)
+       luaNavHostFragment?.SetViewXML(xml?.luaRef)
    }
    actual override fun SetViewId(luaId: String?)
    {

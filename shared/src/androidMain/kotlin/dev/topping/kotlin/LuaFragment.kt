@@ -1,35 +1,27 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LuaFragment : KTInterface
 {
    var luaFragment: dev.topping.android.LuaFragment? = null
    actual companion object {
-       actual val FRAGMENT_EVENT_CREATE = 0
-       actual val FRAGMENT_EVENT_CREATE_VIEW = 1
-       actual val FRAGMENT_EVENT_VIEW_CREATED = 2
-       actual val FRAGMENT_EVENT_RESUME = 3
-       actual val FRAGMENT_EVENT_PAUSE = 4
-       actual val FRAGMENT_EVENT_DESTROY = 5
-
-       actual fun RegisterFragmentEvent(luaId: LuaRef?, event: Int, func: KCallable<Any?>?)
-       {
-           val kt: KTWrap<Any?> = KTWrap()
-           val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(null, func))
-           dev.topping.android.LuaFragment.RegisterFragmentEvent(luaId?.luaRef!!, event, lt)
-       }
-        actual fun Create(lc: LuaContext?, luaId: String?): LuaFragment?
+        actual fun Create(lc: LuaContext?, luaId: LuaRef?): LuaFragment?
         {
             val pobj = LuaFragment()
-            val pres = dev.topping.android.LuaFragment.Create(lc?.luaContext!!, luaId)
+            val pres = dev.topping.android.LuaFragment.Create(lc?.luaContext!!, luaId?.luaRef)
             pobj.SetNativeObject(pres)
             return pobj
         }
-        actual fun CreateWithUI(lc: LuaContext?, luaId: String?, ui: String?): LuaFragment?
+       actual fun Create(lc: LuaContext?, luaId: LuaRef?, args: MutableMap<String, Any>): LuaFragment?
+       {
+           val pobj = LuaFragment()
+           val pres = dev.topping.android.LuaFragment.Create(lc?.luaContext!!, luaId?.luaRef, args)
+           pobj.SetNativeObject(pres)
+           return pobj
+       }
+        actual fun CreateWithUI(lc: LuaContext?, luaId: LuaRef?, ui: LuaRef?, args: MutableMap<String, Any>): LuaFragment?
         {
             val pobj = LuaFragment()
-            val pres = dev.topping.android.LuaFragment.CreateWithUI(lc?.luaContext!!, luaId, ui)
+            val pres = dev.topping.android.LuaFragment.CreateWithUI(lc?.luaContext!!, luaId?.luaRef, ui?.luaRef, args)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -57,9 +49,9 @@ actual open class LuaFragment : KTInterface
    {
        luaFragment?.SetView(v?.lgView!!)
    }
-   actual open fun SetViewXML(xml: String?)
+   actual open fun SetViewXML(xml: LuaRef?)
    {
-       luaFragment?.SetViewXML(xml)
+       luaFragment?.SetViewXML(xml?.luaRef)
    }
    actual open fun SetViewId(luaId: String?)
    {

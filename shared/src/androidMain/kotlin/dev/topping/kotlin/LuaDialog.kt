@@ -11,9 +11,13 @@ actual open class LuaDialog : KTInterface
         actual val DIALOG_TYPE_PROGRESS_INDETERMINATE: Int = 0x6
         actual val DIALOG_TYPE_DATEPICKER: Int = 0x08
         actual val DIALOG_TYPE_TIMEPICKER: Int = 0x10
-        actual fun MessageBox(context: LuaContext?, title: String?, content: String?)
+        actual fun MessageBox(context: LuaContext?, title: LuaRef?, content: LuaRef?)
         {
-            dev.topping.android.LuaDialog.MessageBox(context?.luaContext, title, content)
+            dev.topping.android.LuaDialog.MessageBox(context?.luaContext, title?.luaRef, content?.luaRef)
+        }
+        actual fun MessageBoxInternal(context: LuaContext?, title: String?, content: String?)
+        {
+            dev.topping.android.LuaDialog.MessageBoxInternal(context?.luaContext, title, content)
         }
         actual fun Create(context: LuaContext?, dialogType: Int): LuaDialog?
         {
@@ -23,19 +27,27 @@ actual open class LuaDialog : KTInterface
             return pobj
         }
    }
-   actual fun SetPositiveButton(title: String?, action: LuaTranslator?)
+    actual fun SetPositiveButton(title: LuaRef?, action: LuaTranslator?)
+    {
+        luaDialog?.SetPositiveButton(title?.luaRef, action?.luaTranslator)
+    }
+   actual fun SetPositiveButtonInternal(title: String?, action: LuaTranslator?)
    {
-       luaDialog?.SetPositiveButton(title, action?.luaTranslator)
+       luaDialog?.SetPositiveButtonInternal(title, action?.luaTranslator)
    }
-   actual fun SetNegativeButton(title: String?, action: LuaTranslator?)
+    actual fun SetNegativeButton(title: LuaRef?, action: LuaTranslator?)
+    {
+        luaDialog?.SetNegativeButton(title?.luaRef, action?.luaTranslator)
+    }
+   actual fun SetNegativeButtonInternal(title: String?, action: LuaTranslator?)
    {
-       luaDialog?.SetNegativeButton(title, action?.luaTranslator)
+       luaDialog?.SetNegativeButtonInternal(title, action?.luaTranslator)
    }
    actual fun SetTitle(title: String?)
    {
        luaDialog?.SetTitle(title)
    }
-   actual fun SetTitleRef(titleRef: LuaRef?)
+   actual fun SetTitle(titleRef: LuaRef?)
    {
        luaDialog?.SetTitleRef(titleRef?.luaRef)
    }

@@ -6,6 +6,6 @@ expect open class LuaLifecycle
 {
    fun addObserver(luaLifecycleObserver: LuaLifecycleObserver)
    fun removeObserver(luaLifecycleObserver: LuaLifecycleObserver)
-   fun launch(func: KCallable<Unit>?)
-   fun launch(dispatcher: Int, func: KCallable<Unit>?)
+   fun launch(func: KCallable<Unit>)
+   fun launch(dispatcher: Int, func: KCallable<Unit>)
 }

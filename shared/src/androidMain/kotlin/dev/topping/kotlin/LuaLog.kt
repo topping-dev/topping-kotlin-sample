@@ -4,23 +4,23 @@ actual open class LuaLog : KTInterface
 {
    var luaLog: dev.topping.android.LuaLog? = null
    actual companion object {
-        actual fun V(tag: String?, message: String?)
+        actual fun V(tag: String, message: String)
         {
             dev.topping.android.LuaLog.V(tag, message)
         }
-        actual fun D(tag: String?, message: String?)
+        actual fun D(tag: String, message: String)
         {
             dev.topping.android.LuaLog.D(tag, message)
         }
-        actual fun I(tag: String?, message: String?)
+        actual fun I(tag: String, message: String)
         {
             dev.topping.android.LuaLog.I(tag, message)
         }
-        actual fun W(tag: String?, message: String?)
+        actual fun W(tag: String, message: String)
         {
             dev.topping.android.LuaLog.W(tag, message)
         }
-        actual fun E(tag: String?, message: String?)
+        actual fun E(tag: String, message: String)
         {
             dev.topping.android.LuaLog.E(tag, message)
         }

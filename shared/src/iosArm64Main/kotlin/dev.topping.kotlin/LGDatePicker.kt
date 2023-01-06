@@ -1,44 +1,35 @@
 package dev.topping.kotlin
 
 import kotlinx.cinterop.StableRef
-import kotlinx.cinterop.staticCFunction
 import kotlin.reflect.KCallable
 
 actual open class LGDatePicker : LGFrameLayout()
 {
    var lgDatePicker: cocoapods.Topping.LGDatePicker? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?): LGDatePicker?
-        {
+        actual fun Create(lc: LuaContext): LGDatePicker {
             val pobj = LGDatePicker()
-            val pres = cocoapods.Topping.LGDatePicker.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGDatePicker.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun GetDay(): Int?
-   {
-       return lgDatePicker?.GetDay()
+   actual fun GetDay(): Int {
+       return lgDatePicker?.GetDay()!!
    }
-   actual fun GetMonth(): Int?
-   {
-       return lgDatePicker?.GetMonth()
+   actual fun GetMonth(): Int {
+       return lgDatePicker?.GetMonth()!!
    }
-   actual fun GetYear(): Int?
-   {
-       return lgDatePicker?.GetYear()
+   actual fun GetYear(): Int {
+       return lgDatePicker?.GetYear()!!
    }
-   actual fun UpdateDate(day: Int?, month: Int?, year: Int?)
+   actual fun UpdateDate(day: Int, month: Int, year: Int)
    {
-       lgDatePicker?.UpdateDate(day!!, month!!, year!!)
+       lgDatePicker?.UpdateDate(day, month, year)
    }
    actual fun SetOnDateChangedListener(func: KCallable<Unit>?)
    {
-       val kt: KTWrap = KTWrap()
-       val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-       lt.nobj = StableRef.create(kt).asCPointer()
-       lt.kFRetF = kt.Init(this, func)
-       lgDatePicker?.SetOnDateChangedListener(lt)
+       lgDatePicker?.SetOnDateChangedListener(func.toLuaTranslator(this))
    }
     open override fun GetNativeObject(): Any?
    {

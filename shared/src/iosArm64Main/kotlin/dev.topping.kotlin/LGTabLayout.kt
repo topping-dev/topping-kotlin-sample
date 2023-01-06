@@ -1,5 +1,7 @@
 package dev.topping.kotlin
 
+import kotlin.reflect.KCallable
+
 actual open class LGTabLayout : LGFrameLayout()
 {
    var lgTabLayout: cocoapods.Topping.LGTabLayout? = null
@@ -12,8 +14,8 @@ actual open class LGTabLayout : LGFrameLayout()
             return pobj
         }*/
    }
-    actual fun SetTabSelectedListener(ltTabSelectedListener: LuaTranslator) {
-        lgTabLayout?.SetTabSelectedListener(ltTabSelectedListener.luaTranslator)
+    actual fun SetTabSelectedListener(func: KCallable<Unit>?) {
+        lgTabLayout?.SetTabSelectedListener(func.toLuaTranslator(this))
     }
     open override fun GetNativeObject(): Any?
    {

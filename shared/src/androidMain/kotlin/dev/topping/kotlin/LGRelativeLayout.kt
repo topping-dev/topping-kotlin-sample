@@ -4,8 +4,7 @@ actual open class LGRelativeLayout : LGViewGroup()
 {
    var lgRelativeLayout: android.widget.LGRelativeLayout? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?): LGRelativeLayout?
-        {
+        actual fun Create(lc: LuaContext): LGRelativeLayout {
             val pobj = LGRelativeLayout()
             val pres = android.widget.LGRelativeLayout.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)

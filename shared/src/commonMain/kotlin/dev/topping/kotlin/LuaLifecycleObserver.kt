@@ -12,6 +12,6 @@ expect open class LuaLifecycleObserver
       val ON_START: Int
       val ON_STOP: Int
 
-      fun create(func: KCallable<Unit>?): LuaLifecycleObserver
+      fun create(func: KCallable<Unit>): LuaLifecycleObserver
    }
 }

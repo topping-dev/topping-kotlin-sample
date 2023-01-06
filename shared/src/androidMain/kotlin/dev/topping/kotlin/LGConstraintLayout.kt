@@ -4,8 +4,7 @@ actual open class LGConstraintLayout : LGViewGroup()
 {
    var lgConstraintLayout: android.widget.LGConstraintLayout? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?): LGConstraintLayout?
-        {
+        actual fun Create(lc: LuaContext): LGConstraintLayout {
             val pobj = LGConstraintLayout()
             val pres = android.widget.LGConstraintLayout.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)

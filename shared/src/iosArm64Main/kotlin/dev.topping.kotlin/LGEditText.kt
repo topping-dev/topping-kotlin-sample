@@ -1,44 +1,30 @@
 package dev.topping.kotlin
 
 import kotlinx.cinterop.StableRef
-import kotlinx.cinterop.staticCFunction
 import kotlin.reflect.KCallable
 
 actual open class LGEditText : LGTextView()
 {
    var lgEditText: cocoapods.Topping.LGEditText? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?): LGEditText?
-        {
+        actual fun Create(lc: LuaContext): LGEditText {
             val pobj = LGEditText()
-            val pres = cocoapods.Topping.LGEditText.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGEditText.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
     actual fun SetTextChangedListener(func: KCallable<Unit>?)
     {
-        val kt: KTWrap = KTWrap()
-        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-        lt.nobj = StableRef.create(kt).asCPointer()
-        lt.kFRetF = kt.Init(this, func)
-        lgEditText?.SetTextChangedListener(lt)
+        lgEditText?.SetTextChangedListener(func.toLuaTranslator(this))
     }
     actual fun SetBeforeTextChangedListener(func: KCallable<Unit>?)
     {
-        val kt: KTWrap = KTWrap()
-        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-        lt.nobj = StableRef.create(kt).asCPointer()
-        lt.kFRetF = kt.Init(this, func)
-        lgEditText?.SetBeforeTextChangedListener(lt)
+        lgEditText?.SetBeforeTextChangedListener(func.toLuaTranslator(this))
     }
     actual fun SetAfterTextChangedListener(func: KCallable<Unit>?)
     {
-        val kt: KTWrap = KTWrap()
-        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-        lt.nobj = StableRef.create(kt).asCPointer()
-        lt.kFRetF = kt.Init(this, func)
-        lgEditText?.SetAfterTextChangedListener(lt)
+        lgEditText?.SetAfterTextChangedListener(func.toLuaTranslator(this))
     }
     open override fun GetNativeObject(): Any?
    {

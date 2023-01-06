@@ -1,37 +1,22 @@
 package dev.topping.kotlin
 
-import kotlinx.cinterop.StableRef
-import kotlinx.cinterop.staticCFunction
 import kotlin.reflect.KCallable
 
 actual open class LuaThread : KTInterface
 {
    var luaThread: cocoapods.Topping.LuaThread? = null
    actual companion object {
-        actual fun RunOnUIThread(func: KCallable<Unit>?)
+        actual fun RunOnUIThread(func: KCallable<Unit>)
         {
-            val kt: KTWrap = KTWrap()
-            val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-            lt.nobj = StableRef.create(kt).asCPointer()
-            lt.kFRetF = kt.Init(this, func)
-            cocoapods.Topping.LuaThread.RunOnUIThread(lt)
+            cocoapods.Topping.LuaThread.RunOnUIThread(func.toLuaTranslator(this))
         }
-        actual fun RunOnBackground(func: KCallable<Unit>?)
+        actual fun RunOnBackground(func: KCallable<Unit>)
         {
-            val kt: KTWrap = KTWrap()
-            val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-            lt.nobj = StableRef.create(kt).asCPointer()
-            lt.kFRetF = kt.Init(this, func)
-            cocoapods.Topping.LuaThread.RunOnBackground(lt)
+            cocoapods.Topping.LuaThread.RunOnBackground(func.toLuaTranslator(this))
         }
-        actual fun New(func: KCallable<Unit>?): LuaThread?
-        {
+        actual fun New(func: KCallable<Unit>): LuaThread {
             val pobj = LuaThread()
-            val kt: KTWrap = KTWrap()
-            val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-            lt.nobj = StableRef.create(kt).asCPointer()
-            lt.kFRetF = kt.Init(this, func)
-            val pres = cocoapods.Topping.LuaThread.New(lt)
+            val pres = cocoapods.Topping.LuaThread.New(func.toLuaTranslator(this))
             pobj.SetNativeObject(pres)
             return pobj
         }

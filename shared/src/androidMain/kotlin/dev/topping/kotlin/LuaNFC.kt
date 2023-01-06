@@ -7,9 +7,7 @@ open class LuaNFC : KTInterface
    var luaNFC: dev.topping.android.LuaNFC? = null
    fun SetOnTagReadListener(func: KCallable<Unit>?)
    {
-       val kt: KTWrap<Unit> = KTWrap<Unit>()
-       val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
-       luaNFC?.SetOnTagReadListener(lt)
+       luaNFC?.SetOnTagReadListener(func.toLuaTranslator(this))
    }
     open override fun GetNativeObject(): Any?
    {

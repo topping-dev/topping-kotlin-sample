@@ -19,16 +19,13 @@ actual open class LuaMutableLiveData : KTInterface
 
     }
 
-    actual fun observe(owner: LuaLifecycleOwner, func: KCallable<Unit>?) {
-        val kt = KTWrap()
-        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-        lt.nobj = StableRef.create(kt).asCPointer()
-        lt.kFRetF = kt.Init(this, func)
+    actual fun observe(owner: LuaLifecycleOwner, func: KCallable<Unit>) {
+        val lt = func.toLuaTranslator(this)
         luaMutableLiveData?.observeLua(owner.GetNativeObject() as cocoapods.Topping.LuaLifecycleOwner, lt)
-        functionMap[func!!] = lt
+        functionMap[func] = lt
     }
-    actual fun removeObserver(func: KCallable<Unit>?) {
-        luaMutableLiveData?.removeObserverLua(functionMap[func!!]!!)
+    actual fun removeObserver(func: KCallable<Unit>) {
+        luaMutableLiveData?.removeObserverLua(functionMap[func]!!)
     }
 
     actual fun setValue(value: Any?) {

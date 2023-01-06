@@ -2,7 +2,6 @@ package dev.topping.kotlin
 
 import cocoapods.Topping.LuaNativeObject
 import kotlinx.cinterop.StableRef
-import kotlinx.cinterop.staticCFunction
 import platform.darwin.NSObject
 import kotlin.reflect.KCallable
 
@@ -10,15 +9,14 @@ actual open class LuaHttpClient : KTInterface
 {
    var luaHttpClient: cocoapods.Topping.LuaHttpClient? = null
    actual companion object {
-        actual fun Create(tag: String?): LuaHttpClient?
-        {
+        actual fun Create(tag: String): LuaHttpClient {
             val pobj = LuaHttpClient()
             val pres = cocoapods.Topping.LuaHttpClient.Create(tag)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun SetContentType(type: String?)
+   actual fun SetContentType(type: String)
    {
        luaHttpClient?.SetContentType(type)
    }
@@ -67,19 +65,11 @@ actual open class LuaHttpClient : KTInterface
    }
    actual fun SetOnFinishListener(func: KCallable<Unit>?)
    {
-       val kt: KTWrap = KTWrap()
-       val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-       lt.nobj = StableRef.create(kt).asCPointer()
-       lt.kFRetF = kt.Init(this, func)
-       luaHttpClient?.SetOnFinishListener(lt)
+       luaHttpClient?.SetOnFinishListener(func.toLuaTranslator(this))
    }
    actual fun SetOnFailListener(func: KCallable<Unit>?)
    {
-       val kt: KTWrap = KTWrap()
-       val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-       lt.nobj = StableRef.create(kt).asCPointer()
-       lt.kFRetF = kt.Init(this, func)
-       luaHttpClient?.SetOnFailListener(lt)
+       luaHttpClient?.SetOnFailListener(func.toLuaTranslator(this))
    }
     open override fun GetNativeObject(): Any?
    {

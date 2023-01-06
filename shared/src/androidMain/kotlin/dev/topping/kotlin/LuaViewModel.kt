@@ -4,7 +4,7 @@ actual open class LuaViewModel : KTInterface
 {
    var luaViewModel: dev.topping.android.LuaViewModel? = null
 
-    actual fun SetObject(key: String, obj: Any)
+    actual fun SetObject(key: String, obj: Any?)
     {
         luaViewModel?.SetObject(key, obj)
     }

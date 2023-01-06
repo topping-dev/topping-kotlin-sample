@@ -4,42 +4,37 @@ actual open class LuaFragment : KTInterface
 {
    var luaFragment: cocoapods.Topping.LuaFragment? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?, luaId: LuaRef?): LuaFragment?
-        {
+        actual fun Create(lc: LuaContext, luaId: LuaRef): LuaFragment {
             val pobj = LuaFragment()
-            val pres = cocoapods.Topping.LuaFragment.Create(lc?.luaContext, luaId?.luaRef)
+            val pres = cocoapods.Topping.LuaFragment.Create(lc.luaContext, luaId.luaRef)
             pobj.SetNativeObject(pres)
             return pobj
         }
-       actual fun Create(lc: LuaContext?, luaId: LuaRef?, args: MutableMap<String, Any>): LuaFragment?
-       {
+       actual fun Create(lc: LuaContext, luaId: LuaRef, args: MutableMap<String, Any>): LuaFragment {
            val pobj = LuaFragment()
-           val pres = cocoapods.Topping.LuaFragment.Create(lc?.luaContext, luaId?.luaRef, args.toNSMutableDictionary())
+           val pres = cocoapods.Topping.LuaFragment.Create(lc.luaContext, luaId.luaRef, args.toNSMutableDictionary())
            pobj.SetNativeObject(pres)
            return pobj
        }
-        actual fun CreateWithUI(lc: LuaContext?, luaId: LuaRef?, ui: LuaRef?, args: MutableMap<String, Any>): LuaFragment?
-        {
+        actual fun CreateWithUI(lc: LuaContext, luaId: LuaRef, ui: LuaRef, args: MutableMap<String, Any>): LuaFragment {
             val pobj = LuaFragment()
-            val pres = cocoapods.Topping.LuaFragment.CreateWithUI(lc?.luaContext, luaId?.luaRef, ui?.luaRef, args.toNSMutableDictionary())
+            val pres = cocoapods.Topping.LuaFragment.CreateWithUI(lc.luaContext, luaId.luaRef, ui.luaRef, args.toNSMutableDictionary())
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual open fun GetContext(): LuaContext?
-   {
+   actual open fun GetContext(): LuaContext {
        val pobj = LuaContext()
        val obj = luaFragment?.GetContext()
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual open fun IsInitialized(): Boolean?
-   {
-       return luaFragment?.IsInitialized()
+   actual open fun IsInitialized(): Boolean {
+       return luaFragment?.IsInitialized()!!
    }
-   actual open fun GetViewById(lId: LuaRef?): LGView?
+   actual open fun GetViewById(lId: LuaRef): LGView?
    {
-       return KTWrap.Wrap(luaFragment?.GetViewById(lId?.luaRef)) as LGView?
+       return KTWrap.Wrap(luaFragment?.GetViewById(lId.luaRef)) as LGView?
    }
    actual open fun GetView(): LGView?
    {
@@ -49,15 +44,15 @@ actual open class LuaFragment : KTInterface
    {
        luaFragment?.SetView(v?.lgView)
    }
-   actual open fun SetViewXML(xml: LuaRef?)
+   actual open fun SetViewXML(xml: LuaRef)
    {
-       luaFragment?.SetViewXML(xml?.luaRef)
+       luaFragment?.SetViewXML(xml.luaRef)
    }
-   actual open fun SetViewId(luaId: String?)
+   actual open fun SetViewId(luaId: String)
    {
        luaFragment?.SetViewId(luaId)
    }
-   actual open fun SetTitle(str: String?)
+   actual open fun SetTitle(str: String)
    {
        luaFragment?.SetTitle(str)
    }

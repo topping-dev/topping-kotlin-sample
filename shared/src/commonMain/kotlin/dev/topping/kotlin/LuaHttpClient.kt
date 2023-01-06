@@ -5,9 +5,9 @@ import kotlin.reflect.KCallable
 expect open class LuaHttpClient
 {
    companion object {
-        fun Create(tag: String?): LuaHttpClient?
+        fun Create(tag: String): LuaHttpClient
    }
-   fun SetContentType(type: String?)
+   fun SetContentType(type: String)
    fun StartForm(): LuaObjectStore?
    fun AppendPostData(formData: Any?, name: String?, value: String?)
    fun AppendFileData(formData: Any?, name: String?, file: Any?)

@@ -4,23 +4,22 @@ actual open class LGProgressBar : LGView()
 {
    var lgProgressBar: android.widget.LGProgressBar? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?): LGProgressBar?
-        {
+        actual fun Create(lc: LuaContext): LGProgressBar {
             val pobj = LGProgressBar()
             val pres = android.widget.LGProgressBar.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun SetProgress(v: Int?)
+   actual fun SetProgress(v: Int)
    {
        lgProgressBar?.SetProgress(v)
    }
-   actual fun SetMax(v: Int?)
+   actual fun SetMax(v: Int)
    {
        lgProgressBar?.SetMax(v)
    }
-   actual fun SetIndeterminate(v: Boolean?)
+   actual fun SetIndeterminate(v: Boolean)
    {
        lgProgressBar?.SetIndeterminate(v)
    }

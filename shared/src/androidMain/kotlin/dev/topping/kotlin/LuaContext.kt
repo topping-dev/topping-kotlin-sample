@@ -6,8 +6,7 @@ actual open class LuaContext : KTInterface
 {
    var luaContext: dev.topping.android.luagui.LuaContext? = null
    actual companion object {
-        actual fun CreateLuaContext(context: Any?): LuaContext?
-        {
+        actual fun CreateLuaContext(context: Any): LuaContext {
             val pobj = LuaContext()
             val pres = dev.topping.android.luagui.LuaContext.CreateLuaContext(context as Context)
             pobj.SetNativeObject(pres)

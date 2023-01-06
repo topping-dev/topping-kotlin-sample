@@ -4,8 +4,7 @@ actual open class LuaDatabase : KTInterface
 {
    var luaDatabase: dev.topping.android.LuaDatabase? = null
    actual companion object {
-        actual fun Create(context: LuaContext?): LuaDatabase?
-        {
+        actual fun Create(context: LuaContext): LuaDatabase {
             val pobj = LuaDatabase()
             val pres = dev.topping.android.LuaDatabase.Create(context?.luaContext)
             pobj.SetNativeObject(pres as dev.topping.android.LuaDatabase)
@@ -23,14 +22,14 @@ actual open class LuaDatabase : KTInterface
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual fun Query(conn: LuaObjectStore?, str: String?): LuaObjectStore?
+   actual fun Query(conn: LuaObjectStore?, str: String): LuaObjectStore?
    {
        val pobj = LuaObjectStore()
        val obj = luaDatabase?.Query(conn?.luaObjectStore, str)
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual fun Insert(conn: LuaObjectStore?, str: String?): LuaObjectStore?
+   actual fun Insert(conn: LuaObjectStore?, str: String): LuaObjectStore?
    {
        val pobj = LuaObjectStore()
        val obj = luaDatabase?.Insert(conn?.luaObjectStore, str)
@@ -45,23 +44,23 @@ actual open class LuaDatabase : KTInterface
    {
        luaDatabase?.Close(conn?.luaObjectStore)
    }
-   actual fun GetInt(stmt: LuaObjectStore?, column: Int?): Int?
+   actual fun GetInt(stmt: LuaObjectStore?, column: Int): Int?
    {
        return luaDatabase?.GetInt(stmt?.luaObjectStore, column)
    }
-   actual fun GetFloat(stmt: LuaObjectStore?, column: Int?): Float?
+   actual fun GetFloat(stmt: LuaObjectStore?, column: Int): Float?
    {
        return luaDatabase?.GetFloat(stmt?.luaObjectStore, column)
    }
-   actual fun GetString(stmt: LuaObjectStore?, column: Int?): String?
+   actual fun GetString(stmt: LuaObjectStore?, column: Int): String?
    {
        return luaDatabase?.GetString(stmt?.luaObjectStore, column)
    }
-   actual fun GetDouble(stmt: LuaObjectStore?, column: Int?): Double?
+   actual fun GetDouble(stmt: LuaObjectStore?, column: Int): Double?
    {
        return luaDatabase?.GetDouble(stmt?.luaObjectStore, column)
    }
-   actual fun GetLong(stmt: LuaObjectStore?, column: Int?): Long?
+   actual fun GetLong(stmt: LuaObjectStore?, column: Int): Long?
    {
        return luaDatabase?.GetLong(stmt?.luaObjectStore, column)
    }

@@ -1,17 +1,15 @@
 package dev.topping.kotlin
 
 import kotlinx.cinterop.StableRef
-import kotlinx.cinterop.staticCFunction
 import kotlin.reflect.KCallable
 
 actual open class LGRadioGroup : LGLinearLayout()
 {
    var lgRadioGroup: cocoapods.Topping.LGRadioGroup? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?): LGRadioGroup?
-        {
+        actual fun Create(lc: LuaContext): LGRadioGroup {
             val pobj = LGRadioGroup()
-            val pres = cocoapods.Topping.LGRadioGroup.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGRadioGroup.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

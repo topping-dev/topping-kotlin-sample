@@ -4,19 +4,18 @@ actual open class LuaBuffer : KTInterface
 {
    var luaBuffer: dev.topping.android.LuaBuffer? = null
    actual companion object {
-        actual fun Create(capacity: Int): LuaBuffer?
-        {
+        actual fun Create(capacity: Int): LuaBuffer {
             val pobj = LuaBuffer()
             val pres = dev.topping.android.LuaBuffer.Create(capacity)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun GetByte(index: Int?): Int?
+   actual fun GetByte(index: Int): Int?
    {
        return luaBuffer?.GetByte(index)
    }
-   actual fun SetByte(index: Int?, value: Int?)
+   actual fun SetByte(index: Int, value: Int)
    {
        luaBuffer?.SetByte(index, value)
    }

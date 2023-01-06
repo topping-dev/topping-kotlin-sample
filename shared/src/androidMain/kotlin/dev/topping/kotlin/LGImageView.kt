@@ -4,8 +4,7 @@ actual open class LGImageView : LGView()
 {
    var lgImageView: android.widget.LGImageView? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?, luaId: String?): LGImageView?
-        {
+        actual fun Create(lc: LuaContext, luaId: String): LGImageView {
             val pobj = LGImageView()
             val pres = android.widget.LGImageView.Create(lc?.luaContext, luaId)
             pobj.SetNativeObject(pres)

@@ -4,10 +4,9 @@ actual open class LGCompoundButton : LGButton()
 {
    var lgCompoundButton: cocoapods.Topping.LGCompoundButton? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?): LGCompoundButton?
-        {
+        actual fun Create(lc: LuaContext): LGCompoundButton {
             val pobj = LGCompoundButton()
-            val pres = cocoapods.Topping.LGCompoundButton.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGCompoundButton.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

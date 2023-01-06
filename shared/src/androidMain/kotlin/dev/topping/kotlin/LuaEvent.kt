@@ -21,7 +21,7 @@ actual open class LuaEvent : KTInterface
         actual val UI_EVENT_KEYDOWN: Int = 12
         actual val UI_EVENT_KEYUP: Int = 13
         actual val UI_EVENT_NFC: Int = 14
-       actual fun RegisterUIEvent(luaId: LuaRef?, event: Int, func: KCallable<Any?>?)
+       actual fun RegisterUIEvent(luaId: LuaRef, event: Int, func: KCallable<Any?>)
        {
            val kt: KTWrap<Any?> = KTWrap()
            val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(null, func))

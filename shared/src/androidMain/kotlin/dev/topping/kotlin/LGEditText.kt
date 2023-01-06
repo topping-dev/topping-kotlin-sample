@@ -6,8 +6,7 @@ actual open class LGEditText : LGTextView()
 {
    var lgEditText: android.widget.LGEditText? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?): LGEditText?
-        {
+        actual fun Create(lc: LuaContext): LGEditText {
             val pobj = LGEditText()
             val pres = android.widget.LGEditText.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)
@@ -16,21 +15,15 @@ actual open class LGEditText : LGTextView()
    }
     actual fun SetTextChangedListener(func: KCallable<Unit>?)
     {
-        val kt: KTWrap<Unit> = KTWrap<Unit>()
-        val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
-        lgEditText?.SetTextChangedListener(lt)
+        lgEditText?.SetTextChangedListener(func.toLuaTranslator(this))
     }
     actual fun SetBeforeTextChangedListener(func: KCallable<Unit>?)
     {
-        val kt: KTWrap<Unit> = KTWrap<Unit>()
-        val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
-        lgEditText?.SetBeforeTextChangedListener(lt)
+        lgEditText?.SetBeforeTextChangedListener(func.toLuaTranslator(this))
     }
     actual fun SetAfterTextChangedListener(func: KCallable<Unit>?)
     {
-        val kt: KTWrap<Unit> = KTWrap<Unit>()
-        val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
-        lgEditText?.SetAfterTextChangedListener(lt)
+        lgEditText?.SetAfterTextChangedListener(func.toLuaTranslator(this))
     }
     open override fun GetNativeObject(): Any?
    {

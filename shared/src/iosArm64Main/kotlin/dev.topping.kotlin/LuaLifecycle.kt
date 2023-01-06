@@ -15,21 +15,13 @@ actual open class LuaLifecycle : KTInterface
         luaLifecycle?.removeObserver(KTWrap.Wrap(luaLifecycleObserver) as cocoapods.Topping.LuaLifecycleObserver)
     }
 
-    actual fun launch(func: KCallable<Unit>?)
+    actual fun launch(func: KCallable<Unit>)
     {
-        val kt = KTWrap()
-        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-        lt.nobj = StableRef.create(kt).asCPointer()
-        lt.kFRetF = kt.Init(this, func)
-        luaLifecycle?.launch(lt)
+        luaLifecycle?.launch(func.toLuaTranslator(this))
     }
-    actual fun launch(dispatcher: Int, func: KCallable<Unit>?)
+    actual fun launch(dispatcher: Int, func: KCallable<Unit>)
     {
-        val kt = KTWrap()
-        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-        lt.nobj = StableRef.create(kt).asCPointer()
-        lt.kFRetF = kt.Init(this, func)
-        luaLifecycle?.launchDispatcher(dispatcher, lt)
+        luaLifecycle?.launchDispatcher(dispatcher, func.toLuaTranslator(this))
     }
 
     open override fun GetNativeObject(): Any?

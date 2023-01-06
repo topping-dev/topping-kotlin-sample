@@ -18,17 +18,17 @@ actual open class LuaStream : KTInterface
    {
        return luaStream?.ReadOne()
    }
-   actual fun Read(bufferO: LuaBuffer?, offset: Int?, length: Int?)
+   actual fun Read(bufferO: LuaBuffer, offset: Int, length: Int)
    {
-       luaStream?.Read(bufferO?.luaBuffer, offset!!, length!!)
+       luaStream?.Read(bufferO.luaBuffer, offset, length)
    }
-   actual fun WriteOne(oneByte: Int?)
+   actual fun WriteOne(oneByte: Int)
    {
-       luaStream?.WriteOne(oneByte!!)
+       luaStream?.WriteOne(oneByte)
    }
-   actual fun Write(bufferO: LuaBuffer?, offset: Int?, length: Int?)
+   actual fun Write(bufferO: LuaBuffer, offset: Int, length: Int)
    {
-       luaStream?.Write(bufferO?.luaBuffer, offset!!, length!!)
+       luaStream?.Write(bufferO.luaBuffer, offset, length)
    }
     open override fun GetNativeObject(): Any?
    {

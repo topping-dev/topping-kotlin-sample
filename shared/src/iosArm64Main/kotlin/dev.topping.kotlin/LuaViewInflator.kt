@@ -4,15 +4,14 @@ actual open class LuaViewInflator : KTInterface
 {
    var luaViewInflator: cocoapods.Topping.LuaViewInflator? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?): LuaViewInflator?
-        {
+        actual fun Create(lc: LuaContext): LuaViewInflator {
             val pobj = LuaViewInflator()
-            val pres = cocoapods.Topping.LuaViewInflator.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LuaViewInflator.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun ParseFile(filename: String?, parent: LGView?): LGView?
+   actual fun ParseFile(filename: String, parent: LGView?): LGView?
    {
        return KTWrap.Wrap(luaViewInflator?.ParseFile(filename, parent?.lgView)) as LGView?
    }

@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlinx.cinterop.StableRef
-import kotlinx.cinterop.staticCFunction
 import platform.darwin.NSObject
 import kotlin.reflect.KCallable
 
@@ -9,19 +7,18 @@ actual open class LGRecyclerViewAdapter : KTInterface
 {
    var lgRecyclerViewAdapter: cocoapods.Topping.LGRecyclerViewAdapter? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?, id: String?): LGRecyclerViewAdapter?
-        {
+        actual fun Create(lc: LuaContext, id: String): LGRecyclerViewAdapter {
             val pobj = LGRecyclerViewAdapter()
-            val pres = cocoapods.Topping.LGRecyclerViewAdapter.Create(lc?.luaContext, id!!)
+            val pres = cocoapods.Topping.LGRecyclerViewAdapter.Create(lc.luaContext, id)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun AddValue(value: Any?)
+   actual fun AddValue(value: Any)
    {
        lgRecyclerViewAdapter?.AddValue(value as NSObject)
    }
-   actual fun RemoveValue(value: Any?)
+   actual fun RemoveValue(value: Any)
    {
        lgRecyclerViewAdapter?.RemoveValue(value as NSObject)
    }
@@ -35,35 +32,19 @@ actual open class LGRecyclerViewAdapter : KTInterface
    }
    actual fun SetOnItemSelected(func: KCallable<Unit>?)
    {
-       val kt: KTWrap = KTWrap()
-       val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-       lt.nobj = StableRef.create(kt).asCPointer()
-       lt.kFRetF = kt.Init(this, func)
-       lgRecyclerViewAdapter?.SetOnItemSelected(lt)
+       lgRecyclerViewAdapter?.SetOnItemSelected(func.toLuaTranslator(this))
    }
    actual fun SetOnCreateViewHolder(func: KCallable<Any>?)
    {
-       val kt: KTWrap = KTWrap()
-       val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-       lt.nobj = StableRef.create(kt).asCPointer()
-       lt.kFRetF = kt.Init(this, func)
-       lgRecyclerViewAdapter?.SetOnCreateViewHolder(lt)
+       lgRecyclerViewAdapter?.SetOnCreateViewHolder(func.toLuaTranslator(this))
    }
    actual fun SetOnBindViewHolder(func: KCallable<Unit>?)
    {
-       val kt: KTWrap = KTWrap()
-       val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-       lt.nobj = StableRef.create(kt).asCPointer()
-       lt.kFRetF = kt.Init(this, func)
-       lgRecyclerViewAdapter?.SetOnBindViewHolder(lt)
+       lgRecyclerViewAdapter?.SetOnBindViewHolder(func.toLuaTranslator(this))
    }
    actual fun SetGetItemViewType(func: KCallable<Int>?)
    {
-       val kt: KTWrap = KTWrap()
-       val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-       lt.nobj = StableRef.create(kt).asCPointer()
-       lt.kFRetF = kt.Init(this, func)
-       lgRecyclerViewAdapter?.SetGetItemViewType(lt)
+       lgRecyclerViewAdapter?.SetGetItemViewType(func.toLuaTranslator(this))
    }
     open override fun GetNativeObject(): Any?
    {

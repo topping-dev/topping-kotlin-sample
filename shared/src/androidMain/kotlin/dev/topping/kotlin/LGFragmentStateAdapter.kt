@@ -1,5 +1,7 @@
 package dev.topping.kotlin
 
+import kotlin.reflect.KCallable
+
 actual open class LGFragmentStateAdapter : KTInterface
 {
    var lgFragmentStateAdapter: android.widget.LGFragmentStateAdapter? = null
@@ -24,11 +26,11 @@ actual open class LGFragmentStateAdapter : KTInterface
             return pobj
         }
    }
-    actual fun SetCreateFragment(ltCreateFragment: LuaTranslator) {
-        lgFragmentStateAdapter?.SetCreateFragment(ltCreateFragment.luaTranslator)
+    actual fun SetCreateFragment(func: KCallable<LuaFragment>) {
+        lgFragmentStateAdapter?.SetCreateFragment(func.toLuaTranslator(this))
     }
-    actual fun SetGetItemCount(ltGetItemCount: LuaTranslator) {
-        lgFragmentStateAdapter?.SetGetItemCount(ltGetItemCount.luaTranslator)
+    actual fun SetGetItemCount(func: KCallable<Int>) {
+        lgFragmentStateAdapter?.SetGetItemCount(func.toLuaTranslator(this))
     }
     open override fun GetNativeObject(): Any?
    {

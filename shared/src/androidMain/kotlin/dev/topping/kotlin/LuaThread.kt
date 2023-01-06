@@ -6,24 +6,17 @@ actual open class LuaThread : KTInterface
 {
    var luaThread: dev.topping.android.LuaThread? = null
    actual companion object {
-        actual fun RunOnUIThread(func: KCallable<Unit>?)
+        actual fun RunOnUIThread(func: KCallable<Unit>)
         {
-            val kt: KTWrap<Unit> = KTWrap<Unit>()
-            val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
-            dev.topping.android.LuaThread.RunOnUIThread(lt)
+            dev.topping.android.LuaThread.RunOnUIThread(func.toLuaTranslator(this))
         }
-        actual fun RunOnBackground(func: KCallable<Unit>?)
+        actual fun RunOnBackground(func: KCallable<Unit>)
         {
-            val kt: KTWrap<Unit> = KTWrap<Unit>()
-            val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
-            dev.topping.android.LuaThread.RunOnBackground(lt)
+            dev.topping.android.LuaThread.RunOnBackground(func.toLuaTranslator(this))
         }
-        actual fun New(func: KCallable<Unit>?): LuaThread?
-        {
+        actual fun New(func: KCallable<Unit>): LuaThread {
             val pobj = LuaThread()
-            val kt: KTWrap<Unit> = KTWrap<Unit>()
-            val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
-            val pres = dev.topping.android.LuaThread.New(lt)
+            val pres = dev.topping.android.LuaThread.New(func.toLuaTranslator(this))
             pobj.SetNativeObject(pres)
             return pobj
         }

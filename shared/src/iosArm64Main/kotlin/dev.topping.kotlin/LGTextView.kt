@@ -4,10 +4,9 @@ actual open class LGTextView : LGView()
 {
    var lgTextView: cocoapods.Topping.LGTextView? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?): LGTextView?
-        {
+        actual fun Create(lc: LuaContext): LGTextView {
             val pobj = LGTextView()
-            val pres = cocoapods.Topping.LGTextView.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGTextView.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

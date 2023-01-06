@@ -6,19 +6,18 @@ actual open class LGRecyclerViewAdapter : KTInterface
 {
    var lgRecyclerViewAdapter: android.widget.LGRecyclerViewAdapter? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?, id: String?): LGRecyclerViewAdapter?
-        {
+        actual fun Create(lc: LuaContext, id: String): LGRecyclerViewAdapter {
             val pobj = LGRecyclerViewAdapter()
             val pres = android.widget.LGRecyclerViewAdapter.Create(lc?.luaContext, id)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun AddValue(value: Any?)
+   actual fun AddValue(value: Any)
    {
        lgRecyclerViewAdapter?.AddValue(value)
    }
-   actual fun RemoveValue(value: Any?)
+   actual fun RemoveValue(value: Any)
    {
        lgRecyclerViewAdapter?.RemoveValue(value)
    }
@@ -32,27 +31,19 @@ actual open class LGRecyclerViewAdapter : KTInterface
    }
    actual fun SetOnItemSelected(func: KCallable<Unit>?)
    {
-       val kt: KTWrap<Unit> = KTWrap<Unit>()
-       val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
-       lgRecyclerViewAdapter?.SetOnItemSelected(lt)
+       lgRecyclerViewAdapter?.SetOnItemSelected(func.toLuaTranslator(this))
    }
    actual fun SetOnCreateViewHolder(func: KCallable<Any>?)
    {
-       val kt: KTWrap<Any> = KTWrap<Any>()
-       val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
-       lgRecyclerViewAdapter?.SetOnCreateViewHolder(lt)
+       lgRecyclerViewAdapter?.SetOnCreateViewHolder(func.toLuaTranslator(this))
    }
    actual fun SetOnBindViewHolder(func: KCallable<Unit>?)
    {
-       val kt: KTWrap<Unit> = KTWrap<Unit>()
-       val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
-       lgRecyclerViewAdapter?.SetOnBindViewHolder(lt)
+       lgRecyclerViewAdapter?.SetOnBindViewHolder(func.toLuaTranslator(this))
    }
    actual fun SetGetItemViewType(func: KCallable<Int>?)
    {
-       val kt: KTWrap<Int> = KTWrap<Int>()
-       val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
-       lgRecyclerViewAdapter?.SetGetItemViewType(lt)
+       lgRecyclerViewAdapter?.SetGetItemViewType(func.toLuaTranslator(this))
    }
     open override fun GetNativeObject(): Any?
    {

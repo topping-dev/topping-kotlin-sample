@@ -4,8 +4,7 @@ actual open class LGFrameLayout : LGViewGroup()
 {
    var lgFrameLayout: android.widget.LGFrameLayout? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?): LGFrameLayout?
-        {
+        actual fun Create(lc: LuaContext): LGFrameLayout {
             val pobj = LGFrameLayout()
             val pres = android.widget.LGFrameLayout.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)

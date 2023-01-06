@@ -4,10 +4,9 @@ actual open class LGAutoCompleteTextView : LGEditText()
 {
    var lgAutoCompleteTextView: cocoapods.Topping.LGAutoCompleteTextView? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?): LGAutoCompleteTextView?
-        {
+        actual fun Create(lc: LuaContext): LGAutoCompleteTextView {
             val pobj = LGAutoCompleteTextView()
-            val pres = cocoapods.Topping.LGAutoCompleteTextView.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGAutoCompleteTextView.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

@@ -7,7 +7,7 @@ actual open class LuaCoroutineScope : KTInterface
 {
    var luaCoroutineScope: cocoapods.Topping.LuaCoroutineScope? = null
 
-    actual fun launch(func: KCallable<Unit>?)
+    actual fun launch(func: KCallable<Unit>)
     {
         val kt = KTWrap()
         val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
@@ -15,7 +15,7 @@ actual open class LuaCoroutineScope : KTInterface
         lt.kFRetF = kt.Init(this, func)
         luaCoroutineScope?.launch(lt)
     }
-    actual fun launch(dispatcher: Int, func: KCallable<Unit>?)
+    actual fun launch(dispatcher: Int, func: KCallable<Unit>)
     {
         val kt = KTWrap()
         val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()

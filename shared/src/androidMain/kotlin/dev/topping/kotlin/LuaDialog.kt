@@ -11,63 +11,62 @@ actual open class LuaDialog : KTInterface
         actual val DIALOG_TYPE_PROGRESS_INDETERMINATE: Int = 0x6
         actual val DIALOG_TYPE_DATEPICKER: Int = 0x08
         actual val DIALOG_TYPE_TIMEPICKER: Int = 0x10
-        actual fun MessageBox(context: LuaContext?, title: LuaRef?, content: LuaRef?)
+        actual fun MessageBox(context: LuaContext, title: LuaRef, content: LuaRef)
         {
             dev.topping.android.LuaDialog.MessageBox(context?.luaContext, title?.luaRef, content?.luaRef)
         }
-        actual fun MessageBoxInternal(context: LuaContext?, title: String?, content: String?)
+        actual fun MessageBoxInternal(context: LuaContext, title: String, content: String)
         {
             dev.topping.android.LuaDialog.MessageBoxInternal(context?.luaContext, title, content)
         }
-        actual fun Create(context: LuaContext?, dialogType: Int): LuaDialog?
-        {
+        actual fun Create(context: LuaContext, dialogType: Int): LuaDialog {
             val pobj = LuaDialog()
             val pres = dev.topping.android.LuaDialog.Create(context?.luaContext, dialogType)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-    actual fun SetPositiveButton(title: LuaRef?, action: LuaTranslator?)
+    actual fun SetPositiveButton(title: LuaRef, action: LuaTranslator?)
     {
         luaDialog?.SetPositiveButton(title?.luaRef, action?.luaTranslator)
     }
-   actual fun SetPositiveButtonInternal(title: String?, action: LuaTranslator?)
+   actual fun SetPositiveButtonInternal(title: String, action: LuaTranslator?)
    {
        luaDialog?.SetPositiveButtonInternal(title, action?.luaTranslator)
    }
-    actual fun SetNegativeButton(title: LuaRef?, action: LuaTranslator?)
+    actual fun SetNegativeButton(title: LuaRef, action: LuaTranslator?)
     {
         luaDialog?.SetNegativeButton(title?.luaRef, action?.luaTranslator)
     }
-   actual fun SetNegativeButtonInternal(title: String?, action: LuaTranslator?)
+   actual fun SetNegativeButtonInternal(title: String, action: LuaTranslator?)
    {
        luaDialog?.SetNegativeButtonInternal(title, action?.luaTranslator)
    }
-   actual fun SetTitle(title: String?)
+   actual fun SetTitle(title: String)
    {
        luaDialog?.SetTitle(title)
    }
-   actual fun SetTitle(titleRef: LuaRef?)
+   actual fun SetTitle(titleRef: LuaRef)
    {
        luaDialog?.SetTitleRef(titleRef?.luaRef)
    }
-   actual fun SetMessage(message: String?)
+   actual fun SetMessage(message: String)
    {
        luaDialog?.SetMessage(message)
    }
-   actual fun SetMessage(messageRef: LuaRef?)
+   actual fun SetMessage(messageRef: LuaRef)
    {
        luaDialog?.SetMessage(messageRef?.luaRef)
    }
-   actual fun SetProgress(value: Int?)
+   actual fun SetProgress(value: Int)
    {
        luaDialog?.SetProgress(value)
    }
-   actual fun SetMax(value: Int?)
+   actual fun SetMax(value: Int)
    {
        luaDialog?.SetMax(value)
    }
-   actual fun SetDate(date: LuaDate?)
+   actual fun SetDate(date: LuaDate)
    {
        luaDialog?.SetDate(date?.luaDate)
    }
@@ -75,7 +74,7 @@ actual open class LuaDialog : KTInterface
    {
        luaDialog?.SetDateManual(day, month, year)
    }
-   actual fun SetTime(date: LuaDate?)
+   actual fun SetTime(date: LuaDate)
    {
        luaDialog?.SetTime(date?.luaDate)
    }
@@ -93,15 +92,11 @@ actual open class LuaDialog : KTInterface
    }
    actual fun SetDateSelectedListener(func: KCallable<Unit>?)
    {
-       val kt: KTWrap<Unit> = KTWrap<Unit>()
-       val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
-       luaDialog?.SetDateSelectedListener(lt)
+       luaDialog?.SetDateSelectedListener(func.toLuaTranslator(this))
    }
    actual fun SetTimeSelectedListener(func: KCallable<Unit>?)
    {
-       val kt: KTWrap<Unit> = KTWrap<Unit>()
-       val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
-       luaDialog?.SetTimeSelectedListener(lt)
+       luaDialog?.SetTimeSelectedListener(func.toLuaTranslator(this))
    }
     open override fun GetNativeObject(): Any?
    {

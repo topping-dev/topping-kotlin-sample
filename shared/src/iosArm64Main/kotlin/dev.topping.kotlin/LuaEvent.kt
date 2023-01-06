@@ -22,13 +22,9 @@ actual open class LuaEvent : KTInterface
         actual val UI_EVENT_KEYDOWN: Int = 12
         actual val UI_EVENT_KEYUP: Int = 13
         actual val UI_EVENT_NFC: Int = 14
-       actual fun RegisterUIEvent(luaId: LuaRef?, event: Int, func: KCallable<Any?>?)
+       actual fun RegisterUIEvent(luaId: LuaRef, event: Int, func: KCallable<Any?>)
        {
-           val kt: KTWrap = KTWrap()
-           val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-           lt.nobj = StableRef.create(kt).asCPointer()
-           lt.kFRetF = kt.Init(this, func)
-           cocoapods.Topping.LuaEvent.RegisterUIEvent(luaId?.luaRef, event, lt)
+           cocoapods.Topping.LuaEvent.RegisterUIEvent(luaId.luaRef, event, func.toLuaTranslator(this))
        }
    }
     open override fun GetNativeObject(): Any?

@@ -20,6 +20,6 @@ expect open class LuaEvent
         val UI_EVENT_KEYDOWN: Int
         val UI_EVENT_KEYUP: Int
         val UI_EVENT_NFC: Int
-        fun RegisterUIEvent(luaId: LuaRef?, event: Int, func: KCallable<Any?>?)
+        fun RegisterUIEvent(luaId: LuaRef, event: Int, func: KCallable<Any?>)
    }
 }

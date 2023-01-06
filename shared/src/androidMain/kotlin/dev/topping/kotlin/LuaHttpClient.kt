@@ -6,15 +6,14 @@ actual open class LuaHttpClient : KTInterface
 {
    var luaHttpClient: dev.topping.android.LuaHttpClient? = null
    actual companion object {
-        actual fun Create(tag: String?): LuaHttpClient?
-        {
+        actual fun Create(tag: String): LuaHttpClient {
             val pobj = LuaHttpClient()
             val pres = dev.topping.android.LuaHttpClient.Create(tag)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun SetContentType(type: String?)
+   actual fun SetContentType(type: String)
    {
        luaHttpClient?.SetContentType(type)
    }
@@ -63,15 +62,11 @@ actual open class LuaHttpClient : KTInterface
    }
    actual fun SetOnFinishListener(func: KCallable<Unit>?)
    {
-       val kt: KTWrap<Unit> = KTWrap<Unit>()
-       val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
-       luaHttpClient?.SetOnFinishListener(lt)
+       luaHttpClient?.SetOnFinishListener(func.toLuaTranslator(this))
    }
    actual fun SetOnFailListener(func: KCallable<Unit>?)
    {
-       val kt: KTWrap<Unit> = KTWrap<Unit>()
-       val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
-       luaHttpClient?.SetOnFailListener(lt)
+       luaHttpClient?.SetOnFailListener(func.toLuaTranslator(this))
    }
     open override fun GetNativeObject(): Any?
    {

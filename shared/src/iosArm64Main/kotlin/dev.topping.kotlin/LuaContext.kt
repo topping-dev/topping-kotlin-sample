@@ -4,8 +4,7 @@ actual open class LuaContext : KTInterface
 {
    var luaContext: cocoapods.Topping.LuaContext? = null
    actual companion object {
-        actual fun CreateLuaContext(context: Any?): LuaContext?
-        {
+        actual fun CreateLuaContext(context: Any): LuaContext {
             val pobj = LuaContext()
             val pres = cocoapods.Topping.LuaContext()
             pobj.SetNativeObject(pres)

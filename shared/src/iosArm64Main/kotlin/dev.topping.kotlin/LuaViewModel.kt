@@ -3,9 +3,9 @@ package dev.topping.kotlin
 actual open class LuaViewModel : KTInterface
 {
    var luaViewModel: cocoapods.Topping.LuaViewModel? = null
-    val objectMap = mutableMapOf<String, Any>()
+    val objectMap = mutableMapOf<String, Any?>()
 
-    actual fun SetObject(key: String, obj: Any)
+    actual fun SetObject(key: String, obj: Any?)
     {
         objectMap[key] = obj
     }

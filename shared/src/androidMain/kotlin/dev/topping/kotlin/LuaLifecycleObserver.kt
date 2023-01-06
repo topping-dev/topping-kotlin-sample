@@ -14,7 +14,7 @@ actual open class LuaLifecycleObserver : KTInterface
         actual val ON_START: Int = 4
         actual val ON_STOP: Int = 5
 
-        actual fun create(func: KCallable<Unit>?): LuaLifecycleObserver {
+        actual fun create(func: KCallable<Unit>): LuaLifecycleObserver {
             val kt: KTWrap<Unit> = KTWrap<Unit>()
             val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(null, func))
             val pobj = LuaLifecycleObserver()

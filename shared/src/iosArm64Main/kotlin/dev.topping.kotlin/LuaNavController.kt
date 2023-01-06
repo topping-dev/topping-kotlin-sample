@@ -5,14 +5,14 @@ actual open class LuaNavController : KTInterface
    var luaNavController: cocoapods.Topping.LuaNavController? = null
 
     actual fun navigate(target: LuaRef) {
-        luaNavController?.navigateRef(KTWrap.Wrap(target.GetNativeObject()) as cocoapods.Topping.LuaRef)
+        luaNavController?.navigateRef(target.luaRef)
     }
 
     actual fun navigate(
         target: LuaRef,
         args: Map<String, Any>
     ) {
-        luaNavController?.navigateRef(KTWrap.Wrap(target.GetNativeObject()) as cocoapods.Topping.LuaRef,
+        luaNavController?.navigateRef(target.luaRef,
             args as Map<Any?, *>
         )
     }
@@ -22,7 +22,7 @@ actual open class LuaNavController : KTInterface
         args: Map<String, Any>,
         navOptions: LuaNavOptions
     ) {
-        luaNavController?.navigateRef(KTWrap.Wrap(target.GetNativeObject()) as cocoapods.Topping.LuaRef,
+        luaNavController?.navigateRef(target.luaRef,
             args as Map<Any?, *>,
             KTWrap.Wrap(navOptions.GetNativeObject()) as cocoapods.Topping.NavOptions
         )

@@ -15,17 +15,12 @@ actual open class LuaLifecycleObserver : KTInterface
         actual val ON_START: Int = 4
         actual val ON_STOP: Int = 5
 
-        actual fun create(func: KCallable<Unit>?): LuaLifecycleObserver {
-            val kt = KTWrap()
-            val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-            lt.nobj = StableRef.create(kt).asCPointer()
-            lt.kFRetF = kt.Init(this, func)
+        actual fun create(func: KCallable<Unit>): LuaLifecycleObserver {
             val pobj = LuaLifecycleObserver()
-            val pres = cocoapods.Topping.LuaLifecycleObserver.create(lt)
+            val pres = cocoapods.Topping.LuaLifecycleObserver.create(func.toLuaTranslator(this))
             pobj.SetNativeObject(pres)
             return pobj
         }
-
     }
 
     open override fun GetNativeObject(): Any?

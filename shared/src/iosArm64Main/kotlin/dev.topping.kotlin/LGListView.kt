@@ -4,10 +4,9 @@ actual open class LGListView : LGAbsListView()
 {
    var lgListView: cocoapods.Topping.LGListView? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?): LGAbsListView?
-        {
+        actual fun Create(lc: LuaContext): LGAbsListView {
             val pobj = LGListView()
-            val pres = cocoapods.Topping.LGListView.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGListView.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

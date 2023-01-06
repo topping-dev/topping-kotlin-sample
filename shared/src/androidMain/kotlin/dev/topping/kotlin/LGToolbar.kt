@@ -63,15 +63,11 @@ actual open class LGToolbar : LGView()
     }
     actual fun SetNavigationOnClickListener(func: KCallable<Unit>?)
     {
-        val kt: KTWrap<Unit> = KTWrap<Unit>()
-        val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
-        lgToolbar?.SetNavigationOnClickListener(lt)
+        lgToolbar?.SetNavigationOnClickListener(func.toLuaTranslator(this))
     }
     actual fun SetMenuItemClickListener(func: KCallable<Unit>?)
     {
-        val kt: KTWrap<Unit> = KTWrap<Unit>()
-        val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
-        lgToolbar?.SetMenuItemClickListener(lt)
+        lgToolbar?.SetMenuItemClickListener(func.toLuaTranslator(this))
     }
     open override fun GetNativeObject(): Any?
    {

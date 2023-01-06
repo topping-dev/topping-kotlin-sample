@@ -17,13 +17,13 @@ actual open class LuaMutableLiveData : KTInterface
 
     }
 
-    actual fun observe(owner: LuaLifecycleOwner, func: KCallable<Unit>?) {
+    actual fun observe(owner: LuaLifecycleOwner, func: KCallable<Unit>) {
         val kt: KTWrap<Unit> = KTWrap<Unit>()
         val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(null, func))
         luaMutableLiveData?.observe(owner.GetNativeObject() as dev.topping.android.LuaLifecycleOwner, lt)
         functionMap[func!!] = lt
     }
-    actual fun removeObserver(func: KCallable<Unit>?) {
+    actual fun removeObserver(func: KCallable<Unit>) {
         luaMutableLiveData?.removeObserver(functionMap[func!!]!!)
     }
 

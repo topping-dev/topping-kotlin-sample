@@ -4,8 +4,7 @@ actual open class LGAutoCompleteTextView : LGEditText()
 {
    var lgAutoCompleteTextView: android.widget.LGAutoCompleteTextView? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?): LGAutoCompleteTextView?
-        {
+        actual fun Create(lc: LuaContext): LGAutoCompleteTextView {
             val pobj = LGAutoCompleteTextView()
             val pres = android.widget.LGAutoCompleteTextView.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)

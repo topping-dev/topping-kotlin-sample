@@ -9,6 +9,7 @@ actual class Platform actual constructor() {
             cocoapods.Topping.LGAbsListView.className().toString() to LGAbsListView::class,
             cocoapods.Topping.LGAdapterView.className().toString() to LGAdapterView::class,
             cocoapods.Topping.LGAutoCompleteTextView.className().toString() to LGAutoCompleteTextView::class,
+            cocoapods.Topping.LGBottomNavigationView.className().toString() to LGBottomNavigationView::class,
             cocoapods.Topping.LGButton.className().toString() to LGButton::class,
             cocoapods.Topping.LGCheckBox.className().toString() to LGCheckBox::class,
             cocoapods.Topping.LGComboBox.className().toString() to LGComboBox::class,

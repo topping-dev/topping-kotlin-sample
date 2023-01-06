@@ -6,19 +6,18 @@ actual open class LGComboBox : LGEditText()
 {
    var lgComboBox: android.widget.LGComboBox? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?): LGComboBox?
-        {
+        actual fun Create(lc: LuaContext): LGComboBox {
             val pobj = LGComboBox()
             val pres = android.widget.LGComboBox.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun AddItem(id: String?, tag: Any?)
+   actual fun AddItem(id: String, tag: Any)
    {
        lgComboBox?.AddItem(id, tag)
    }
-    actual fun SetItems(map: Map<String?, Any?>)
+    actual fun SetItems(map: Map<String, Any>)
     {
         lgComboBox?.SetItems(map)
     }
@@ -34,19 +33,15 @@ actual open class LGComboBox : LGEditText()
    {
        lgComboBox?.SetSelected(index)
    }
-   actual fun GetSelectedName(): String?
-   {
+   actual fun GetSelectedName(): String? {
        return lgComboBox?.GetSelectedName()
    }
-   actual fun GetSelectedTag(): Any?
-   {
+   actual fun GetSelectedTag(): Any? {
        return lgComboBox?.GetSelectedTag()
    }
    actual fun SetOnComboChangedListener(func: KCallable<Unit>?)
    {
-       val kt: KTWrap<Unit> = KTWrap<Unit>()
-       val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(this, func))
-       lgComboBox?.SetOnComboChangedListener(lt)
+       lgComboBox?.SetOnComboChangedListener(func.toLuaTranslator(this))
    }
     open override fun GetNativeObject(): Any?
    {

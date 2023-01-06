@@ -1,31 +1,29 @@
 package dev.topping.kotlin
 
-import kotlinx.cinterop.StableRef
 import kotlin.reflect.KCallable
 
 actual open class LGView : KTInterface
 {
    var lgView: cocoapods.Topping.LGView? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?): LGView?
-        {
+        actual fun Create(lc: LuaContext): LGView {
             val pobj = LGView()
-            val pres = cocoapods.Topping.LGView.Create(lc?.luaContext)
+            val pres = cocoapods.Topping.LGView.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun GetViewById(lId: LuaRef?): LGView?
+   actual fun GetViewById(lId: LuaRef): LGView?
    {
-       return KTWrap.Wrap(lgView?.GetViewById(lId?.luaRef)) as LGView?
+       return KTWrap.Wrap(lgView?.GetViewById(lId.luaRef)) as LGView?
    }
-   actual fun SetEnabled(value: Boolean?)
+   actual fun SetEnabled(value: Boolean)
    {
-       lgView?.SetEnabled(value!!)
+       lgView?.SetEnabled(value)
    }
-   actual fun SetFocusable(value: Boolean?)
+   actual fun SetFocusable(value: Boolean)
    {
-       lgView?.SetFocusable(value!!)
+       lgView?.SetFocusable(value)
    }
    actual fun SetBackground(background: LuaRef?)
    {
@@ -33,16 +31,12 @@ actual open class LGView : KTInterface
    }
     actual fun SetOnClickListener(func: KCallable<Unit>?)
     {
-        if(SetOnClickListenerInternal(func!!))
+        if(SetOnClickListenerInternal(func))
             return
-        val kt: KTWrap = KTWrap()
-        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-        lt.nobj = StableRef.create(kt).asCPointer()
-        lt.kFRetF = kt.Init(this, func)
-        lgView?.SetOnClickListener(lt)
+        lgView?.SetOnClickListener(func.toLuaTranslator(this))
     }
 
-    open fun SetOnClickListenerInternal(func: KCallable<Unit>) : Boolean
+    open fun SetOnClickListenerInternal(func: KCallable<Unit>?) : Boolean
     {
         return false;
     }

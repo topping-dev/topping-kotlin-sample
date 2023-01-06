@@ -1,11 +1,12 @@
 package dev.topping.kotlin
 
+import kotlin.reflect.KCallable
+
 actual open class LGViewPager : LGViewGroup()
 {
    var lgViewPager: android.widget.LGViewPager? = null
    actual companion object {
-        actual fun Create(lc: LuaContext?): LGViewPager?
-        {
+        actual fun Create(lc: LuaContext): LGViewPager {
             val pobj = LGViewPager()
             val pres = android.widget.LGViewPager.Create(lc?.luaContext)
             pobj.SetNativeObject(pres)
@@ -15,8 +16,8 @@ actual open class LGViewPager : LGViewGroup()
     actual fun SetAdapter(lgFragmentStateAdapter: LGFragmentStateAdapter) {
         lgViewPager?.SetAdapter(lgFragmentStateAdapter.lgFragmentStateAdapter)
     }
-    actual fun SetTabLayout(lgTabLayout: LGTabLayout, ltTab: LuaTranslator) {
-        lgViewPager?.SetTabLayout(lgTabLayout.lgTabLayout, ltTab.luaTranslator)
+    actual fun SetTabLayout(lgTabLayout: LGTabLayout, func: KCallable<LuaTab>) {
+        lgViewPager?.SetTabLayout(lgTabLayout.lgTabLayout, func.toLuaTranslator(this))
     }
     open override fun GetNativeObject(): Any?
    {

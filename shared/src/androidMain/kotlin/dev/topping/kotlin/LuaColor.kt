@@ -16,7 +16,7 @@ actual open class LuaColor : KTInterface
         actual val TRANSPARENT: Int = 0x00000000
         actual val WHITE: Int = 0xffffffff.toInt()
         actual val YELLOW: Int = 0xffffff00.toInt()
-        actual fun FromString(colorStr: String?): LuaColor?
+        actual fun FromString(colorStr: String): LuaColor?
         {
             val pobj = LuaColor()
             val pres = dev.topping.android.LuaColor.FromString(colorStr)

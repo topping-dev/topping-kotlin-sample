@@ -1,8 +1,10 @@
 package dev.topping.kotlin
 
+import kotlinx.cinterop.StableRef
 import platform.Foundation.NSDictionary
 import platform.Foundation.NSMutableDictionary
 import platform.Foundation.NSString
+import kotlin.reflect.KCallable
 
 class Utils {
 }

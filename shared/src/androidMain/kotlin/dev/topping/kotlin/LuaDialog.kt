@@ -13,22 +13,22 @@ actual open class LuaDialog : KTInterface
         actual val DIALOG_TYPE_TIMEPICKER: Int = 0x10
         actual fun MessageBox(context: LuaContext, title: LuaRef, content: LuaRef)
         {
-            dev.topping.android.LuaDialog.MessageBox(context?.luaContext, title?.luaRef, content?.luaRef)
+            dev.topping.android.LuaDialog.MessageBox(context.luaContext, title.luaRef, content.luaRef)
         }
         actual fun MessageBoxInternal(context: LuaContext, title: String, content: String)
         {
-            dev.topping.android.LuaDialog.MessageBoxInternal(context?.luaContext, title, content)
+            dev.topping.android.LuaDialog.MessageBoxInternal(context.luaContext, title, content)
         }
         actual fun Create(context: LuaContext, dialogType: Int): LuaDialog {
             val pobj = LuaDialog()
-            val pres = dev.topping.android.LuaDialog.Create(context?.luaContext, dialogType)
+            val pres = dev.topping.android.LuaDialog.Create(context.luaContext, dialogType)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
     actual fun SetPositiveButton(title: LuaRef, action: LuaTranslator?)
     {
-        luaDialog?.SetPositiveButton(title?.luaRef, action?.luaTranslator)
+        luaDialog?.SetPositiveButton(title.luaRef, action?.luaTranslator)
     }
    actual fun SetPositiveButtonInternal(title: String, action: LuaTranslator?)
    {
@@ -36,7 +36,7 @@ actual open class LuaDialog : KTInterface
    }
     actual fun SetNegativeButton(title: LuaRef, action: LuaTranslator?)
     {
-        luaDialog?.SetNegativeButton(title?.luaRef, action?.luaTranslator)
+        luaDialog?.SetNegativeButton(title.luaRef, action?.luaTranslator)
     }
    actual fun SetNegativeButtonInternal(title: String, action: LuaTranslator?)
    {
@@ -48,7 +48,7 @@ actual open class LuaDialog : KTInterface
    }
    actual fun SetTitle(titleRef: LuaRef)
    {
-       luaDialog?.SetTitleRef(titleRef?.luaRef)
+       luaDialog?.SetTitleRef(titleRef.luaRef)
    }
    actual fun SetMessage(message: String)
    {
@@ -56,7 +56,7 @@ actual open class LuaDialog : KTInterface
    }
    actual fun SetMessage(messageRef: LuaRef)
    {
-       luaDialog?.SetMessage(messageRef?.luaRef)
+       luaDialog?.SetMessage(messageRef.luaRef)
    }
    actual fun SetProgress(value: Int)
    {
@@ -68,7 +68,7 @@ actual open class LuaDialog : KTInterface
    }
    actual fun SetDate(date: LuaDate)
    {
-       luaDialog?.SetDate(date?.luaDate)
+       luaDialog?.SetDate(date.luaDate)
    }
    actual fun SetDateManual(day: Int, month: Int, year: Int)
    {
@@ -76,7 +76,7 @@ actual open class LuaDialog : KTInterface
    }
    actual fun SetTime(date: LuaDate)
    {
-       luaDialog?.SetTime(date?.luaDate)
+       luaDialog?.SetTime(date.luaDate)
    }
    actual fun SetTimeManual(hour: Int, minute: Int)
    {

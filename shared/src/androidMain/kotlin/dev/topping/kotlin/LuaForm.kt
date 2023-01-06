@@ -6,11 +6,11 @@ actual open class LuaForm : KTInterface
    actual companion object {
         actual fun Create(lc: LuaContext, luaId: LuaRef)
         {
-            dev.topping.android.LuaForm.Create(lc?.luaContext!!, luaId?.luaRef)
+            dev.topping.android.LuaForm.Create(lc.luaContext!!, luaId.luaRef)
         }
         actual fun CreateWithUI(lc: LuaContext, luaId: LuaRef, ui: LuaRef)
         {
-            dev.topping.android.LuaForm.CreateWithUI(lc?.luaContext!!, luaId?.luaRef, ui?.luaRef)
+            dev.topping.android.LuaForm.CreateWithUI(lc.luaContext!!, luaId.luaRef, ui.luaRef)
         }
         actual fun GetActiveForm(): LuaForm?
         {
@@ -49,7 +49,7 @@ actual open class LuaForm : KTInterface
    }
    actual fun SetViewXML(xml: LuaRef)
    {
-       luaForm?.SetViewXML(xml?.luaRef)
+       luaForm?.SetViewXML(xml.luaRef)
    }
    actual fun SetTitle(str: String)
    {

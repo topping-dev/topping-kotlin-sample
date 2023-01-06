@@ -8,7 +8,7 @@ actual open class LGDatePicker : LGFrameLayout()
    actual companion object {
         actual fun Create(lc: LuaContext): LGDatePicker {
             val pobj = LGDatePicker()
-            val pres = android.widget.LGDatePicker.Create(lc?.luaContext)
+            val pres = android.widget.LGDatePicker.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

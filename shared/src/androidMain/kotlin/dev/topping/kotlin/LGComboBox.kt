@@ -8,7 +8,7 @@ actual open class LGComboBox : LGEditText()
    actual companion object {
         actual fun Create(lc: LuaContext): LGComboBox {
             val pobj = LGComboBox()
-            val pres = android.widget.LGComboBox.Create(lc?.luaContext)
+            val pres = android.widget.LGComboBox.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

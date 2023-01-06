@@ -8,7 +8,7 @@ actual open class LGRecyclerViewAdapter : KTInterface
    actual companion object {
         actual fun Create(lc: LuaContext, id: String): LGRecyclerViewAdapter {
             val pobj = LGRecyclerViewAdapter()
-            val pres = android.widget.LGRecyclerViewAdapter.Create(lc?.luaContext, id)
+            val pres = android.widget.LGRecyclerViewAdapter.Create(lc.luaContext, id)
             pobj.SetNativeObject(pres)
             return pobj
         }

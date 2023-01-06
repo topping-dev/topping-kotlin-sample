@@ -6,7 +6,7 @@ actual open class LuaViewInflator : KTInterface
    actual companion object {
         actual fun Create(lc: LuaContext): LuaViewInflator {
             val pobj = LuaViewInflator()
-            val pres = dev.topping.android.luagui.LuaViewInflator.Create(lc?.luaContext)
+            val pres = dev.topping.android.luagui.LuaViewInflator.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

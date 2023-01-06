@@ -8,15 +8,11 @@ actual open class LuaCoroutineScope : KTInterface
 
     actual fun launch(func: KCallable<Unit>)
     {
-        val kt: KTWrap<Unit> = KTWrap<Unit>()
-        val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(null, func))
-        luaCoroutineScope?.launch(lt)
+        luaCoroutineScope?.launch(func.toLuaTranslator(this))
     }
     actual fun launch(dispatcher: Int, func: KCallable<Unit>)
     {
-        val kt: KTWrap<Unit> = KTWrap<Unit>()
-        val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(null, func))
-        luaCoroutineScope?.launchDispatcher(dispatcher, lt)
+        luaCoroutineScope?.launchDispatcher(dispatcher, func.toLuaTranslator(this))
     }
 
     open override fun GetNativeObject(): Any?

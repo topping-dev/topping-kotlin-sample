@@ -6,7 +6,7 @@ actual open class LGScrollView : LGFrameLayout()
    actual companion object {
         actual fun Create(lc: LuaContext): LGScrollView {
             val pobj = LGScrollView()
-            val pres = android.widget.LGScrollView.Create(lc?.luaContext)
+            val pres = android.widget.LGScrollView.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

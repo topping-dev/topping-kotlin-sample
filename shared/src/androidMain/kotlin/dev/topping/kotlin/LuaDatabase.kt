@@ -6,7 +6,7 @@ actual open class LuaDatabase : KTInterface
    actual companion object {
         actual fun Create(context: LuaContext): LuaDatabase {
             val pobj = LuaDatabase()
-            val pres = dev.topping.android.LuaDatabase.Create(context?.luaContext)
+            val pres = dev.topping.android.LuaDatabase.Create(context.luaContext)
             pobj.SetNativeObject(pres as dev.topping.android.LuaDatabase)
             return pobj
         }

@@ -7,7 +7,7 @@ actual open class LGAbsListView : LGViewGroup()
         actual fun Create(lc: LuaContext): LGAbsListView?
         {
             val pobj = LGAbsListView()
-            val pres = android.widget.LGAbsListView.Create(lc?.luaContext)
+            val pres = android.widget.LGAbsListView.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

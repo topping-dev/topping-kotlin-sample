@@ -6,7 +6,7 @@ actual open class LGCompoundButton : LGButton()
    actual companion object {
         actual fun Create(lc: LuaContext): LGCompoundButton {
             val pobj = LGCompoundButton()
-            val pres = android.widget.LGCompoundButton.Create(lc?.luaContext)
+            val pres = android.widget.LGCompoundButton.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

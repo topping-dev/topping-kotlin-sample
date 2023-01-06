@@ -25,7 +25,7 @@ actual open class LuaEvent : KTInterface
        {
            val kt: KTWrap<Any?> = KTWrap()
            val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(null, func))
-           dev.topping.android.LuaEvent.RegisterUIEvent(luaId?.luaRef!!, event, lt)
+           dev.topping.android.LuaEvent.RegisterUIEvent(luaId.luaRef!!, event, lt)
        }
    }
     open override fun GetNativeObject(): Any?

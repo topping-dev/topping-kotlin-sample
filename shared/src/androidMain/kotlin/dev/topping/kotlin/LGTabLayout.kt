@@ -9,7 +9,7 @@ actual open class LGTabLayout : LGFrameLayout()
         /*actual fun Create(lc: LuaContext?): LGTabLayout?
         {
             val pobj = LGTabLayout()
-            val pres = android.widget.LGTabLayout(lc?.luaContext)
+            val pres = android.widget.LGTabLayout(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }*/

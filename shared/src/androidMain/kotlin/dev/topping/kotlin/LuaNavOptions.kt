@@ -14,7 +14,6 @@ actual open class LuaNavOptions : KTInterface
             popEnterAnim: LuaRef,
             popExitAnim: LuaRef
         ): LuaNavOptions {
-            val kt: KTWrap<Unit> = KTWrap()
             val pobj = LuaNavOptions()
             val pres = dev.topping.android.LuaNavOptions.create(
                 singleTop,

@@ -7,24 +7,20 @@ actual open class LuaLifecycle : KTInterface
    var luaLifecycle: dev.topping.android.LuaLifecycle? = null
 
     actual fun addObserver(luaLifecycleObserver: LuaLifecycleObserver) {
-        luaLifecycle?.addObserver(KTWrap.Wrap(luaLifecycleObserver) as dev.topping.android.LuaLifecycleObserver)
+        luaLifecycle?.addObserver(luaLifecycleObserver.luaLifecycleObserver!!)
     }
 
     actual fun removeObserver(luaLifecycleObserver: LuaLifecycleObserver) {
-        luaLifecycle?.removeObserver(KTWrap.Wrap(luaLifecycleObserver) as dev.topping.android.LuaLifecycleObserver)
+        luaLifecycle?.removeObserver(luaLifecycleObserver.luaLifecycleObserver!!)
     }
 
     actual fun launch(func: KCallable<Unit>)
     {
-        val kt: KTWrap<Unit> = KTWrap<Unit>()
-        val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(null, func))
-        luaLifecycle?.launch(lt)
+        luaLifecycle?.launch(func.toLuaTranslator(this))
     }
     actual fun launch(dispatcher: Int, func: KCallable<Unit>)
     {
-        val kt: KTWrap<Unit> = KTWrap<Unit>()
-        val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(null, func))
-        luaLifecycle?.launchDispatcher(dispatcher, lt)
+        luaLifecycle?.launchDispatcher(dispatcher, func.toLuaTranslator(this))
     }
 
     open override fun GetNativeObject(): Any?

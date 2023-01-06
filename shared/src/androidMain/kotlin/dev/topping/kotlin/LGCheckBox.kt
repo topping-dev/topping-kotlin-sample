@@ -8,7 +8,7 @@ actual open class LGCheckBox : LGCompoundButton()
    actual companion object {
         actual fun Create(lc: LuaContext): LGCheckBox {
             val pobj = LGCheckBox()
-            val pres = android.widget.LGCheckBox.Create(lc?.luaContext)
+            val pres = android.widget.LGCheckBox.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

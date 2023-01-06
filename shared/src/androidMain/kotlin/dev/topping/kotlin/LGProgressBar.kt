@@ -6,7 +6,7 @@ actual open class LGProgressBar : LGView()
    actual companion object {
         actual fun Create(lc: LuaContext): LGProgressBar {
             val pobj = LGProgressBar()
-            val pres = android.widget.LGProgressBar.Create(lc?.luaContext)
+            val pres = android.widget.LGProgressBar.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

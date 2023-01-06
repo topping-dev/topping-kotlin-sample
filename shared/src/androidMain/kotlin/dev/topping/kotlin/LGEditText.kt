@@ -8,7 +8,7 @@ actual open class LGEditText : LGTextView()
    actual companion object {
         actual fun Create(lc: LuaContext): LGEditText {
             val pobj = LGEditText()
-            val pres = android.widget.LGEditText.Create(lc?.luaContext)
+            val pres = android.widget.LGEditText.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

@@ -8,14 +8,14 @@ actual open class LGView : KTInterface
    actual companion object {
         actual fun Create(lc: LuaContext): LGView {
             val pobj = LGView()
-            val pres = android.widget.LGView.Create(lc?.luaContext)
+            val pres = android.widget.LGView.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
    actual fun GetViewById(lId: LuaRef): LGView?
    {
-       return KTWrap.Wrap(lgView?.GetViewById(lId?.luaRef)) as LGView?
+       return KTWrap.Wrap(lgView?.GetViewById(lId.luaRef)) as LGView?
    }
    actual fun SetEnabled(value: Boolean)
    {

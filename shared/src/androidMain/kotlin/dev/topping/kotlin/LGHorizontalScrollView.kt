@@ -6,7 +6,7 @@ actual open class LGHorizontalScrollView : LGFrameLayout()
    actual companion object {
         actual fun Create(lc: LuaContext): LGHorizontalScrollView {
             val pobj = LGHorizontalScrollView()
-            val pres = android.widget.LGHorizontalScrollView.Create(lc?.luaContext)
+            val pres = android.widget.LGHorizontalScrollView.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

@@ -6,7 +6,7 @@ actual open class LGViewGroup : LGView()
    actual companion object {
         actual fun Create(lc: LuaContext): LGViewGroup {
             val pobj = LGViewGroup()
-            val pres = android.widget.LGViewGroup.Create(lc?.luaContext)
+            val pres = android.widget.LGViewGroup.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

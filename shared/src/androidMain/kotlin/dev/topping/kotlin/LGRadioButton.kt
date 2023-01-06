@@ -6,7 +6,7 @@ actual open class LGRadioButton : LGCompoundButton()
    actual companion object {
         actual fun Create(lc: LuaContext): LGRadioButton {
             val pobj = LGRadioButton()
-            val pres = android.widget.LGRadioButton.Create(lc?.luaContext)
+            val pres = android.widget.LGRadioButton.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

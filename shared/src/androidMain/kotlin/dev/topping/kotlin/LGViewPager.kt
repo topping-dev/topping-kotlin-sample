@@ -8,7 +8,7 @@ actual open class LGViewPager : LGViewGroup()
    actual companion object {
         actual fun Create(lc: LuaContext): LGViewPager {
             val pobj = LGViewPager()
-            val pres = android.widget.LGViewPager.Create(lc?.luaContext)
+            val pres = android.widget.LGViewPager.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

@@ -6,7 +6,7 @@ actual open class LGTextView : LGView()
    actual companion object {
         actual fun Create(lc: LuaContext): LGTextView {
             val pobj = LGTextView()
-            val pres = android.widget.LGTextView.Create(lc?.luaContext)
+            val pres = android.widget.LGTextView.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

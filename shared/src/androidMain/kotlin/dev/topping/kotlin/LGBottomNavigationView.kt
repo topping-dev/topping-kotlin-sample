@@ -8,7 +8,7 @@ actual open class LGBottomNavigationView : LGFrameLayout()
    actual companion object {
         actual fun Create(lc: LuaContext): LGBottomNavigationView {
             val pobj = LGBottomNavigationView()
-            val pres = android.widget.LGBottomNavigationView.Create(lc?.luaContext)
+            val pres = android.widget.LGBottomNavigationView.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

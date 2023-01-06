@@ -8,7 +8,7 @@ actual open class LGRadioGroup : LGLinearLayout()
    actual companion object {
         actual fun Create(lc: LuaContext): LGRadioGroup {
             val pobj = LGRadioGroup()
-            val pres = android.widget.LGRadioGroup.Create(lc?.luaContext)
+            val pres = android.widget.LGRadioGroup.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

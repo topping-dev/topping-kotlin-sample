@@ -6,7 +6,7 @@ actual open class LGListView : LGAbsListView()
    actual companion object {
         actual fun Create(lc: LuaContext): LGAbsListView {
             val pobj = LGListView()
-            val pres = android.widget.LGListView.Create(lc?.luaContext)
+            val pres = android.widget.LGListView.Create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

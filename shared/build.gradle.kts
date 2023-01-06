@@ -21,10 +21,10 @@ kotlin {
         ios.deploymentTarget = "11.0"
         frameworkName = "shared"
         podfile = project.file("../iosApp/Podfile")
-        specRepos {
+        /*specRepos {
             url("https://github.com/Deadknight/dk-specs.git")
-        }
-        pod("Topping", "0.1.7")
+        }*/
+        pod("Topping", "0.5.0")
     }
 
     sourceSets {
@@ -45,8 +45,8 @@ kotlin {
                 implementation ("androidx.navigation:navigation-dynamic-features-fragment:2.3.5")
                 implementation ("com.google.android.material:material:1.4.0")
                 //implementation(files("libs/toppingAndroid-debug.aar"))
-                implementation(files("../../topping-android/toppingAndroid/build/outputs/aar/toppingAndroid-debug.aar"))
-                //implementation("dev.topping:toppingandroid:0.1.2")
+                //implementation(files("../../topping-android/toppingAndroid/build/outputs/aar/toppingAndroid-debug.aar"))
+                implementation("dev.topping:toppingandroid:0.5.0")
             }
         }
         val iosX64Main by getting

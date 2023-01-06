@@ -26,7 +26,7 @@ actual open class LuaNavHostFragment : LuaFragment()
    }
    actual override fun SetViewXML(xml: LuaRef)
    {
-       luaNavHostFragment?.SetViewXML(xml?.luaRef)
+       luaNavHostFragment?.SetViewXML(xml.luaRef)
    }
    actual override fun SetViewId(luaId: String)
    {

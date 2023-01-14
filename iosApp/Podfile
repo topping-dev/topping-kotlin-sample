@@ -7,7 +7,7 @@ platform :ios, '11.0'
 
 target 'iosApp' do
   pod 'shared', :path => '../shared'
-  pod 'Topping', '0.5.0'
+  pod 'Topping', '0.1.7'
 end
 
 post_install do |installer|

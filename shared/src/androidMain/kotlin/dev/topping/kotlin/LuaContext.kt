@@ -13,6 +13,9 @@ actual open class LuaContext : KTInterface
             return pobj
         }
    }
+    actual fun GetForm(): LuaForm {
+        return KTWrap.Wrap(luaContext?.GetForm()) as LuaForm
+    }
     open override fun GetNativeObject(): Any?
    {
        return luaContext

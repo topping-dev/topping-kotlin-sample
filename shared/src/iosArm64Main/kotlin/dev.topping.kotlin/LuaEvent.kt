@@ -1,6 +1,5 @@
 package dev.topping.kotlin
 
-import kotlinx.cinterop.StableRef
 import kotlin.reflect.KCallable
 
 actual open class LuaEvent : KTInterface
@@ -24,7 +23,10 @@ actual open class LuaEvent : KTInterface
         actual val UI_EVENT_NFC: Int = 14
        actual fun RegisterUIEvent(luaId: LuaRef, event: Int, func: KCallable<Any?>)
        {
-           cocoapods.Topping.LuaEvent.RegisterUIEvent(luaId.luaRef, event, func.toLuaTranslator(this))
+           cocoapods.Topping.LuaEvent.RegisterUIEvent(luaId.luaRef, event, func.toLuaTranslator(null))
+       }
+       actual fun RegisterFragment(clsName: String, func: KCallable<LuaFragmentInterface>) {
+           cocoapods.Topping.LuaEvent.RegisterFragment(clsName, func.toLuaTranslator(null))
        }
    }
     open override fun GetNativeObject(): Any?

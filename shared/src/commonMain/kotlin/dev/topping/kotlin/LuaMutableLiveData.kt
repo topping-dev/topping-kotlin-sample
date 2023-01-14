@@ -1,14 +1,10 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
-expect open class LuaMutableLiveData
+expect open class LuaMutableLiveData : LuaLiveData
 {
    companion object {
         fun create(): LuaMutableLiveData
    }
-   fun observe(owner:LuaLifecycleOwner, func: KCallable<Unit>)
-   fun removeObserver(func: KCallable<Unit>)
     fun setValue(value: Any?)
     fun postValue(value: Any?)
 }

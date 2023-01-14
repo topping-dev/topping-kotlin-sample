@@ -1,27 +1,16 @@
 package dev.topping.kotlin
 
-import kotlinx.cinterop.StableRef
 import kotlin.reflect.KCallable
 
 actual open class LuaCoroutineScope : KTInterface
 {
    var luaCoroutineScope: cocoapods.Topping.LuaCoroutineScope? = null
 
-    actual fun launch(func: KCallable<Unit>)
-    {
-        val kt = KTWrap()
-        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-        lt.nobj = StableRef.create(kt).asCPointer()
-        lt.kFRetF = kt.Init(this, func)
-        luaCoroutineScope?.launch(lt)
+    actual fun launch(func: KCallable<Unit>): LuaJob {
+        return KTWrap.Wrap(luaCoroutineScope?.launch(func.toLuaTranslator(this))) as LuaJob
     }
-    actual fun launch(dispatcher: Int, func: KCallable<Unit>)
-    {
-        val kt = KTWrap()
-        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
-        lt.nobj = StableRef.create(kt).asCPointer()
-        lt.kFRetF = kt.Init(this, func)
-        luaCoroutineScope?.launchDispatcher(dispatcher, lt)
+    actual fun launch(dispatcher: Int, func: KCallable<Unit>): LuaJob {
+        return KTWrap.Wrap(luaCoroutineScope?.launchDispatcher(dispatcher, func.toLuaTranslator(this))) as LuaJob
     }
 
     open override fun GetNativeObject(): Any?

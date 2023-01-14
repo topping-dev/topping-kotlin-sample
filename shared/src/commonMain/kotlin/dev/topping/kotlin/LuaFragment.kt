@@ -1,7 +1,6 @@
 package dev.topping.kotlin
 
-expect open class LuaFragment
-{
+expect open class LuaFragment() {
    companion object {
         fun Create(lc: LuaContext, luaId: LuaRef): LuaFragment
        fun Create(lc: LuaContext, luaId: LuaRef, args: MutableMap<String, Any>): LuaFragment

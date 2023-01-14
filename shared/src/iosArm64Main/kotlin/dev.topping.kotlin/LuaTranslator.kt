@@ -23,7 +23,7 @@ actual open class LuaTranslator : KTInterface
    }
 }
 
-fun <V> KCallable<V>.toLuaTranslator(obj: Any): cocoapods.Topping.LuaTranslator {
+fun <V> KCallable<V>.toLuaTranslator(obj: Any?): cocoapods.Topping.LuaTranslator {
     val kt = KTWrap()
     val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
     lt.nobj = StableRef.create(kt).asCPointer()
@@ -31,7 +31,7 @@ fun <V> KCallable<V>.toLuaTranslator(obj: Any): cocoapods.Topping.LuaTranslator 
     return lt
 }
 
-fun <V> KCallable<V>?.toLuaTranslator(obj: Any): cocoapods.Topping.LuaTranslator? {
+fun <V> KCallable<V>?.toLuaTranslator(obj: Any?): cocoapods.Topping.LuaTranslator? {
     if(this == null)
         return null
     val kt = KTWrap()

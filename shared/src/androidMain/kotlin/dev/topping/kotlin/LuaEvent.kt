@@ -1,6 +1,7 @@
 package dev.topping.kotlin
 
 import kotlin.reflect.KCallable
+import kotlin.reflect.KFunction
 
 actual open class LuaEvent : KTInterface
 {
@@ -23,9 +24,10 @@ actual open class LuaEvent : KTInterface
         actual val UI_EVENT_NFC: Int = 14
        actual fun RegisterUIEvent(luaId: LuaRef, event: Int, func: KCallable<Any?>)
        {
-           val kt: KTWrap<Any?> = KTWrap()
-           val lt: dev.topping.android.LuaTranslator = dev.topping.android.LuaTranslator(kt, kt.Init(null, func))
-           dev.topping.android.LuaEvent.RegisterUIEvent(luaId.luaRef!!, event, lt)
+           dev.topping.android.LuaEvent.RegisterUIEvent(luaId.luaRef!!, event, func.toLuaTranslator(null))
+       }
+       actual fun RegisterFragment(clsName: String, func: KCallable<LuaFragmentInterface>) {
+           dev.topping.android.LuaEvent.RegisterFragment(clsName, func.toLuaTranslator(null))
        }
    }
     open override fun GetNativeObject(): Any?

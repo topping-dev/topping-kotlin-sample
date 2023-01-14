@@ -8,7 +8,6 @@ group = "dev.topping.kotlin"
 version = "1.0"
 
 kotlin {
-
     android()
 
     iosX64()
@@ -21,18 +20,20 @@ kotlin {
         ios.deploymentTarget = "11.0"
         frameworkName = "shared"
         podfile = project.file("../iosApp/Podfile")
-        /*specRepos {
+        specRepos {
             url("https://github.com/Deadknight/dk-specs.git")
-        }*/
-        pod("Topping", "0.5.0")
+        }
+        pod("Topping", "0.1.7")
     }
 
     sourceSets {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("reflect"))
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
             }
         }
+        commonMain.kotlin.srcDir("../androidApp/build/generated/toppingviewbinding")
         val androidMain by getting {
             dependencies {
                 implementation ("androidx.appcompat:appcompat:1.3.0")
@@ -44,9 +45,8 @@ kotlin {
                 implementation ("androidx.navigation:navigation-ui-ktx:2.3.5")
                 implementation ("androidx.navigation:navigation-dynamic-features-fragment:2.3.5")
                 implementation ("com.google.android.material:material:1.4.0")
-                //implementation(files("libs/toppingAndroid-debug.aar"))
-                //implementation(files("../../topping-android/toppingAndroid/build/outputs/aar/toppingAndroid-debug.aar"))
-                implementation("dev.topping:toppingandroid:0.5.0")
+                implementation(files("../../topping-android/toppingAndroid/build/outputs/aar/toppingAndroid-debug.aar"))
+                //implementation("dev.topping:toppingandroid:0.5.0")
             }
         }
         val iosX64Main by getting

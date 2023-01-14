@@ -25,13 +25,13 @@ actual open class LuaTranslator : KTInterface
 }
 
 @JvmName("toLuaTranslatorV")
-fun <V> KCallable<V>.toLuaTranslator(obj: Any): dev.topping.android.LuaTranslator
+fun <V> KCallable<V>.toLuaTranslator(obj: Any?): dev.topping.android.LuaTranslator
 {
     val kt = KTWrap<V>()
     return dev.topping.android.LuaTranslator(kt, kt.Init(obj, this))
 }
 
-fun <V> KCallable<V>?.toLuaTranslator(obj: Any): dev.topping.android.LuaTranslator? {
+fun <V> KCallable<V>?.toLuaTranslator(obj: Any?): dev.topping.android.LuaTranslator? {
     if(this == null)
         return null
     val kt = KTWrap<V>()

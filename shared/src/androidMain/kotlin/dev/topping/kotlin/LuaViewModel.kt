@@ -4,6 +4,9 @@ actual open class LuaViewModel : KTInterface
 {
    var luaViewModel: dev.topping.android.LuaViewModel? = null
 
+    actual val viewModelScope: LuaCoroutineScope
+        get() = KTWrap.Wrap(luaViewModel?.viewModelScope) as LuaCoroutineScope
+
     actual fun SetObject(key: String, obj: Any?)
     {
         luaViewModel?.SetObject(key, obj)

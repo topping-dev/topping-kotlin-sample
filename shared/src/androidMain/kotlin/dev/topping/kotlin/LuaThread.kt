@@ -8,15 +8,15 @@ actual open class LuaThread : KTInterface
    actual companion object {
         actual fun RunOnUIThread(func: KCallable<Unit>)
         {
-            dev.topping.android.LuaThread.RunOnUIThread(func.toLuaTranslator(this))
+            dev.topping.android.LuaThread.RunOnUIThread(func.toLuaTranslator(null))
         }
         actual fun RunOnBackground(func: KCallable<Unit>)
         {
-            dev.topping.android.LuaThread.RunOnBackground(func.toLuaTranslator(this))
+            dev.topping.android.LuaThread.RunOnBackground(func.toLuaTranslator(null))
         }
         actual fun New(func: KCallable<Unit>): LuaThread {
             val pobj = LuaThread()
-            val pres = dev.topping.android.LuaThread.New(func.toLuaTranslator(this))
+            val pres = dev.topping.android.LuaThread.New(func.toLuaTranslator(null))
             pobj.SetNativeObject(pres)
             return pobj
         }

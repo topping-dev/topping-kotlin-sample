@@ -8,6 +8,7 @@ import platform.darwin.NSObject
 import kotlin.reflect.KCallable
 import kotlin.reflect.KClass
 import kotlin.reflect.KFunction
+import kotlin.reflect.KFunction0
 import kotlin.reflect.KFunction1
 import kotlin.reflect.KFunction2
 import kotlin.reflect.KFunction3
@@ -56,7 +57,7 @@ class KTWrap {
 
     var obj: Any? = null
     var func: KCallable<Any?>? = null
-    var funcStore: KFunction<Any?>? = null
+    var funcStore: KFunction0<Any?>? = null
     var funcStore1: KFunction1<Any?, Any?>? = null
     var funcStore2: KFunction2<Any?, Any?, Any?>? = null
     var funcStore3: KFunction3<Any?, Any?, Any?, Any?>? = null
@@ -76,7 +77,7 @@ class KTWrap {
         }
     }
 
-    fun Init(obj: Any?, func: KFunction<Any?>?) {
+    fun Init(obj: Any?, func: KFunction0<Any?>?) {
         this.obj = obj
         this.funcStore = func
     }
@@ -131,9 +132,9 @@ class KTWrap {
 			var itemName : String? = null
 			if(item != null)
 			{
-				itemName = item.toString();
-				itemName = itemName.split(":")[0];
-				itemName = itemName.substring(1);
+				itemName = item.toString()
+				itemName = itemName.split(":")[0]
+				itemName = itemName.substring(1)
 			}
             if(item != null && bindings?.containsKey(itemName as String)!!)
             {
@@ -156,10 +157,10 @@ class KTWrap {
 
         var ret: Any? = null
         var varsSize = vars.size
-        if(self == 0)
+        if(this.obj != null && self == 0)
             varsSize++
         if(varsSize == 0)
-            Init(this.obj, this.func as KFunction<Any?>)
+            Init(this.obj, this.func as KFunction0<Any?>)
         else if(varsSize == 1)
             Init(this.obj, this.func as KFunction1<Any?, Any?>)
         else if(varsSize == 2)
@@ -178,7 +179,10 @@ class KTWrap {
             Init(this.obj, this.func as KFunction8<Any?, Any?, Any?, Any?, Any?, Any?, Any?, Any?, Any?>)
         if(self == 1)
             this.obj = null
-        if(funcStore1 != null)
+        if(funcStore != null) {
+            ret = funcStore?.invoke()
+        }
+        else if(funcStore1 != null)
         {
             if(obj != null)
                 ret = funcStore1?.invoke(obj)

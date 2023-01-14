@@ -5,4 +5,5 @@ expect open class LuaContext
    companion object {
         fun CreateLuaContext(context: Any): LuaContext
    }
+    fun GetForm(): LuaForm
 }

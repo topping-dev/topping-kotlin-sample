@@ -3,9 +3,10 @@ package dev.topping.kotlin
 expect open class LuaViewModelProvider
 {
    companion object {
-      fun OfFragment(fragment: LuaFragment): LuaViewModelProvider
-      fun OfForm(form: LuaForm): LuaViewModelProvider
+      fun Of(fragment: LuaFragment): LuaViewModelProvider
+      fun Of(form: LuaForm): LuaViewModelProvider
    }
 
-   fun Get(tag: String): LuaViewModel
+   fun Get(key: String): LuaViewModel
+   inline fun <reified T:Any> Get(key: String, obj: T): T
 }

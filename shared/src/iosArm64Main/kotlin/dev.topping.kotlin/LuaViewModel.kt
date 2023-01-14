@@ -4,6 +4,8 @@ actual open class LuaViewModel : KTInterface
 {
    var luaViewModel: cocoapods.Topping.LuaViewModel? = null
     val objectMap = mutableMapOf<String, Any?>()
+    protected actual val viewModelScope: LuaCoroutineScope
+        get() = KTWrap.Wrap(luaViewModel?.getViewModelScope()) as LuaCoroutineScope
 
     actual fun SetObject(key: String, obj: Any?)
     {

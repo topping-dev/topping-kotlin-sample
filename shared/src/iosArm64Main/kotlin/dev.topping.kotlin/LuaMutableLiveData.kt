@@ -1,13 +1,10 @@
 package dev.topping.kotlin
 
-import kotlinx.cinterop.StableRef
 import platform.darwin.NSObject
-import kotlin.reflect.KCallable
 
-actual open class LuaMutableLiveData : KTInterface
+actual open class LuaMutableLiveData : LuaLiveData()
 {
    var luaMutableLiveData: cocoapods.Topping.LuaMutableLiveData? = null
-    var functionMap = mutableMapOf<KCallable<Unit>, cocoapods.Topping.LuaTranslator>()
 
     actual companion object {
         actual fun create(): LuaMutableLiveData {
@@ -17,15 +14,6 @@ actual open class LuaMutableLiveData : KTInterface
             return pobj
         }
 
-    }
-
-    actual fun observe(owner: LuaLifecycleOwner, func: KCallable<Unit>) {
-        val lt = func.toLuaTranslator(this)
-        luaMutableLiveData?.observeLua(owner.GetNativeObject() as cocoapods.Topping.LuaLifecycleOwner, lt)
-        functionMap[func] = lt
-    }
-    actual fun removeObserver(func: KCallable<Unit>) {
-        luaMutableLiveData?.removeObserverLua(functionMap[func]!!)
     }
 
     actual fun setValue(value: Any?) {
@@ -41,6 +29,7 @@ actual open class LuaMutableLiveData : KTInterface
     }
     open override fun SetNativeObject(par :Any?)
     {
+        super.SetNativeObject(par)
         luaMutableLiveData = par as cocoapods.Topping.LuaMutableLiveData?
     }
 

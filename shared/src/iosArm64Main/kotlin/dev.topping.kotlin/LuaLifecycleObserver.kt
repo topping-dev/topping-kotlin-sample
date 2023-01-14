@@ -17,7 +17,7 @@ actual open class LuaLifecycleObserver : KTInterface
 
         actual fun create(func: KCallable<Unit>): LuaLifecycleObserver {
             val pobj = LuaLifecycleObserver()
-            val pres = cocoapods.Topping.LuaLifecycleObserver.create(func.toLuaTranslator(this))
+            val pres = cocoapods.Topping.LuaLifecycleObserver.create(func.toLuaTranslator(null))
             pobj.SetNativeObject(pres)
             return pobj
         }

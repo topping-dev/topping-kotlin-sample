@@ -1,6 +1,6 @@
 package dev.topping.kotlin
 
-expect open class LuaFragmentInterface(fragment: Any) {
+expect open class ILuaFragment(fragment: Any) {
     open fun onCreate(savedInstanceState: Map<String, Any>)
     open fun onCreateView(luacontext: LuaContext,
                               inflater: LuaViewInflator,

@@ -1,12 +1,12 @@
 package dev.topping.kotlin
 
-actual open class LuaFragmentInterface actual constructor(fragment: Any) : KTInterface {
-    var luaFragmentInterface: dev.topping.android.LuaFragmentInterface? = null
+actual open class ILuaFragment actual constructor(fragment: Any) : KTInterface {
+    var luaFragmentInterface: dev.topping.android.ILuaFragment? = null
     private var fragment: LuaFragment
 
     init {
         this.fragment = KTWrap.Wrap(fragment) as LuaFragment
-        luaFragmentInterface = dev.topping.android.LuaFragmentInterface()
+        luaFragmentInterface = dev.topping.android.ILuaFragment()
         luaFragmentInterface?.ltOnCreate = ::onCreate.toLuaTranslator(null)
         luaFragmentInterface?.ltOnCreateView = ::onCreateView.toLuaTranslator(null)
         luaFragmentInterface?.ltOnViewCreated = ::onViewCreated.toLuaTranslator(null)
@@ -37,6 +37,6 @@ actual open class LuaFragmentInterface actual constructor(fragment: Any) : KTInt
     }
     open override fun SetNativeObject(par :Any?)
     {
-        luaFragmentInterface = par as dev.topping.android.LuaFragmentInterface?
+        luaFragmentInterface = par as dev.topping.android.ILuaFragment?
     }
 }

@@ -25,7 +25,10 @@ actual open class LuaEvent : KTInterface
        {
            cocoapods.Topping.LuaEvent.RegisterUIEvent(luaId.luaRef, event, func.toLuaTranslator(null))
        }
-       actual fun RegisterFragment(clsName: String, func: KCallable<LuaFragmentInterface>) {
+       actual fun RegisterForm(clsName: String, func: KCallable<ILuaForm>) {
+           cocoapods.Topping.LuaEvent.RegisterForm(clsName, func.toLuaTranslator(null))
+       }
+       actual fun RegisterFragment(clsName: String, func: KCallable<ILuaFragment>) {
            cocoapods.Topping.LuaEvent.RegisterFragment(clsName, func.toLuaTranslator(null))
        }
    }

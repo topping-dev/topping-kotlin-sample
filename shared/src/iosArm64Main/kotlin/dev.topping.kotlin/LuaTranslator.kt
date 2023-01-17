@@ -40,3 +40,21 @@ fun <V> KCallable<V>?.toLuaTranslator(obj: Any?): cocoapods.Topping.LuaTranslato
     lt.kFRetF = kt.Init(obj, this)
     return lt
 }
+
+private fun <R:Any> Function<R>.toLuaTranslator(obj: Any?): cocoapods.Topping.LuaTranslator {
+    val kt = KTWrap()
+    val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
+    lt.nobj = StableRef.create(kt).asCPointer()
+    lt.kFRetF = kt.Init(obj, this)
+    return lt
+}
+
+private fun <R:Any> Function<R>?.toLuaTranslator(obj: Any?): cocoapods.Topping.LuaTranslator? {
+    if(this == null)
+        return null
+    val kt = KTWrap()
+    val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
+    lt.nobj = StableRef.create(kt).asCPointer()
+    lt.kFRetF = kt.Init(obj, this)
+    return lt
+}

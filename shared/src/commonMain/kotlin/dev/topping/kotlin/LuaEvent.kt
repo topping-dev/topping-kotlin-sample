@@ -1,6 +1,7 @@
 package dev.topping.kotlin
 
 import kotlin.reflect.KCallable
+import kotlin.reflect.*
 
 expect open class LuaEvent
 {
@@ -21,6 +22,8 @@ expect open class LuaEvent
         val UI_EVENT_KEYUP: Int
         val UI_EVENT_NFC: Int
         fun RegisterUIEvent(luaId: LuaRef, event: Int, func: KCallable<Any?>)
-        fun RegisterFragment(clsName: String, func: KCallable<LuaFragmentInterface>)
+        fun RegisterForm(clsName: String, func: KCallable<ILuaForm>)
+        //fun RegisterFragment(clsName: String, func: KCallable<ILuaFragment>)
+        fun RegisterFragment(clsName: String, func: (Any) -> ILuaFragment)
    }
 }

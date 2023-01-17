@@ -1,7 +1,6 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-import kotlin.reflect.KFunction
+import kotlin.reflect.*
 
 actual open class LuaEvent : KTInterface
 {
@@ -26,7 +25,13 @@ actual open class LuaEvent : KTInterface
        {
            dev.topping.android.LuaEvent.RegisterUIEvent(luaId.luaRef!!, event, func.toLuaTranslator(null))
        }
-       actual fun RegisterFragment(clsName: String, func: KCallable<LuaFragmentInterface>) {
+       actual fun RegisterForm(clsName: String, func: KCallable<ILuaForm>) {
+           dev.topping.android.LuaEvent.RegisterForm(clsName, func.toLuaTranslator(null))
+       }
+       /*actual fun RegisterFragment(clsName: String, func: KCallable<ILuaFragment>) {
+           dev.topping.android.LuaEvent.RegisterFragment(clsName, func.toLuaTranslator(null))
+       }*/
+       actual fun RegisterFragment(clsName: String, func: (Any) -> ILuaFragment) {
            dev.topping.android.LuaEvent.RegisterFragment(clsName, func.toLuaTranslator(null))
        }
    }

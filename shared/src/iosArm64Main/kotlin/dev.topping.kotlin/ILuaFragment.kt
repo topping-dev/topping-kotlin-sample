@@ -1,6 +1,6 @@
 package dev.topping.kotlin
 
-actual open class LuaFragmentInterface actual constructor(fragment: Any) : KTInterface {
+actual open class ILuaFragment actual constructor(fragment: Any) : KTInterface {
     var luaFragmentInterface: cocoapods.Topping.LuaFragmentInterface? = null
     private var fragment: LuaFragment
 

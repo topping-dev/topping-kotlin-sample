@@ -14,6 +14,10 @@ actual open class LGRecyclerView : LGView()
    {
        lgRecyclerView?.SetAdapter(adapter?.lgRecyclerViewAdapter)
    }
+    actual fun SetAdapter(ltInit: LuaTranslator)
+    {
+        lgRecyclerView?.SetAdapterInterface(ltInit.luaTranslator)
+    }
     open override fun GetNativeObject(): Any?
    {
        return lgRecyclerView

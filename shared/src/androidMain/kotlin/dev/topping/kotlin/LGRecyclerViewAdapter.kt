@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LGRecyclerViewAdapter : KTInterface
 {
    var lgRecyclerViewAdapter: android.widget.LGRecyclerViewAdapter? = null
@@ -29,19 +27,19 @@ actual open class LGRecyclerViewAdapter : KTInterface
    {
        lgRecyclerViewAdapter?.Notify()
    }
-   actual fun SetOnItemSelected(func: KCallable<Unit>?)
+   actual fun SetOnItemSelected(func: ((LGRecyclerViewAdapter, LGView, LGView, Int, Any) -> Unit)?)
    {
        lgRecyclerViewAdapter?.SetOnItemSelected(func.toLuaTranslator(this))
    }
-   actual fun SetOnCreateViewHolder(func: KCallable<Any>?)
+   actual fun SetOnCreateViewHolder(func: ((LGRecyclerViewAdapter, LGView, Int, LuaContext) -> LGView)?)
    {
        lgRecyclerViewAdapter?.SetOnCreateViewHolder(func.toLuaTranslator(this))
    }
-   actual fun SetOnBindViewHolder(func: KCallable<Unit>?)
+   actual fun SetOnBindViewHolder(func: ((LGRecyclerViewAdapter, LGView, Int, Any) -> Unit)?)
    {
        lgRecyclerViewAdapter?.SetOnBindViewHolder(func.toLuaTranslator(this))
    }
-   actual fun SetGetItemViewType(func: KCallable<Int>?)
+   actual fun SetGetItemViewType(func: ((LGRecyclerViewAdapter, Int) -> Int)?)
    {
        lgRecyclerViewAdapter?.SetGetItemViewType(func.toLuaTranslator(this))
    }

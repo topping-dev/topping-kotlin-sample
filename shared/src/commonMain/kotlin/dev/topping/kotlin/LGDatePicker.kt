@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 expect open class LGDatePicker : LGFrameLayout
 {
    companion object {
@@ -11,5 +9,5 @@ expect open class LGDatePicker : LGFrameLayout
    fun GetMonth(): Int
    fun GetYear(): Int
    fun UpdateDate(day: Int, month: Int, year: Int)
-   fun SetOnDateChangedListener(func: KCallable<Unit>?)
+   fun SetOnDateChangedListener(func: ((LGDatePicker, Int, Int, Int) -> Unit)?)
 }

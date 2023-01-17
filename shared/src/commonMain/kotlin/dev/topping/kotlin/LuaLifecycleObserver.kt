@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 expect open class LuaLifecycleObserver
 {
    companion object {
@@ -12,6 +10,6 @@ expect open class LuaLifecycleObserver
       val ON_START: Int
       val ON_STOP: Int
 
-      fun create(func: KCallable<Unit>): LuaLifecycleObserver
+      fun create(func: (LuaNativeObject, Int) -> Unit): LuaLifecycleObserver
    }
 }

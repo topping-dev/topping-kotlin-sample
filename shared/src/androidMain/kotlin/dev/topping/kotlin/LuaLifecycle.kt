@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LuaLifecycle : KTInterface
 {
    var luaLifecycle: dev.topping.android.LuaLifecycle? = null
@@ -14,13 +12,13 @@ actual open class LuaLifecycle : KTInterface
         luaLifecycle?.removeObserver(luaLifecycleObserver.luaLifecycleObserver!!)
     }
 
-    actual fun launch(func: KCallable<Unit>)
+    actual fun launch(func: () -> Unit)
     {
-        luaLifecycle?.launch(func.toLuaTranslator(this))
+        luaLifecycle?.launch(func.toLuaTranslator(null))
     }
-    actual fun launch(dispatcher: Int, func: KCallable<Unit>)
+    actual fun launch(dispatcher: Int, func: () -> Unit)
     {
-        luaLifecycle?.launchDispatcher(dispatcher, func.toLuaTranslator(this))
+        luaLifecycle?.launchDispatcher(dispatcher, func.toLuaTranslator(null))
     }
 
     open override fun GetNativeObject(): Any?

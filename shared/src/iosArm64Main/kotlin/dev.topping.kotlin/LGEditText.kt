@@ -1,8 +1,5 @@
 package dev.topping.kotlin
 
-import kotlinx.cinterop.StableRef
-import kotlin.reflect.KCallable
-
 actual open class LGEditText : LGTextView()
 {
    var lgEditText: cocoapods.Topping.LGEditText? = null
@@ -14,15 +11,15 @@ actual open class LGEditText : LGTextView()
             return pobj
         }
    }
-    actual fun SetTextChangedListener(func: KCallable<Unit>?)
+    actual fun SetTextChangedListener(func: ((LGEditText, String) -> Unit)?)
     {
         lgEditText?.SetTextChangedListener(func.toLuaTranslator(this))
     }
-    actual fun SetBeforeTextChangedListener(func: KCallable<Unit>?)
+    actual fun SetBeforeTextChangedListener(func: ((LGEditText, String) -> Unit)?)
     {
         lgEditText?.SetBeforeTextChangedListener(func.toLuaTranslator(this))
     }
-    actual fun SetAfterTextChangedListener(func: KCallable<Unit>?)
+    actual fun SetAfterTextChangedListener(func: ((LGEditText, String) -> Unit)?)
     {
         lgEditText?.SetAfterTextChangedListener(func.toLuaTranslator(this))
     }

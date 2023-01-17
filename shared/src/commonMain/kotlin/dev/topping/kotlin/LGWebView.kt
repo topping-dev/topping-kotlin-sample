@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 expect open class LGWebView : LGView
 {
    companion object {
@@ -16,5 +14,5 @@ expect open class LGWebView : LGView
     fun CanGoForward(): Boolean
     fun GoBack()
     fun GoForward()
-    fun SetReqestAction(func: KCallable<Unit>?)
+    fun SetReqestAction(func: ((LGWebView, String) -> Boolean)?)
 }

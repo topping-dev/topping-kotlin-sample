@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LuaMutableLiveData : LuaLiveData()
 {
     var luaMutableLiveData: dev.topping.android.LuaMutableLiveData? = null

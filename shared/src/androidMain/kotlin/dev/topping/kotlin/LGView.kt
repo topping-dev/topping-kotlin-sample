@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LGView : KTInterface
 {
    var lgView: android.widget.LGView? = null
@@ -29,7 +27,7 @@ actual open class LGView : KTInterface
    {
        lgView?.SetBackground(background?.luaRef)
    }
-   actual fun SetOnClickListener(func: KCallable<Unit>?)
+   actual fun SetOnClickListener(func: ((LGView, LuaContext) -> Unit)?)
    {
        lgView?.SetOnClickListener(func.toLuaTranslator(this))
    }

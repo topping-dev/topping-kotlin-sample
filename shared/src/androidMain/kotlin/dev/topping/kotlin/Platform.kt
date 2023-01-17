@@ -84,6 +84,7 @@ actual class Platform actual constructor() {
                     android.widget.LGViewPager::class to LGViewPager::class,
                     dev.topping.android.LuaAppBarConfiguration::class to LuaAppBarConfiguration::class,
                     dev.topping.android.LuaBuffer::class to LuaBuffer::class,
+                    dev.topping.android.LuaBundle::class to LuaBundle::class,
                     dev.topping.android.LuaColor::class to LuaColor::class,
                     dev.topping.android.luagui.LuaContext::class to LuaContext::class,
                     dev.topping.android.LuaCoroutineScope::class to LuaCoroutineScope::class,

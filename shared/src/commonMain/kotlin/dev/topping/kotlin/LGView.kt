@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 expect open class LGView
 {
    companion object {
@@ -11,6 +9,6 @@ expect open class LGView
    fun SetEnabled(value: Boolean)
    fun SetFocusable(value: Boolean)
    fun SetBackground(background: LuaRef?)
-   fun SetOnClickListener(func: KCallable<Unit>?)
+   fun SetOnClickListener(func: ((LGView, LuaContext) -> Unit)?)
    fun findNavController() : LuaNavController
 }

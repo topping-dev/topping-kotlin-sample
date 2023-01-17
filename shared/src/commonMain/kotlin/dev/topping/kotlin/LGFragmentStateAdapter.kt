@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 expect open class LGFragmentStateAdapter : KTInterface
 {
    companion object {
@@ -10,6 +8,6 @@ expect open class LGFragmentStateAdapter : KTInterface
        fun Create(lc: LuaContext, fragmentManager: LuaFragmentManager, lifecycle: LuaLifecycle): LGFragmentStateAdapter?
    }
 
-    fun SetCreateFragment(func: KCallable<LuaFragment>)
-    fun SetGetItemCount(func: KCallable<Int>)
+    fun SetCreateFragment(func: (Int) -> LuaFragment)
+    fun SetGetItemCount(func: () -> Int)
 }

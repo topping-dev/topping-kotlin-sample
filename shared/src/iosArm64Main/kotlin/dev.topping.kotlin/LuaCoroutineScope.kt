@@ -6,11 +6,11 @@ actual open class LuaCoroutineScope : KTInterface
 {
    var luaCoroutineScope: cocoapods.Topping.LuaCoroutineScope? = null
 
-    actual fun launch(func: KCallable<Unit>): LuaJob {
-        return KTWrap.Wrap(luaCoroutineScope?.launch(func.toLuaTranslator(this))) as LuaJob
+    actual fun launch(func: () -> Unit): LuaJob {
+        return KTWrap.Wrap(luaCoroutineScope?.launch(func.toLuaTranslator(null))) as LuaJob
     }
-    actual fun launch(dispatcher: Int, func: KCallable<Unit>): LuaJob {
-        return KTWrap.Wrap(luaCoroutineScope?.launchDispatcher(dispatcher, func.toLuaTranslator(this))) as LuaJob
+    actual fun launch(dispatcher: Int, func: () -> Unit): LuaJob {
+        return KTWrap.Wrap(luaCoroutineScope?.launchDispatcher(dispatcher, func.toLuaTranslator(null))) as LuaJob
     }
 
     open override fun GetNativeObject(): Any?

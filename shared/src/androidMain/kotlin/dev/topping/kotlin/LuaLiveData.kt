@@ -1,11 +1,9 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LuaLiveData : KTInterface
 {
    var luaLiveData: dev.topping.android.LuaLiveData? = null
-    var functionMap = mutableMapOf<KCallable<Unit>, dev.topping.android.LuaTranslator>()
+    var functionMap = mutableMapOf<(LuaLiveData, Any) -> Unit, dev.topping.android.LuaTranslator>()
 
     actual companion object {
         actual fun create(): LuaLiveData {
@@ -17,12 +15,12 @@ actual open class LuaLiveData : KTInterface
 
     }
 
-    actual fun observe(owner: LuaLifecycleOwner, func: KCallable<Unit>) {
+    actual fun observe(owner: LuaLifecycleOwner, func: (LuaLiveData, Any) -> Unit) {
         val lt = func.toLuaTranslator(this)
         luaLiveData?.observe(owner.GetNativeObject() as dev.topping.android.LuaLifecycleOwner, lt)
         functionMap[func] = lt
     }
-    actual fun removeObserver(func: KCallable<Unit>) {
+    actual fun removeObserver(func: (LuaLiveData, Any) -> Unit) {
         luaLiveData?.removeObserver(functionMap[func]!!)
     }
 

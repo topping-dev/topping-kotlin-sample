@@ -1,7 +1,6 @@
 package dev.topping.kotlin
 
 import kotlinx.cinterop.StableRef
-import kotlin.reflect.KCallable
 
 actual open class LGRadioGroup : LGLinearLayout()
 {
@@ -14,7 +13,7 @@ actual open class LGRadioGroup : LGLinearLayout()
             return pobj
         }
    }
-   actual fun SetOnCheckedChangedListener(func: KCallable<Unit>?)
+   actual fun SetOnCheckedChangedListener(func: ((Int, Boolean) -> Unit)?)
    {
        val kt: KTWrap = KTWrap()
        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()

@@ -1,8 +1,5 @@
 package dev.topping.kotlin
 
-import dev.topping.android.LuaLifecycleOwner
-import kotlin.reflect.KCallable
-
 actual open class LuaLifecycleOwner : KTInterface
 {
    var luaLifecycleOwner: dev.topping.android.LuaLifecycleOwner? = null

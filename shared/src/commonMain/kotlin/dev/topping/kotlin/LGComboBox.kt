@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 expect open class LGComboBox : LGEditText
 {
    companion object {
@@ -12,5 +10,5 @@ expect open class LGComboBox : LGEditText
    fun SetSelected(index: Int)
    fun GetSelectedName(): String?
    fun GetSelectedTag(): Any?
-   fun SetOnComboChangedListener(func: KCallable<Unit>?)
+   fun SetOnComboChangedListener(func: ((LGComboBox, LuaContext, String, Any) -> Unit)?)
 }

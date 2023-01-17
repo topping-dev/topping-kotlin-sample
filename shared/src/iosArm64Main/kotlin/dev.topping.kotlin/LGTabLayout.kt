@@ -14,7 +14,7 @@ actual open class LGTabLayout : LGFrameLayout()
             return pobj
         }*/
    }
-    actual fun SetTabSelectedListener(func: KCallable<Unit>?) {
+    actual fun SetTabSelectedListener(func: ((LGTabLayout, LuaTab) -> Unit)?) {
         lgTabLayout?.SetTabSelectedListener(func.toLuaTranslator(this))
     }
     open override fun GetNativeObject(): Any?

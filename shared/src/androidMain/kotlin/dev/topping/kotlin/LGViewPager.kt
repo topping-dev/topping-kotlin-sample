@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LGViewPager : LGViewGroup()
 {
    var lgViewPager: android.widget.LGViewPager? = null
@@ -16,8 +14,8 @@ actual open class LGViewPager : LGViewGroup()
     actual fun SetAdapter(lgFragmentStateAdapter: LGFragmentStateAdapter) {
         lgViewPager?.SetAdapter(lgFragmentStateAdapter.lgFragmentStateAdapter)
     }
-    actual fun SetTabLayout(lgTabLayout: LGTabLayout, func: KCallable<LuaTab>) {
-        lgViewPager?.SetTabLayout(lgTabLayout.lgTabLayout, func.toLuaTranslator(this))
+    actual fun SetTabLayout(lgTabLayout: LGTabLayout, func: (Int) -> LuaTab) {
+        lgViewPager?.SetTabLayout(lgTabLayout.lgTabLayout, func.toLuaTranslator(null))
     }
     open override fun GetNativeObject(): Any?
    {

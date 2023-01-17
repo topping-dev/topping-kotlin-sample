@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LGToolbar : LGView()
 {
    var lgToolbar: android.widget.LGToolbar? = null
@@ -61,11 +59,11 @@ actual open class LGToolbar : LGView()
     {
         lgToolbar?.SetSubtitleTextApperance(ref?.luaRef)
     }
-    actual fun SetNavigationOnClickListener(func: KCallable<Unit>?)
+    actual fun SetNavigationOnClickListener(func: ((LGToolbar) -> Unit)?)
     {
         lgToolbar?.SetNavigationOnClickListener(func.toLuaTranslator(this))
     }
-    actual fun SetMenuItemClickListener(func: KCallable<Unit>?)
+    actual fun SetMenuItemClickListener(func: ((LGToolbar) -> Unit)?)
     {
         lgToolbar?.SetMenuItemClickListener(func.toLuaTranslator(this))
     }

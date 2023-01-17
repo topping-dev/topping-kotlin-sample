@@ -1,20 +1,18 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LuaThread : KTInterface
 {
    var luaThread: cocoapods.Topping.LuaThread? = null
    actual companion object {
-        actual fun RunOnUIThread(func: KCallable<Unit>)
+        actual fun RunOnUIThread(func: () -> Unit)
         {
             cocoapods.Topping.LuaThread.RunOnUIThread(func.toLuaTranslator(null))
         }
-        actual fun RunOnBackground(func: KCallable<Unit>)
+        actual fun RunOnBackground(func: () -> Unit)
         {
             cocoapods.Topping.LuaThread.RunOnBackground(func.toLuaTranslator(null))
         }
-        actual fun New(func: KCallable<Unit>): LuaThread {
+        actual fun New(func: () -> Unit): LuaThread {
             val pobj = LuaThread()
             val pres = cocoapods.Topping.LuaThread.New(func.toLuaTranslator(null))
             pobj.SetNativeObject(pres)

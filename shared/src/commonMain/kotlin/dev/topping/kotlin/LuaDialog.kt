@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 expect open class LuaDialog
 {
    companion object {
@@ -30,6 +28,6 @@ expect open class LuaDialog
    fun SetTimeManual(hour: Int, minute: Int)
    fun Show()
    fun Dismiss()
-   fun SetDateSelectedListener(func: KCallable<Unit>?)
-   fun SetTimeSelectedListener(func: KCallable<Unit>?)
+   fun SetDateSelectedListener(func: ((LuaDialog, Int, Int, Int) -> Unit)?)
+   fun SetTimeSelectedListener(func: ((LuaDialog, Int, Int, Int) -> Unit)?)
 }

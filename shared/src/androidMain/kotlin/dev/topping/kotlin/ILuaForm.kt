@@ -1,16 +1,16 @@
 package dev.topping.kotlin
 
 actual open class ILuaForm actual constructor(form: Any) : KTInterface {
-    var luaFormInterface: dev.topping.android.ILuaForm? = null
+    var iLuaForm: dev.topping.android.ILuaForm? = null
     private var form: LuaForm
 
     init {
         this.form = KTWrap.Wrap(form) as LuaForm
-        luaFormInterface = dev.topping.android.ILuaForm()
-        luaFormInterface?.ltOnCreate = ::onCreate.toLuaTranslator(null)
-        luaFormInterface?.ltOnResume = ::onResume.toLuaTranslator(null)
-        luaFormInterface?.ltOnPause = ::onPause.toLuaTranslator(null)
-        luaFormInterface?.ltOnDestroy = ::onDestroy.toLuaTranslator(null)
+        iLuaForm = dev.topping.android.ILuaForm()
+        iLuaForm?.ltOnCreate = ::onCreate.toLuaTranslator(null)
+        iLuaForm?.ltOnResume = ::onResume.toLuaTranslator(null)
+        iLuaForm?.ltOnPause = ::onPause.toLuaTranslator(null)
+        iLuaForm?.ltOnDestroy = ::onDestroy.toLuaTranslator(null)
     }
 
     actual open fun onCreate() {}
@@ -20,10 +20,10 @@ actual open class ILuaForm actual constructor(form: Any) : KTInterface {
     actual fun getForm(): LuaForm { return form }
     open override fun GetNativeObject(): Any?
     {
-        return luaFormInterface
+        return iLuaForm
     }
     open override fun SetNativeObject(par :Any?)
     {
-        luaFormInterface = par as dev.topping.android.ILuaForm?
+        iLuaForm = par as dev.topping.android.ILuaForm?
     }
 }

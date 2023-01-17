@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LGCheckBox : LGCompoundButton()
 {
    var lgCheckBox: cocoapods.Topping.LGCheckBox? = null
@@ -13,7 +11,7 @@ actual open class LGCheckBox : LGCompoundButton()
             return pobj
         }
    }
-   actual fun SetOnCheckedChangedListener(func: KCallable<Unit>?)
+   actual fun SetOnCheckedChangedListener(func: ((LGCheckBox, LuaContext, Boolean) -> Unit)?)
    {
        lgCheckBox?.SetOnCheckedChangedListener(func.toLuaTranslator(this))
    }

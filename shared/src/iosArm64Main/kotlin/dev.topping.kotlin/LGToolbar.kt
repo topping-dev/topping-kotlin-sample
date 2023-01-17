@@ -1,7 +1,6 @@
 package dev.topping.kotlin
 
 import kotlinx.cinterop.StableRef
-import kotlin.reflect.KCallable
 
 actual open class LGToolbar : LGView()
 {
@@ -62,7 +61,7 @@ actual open class LGToolbar : LGView()
     {
         lgToolbar?.SetSubtitleTextApperance(ref?.luaRef)
     }
-    actual fun SetNavigationOnClickListener(func: KCallable<Unit>?)
+    actual fun SetNavigationOnClickListener(func: ((LGToolbar) -> Unit)?)
     {
         val kt: KTWrap = KTWrap()
         val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
@@ -70,7 +69,7 @@ actual open class LGToolbar : LGView()
         lt.kFRetF = kt.Init(this, func)
         lgToolbar?.SetNavigationOnClickListener(lt)
     }
-    actual fun SetMenuItemClickListener(func: KCallable<Unit>?)
+    actual fun SetMenuItemClickListener(func: ((LGToolbar) -> Unit)?)
     {
         val kt: KTWrap = KTWrap()
         val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()

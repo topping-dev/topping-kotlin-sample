@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LGAdapterView : KTInterface
 {
    var lgAdapterView: android.widget.LGAdapterView? = null
@@ -35,7 +33,7 @@ actual open class LGAdapterView : KTInterface
    {
        lgAdapterView?.Clear()
    }
-   actual fun SetOnAdapterView(func: KCallable<Unit>?)
+   actual fun SetOnAdapterView(func: (LGAdapterView, LGView, Int, Any, LGView, LuaContext) -> LGView)
    {
        lgAdapterView?.SetOnAdapterView(func.toLuaTranslator(this))
    }

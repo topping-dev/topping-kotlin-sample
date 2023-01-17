@@ -26,12 +26,13 @@ class KTWrap<T> {
             else {
                 val clsesSuper = objIn::class::superclasses
                 clsesSuper.get().forEach {
-                    val cls = bindings[objIn::class] as KClass<*>
-                    val obj = KTClass.createInstance(cls)
-                    if(obj is KTInterface)
-                    {
-                        (obj as KTInterface).SetNativeObject(objIn)
-                        return obj
+                    if(bindings.containsKey(it::class)) {
+                        val cls = bindings[objIn::class] as KClass<*>
+                        val obj = KTClass.createInstance(cls)
+                        if (obj is KTInterface) {
+                            (obj as KTInterface).SetNativeObject(objIn)
+                            return obj
+                        }
                     }
                 }
             }

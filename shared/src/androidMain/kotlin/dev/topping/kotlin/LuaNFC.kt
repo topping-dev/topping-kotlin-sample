@@ -1,11 +1,9 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 open class LuaNFC : KTInterface
 {
    var luaNFC: dev.topping.android.LuaNFC? = null
-   fun SetOnTagReadListener(func: KCallable<Unit>?)
+   fun SetOnTagReadListener(func: ((String) -> Unit)?)
    {
        luaNFC?.SetOnTagReadListener(func.toLuaTranslator(this))
    }

@@ -1,8 +1,5 @@
 package dev.topping.kotlin
 
-import kotlinx.cinterop.StableRef
-import kotlin.reflect.KCallable
-
 actual open class LGDatePicker : LGFrameLayout()
 {
    var lgDatePicker: cocoapods.Topping.LGDatePicker? = null
@@ -27,7 +24,7 @@ actual open class LGDatePicker : LGFrameLayout()
    {
        lgDatePicker?.UpdateDate(day, month, year)
    }
-   actual fun SetOnDateChangedListener(func: KCallable<Unit>?)
+   actual fun SetOnDateChangedListener(func: ((LGDatePicker, Int, Int, Int) -> Unit)?)
    {
        lgDatePicker?.SetOnDateChangedListener(func.toLuaTranslator(this))
    }

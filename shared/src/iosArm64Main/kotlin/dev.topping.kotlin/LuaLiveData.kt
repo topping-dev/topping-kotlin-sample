@@ -5,7 +5,7 @@ import kotlin.reflect.KCallable
 actual open class LuaLiveData : KTInterface
 {
    var luaLiveData: cocoapods.Topping.LuaLiveData? = null
-    var functionMap = mutableMapOf<KCallable<Unit>, cocoapods.Topping.LuaTranslator>()
+    var functionMap = mutableMapOf<(LuaLiveData, Any) -> Unit, cocoapods.Topping.LuaTranslator>()
 
     actual companion object {
         actual fun create(): LuaLiveData {
@@ -17,12 +17,12 @@ actual open class LuaLiveData : KTInterface
 
     }
 
-    actual fun observe(owner: LuaLifecycleOwner, func: KCallable<Unit>) {
+    actual fun observe(owner: LuaLifecycleOwner, func: (LuaLiveData, Any) -> Unit) {
         val lt = func.toLuaTranslator(this)
         luaLiveData?.observeLua(owner.GetNativeObject() as cocoapods.Topping.LuaLifecycleOwner, lt)
         functionMap[func] = lt
     }
-    actual fun removeObserver(func: KCallable<Unit>) {
+    actual fun removeObserver(func: (LuaLiveData, Any) -> Unit) {
         luaLiveData?.removeObserverLua(functionMap[func]!!)
     }
 

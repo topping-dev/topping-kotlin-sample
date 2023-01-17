@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LGWebView : LGView()
 {
    var lgWebView: cocoapods.Topping.LGWebView? = null
@@ -49,7 +47,7 @@ actual open class LGWebView : LGView()
         lgWebView?.GoForward()
     }
 
-    actual fun SetReqestAction(func: KCallable<Unit>?) {
+    actual fun SetReqestAction(func: ((LGWebView, String) -> Boolean)?) {
         lgWebView?.SetRequestAction(func.toLuaTranslator(this))
     }
 

@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LGButton : LGTextView()
 {
    var lgButton: cocoapods.Topping.LGButton? = null
@@ -14,7 +12,7 @@ actual open class LGButton : LGTextView()
         }
    }
 
-    override fun SetOnClickListenerInternal(func: KCallable<Unit>?): Boolean
+    override fun SetOnClickListenerInternal(func: ((LGView, LuaContext) -> Unit)?): Boolean
     {
         lgButton?.SetOnClickListener(func.toLuaTranslator(this))
         return true

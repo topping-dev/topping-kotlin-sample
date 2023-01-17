@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LuaDialog : KTInterface
 {
    var luaDialog: dev.topping.android.LuaDialog? = null
@@ -90,11 +88,11 @@ actual open class LuaDialog : KTInterface
    {
        luaDialog?.Dismiss()
    }
-   actual fun SetDateSelectedListener(func: KCallable<Unit>?)
+   actual fun SetDateSelectedListener(func: ((LuaDialog, Int, Int, Int) -> Unit)?)
    {
        luaDialog?.SetDateSelectedListener(func.toLuaTranslator(this))
    }
-   actual fun SetTimeSelectedListener(func: KCallable<Unit>?)
+   actual fun SetTimeSelectedListener(func: ((LuaDialog, Int, Int, Int) -> Unit)?)
    {
        luaDialog?.SetTimeSelectedListener(func.toLuaTranslator(this))
    }

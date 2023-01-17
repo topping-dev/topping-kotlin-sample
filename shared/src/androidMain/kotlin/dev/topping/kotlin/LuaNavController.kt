@@ -1,7 +1,6 @@
 package dev.topping.kotlin
 
 import java.util.HashMap
-import kotlin.reflect.KCallable
 import kotlin.reflect.typeOf
 
 actual open class LuaNavController : KTInterface

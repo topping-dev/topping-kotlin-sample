@@ -19,13 +19,13 @@ actual open class ILuaFragment actual constructor(fragment: Any) : KTInterface {
         luacontext: LuaContext,
         inflater: LuaViewInflator,
         container: LGView?,
-        savedInstanceState: Map<String, Any>?
+        savedInstanceState: LuaBundle?
     ): LGView { return LGView() }
 
-    actual open fun onCreate(savedInstanceState: Map<String, Any>) {}
+    actual open fun onCreate(savedInstanceState: LuaBundle?) {}
     actual open fun onViewCreated(
         view: LGView,
-        savedInstanceState: Map<String, Any>
+        savedInstanceState: LuaBundle?
     ) {}
     actual open fun onResume() {}
     actual open fun onPause() {}

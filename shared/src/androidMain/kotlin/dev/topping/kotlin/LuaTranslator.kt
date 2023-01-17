@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LuaTranslator : KTInterface
 {
    var luaTranslator: dev.topping.android.LuaTranslator? = null
@@ -24,7 +22,7 @@ actual open class LuaTranslator : KTInterface
    }
 }
 
-@JvmName("toLuaTranslatorV")
+/*@JvmName("toLuaTranslatorV")
 fun <V> KCallable<V>.toLuaTranslator(obj: Any?): dev.topping.android.LuaTranslator
 {
     val kt = KTWrap<V>()
@@ -36,15 +34,15 @@ fun <V> KCallable<V>?.toLuaTranslator(obj: Any?): dev.topping.android.LuaTransla
         return null
     val kt = KTWrap<V>()
     return dev.topping.android.LuaTranslator(kt, kt.Init(obj, this))
-}
+}*/
 
 @JvmName("toLuaTranslatorR")
-fun <R:Any> Function<R>.toLuaTranslator(obj: Any?): dev.topping.android.LuaTranslator {
+fun <R> Function<R>.toLuaTranslator(obj: R?): dev.topping.android.LuaTranslator {
     val kt = KTWrap<R>()
     return dev.topping.android.LuaTranslator(kt, kt.Init(obj, this))
 }
 
-fun <R:Any> Function<R>?.toLuaTranslator(obj: Any?): dev.topping.android.LuaTranslator? {
+fun <R> Function<R>?.toLuaTranslator(obj: R?): dev.topping.android.LuaTranslator? {
     if(this == null)
         return null
     val kt = KTWrap<R>()

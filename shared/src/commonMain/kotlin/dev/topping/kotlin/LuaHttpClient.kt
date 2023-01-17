@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 expect open class LuaHttpClient
 {
    companion object {
@@ -18,6 +16,6 @@ expect open class LuaHttpClient
    fun StartLoad(url: String?, data: String?): String?
    fun StartLoadGet(url: String?): String?
    fun SetTimeout(timeout: Int?)
-   fun SetOnFinishListener(func: KCallable<Unit>?)
-   fun SetOnFailListener(func: KCallable<Unit>?)
+   fun SetOnFinishListener(func: ((LuaHttpClient, String) -> Unit)?)
+   fun SetOnFailListener(func: ((LuaHttpClient, String) -> Unit)?)
 }

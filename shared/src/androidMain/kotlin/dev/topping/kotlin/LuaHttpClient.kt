@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LuaHttpClient : KTInterface
 {
    var luaHttpClient: dev.topping.android.LuaHttpClient? = null
@@ -60,11 +58,11 @@ actual open class LuaHttpClient : KTInterface
    {
        luaHttpClient?.SetTimeout(timeout)
    }
-   actual fun SetOnFinishListener(func: KCallable<Unit>?)
+   actual fun SetOnFinishListener(func: ((LuaHttpClient, String) -> Unit)?)
    {
        luaHttpClient?.SetOnFinishListener(func.toLuaTranslator(this))
    }
-   actual fun SetOnFailListener(func: KCallable<Unit>?)
+   actual fun SetOnFailListener(func: ((LuaHttpClient, String) -> Unit)?)
    {
        luaHttpClient?.SetOnFailListener(func.toLuaTranslator(this))
    }

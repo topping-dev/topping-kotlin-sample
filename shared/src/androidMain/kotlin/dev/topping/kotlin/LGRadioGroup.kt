@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LGRadioGroup : LGLinearLayout()
 {
    var lgRadioGroup: android.widget.LGRadioGroup? = null
@@ -13,7 +11,7 @@ actual open class LGRadioGroup : LGLinearLayout()
             return pobj
         }
    }
-   actual fun SetOnCheckedChangedListener(func: KCallable<Unit>?)
+   actual fun SetOnCheckedChangedListener(func: ((Int, Boolean) -> Unit)?)
    {
        lgRadioGroup?.SetOnCheckedChangedListener(func.toLuaTranslator(this))
    }

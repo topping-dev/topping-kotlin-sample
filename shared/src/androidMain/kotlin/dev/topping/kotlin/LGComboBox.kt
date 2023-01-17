@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LGComboBox : LGEditText()
 {
    var lgComboBox: android.widget.LGComboBox? = null
@@ -39,7 +37,7 @@ actual open class LGComboBox : LGEditText()
    actual fun GetSelectedTag(): Any? {
        return lgComboBox?.GetSelectedTag()
    }
-   actual fun SetOnComboChangedListener(func: KCallable<Unit>?)
+   actual fun SetOnComboChangedListener(func: ((LGComboBox, LuaContext, String, Any) -> Unit)?)
    {
        lgComboBox?.SetOnComboChangedListener(func.toLuaTranslator(this))
    }

@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LGBottomNavigationView : LGFrameLayout()
 {
    var lgBottomNavigationView: cocoapods.Topping.LGBottomNavigationView? = null
@@ -13,10 +11,10 @@ actual open class LGBottomNavigationView : LGFrameLayout()
             return pobj
         }
    }
-    actual fun SetTabSelectedListener(func: KCallable<Unit>?) {
+    actual fun SetTabSelectedListener(func: ((LGBottomNavigationView, Int) -> Unit)?) {
         lgBottomNavigationView?.SetTabSelectedListener(func.toLuaTranslator(this));
     }
-    actual fun SetCanSelectTab(func: KCallable<Boolean>?) {
+    actual fun SetCanSelectTab(func: ((LGBottomNavigationView, Int) -> Boolean)?) {
         lgBottomNavigationView?.SetCanSelectTab(func.toLuaTranslator(this));
     }
     open override fun GetNativeObject(): Any?

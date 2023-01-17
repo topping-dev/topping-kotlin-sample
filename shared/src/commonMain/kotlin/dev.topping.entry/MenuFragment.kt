@@ -7,7 +7,7 @@ class MenuFragment(fragment: Any) : ILuaFragment(fragment) {
     lateinit var binding: FormBinding
     var viewModel = LuaViewModelProvider.Of(getFragment()).Get("key", MenuViewModel())
 
-    override fun onCreate(savedInstanceState: Map<String, Any>) {
+    override fun onCreate(savedInstanceState: LuaBundle?) {
 
     }
 
@@ -15,11 +15,16 @@ class MenuFragment(fragment: Any) : ILuaFragment(fragment) {
         luacontext: LuaContext,
         inflater: LuaViewInflator,
         container: LGView?,
-        savedInstanceState: Map<String, Any>?
+        savedInstanceState: LuaBundle?
     ): LGView {
         binding = FormBinding.inflate(inflater)
-        binding.formTestButton.SetOnClickListener(Form.Companion::TestButton_Click)
-        binding.formTestCheckBox.SetOnCheckedChangedListener(Form.Companion::TestCheckBox_CheckedChanged)
+        binding.formTestButton.SetOnClickListener { lgView, luaContext ->
+            LuaToast.Show(luaContext, "Test button clicked", 1000)
+            lgView.findNavController().navigate(LR.id.action_menuFragment_to_receiveFragment)
+        }
+        binding.formTestCheckBox.SetOnCheckedChangedListener { lgCheckBox, luaContext, isChecked ->
+            LuaToast.Show(luaContext, "CheckBox value is $isChecked", 1000)
+        }
         val combobox = binding.formTestComboBox
         combobox.AddItem("Item 1", 1)
         combobox.AddItem("Item 2", 2)
@@ -31,7 +36,7 @@ class MenuFragment(fragment: Any) : ILuaFragment(fragment) {
         return binding.getRoot()
     }
 
-    override fun onViewCreated(view: LGView, savedInstanceState: Map<String, Any>) {
+    override fun onViewCreated(view: LGView, savedInstanceState: LuaBundle?) {
     }
 
     override fun onResume() {

@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 expect open class LGRecyclerViewAdapter
 {
    companion object {
@@ -11,8 +9,8 @@ expect open class LGRecyclerViewAdapter
    fun RemoveValue(value: Any)
    fun Clear()
    fun Notify()
-   fun SetOnItemSelected(func: KCallable<Unit>?)
-   fun SetOnCreateViewHolder(func: KCallable<Any>?)
-   fun SetOnBindViewHolder(func: KCallable<Unit>?)
-   fun SetGetItemViewType(func: KCallable<Int>?)
+   fun SetOnItemSelected(func: ((LGRecyclerViewAdapter, LGView, LGView, Int, Any) -> Unit)?)
+   fun SetOnCreateViewHolder(func: ((LGRecyclerViewAdapter, LGView, Int, LuaContext) -> LGView)?)
+   fun SetOnBindViewHolder(func: ((LGRecyclerViewAdapter, LGView, Int, Any) -> Unit)?)
+   fun SetGetItemViewType(func: ((LGRecyclerViewAdapter, Int) -> Int)?)
 }

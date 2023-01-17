@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LGTabLayout : LGFrameLayout()
 {
    var lgTabLayout: android.widget.LGTabLayout? = null
@@ -14,7 +12,7 @@ actual open class LGTabLayout : LGFrameLayout()
             return pobj
         }*/
    }
-    actual fun SetTabSelectedListener(func: KCallable<Unit>?) {
+    actual fun SetTabSelectedListener(func: ((LGTabLayout, LuaTab) -> Unit)?) {
         lgTabLayout?.SetTabSelectedListener(func.toLuaTranslator(this))
     }
     open override fun GetNativeObject(): Any?

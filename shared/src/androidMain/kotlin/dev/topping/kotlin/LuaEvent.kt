@@ -21,11 +21,11 @@ actual open class LuaEvent : KTInterface
         actual val UI_EVENT_KEYDOWN: Int = 12
         actual val UI_EVENT_KEYUP: Int = 13
         actual val UI_EVENT_NFC: Int = 14
-       actual fun RegisterUIEvent(luaId: LuaRef, event: Int, func: KCallable<Any?>)
+       actual fun RegisterUIEvent(luaId: LuaRef, event: Int, func: Function<Any?>)
        {
            dev.topping.android.LuaEvent.RegisterUIEvent(luaId.luaRef!!, event, func.toLuaTranslator(null))
        }
-       actual fun RegisterForm(clsName: String, func: KCallable<ILuaForm>) {
+       actual fun RegisterForm(clsName: String, func: (Any) -> ILuaForm) {
            dev.topping.android.LuaEvent.RegisterForm(clsName, func.toLuaTranslator(null))
        }
        /*actual fun RegisterFragment(clsName: String, func: KCallable<ILuaFragment>) {

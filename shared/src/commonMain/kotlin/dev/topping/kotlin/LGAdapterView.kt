@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 expect open class LGAdapterView
 {
    companion object {
@@ -12,5 +10,5 @@ expect open class LGAdapterView
    fun AddValue(value: Any)
    fun RemoveValue(value: Any)
    fun Clear()
-   fun SetOnAdapterView(func: KCallable<Unit>?)
+   fun SetOnAdapterView(func: (LGAdapterView, LGView, Int, Any, LGView, LuaContext) -> LGView)
 }

@@ -29,14 +29,14 @@ actual open class LGView : KTInterface
    {
        lgView?.SetBackground(background?.GetNativeObject() as cocoapods.Topping.LuaRef)
    }
-    actual fun SetOnClickListener(func: KCallable<Unit>?)
+    actual fun SetOnClickListener(func: ((LGView, LuaContext) -> Unit)?)
     {
         if(SetOnClickListenerInternal(func))
             return
         lgView?.SetOnClickListener(func.toLuaTranslator(this))
     }
 
-    open fun SetOnClickListenerInternal(func: KCallable<Unit>?) : Boolean
+    open fun SetOnClickListenerInternal(func: ((LGView, LuaContext) -> Unit)?) : Boolean
     {
         return false;
     }

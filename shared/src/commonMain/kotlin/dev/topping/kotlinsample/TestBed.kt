@@ -1,7 +1,6 @@
 package dev.topping.kotlinsample
 
 import dev.topping.kotlin.*
-import kotlin.reflect.KCallable
 
 class TestBed {
     companion object {
@@ -39,7 +38,7 @@ class TestBed {
                 LuaToast.Show(form?.GetContext()!!, "Toast test", 2000)
         }
 
-        private fun onCreateViewHolder(adapter: LGRecyclerViewAdapter?, parent: LGView?, type: Int, context: LuaContext?) : Any
+        private fun onCreateViewHolder(adapter: LGRecyclerViewAdapter?, parent: LGView?, type: Int, context: LuaContext?) : LGView
         {
             val inflator = LuaViewInflator.Create(context!!)
             val viewToRet = inflator.Inflate(LR.layout.testbedadapter, parent)
@@ -60,9 +59,9 @@ class TestBed {
         {
             val pAdapter = LGRecyclerViewAdapter.Create(luacontext, "ListAdapterTest")
             pAdapter.SetOnItemSelected(Companion::onItemSelected)
-            pAdapter.SetOnCreateViewHolder(Companion::onCreateViewHolder as KCallable<Any>)
+            pAdapter.SetOnCreateViewHolder(Companion::onCreateViewHolder)
             pAdapter.SetOnBindViewHolder(Companion::onBindViewHolder)
-            pAdapter.SetGetItemViewType(Companion::onGetItemViewType as KCallable<Int>)
+            pAdapter.SetGetItemViewType(Companion::onGetItemViewType)
             pAdapter.AddValue("Form Ui")
             pAdapter.AddValue("Horizontal Scroll View")
             pAdapter.AddValue("Vertical Scroll View")

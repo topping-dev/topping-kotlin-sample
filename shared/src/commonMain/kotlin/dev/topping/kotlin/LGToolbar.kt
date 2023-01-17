@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 expect open class LGToolbar : LGView
 {
     fun SetMenu(ref: LuaRef?)
@@ -18,7 +16,7 @@ expect open class LGToolbar : LGView
     fun SetSubtitle(ref: LuaRef?)
     fun SetSubtitleTextColor(ref: LuaRef?)
     fun SetSubtitleTextApperance(ref: LuaRef?)
-    fun SetNavigationOnClickListener(func: KCallable<Unit>?)
-    fun SetMenuItemClickListener(func: KCallable<Unit>?)
+    fun SetNavigationOnClickListener(func: ((LGToolbar) -> Unit)?)
+    fun SetMenuItemClickListener(func: ((LGToolbar) -> Unit)?)
 
 }

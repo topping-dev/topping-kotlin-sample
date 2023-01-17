@@ -1,8 +1,6 @@
 package dev.topping.kotlin
 
-import kotlinx.cinterop.*
 import platform.darwin.NSObject
-import kotlin.reflect.KCallable
 
 actual open class LGAdapterView : KTInterface
 {
@@ -37,7 +35,7 @@ actual open class LGAdapterView : KTInterface
    {
        lgAdapterView?.Clear()
    }
-   actual fun SetOnAdapterView(func: KCallable<Unit>?)
+   actual fun SetOnAdapterView(func: (LGAdapterView, LGView, Int, Any, LGView, LuaContext) -> LGView)
    {
        lgAdapterView?.SetOnAdapterView(func.toLuaTranslator(this))
    }

@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LGFragmentStateAdapter : KTInterface
 {
     var lgFragmentStateAdapter: cocoapods.Topping.LGFragmentStateAdapter? = null
@@ -27,11 +25,11 @@ actual open class LGFragmentStateAdapter : KTInterface
             return pobj
         }
     }
-    actual fun SetCreateFragment(func: KCallable<LuaFragment>) {
-        lgFragmentStateAdapter?.SetCreateFragment(func.toLuaTranslator(this))
+    actual fun SetCreateFragment(func: (Int) -> LuaFragment) {
+        lgFragmentStateAdapter?.SetCreateFragment(func.toLuaTranslator(null))
     }
-    actual fun SetGetItemCount(func: KCallable<Int>) {
-        lgFragmentStateAdapter?.SetGetItemCount(func.toLuaTranslator(this))
+    actual fun SetGetItemCount(func: () -> Int) {
+        lgFragmentStateAdapter?.SetGetItemCount(func.toLuaTranslator(null))
     }
     open override fun GetNativeObject(): Any?
     {

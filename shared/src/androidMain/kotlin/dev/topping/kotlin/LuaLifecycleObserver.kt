@@ -1,7 +1,5 @@
 package dev.topping.kotlin
 
-import kotlin.reflect.KCallable
-
 actual open class LuaLifecycleObserver : KTInterface
 {
    var luaLifecycleObserver: dev.topping.android.LuaLifecycleObserver? = null
@@ -14,7 +12,7 @@ actual open class LuaLifecycleObserver : KTInterface
         actual val ON_START: Int = 4
         actual val ON_STOP: Int = 5
 
-        actual fun create(func: KCallable<Unit>): LuaLifecycleObserver {
+        actual fun create(func: (LuaNativeObject, Int) -> Unit): LuaLifecycleObserver {
             val pobj = LuaLifecycleObserver()
             val pres = dev.topping.android.LuaLifecycleObserver.create(func.toLuaTranslator(null))
             pobj.SetNativeObject(pres)

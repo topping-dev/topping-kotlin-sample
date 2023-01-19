@@ -2,7 +2,8 @@ package dev.topping.entry
 
 import dev.topping.kotlin.*
 import dev.topping.kotlinsample.Form
-import dev.topping.kotlinsample.TestBed
+import dev.topping.kotlinsample.MainForm
+import dev.topping.kotlinsample.MenuFragment
 
 class KTEntry {
     companion object {

@@ -15,5 +15,6 @@ expect open class LuaFragment() {
    fun SetViewId(luaId: String)
    fun SetTitle(str: String)
    fun Close()
+   fun getArguments(): LuaBundle
    fun getNavController(): LuaNavController
 }

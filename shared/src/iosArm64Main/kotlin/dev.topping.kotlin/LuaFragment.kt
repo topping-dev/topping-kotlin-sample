@@ -60,6 +60,10 @@ actual open class LuaFragment : KTInterface
    {
        luaFragment?.Close()
    }
+    actual open fun getArguments(): LuaBundle
+    {
+        return KTWrap.Wrap(luaFragment?.getArgumentsBundle()) as LuaBundle
+    }
     actual open fun getNavController(): LuaNavController
     {
         return KTWrap.Wrap(luaFragment?.getNavController()) as LuaNavController

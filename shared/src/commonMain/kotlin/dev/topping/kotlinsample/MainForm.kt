@@ -1,4 +1,4 @@
-package dev.topping.entry
+package dev.topping.kotlinsample
 
 import dev.topping.kotlin.*
 import dev.topping.kotlinsample.Form

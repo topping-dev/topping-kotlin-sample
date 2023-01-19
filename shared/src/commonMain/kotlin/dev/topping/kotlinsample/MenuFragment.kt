@@ -1,7 +1,6 @@
-package dev.topping.entry
+package dev.topping.kotlinsample
 
 import dev.topping.kotlin.*
-import dev.topping.kotlinsample.Form
 
 class MenuFragment(fragment: Any) : ILuaFragment(fragment) {
     lateinit var binding: FormBinding

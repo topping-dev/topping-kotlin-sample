@@ -27,6 +27,30 @@ actual class LuaBundle : KTInterface {
         luaBundle?.putByte(key, value)
     }
 
+    actual fun getChar(key: String): Byte {
+        return (luaBundle?.getChar(key) ?: 0) as Byte
+    }
+
+    actual fun getChar(key: String, def: Byte): Byte {
+        return (luaBundle?.getChar(key, def.toInt().toChar()) ?: 0) as Byte
+    }
+
+    actual fun putChar(key: String, value: Byte) {
+        luaBundle?.putChar(key, value.toInt().toChar())
+    }
+
+    actual fun getShort(key: String): Short {
+        return luaBundle?.getShort(key) ?: 0
+    }
+
+    actual fun getShort(key: String, def: Short): Short {
+        return luaBundle?.getShort(key, def) ?: 0
+    }
+
+    actual fun putShort(key: String, value: Short) {
+        luaBundle?.putShort(key, value)
+    }
+
     actual fun getInt(key: String): Int {
         return luaBundle?.getInt(key) ?: 0
     }

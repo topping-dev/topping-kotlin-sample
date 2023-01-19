@@ -38,6 +38,7 @@ actual class Platform actual constructor() {
             cocoapods.Topping.LGViewGroup.className().toString() to LGViewGroup::class,
             cocoapods.Topping.LGViewPager.className().toString() to LGViewPager::class,
             cocoapods.Topping.LuaAppBarConfiguration.className().toString() to LuaAppBarConfiguration::class,
+            cocoapods.Topping.LuaBundle.className().toString() to LuaBundle::class,
             cocoapods.Topping.LuaBuffer.className().toString() to LuaBuffer::class,
             cocoapods.Topping.LuaColor.className().toString() to LuaColor::class,
             cocoapods.Topping.LuaContext.className().toString() to LuaContext::class,

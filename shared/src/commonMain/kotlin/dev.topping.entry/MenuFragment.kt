@@ -8,7 +8,6 @@ class MenuFragment(fragment: Any) : ILuaFragment(fragment) {
     var viewModel = LuaViewModelProvider.Of(getFragment()).Get("key", MenuViewModel())
 
     override fun onCreate(savedInstanceState: LuaBundle?) {
-
     }
 
     override fun onCreateView(

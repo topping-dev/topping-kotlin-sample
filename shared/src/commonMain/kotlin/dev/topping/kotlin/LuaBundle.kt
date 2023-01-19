@@ -8,6 +8,12 @@ expect class LuaBundle
     fun getByte(key: String): Byte
     fun getByte(key: String, def: Byte): Byte
     fun putByte(key: String, value: Byte)
+    fun getChar(key: String): Byte
+    fun getChar(key: String, def: Byte): Byte
+    fun putChar(key: String, value: Byte)
+    fun getShort(key: String): Short
+    fun getShort(key: String, def: Short): Short
+    fun putShort(key: String, value: Short)
     fun getInt(key: String): Int
     fun getInt(key: String, def: Int): Int
     fun putInt(key: String, value: Int)

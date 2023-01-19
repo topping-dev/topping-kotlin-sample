@@ -6,4 +6,5 @@ expect open class LuaContext
         fun CreateLuaContext(context: Any): LuaContext
    }
     fun GetForm(): LuaForm
+    fun StartForm(luaFormIntent: LuaFormIntent)
 }

@@ -14,6 +14,9 @@ actual open class LuaContext : KTInterface
     actual fun GetForm(): LuaForm {
         return KTWrap.Wrap(luaContext?.GetForm()) as LuaForm
     }
+    actual fun StartForm(luaFormIntent: LuaFormIntent) {
+        luaContext?.StartForm(luaFormIntent?.luaFormIntent)
+    }
     open override fun GetNativeObject(): Any?
    {
        return luaContext

@@ -40,6 +40,7 @@ actual class KTClass {
                 "LGViewGroup" -> return LGViewGroup()
                 "LGViewPager" -> return LGViewPager()
                 "LuaAppBarConfiguration" -> return LuaAppBarConfiguration()
+                "LuaBundle" -> return LuaBundle()
                 "LuaBuffer" -> return LuaBuffer()
                 "LuaColor" -> return LuaColor()
                 "LuaContext" -> return LuaContext()

@@ -16,15 +16,39 @@ actual open class LuaBundle : KTInterface {
     }
 
     actual fun getByte(key: String): Byte {
-        return luaBundle?.getByte(key) as Byte ?: 0
+        return luaBundle?.getByte(key) ?: 0
     }
 
     actual fun getByte(key: String, def: Byte): Byte {
-        return luaBundle?.getByte(key, def as Short) as Byte ?: 0
+        return luaBundle?.getByte(key, def) ?: 0
     }
 
     actual fun putByte(key: String, value: Byte) {
-        luaBundle?.putByte(key, value as Short)
+        luaBundle?.putByte(key, value)
+    }
+
+    actual fun getChar(key: String): Byte {
+        return luaBundle?.getChar(key) ?: 0
+    }
+
+    actual fun getChar(key: String, def: Byte): Byte {
+        return luaBundle?.getChar(key, def) ?: 0
+    }
+
+    actual fun putChar(key: String, value: Byte) {
+        luaBundle?.putChar(key, value)
+    }
+
+    actual fun getShort(key: String): Short {
+        return luaBundle?.getShort(key) ?: 0
+    }
+
+    actual fun getShort(key: String, def: Short): Short {
+        return luaBundle?.getShort(key, def) ?: 0
+    }
+
+    actual fun putShort(key: String, value: Short) {
+        luaBundle?.putShort(key, value)
     }
 
     actual fun getInt(key: String): Int {

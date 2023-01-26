@@ -6,34 +6,34 @@ actual open class LGView : KTInterface
 {
    var lgView: cocoapods.Topping.LGView? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGView {
+        actual fun create(lc: LuaContext): LGView {
             val pobj = LGView()
-            val pres = cocoapods.Topping.LGView.Create(lc.luaContext)
+            val pres = cocoapods.Topping.LGView.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun GetViewById(lId: LuaRef): LGView?
+   actual fun getViewById(lId: LuaRef): LGView?
    {
-       return KTWrap.Wrap(lgView?.GetViewById(lId.luaRef)) as LGView?
+       return KTWrap.Wrap(lgView?.getViewById(lId.luaRef)) as LGView?
    }
-   actual fun SetEnabled(value: Boolean)
+   actual fun setEnabled(value: Boolean)
    {
-       lgView?.SetEnabled(value)
+       lgView?.setEnabled(value)
    }
-   actual fun SetFocusable(value: Boolean)
+   actual fun setFocusable(value: Boolean)
    {
-       lgView?.SetFocusable(value)
+       lgView?.setFocusable(value)
    }
-   actual fun SetBackground(background: LuaRef?)
+   actual fun setBackground(background: LuaRef?)
    {
-       lgView?.SetBackground(background?.GetNativeObject() as cocoapods.Topping.LuaRef)
+       lgView?.setBackground(background?.GetNativeObject() as cocoapods.Topping.LuaRef)
    }
-    actual fun SetOnClickListener(func: ((LGView, LuaContext) -> Unit)?)
+    actual fun setOnClickListener(func: ((LGView, LuaContext) -> Unit)?)
     {
         if(SetOnClickListenerInternal(func))
             return
-        lgView?.SetOnClickListener(func.toLuaTranslator(this))
+        lgView?.setOnClickListener(func.toLuaTranslator(this))
     }
 
     open fun SetOnClickListenerInternal(func: ((LGView, LuaContext) -> Unit)?) : Boolean

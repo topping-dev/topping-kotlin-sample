@@ -4,7 +4,7 @@ actual open class LGTabLayout : LGFrameLayout()
 {
    var lgTabLayout: android.widget.LGTabLayout? = null
    actual companion object {
-        /*actual fun Create(lc: LuaContext?): LGTabLayout?
+        /*actual fun create(lc: LuaContext?): LGTabLayout?
         {
             val pobj = LGTabLayout()
             val pres = android.widget.LGTabLayout(lc.luaContext)
@@ -12,8 +12,8 @@ actual open class LGTabLayout : LGFrameLayout()
             return pobj
         }*/
    }
-    actual fun SetTabSelectedListener(func: ((LGTabLayout, LuaTab) -> Unit)?) {
-        lgTabLayout?.SetTabSelectedListener(func.toLuaTranslator(this))
+    actual fun setTabSelectedListener(func: ((LGTabLayout, LuaTab) -> Unit)?) {
+        lgTabLayout?.setTabSelectedListener(func.toLuaTranslator(this))
     }
     open override fun GetNativeObject(): Any?
    {

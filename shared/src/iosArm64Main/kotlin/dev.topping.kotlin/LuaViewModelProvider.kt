@@ -9,27 +9,27 @@ actual open class LuaViewModelProvider : KTInterface
    var luaViewModelProvider: cocoapods.Topping.LuaViewModelProvider? = null
 
     actual companion object {
-        actual fun Of(fragment: LuaFragment): LuaViewModelProvider {
+        actual fun of(fragment: LuaFragment): LuaViewModelProvider {
             val prov = LuaViewModelProvider()
-            val nat = cocoapods.Topping.LuaViewModelProvider.OfFragment(fragment.GetNativeObject() as cocoapods.Topping.LuaFragment)
+            val nat = cocoapods.Topping.LuaViewModelProvider.ofFragment(fragment.GetNativeObject() as cocoapods.Topping.LuaFragment)
             prov.SetNativeObject(nat)
             return prov
         }
 
-        actual fun Of(form: LuaForm): LuaViewModelProvider {
+        actual fun of(form: LuaForm): LuaViewModelProvider {
             val prov = LuaViewModelProvider()
-            val nat = cocoapods.Topping.LuaViewModelProvider.OfForm(form.GetNativeObject() as cocoapods.Topping.LuaForm)
+            val nat = cocoapods.Topping.LuaViewModelProvider.ofForm(form.GetNativeObject() as cocoapods.Topping.LuaForm)
             prov.SetNativeObject(nat)
             return prov
         }
     }
 
-    actual fun Get(key: String): LuaViewModel {
-        return KTWrap.Wrap(luaViewModelProvider?.Get(key)) as LuaViewModel
+    actual fun get(key: String): LuaViewModel {
+        return KTWrap.Wrap(luaViewModelProvider?.get(key)) as LuaViewModel
     }
 
-    actual inline fun <reified T:Any> Get(key: String, obj: T): T {
-        return (luaViewModelProvider?.Get(key, StableRef.create(obj).asCPointer()) as COpaquePointer).asStableRef<T>().get()
+    actual inline fun <reified T:Any> get(key: String, obj: T): T {
+        return (luaViewModelProvider?.get(key, StableRef.create(obj).asCPointer()) as COpaquePointer).asStableRef<T>().get()
     }
 
     open override fun GetNativeObject(): Any?

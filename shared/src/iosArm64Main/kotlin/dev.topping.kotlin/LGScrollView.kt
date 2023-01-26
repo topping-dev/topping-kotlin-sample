@@ -4,9 +4,9 @@ actual open class LGScrollView : LGFrameLayout()
 {
    var lgScrollView: cocoapods.Topping.LGScrollView? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGScrollView {
+        actual fun create(lc: LuaContext): LGScrollView {
             val pobj = LGScrollView()
-            val pres = cocoapods.Topping.LGScrollView.Create(lc.luaContext)
+            val pres = cocoapods.Topping.LGScrollView.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

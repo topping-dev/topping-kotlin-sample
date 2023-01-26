@@ -4,61 +4,61 @@ actual open class LuaFragment : KTInterface
 {
    var luaFragment: dev.topping.android.LuaFragment? = null
    actual companion object {
-        actual fun Create(lc: LuaContext, luaId: LuaRef): LuaFragment {
+        actual fun create(lc: LuaContext, luaId: LuaRef): LuaFragment {
             val pobj = LuaFragment()
-            val pres = dev.topping.android.LuaFragment.Create(lc.luaContext!!, luaId.luaRef)
+            val pres = dev.topping.android.LuaFragment.create(lc.luaContext!!, luaId.luaRef)
             pobj.SetNativeObject(pres)
             return pobj
         }
-       actual fun Create(lc: LuaContext, luaId: LuaRef, args: MutableMap<String, Any>): LuaFragment {
+       actual fun create(lc: LuaContext, luaId: LuaRef, args: MutableMap<String, Any>): LuaFragment {
            val pobj = LuaFragment()
-           val pres = dev.topping.android.LuaFragment.Create(lc.luaContext!!, luaId.luaRef, args)
+           val pres = dev.topping.android.LuaFragment.create(lc.luaContext!!, luaId.luaRef, args)
            pobj.SetNativeObject(pres)
            return pobj
        }
-        actual fun CreateWithUI(lc: LuaContext, luaId: LuaRef, ui: LuaRef, args: MutableMap<String, Any>): LuaFragment {
+        actual fun createWithUI(lc: LuaContext, luaId: LuaRef, ui: LuaRef, args: MutableMap<String, Any>): LuaFragment {
             val pobj = LuaFragment()
-            val pres = dev.topping.android.LuaFragment.CreateWithUI(lc.luaContext!!, luaId.luaRef, ui.luaRef, args)
+            val pres = dev.topping.android.LuaFragment.createWithUI(lc.luaContext!!, luaId.luaRef, ui.luaRef, args)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual open fun GetContext(): LuaContext {
+   actual open fun getContext(): LuaContext {
        val pobj = LuaContext()
-       val obj = luaFragment?.GetContext()
+       val obj = luaFragment?.getContext()
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual open fun IsInitialized(): Boolean {
-       return luaFragment?.IsInitialized()!!
+   actual open fun isInitialized(): Boolean {
+       return luaFragment?.isInitialized()!!
    }
-   actual open fun GetViewById(lId: LuaRef): LGView?
+   actual open fun getViewById(lId: LuaRef): LGView?
    {
-       return KTWrap.Wrap(luaFragment?.GetViewById(lId.luaRef!!)) as LGView?
+       return KTWrap.Wrap(luaFragment?.getViewById(lId.luaRef!!)) as LGView?
    }
-   actual open fun GetView(): LGView?
+   actual open fun getView(): LGView?
    {
-       return KTWrap.Wrap(luaFragment?.GetView()) as LGView?
+       return KTWrap.Wrap(luaFragment?.getView()) as LGView?
    }
-   actual open fun SetView(v: LGView?)
+   actual open fun setView(v: LGView?)
    {
-       luaFragment?.SetView(v?.lgView!!)
+       luaFragment?.setLGView(v?.lgView!!)
    }
-   actual open fun SetViewXML(xml: LuaRef)
+   actual open fun setViewXML(xml: LuaRef)
    {
-       luaFragment?.SetViewXML(xml.luaRef)
+       luaFragment?.setViewXML(xml.luaRef)
    }
-   actual open fun SetViewId(luaId: String)
+   actual open fun setViewId(luaId: String)
    {
-       luaFragment?.SetViewId(luaId)
+       luaFragment?.setViewId(luaId)
    }
-   actual open fun SetTitle(str: String)
+   actual open fun setTitle(str: String)
    {
-       luaFragment?.SetTitle(str)
+       luaFragment?.setTitle(str)
    }
-   actual open fun Close()
+   actual open fun close()
    {
-       luaFragment?.Close()
+       luaFragment?.close()
    }
     actual open fun getArguments(): LuaBundle {
         return KTWrap.Wrap(luaFragment?.getArgumentsBundle()) as LuaBundle

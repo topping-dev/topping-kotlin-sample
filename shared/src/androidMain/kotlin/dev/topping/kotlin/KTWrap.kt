@@ -9,7 +9,7 @@ class KTWrap<T> {
     companion object {
         fun Wrap(objIn: Any?): Any?
         {
-            val bindings = Platform.GetBindings()
+            val bindings = Platform.getBindings()
             if(objIn == null)
                 return null
 
@@ -69,8 +69,8 @@ class KTWrap<T> {
     }
 
     private fun findBinding(kClass: KClass<out Any>): Any? {
-        val bindings = Platform.GetBindings()
-        val retBindings = Platform.GetRetBindings()
+        val bindings = Platform.getBindings()
+        val retBindings = Platform.getRetBindings()
         if(bindings?.containsKey(kClass) == true)
         {
             return bindings[kClass]

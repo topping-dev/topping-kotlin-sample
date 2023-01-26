@@ -3,13 +3,11 @@ package dev.topping.kotlin
 expect open class LuaThread
 {
    companion object {
-        fun RunOnUIThread(func: () -> Unit)
-        fun RunOnBackground(func: () -> Unit)
-        fun New(func: () -> Unit): LuaThread
+        fun runOnUIThread(func: () -> Unit)
+        fun runOnBackground(func: () -> Unit)
+        fun new(func: () -> Unit): LuaThread
    }
-   fun Run()
-   fun Wait(milliseconds: Long)
-   fun Notify()
-   fun Interrupt()
-   fun Sleep(milliseconds: Long)
+   fun start()
+   fun interrupt()
+   fun sleep(milliseconds: Long)
 }

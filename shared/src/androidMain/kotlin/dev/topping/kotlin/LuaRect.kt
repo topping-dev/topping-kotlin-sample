@@ -4,34 +4,34 @@ actual open class LuaRect : KTInterface
 {
    var luaRect: dev.topping.android.LuaRect? = null
    actual companion object {
-        actual fun CreateRect(): LuaRect {
+        actual fun createRect(): LuaRect {
             val pobj = LuaRect()
-            val pres = dev.topping.android.LuaRect.CreateRect()
+            val pres = dev.topping.android.LuaRect.createRect()
             pobj.SetNativeObject(pres)
             return pobj
         }
-        actual fun CreateRectPar(left: Float, top: Float, right: Float, bottom: Float): LuaRect {
+        actual fun createRectPar(left: Float, top: Float, right: Float, bottom: Float): LuaRect {
             val pobj = LuaRect()
-            val pres = dev.topping.android.LuaRect.CreateRectPar(left, top, right, bottom)
+            val pres = dev.topping.android.LuaRect.createRectPar(left, top, right, bottom)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun Set(left: Float, top: Float, right: Float, bottom: Float)
+   actual fun set(left: Float, top: Float, right: Float, bottom: Float)
    {
-       luaRect?.Set(left, top, right, bottom)
+       luaRect?.set(left, top, right, bottom)
    }
-   actual fun GetLeft(): Float {
-       return luaRect?.GetLeft()!!
+   actual fun getLeft(): Float {
+       return luaRect?.getLeft()!!
    }
-   actual fun GetRight(): Float {
-       return luaRect?.GetRight()!!
+   actual fun getRight(): Float {
+       return luaRect?.getRight()!!
    }
-   actual fun GetTop(): Float {
-       return luaRect?.GetTop()!!
+   actual fun getTop(): Float {
+       return luaRect?.getTop()!!
    }
-   actual fun GetBottom(): Float {
-       return luaRect?.GetBottom()!!
+   actual fun getBottom(): Float {
+       return luaRect?.getBottom()!!
    }
     open override fun GetNativeObject(): Any?
    {

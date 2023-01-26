@@ -3,18 +3,18 @@ package dev.topping.kotlin
 expect open class LuaForm
 {
    companion object {
-        fun Create(lc: LuaContext, luaId: LuaRef)
-        fun CreateWithUI(lc: LuaContext, luaId: LuaRef, ui: LuaRef)
-        fun GetActiveForm(): LuaForm?
+        fun create(lc: LuaContext, luaId: LuaRef)
+        fun createWithUI(lc: LuaContext, luaId: LuaRef, ui: LuaRef)
+        fun getActiveForm(): LuaForm?
    }
-   fun GetContext(): LuaContext?
-   fun GetViewById(lId: LuaRef?): LGView?
-   fun GetBindings(): Map<String, LGView>?
-   fun GetView(): LGView?
-   fun SetView(v: LGView?)
-   fun SetViewXML(xml: LuaRef)
-   fun SetTitle(str: String)
-   fun Close()
-   fun GetLifecycle() : LuaLifecycle?
+   fun getContext(): LuaContext?
+   fun getViewById(lId: LuaRef?): LGView?
+   fun getBindings(): Map<String, LGView>?
+   fun getView(): LGView?
+   fun setView(v: LGView?)
+   fun setViewXML(xml: LuaRef)
+   fun setTitle(str: String)
+   fun close()
+   fun getLifecycle() : LuaLifecycle?
    fun getFragmentManager() : LuaFragmentManager?
 }

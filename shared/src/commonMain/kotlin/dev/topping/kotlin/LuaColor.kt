@@ -15,9 +15,9 @@ expect open class LuaColor
         val TRANSPARENT: Int
         val WHITE: Int
         val YELLOW: Int
-        fun FromString(colorStr: String): LuaColor?
-        fun CreateFromARGB(alpha: Int, red: Int, green: Int, blue: Int): LuaColor?
-        fun CreateFromRGB(red: Int, green: Int, blue: Int): LuaColor?
+        fun fromString(colorStr: String): LuaColor?
+        fun createFromARGB(alpha: Int, red: Int, green: Int, blue: Int): LuaColor?
+        fun createFromRGB(red: Int, green: Int, blue: Int): LuaColor?
    }
-   fun GetColorValue(): Int?
+   fun getColorValue(): Int?
 }

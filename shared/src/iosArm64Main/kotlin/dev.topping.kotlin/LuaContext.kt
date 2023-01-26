@@ -4,18 +4,18 @@ actual open class LuaContext : KTInterface
 {
    var luaContext: cocoapods.Topping.LuaContext? = null
    actual companion object {
-        actual fun CreateLuaContext(context: Any): LuaContext {
+        actual fun createLuaContext(context: Any): LuaContext {
             val pobj = LuaContext()
             val pres = cocoapods.Topping.LuaContext()
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-    actual fun GetForm(): LuaForm {
-        return KTWrap.Wrap(luaContext?.GetForm()) as LuaForm
+    actual fun getForm(): LuaForm {
+        return KTWrap.Wrap(luaContext?.getForm()) as LuaForm
     }
-    actual fun StartForm(luaFormIntent: LuaFormIntent) {
-        luaContext?.StartForm(luaFormIntent?.luaFormIntent)
+    actual fun startForm(luaFormIntent: LuaFormIntent) {
+        luaContext?.startForm(luaFormIntent?.luaFormIntent)
     }
     open override fun GetNativeObject(): Any?
    {

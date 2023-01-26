@@ -1,13 +1,11 @@
 package dev.topping.kotlin
 
 import kotlinx.cinterop.*
-import platform.Foundation.NSLog
 import platform.Foundation.NSNumber
 import platform.Foundation.numberWithInt
 import platform.darwin.NSObject
 import kotlin.reflect.KCallable
 import kotlin.reflect.KClass
-import kotlin.reflect.KFunction
 import kotlin.reflect.KFunction0
 import kotlin.reflect.KFunction1
 import kotlin.reflect.KFunction2
@@ -25,7 +23,7 @@ class KTWrap {
             if(objIn == null)
                 return null
 
-            val bindings = Platform.GetBindings()
+            val bindings = Platform.getBindings()
 
             var itemName : String = objIn.toString()
             itemName = itemName.split(":")[0]
@@ -190,8 +188,8 @@ class KTWrap {
     fun funToCall(self: Int, vars: List<Any?>?): NSObject?
     {
         val valsWrapped: ArrayList<Any> = arrayListOf()
-        val bindings = Platform.GetBindings()
-        val retBindings = Platform.GetRetBindings()
+        val bindings = Platform.getBindings()
+        val retBindings = Platform.getRetBindings()
         for((count, item) in vars!!.withIndex())
         {
 			var itemName : String? = null

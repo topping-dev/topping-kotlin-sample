@@ -3,165 +3,165 @@ package dev.topping.kotlin
 actual open class LuaGraphics : KTInterface
 {
    var luaGraphics: cocoapods.Topping.LuaGraphics? = null
-   actual fun SetPen(r: Int, g: Int, b: Int)
+   actual fun setPen(r: Int, g: Int, b: Int)
    {
-       luaGraphics?.SetPen(r, g, b)
+       luaGraphics?.setPen(r, g, b)
    }
-   actual fun SetPenEx(r: Int, g: Int, b: Int, width: Float)
+   actual fun setPenEx(r: Int, g: Int, b: Int, width: Float)
    {
-       luaGraphics?.SetPenEx(r, g, b, width)
+       luaGraphics?.setPenEx(r, g, b, width)
    }
-   actual fun SetBrush(type: Int, r: Int, g: Int, b: Int)
+   actual fun setBrush(type: Int, r: Int, g: Int, b: Int)
    {
-       luaGraphics?.SetBrush(type, r, g, b)
+       luaGraphics?.setBrush(type, r, g, b)
    }
-   actual fun SetRectStore(id: Int, x: Int, y: Int, width: Int, height: Int)
+   actual fun setRectStore(id: Int, x: Int, y: Int, width: Int, height: Int)
    {
-       luaGraphics?.SetRectStore(id, x, y, width, height)
+       luaGraphics?.setRectStore(id, x, y, width, height)
    }
-   actual fun DrawEllipsePenRectCache()
+   actual fun drawEllipsePenRectCache()
    {
-       luaGraphics?.DrawEllipsePenRectCache()
+       luaGraphics?.drawEllipsePenRectCache()
    }
-   actual fun DrawEllipseRectCache(r: Int, g: Int, b: Int)
+   actual fun drawEllipseRectCache(r: Int, g: Int, b: Int)
    {
-       luaGraphics?.DrawEllipseRectCache(r, g, b)
+       luaGraphics?.drawEllipseRectCache(r, g, b)
    }
-   actual fun DrawEllipseRectCacheEx(r: Int, g: Int, b: Int, width: Float)
+   actual fun drawEllipseRectCacheEx(r: Int, g: Int, b: Int, width: Float)
    {
-       luaGraphics?.DrawEllipseRectCacheEx(r, g, b, width)
+       luaGraphics?.drawEllipseRectCacheEx(r, g, b, width)
    }
-   actual fun DrawEllipsePenCache(x: Int, y: Int, width: Int, height: Int)
+   actual fun drawEllipsePenCache(x: Int, y: Int, width: Int, height: Int)
    {
-       luaGraphics?.DrawEllipsePenCache(x, y, width, height)
+       luaGraphics?.drawEllipsePenCache(x, y, width, height)
    }
-   actual fun DrawEllipse(r: Int, g: Int, b: Int, x: Int, y: Int, width: Int, height: Int)
+   actual fun drawEllipse(r: Int, g: Int, b: Int, x: Int, y: Int, width: Int, height: Int)
    {
-       luaGraphics?.DrawEllipse(r, g, b, x, y, width, height)
+       luaGraphics?.drawEllipse(r, g, b, x, y, width, height)
    }
-   actual fun DrawEllipseEx(r: Int, g: Int, b: Int, penWidth: Float, x: Int, y: Int, width: Int, height: Int)
+   actual fun drawEllipseEx(r: Int, g: Int, b: Int, penWidth: Float, x: Int, y: Int, width: Int, height: Int)
    {
-       luaGraphics?.DrawEllipseEx(r, g, b, penWidth, x, y, width, height)
+       luaGraphics?.drawEllipseEx(r, g, b, penWidth, x, y, width, height)
    }
-   actual fun DrawCirclePenCache(x: Int, y: Int, radius: Int)
+   actual fun drawCirclePenCache(x: Int, y: Int, radius: Int)
    {
-       luaGraphics?.DrawCirclePenCache(x, y, radius)
+       luaGraphics?.drawCirclePenCache(x, y, radius)
    }
-   actual fun DrawCircle(r: Int, g: Int, b: Int, x: Int, y: Int, radius: Int)
+   actual fun drawCircle(r: Int, g: Int, b: Int, x: Int, y: Int, radius: Int)
    {
-       luaGraphics?.DrawCircle(r, g, b, x, y, radius)
+       luaGraphics?.drawCircle(r, g, b, x, y, radius)
    }
-   actual fun DrawCircleEx(r: Int, g: Int, b: Int, width: Float, x: Int, y: Int, radius: Int)
+   actual fun drawCircleEx(r: Int, g: Int, b: Int, width: Float, x: Int, y: Int, radius: Int)
    {
-       luaGraphics?.DrawCircleEx(r, g, b, width, x, y, radius)
+       luaGraphics?.drawCircleEx(r, g, b, width, x, y, radius)
    }
-   actual fun DrawIcon(i: String?, x: Int, y: Int)
+   actual fun drawIcon(i: String?, x: Int, y: Int)
    {
-       luaGraphics?.DrawIcon(i, x, y)
+       luaGraphics?.drawIcon(i, x, y)
    }
-   actual fun DrawImage(i: String?, x: Int, y: Int)
+   actual fun drawImage(i: String?, x: Int, y: Int)
    {
-       luaGraphics?.DrawImage(i, x, y)
+       luaGraphics?.drawImage(i, x, y)
    }
-   actual fun DrawImageRectCacheEx(i: String?, srcX: Int, srcY: Int, srcWidth: Int, srcHeight: Int, rL: Int, gL: Int, bL: Int, rH: Int, gH: Int, bH: Int)
+   actual fun drawImageRectCacheEx(i: String?, srcX: Int, srcY: Int, srcWidth: Int, srcHeight: Int, rL: Int, gL: Int, bL: Int, rH: Int, gH: Int, bH: Int)
    {
-       luaGraphics?.DrawImageRectCacheEx(i, srcX, srcY, srcWidth, srcHeight, rL, gL, bL, rH, gH, bH)
+       luaGraphics?.drawImageRectCacheEx(i, srcX, srcY, srcWidth, srcHeight, rL, gL, bL, rH, gH, bH)
    }
-   actual fun DrawImageRectCache(i: String?)
+   actual fun drawImageRectCache(i: String?)
    {
-       luaGraphics?.DrawImageRectCache(i)
+       luaGraphics?.drawImageRectCache(i)
    }
-   actual fun DrawImageEx(i: String?, x: Int, y: Int, srcX: Int, srcY: Int, srcWidth: Int, srcHeight: Int)
+   actual fun drawImageEx(i: String?, x: Int, y: Int, srcX: Int, srcY: Int, srcWidth: Int, srcHeight: Int)
    {
-       luaGraphics?.DrawImageEx(i, x, y, srcX, srcY, srcWidth, srcHeight)
+       luaGraphics?.drawImageEx(i, x, y, srcX, srcY, srcWidth, srcHeight)
    }
-   actual fun DrawLine(r: Int, g: Int, b: Int, x1: Int, y1: Int, x2: Int, y2: Int)
+   actual fun drawLine(r: Int, g: Int, b: Int, x1: Int, y1: Int, x2: Int, y2: Int)
    {
-       luaGraphics?.DrawLine(r, g, b, x1, y1, x2, y2)
+       luaGraphics?.drawLine(r, g, b, x1, y1, x2, y2)
    }
-   actual fun DrawLineEx(r: Int, g: Int, b: Int, width: Float, x1: Int, y1: Int, x2: Int, y2: Int)
+   actual fun drawLineEx(r: Int, g: Int, b: Int, width: Float, x1: Int, y1: Int, x2: Int, y2: Int)
    {
-       luaGraphics?.DrawLineEx(r, g, b, width, x1, y1, x2, y2)
+       luaGraphics?.drawLineEx(r, g, b, width, x1, y1, x2, y2)
    }
-   actual fun DrawLinePenCache(x1: Int, y1: Int, x2: Int, y2: Int)
+   actual fun drawLinePenCache(x1: Int, y1: Int, x2: Int, y2: Int)
    {
-       luaGraphics?.DrawLinePenCache(x1, y1, x2, y2)
+       luaGraphics?.drawLinePenCache(x1, y1, x2, y2)
    }
-   actual fun DrawLines(r: Int, g: Int, b: Int, points: String?)
+   actual fun drawLines(r: Int, g: Int, b: Int, points: String?)
    {
-       luaGraphics?.DrawLines(r, g, b, points)
+       luaGraphics?.drawLines(r, g, b, points)
    }
-   actual fun DrawLinesEx(r: Int, g: Int, b: Int, width: Float, points: String?)
+   actual fun drawLinesEx(r: Int, g: Int, b: Int, width: Float, points: String?)
    {
-       luaGraphics?.DrawLinesEx(r, g, b, width, points)
+       luaGraphics?.drawLinesEx(r, g, b, width, points)
    }
-   actual fun DrawLinesPenCache(points: String?)
+   actual fun drawLinesPenCache(points: String?)
    {
-       luaGraphics?.DrawLinesPenCache(points)
+       luaGraphics?.drawLinesPenCache(points)
    }
-   actual fun DrawPolygon(r: Int, g: Int, b: Int, points: String?)
+   actual fun drawPolygon(r: Int, g: Int, b: Int, points: String?)
    {
-       luaGraphics?.DrawPolygon(r, g, b, points)
+       luaGraphics?.drawPolygon(r, g, b, points)
    }
-   actual fun DrawPolygonEx(r: Int, g: Int, b: Int, width: Float, points: String?)
+   actual fun drawPolygonEx(r: Int, g: Int, b: Int, width: Float, points: String?)
    {
-       luaGraphics?.DrawPolygonEx(r, g, b, width, points)
+       luaGraphics?.drawPolygonEx(r, g, b, width, points)
    }
-   actual fun DrawPolygonPenCache(points: String?)
+   actual fun drawPolygonPenCache(points: String?)
    {
-       luaGraphics?.DrawPolygonPenCache(points)
+       luaGraphics?.drawPolygonPenCache(points)
    }
-   actual fun DrawRectangle(r: Int, g: Int, b: Int, x: Int, y: Int, width: Int, height: Int)
+   actual fun drawRectangle(r: Int, g: Int, b: Int, x: Int, y: Int, width: Int, height: Int)
    {
-       luaGraphics?.DrawRectangle(r, g, b, x, y, width, height)
+       luaGraphics?.drawRectangle(r, g, b, x, y, width, height)
    }
-   actual fun DrawRectangleEx(r: Int, g: Int, b: Int, widthP: Float, x: Int, y: Int, width: Int, height: Int)
+   actual fun drawRectangleEx(r: Int, g: Int, b: Int, widthP: Float, x: Int, y: Int, width: Int, height: Int)
    {
-       luaGraphics?.DrawRectangleEx(r, g, b, widthP, x, y, width, height)
+       luaGraphics?.drawRectangleEx(r, g, b, widthP, x, y, width, height)
    }
-   actual fun DrawRectangleRectCache(r: Int, g: Int, b: Int)
+   actual fun drawRectangleRectCache(r: Int, g: Int, b: Int)
    {
-       luaGraphics?.DrawRectangleRectCache(r, g, b)
+       luaGraphics?.drawRectangleRectCache(r, g, b)
    }
-   actual fun DrawRectangleRectCacheEx(r: Int, g: Int, b: Int, width: Float)
+   actual fun drawRectangleRectCacheEx(r: Int, g: Int, b: Int, width: Float)
    {
-       luaGraphics?.DrawRectangleRectCacheEx(r, g, b, width)
+       luaGraphics?.drawRectangleRectCacheEx(r, g, b, width)
    }
-   actual fun DrawRectanglePenCache(x: Int, y: Int, width: Int, height: Int)
+   actual fun drawRectanglePenCache(x: Int, y: Int, width: Int, height: Int)
    {
-       luaGraphics?.DrawRectanglePenCache(x, y, width, height)
+       luaGraphics?.drawRectanglePenCache(x, y, width, height)
    }
-   actual fun DrawRectanglePenRectCache()
+   actual fun drawRectanglePenRectCache()
    {
-       luaGraphics?.DrawRectanglePenRectCache()
+       luaGraphics?.drawRectanglePenRectCache()
    }
-   actual fun DrawString(s: String?, f: String?, size: Float, style: Int, x: Float, y: Float, valign: Int, halign: Int, flags: Int)
+   actual fun drawString(s: String?, f: String?, size: Float, style: Int, x: Float, y: Float, valign: Int, halign: Int, flags: Int)
    {
-       luaGraphics?.DrawString(s, f, size, style, x, y, valign, halign, flags)
+       luaGraphics?.drawString(s, f, size, style, x, y, valign, halign, flags)
    }
-   actual fun FillEllipse(x: Int, y: Int, width: Int, height: Int)
+   actual fun fillEllipse(x: Int, y: Int, width: Int, height: Int)
    {
-       luaGraphics?.FillEllipse(x, y, width, height)
+       luaGraphics?.fillEllipse(x, y, width, height)
    }
-   actual fun FillPolygon(points: String?)
+   actual fun fillPolygon(points: String?)
    {
-       luaGraphics?.FillPolygon(points)
+       luaGraphics?.fillPolygon(points)
    }
-   actual fun FillRectangle(x: Int, y: Int, width: Int, height: Int)
+   actual fun fillRectangle(x: Int, y: Int, width: Int, height: Int)
    {
-       luaGraphics?.FillRectangle(x, y, width, height)
+       luaGraphics?.fillRectangle(x, y, width, height)
    }
-   actual fun FillRegion()
+   actual fun fillRegion()
    {
-       luaGraphics?.FillRegion()
+       luaGraphics?.fillRegion()
    }
-   actual fun Clear(red: Int, green: Int, blue: Int)
+   actual fun clear(red: Int, green: Int, blue: Int)
    {
-       luaGraphics?.Clear(red, green, blue)
+       luaGraphics?.clear(red, green, blue)
    }
-   actual fun SetClip(x: Int, y: Int, width: Int, height: Int)
+   actual fun setClip(x: Int, y: Int, width: Int, height: Int)
    {
-       luaGraphics?.SetClip(x, y, width, height)
+       luaGraphics?.setClip(x, y, width, height)
    }
     open override fun GetNativeObject(): Any?
    {

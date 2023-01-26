@@ -4,25 +4,25 @@ actual open class LuaLog : KTInterface
 {
    var luaLog: dev.topping.android.LuaLog? = null
    actual companion object {
-        actual fun V(tag: String, message: String)
+        actual fun v(tag: String, message: String)
         {
-            dev.topping.android.LuaLog.V(tag, message)
+            dev.topping.android.LuaLog.v(tag, message)
         }
-        actual fun D(tag: String, message: String)
+        actual fun d(tag: String, message: String)
         {
-            dev.topping.android.LuaLog.D(tag, message)
+            dev.topping.android.LuaLog.d(tag, message)
         }
-        actual fun I(tag: String, message: String)
+        actual fun i(tag: String, message: String)
         {
-            dev.topping.android.LuaLog.I(tag, message)
+            dev.topping.android.LuaLog.i(tag, message)
         }
-        actual fun W(tag: String, message: String)
+        actual fun w(tag: String, message: String)
         {
-            dev.topping.android.LuaLog.W(tag, message)
+            dev.topping.android.LuaLog.w(tag, message)
         }
-        actual fun E(tag: String, message: String)
+        actual fun e(tag: String, message: String)
         {
-            dev.topping.android.LuaLog.E(tag, message)
+            dev.topping.android.LuaLog.e(tag, message)
         }
    }
     open override fun GetNativeObject(): Any?

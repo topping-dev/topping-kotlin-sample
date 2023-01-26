@@ -4,7 +4,7 @@ import dev.topping.kotlin.*
 
 class MenuFragment(fragment: Any) : ILuaFragment(fragment) {
     lateinit var binding: FormBinding
-    var viewModel = LuaViewModelProvider.Of(getFragment()).Get("key", MenuViewModel())
+    var viewModel = LuaViewModelProvider.of(getFragment()).get("key", MenuViewModel())
 
     override fun onCreate(savedInstanceState: LuaBundle?) {
     }
@@ -16,21 +16,21 @@ class MenuFragment(fragment: Any) : ILuaFragment(fragment) {
         savedInstanceState: LuaBundle?
     ): LGView {
         binding = FormBinding.inflate(inflater)
-        binding.formTestButton.SetOnClickListener { lgView, luaContext ->
-            LuaToast.Show(luaContext, "Test button clicked", 1000)
+        binding.formTestButton.setOnClickListener { lgView, luaContext ->
+            LuaToast.show(luaContext, "Test button clicked", 1000)
             lgView.findNavController().navigate(LR.id.action_menuFragment_to_receiveFragment)
         }
-        binding.formTestCheckBox.SetOnCheckedChangedListener { lgCheckBox, luaContext, isChecked ->
-            LuaToast.Show(luaContext, "CheckBox value is $isChecked", 1000)
+        binding.formTestCheckBox.setOnCheckedChangedListener { lgCheckBox, luaContext, isChecked ->
+            LuaToast.show(luaContext, "CheckBox value is $isChecked", 1000)
         }
         val combobox = binding.formTestComboBox
-        combobox.AddItem("Item 1", 1)
-        combobox.AddItem("Item 2", 2)
-        combobox.AddItem("Item 3", 3)
-        combobox.AddItem("Item 4", 4)
-        combobox.SetOnComboChangedListener(Form.Companion::TestComboBox_Changed)
-        binding.formTestProgressBar.SetMax(100)
-        binding.formTestProgressBar.SetProgress(15)
+        combobox.addItem("Item 1", 1)
+        combobox.addItem("Item 2", 2)
+        combobox.addItem("Item 3", 3)
+        combobox.addItem("Item 4", 4)
+        combobox.setOnComboChangedListener(Form.Companion::TestComboBox_Changed)
+        binding.formTestProgressBar.setMax(100)
+        binding.formTestProgressBar.setProgress(15)
         return binding.getRoot()
     }
 

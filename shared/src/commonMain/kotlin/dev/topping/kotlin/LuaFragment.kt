@@ -2,19 +2,19 @@ package dev.topping.kotlin
 
 expect open class LuaFragment() {
    companion object {
-        fun Create(lc: LuaContext, luaId: LuaRef): LuaFragment
-       fun Create(lc: LuaContext, luaId: LuaRef, args: MutableMap<String, Any>): LuaFragment
-       fun CreateWithUI(lc: LuaContext, luaId: LuaRef, ui: LuaRef, args: MutableMap<String, Any>): LuaFragment
+        fun create(lc: LuaContext, luaId: LuaRef): LuaFragment
+       fun create(lc: LuaContext, luaId: LuaRef, args: MutableMap<String, Any>): LuaFragment
+       fun createWithUI(lc: LuaContext, luaId: LuaRef, ui: LuaRef, args: MutableMap<String, Any>): LuaFragment
    }
-   fun GetContext(): LuaContext
-    fun IsInitialized(): Boolean
-    fun GetViewById(lId: LuaRef): LGView?
-   fun GetView(): LGView?
-   fun SetView(v: LGView?)
-   fun SetViewXML(xml: LuaRef)
-   fun SetViewId(luaId: String)
-   fun SetTitle(str: String)
-   fun Close()
+   fun getContext(): LuaContext
+    fun isInitialized(): Boolean
+    fun getViewById(lId: LuaRef): LGView?
+   fun getView(): LGView?
+   fun setView(v: LGView?)
+   fun setViewXML(xml: LuaRef)
+   fun setViewId(luaId: String)
+   fun setTitle(str: String)
+   fun close()
    fun getArguments(): LuaBundle
    fun getNavController(): LuaNavController
 }

@@ -4,32 +4,32 @@ actual open class LGView : KTInterface
 {
    var lgView: android.widget.LGView? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGView {
+        actual fun create(lc: LuaContext): LGView {
             val pobj = LGView()
-            val pres = android.widget.LGView.Create(lc.luaContext)
+            val pres = android.widget.LGView.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun GetViewById(lId: LuaRef): LGView?
+   actual fun getViewById(lId: LuaRef): LGView?
    {
-       return KTWrap.Wrap(lgView?.GetViewById(lId.luaRef)) as LGView?
+       return KTWrap.Wrap(lgView?.getViewById(lId.luaRef)) as LGView?
    }
-   actual fun SetEnabled(value: Boolean)
+   actual fun setEnabled(value: Boolean)
    {
-       lgView?.SetEnabled(value)
+       lgView?.setEnabled(value)
    }
-   actual fun SetFocusable(value: Boolean)
+   actual fun setFocusable(value: Boolean)
    {
-       lgView?.SetFocusable(value)
+       lgView?.setFocusable(value)
    }
-   actual fun SetBackground(background: LuaRef?)
+   actual fun setBackground(background: LuaRef?)
    {
-       lgView?.SetBackground(background?.luaRef)
+       lgView?.setBackground(background?.luaRef)
    }
-   actual fun SetOnClickListener(func: ((LGView, LuaContext) -> Unit)?)
+   actual fun setOnClickListener(func: ((LGView, LuaContext) -> Unit)?)
    {
-       lgView?.SetOnClickListener(func.toLuaTranslator(this))
+       lgView?.setOnClickListener(func.toLuaTranslator(this))
    }
     actual open fun findNavController() : LuaNavController
     {

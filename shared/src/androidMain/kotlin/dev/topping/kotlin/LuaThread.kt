@@ -4,40 +4,32 @@ actual open class LuaThread : KTInterface
 {
    var luaThread: dev.topping.android.LuaThread? = null
    actual companion object {
-        actual fun RunOnUIThread(func: () -> Unit)
+        actual fun runOnUIThread(func: () -> Unit)
         {
-            dev.topping.android.LuaThread.RunOnUIThread(func.toLuaTranslator(null))
+            dev.topping.android.LuaThread.runOnUIThread(func.toLuaTranslator(null))
         }
-        actual fun RunOnBackground(func: () -> Unit)
+        actual fun runOnBackground(func: () -> Unit)
         {
-            dev.topping.android.LuaThread.RunOnBackground(func.toLuaTranslator(null))
+            dev.topping.android.LuaThread.runOnBackground(func.toLuaTranslator(null))
         }
-        actual fun New(func: () -> Unit): LuaThread {
+        actual fun new(func: () -> Unit): LuaThread {
             val pobj = LuaThread()
-            val pres = dev.topping.android.LuaThread.New(func.toLuaTranslator(null))
+            val pres = dev.topping.android.LuaThread.create(func.toLuaTranslator(null))
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun Run()
+   actual fun start()
    {
-       luaThread?.Run()
+       luaThread?.start()
    }
-   actual fun Wait(milliseconds: Long)
+   actual fun interrupt()
    {
-       luaThread?.Wait(milliseconds)
+       luaThread?.interrupt()
    }
-   actual fun Notify()
-   {
-       luaThread?.Notify()
-   }
-   actual fun Interrupt()
-   {
-       luaThread?.Interrupt()
-   }
-    actual fun Sleep(milliseconds: Long)
+    actual fun sleep(milliseconds: Long)
     {
-        luaThread?.Sleep(milliseconds)
+        luaThread?.sleep(milliseconds)
     }
     open override fun GetNativeObject(): Any?
    {

@@ -4,23 +4,23 @@ actual open class LGListView : LGAbsListView()
 {
    var lgListView: android.widget.LGListView? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGAbsListView {
+        actual fun create(lc: LuaContext): LGAbsListView {
             val pobj = LGListView()
-            val pres = android.widget.LGListView.Create(lc.luaContext)
+            val pres = android.widget.LGListView.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun GetAdapter(): LGAdapterView?
+   actual fun getAdapter(): LGAdapterView?
    {
        val pobj = LGAdapterView()
-       val obj = lgListView?.GetAdapter()
+       val obj = lgListView?.getAdapter()
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual fun SetAdapter(adapter: LGAdapterView?)
+   actual fun setAdapter(adapter: LGAdapterView?)
    {
-       lgListView?.SetAdapter(adapter?.lgAdapterView)
+       lgListView?.setAdapter(adapter?.lgAdapterView)
    }
     open override fun GetNativeObject(): Any?
    {

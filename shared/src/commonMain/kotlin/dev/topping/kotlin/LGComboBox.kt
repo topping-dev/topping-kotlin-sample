@@ -3,12 +3,12 @@ package dev.topping.kotlin
 expect open class LGComboBox : LGEditText
 {
    companion object {
-        fun Create(lc: LuaContext): LGComboBox
+        fun create(lc: LuaContext): LGComboBox
    }
-   fun AddItem(id: String, tag: Any)
-   fun SetItems(map: Map<String, Any>)
-   fun SetSelected(index: Int)
-   fun GetSelectedName(): String?
-   fun GetSelectedTag(): Any?
-   fun SetOnComboChangedListener(func: ((LGComboBox, LuaContext, String, Any) -> Unit)?)
+   fun addItem(id: String, tag: Any)
+   fun setItems(map: Map<String, Any>)
+   fun setSelectedIndex(index: Int)
+   fun getSelectedName(): String?
+   fun getSelectedTag(): Any?
+   fun setOnComboChangedListener(func: ((LGComboBox, LuaContext, String, Any) -> Unit)?)
 }

@@ -4,29 +4,29 @@ actual open class LGDatePicker : LGFrameLayout()
 {
    var lgDatePicker: android.widget.LGDatePicker? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGDatePicker {
+        actual fun create(lc: LuaContext): LGDatePicker {
             val pobj = LGDatePicker()
-            val pres = android.widget.LGDatePicker.Create(lc.luaContext)
+            val pres = android.widget.LGDatePicker.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun GetDay(): Int {
-       return lgDatePicker?.GetDay()!!
+   actual fun getDay(): Int {
+       return lgDatePicker?.getDay()!!
    }
-   actual fun GetMonth(): Int {
-       return lgDatePicker?.GetMonth()!!
+   actual fun getMonth(): Int {
+       return lgDatePicker?.getMonth()!!
    }
-   actual fun GetYear(): Int {
-       return lgDatePicker?.GetYear()!!
+   actual fun getYear(): Int {
+       return lgDatePicker?.getYear()!!
    }
-   actual fun UpdateDate(day: Int, month: Int, year: Int)
+   actual fun updateDate(day: Int, month: Int, year: Int)
    {
-       lgDatePicker?.UpdateDate(day, month, year)
+       lgDatePicker?.updateDate(day, month, year)
    }
-   actual fun SetOnDateChangedListener(func: ((LGDatePicker, Int, Int, Int) -> Unit)?)
+   actual fun setOnDateChangedListener(func: ((LGDatePicker, Int, Int, Int) -> Unit)?)
    {
-       lgDatePicker?.SetOnDateChangedListener(func.toLuaTranslator(this))
+       lgDatePicker?.setOnDateChangedListener(func.toLuaTranslator(this))
    }
     open override fun GetNativeObject(): Any?
    {

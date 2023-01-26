@@ -21,18 +21,18 @@ actual open class LuaEvent : KTInterface
         actual val UI_EVENT_KEYDOWN: Int = 12
         actual val UI_EVENT_KEYUP: Int = 13
         actual val UI_EVENT_NFC: Int = 14
-       actual fun RegisterUIEvent(luaId: LuaRef, event: Int, func: Function<Any?>)
+       actual fun registerUIEvent(luaId: LuaRef, event: Int, func: Function<Any?>)
        {
-           dev.topping.android.LuaEvent.RegisterUIEvent(luaId.luaRef!!, event, func.toLuaTranslator(null))
+           dev.topping.android.LuaEvent.registerUIEvent(luaId.luaRef!!, event, func.toLuaTranslator(null))
        }
-       actual fun RegisterForm(clsName: String, func: (Any) -> ILuaForm) {
-           dev.topping.android.LuaEvent.RegisterForm(clsName, func.toLuaTranslator(null))
+       actual fun registerForm(clsName: String, func: (Any) -> ILuaForm) {
+           dev.topping.android.LuaEvent.registerForm(clsName, func.toLuaTranslator(null))
        }
-       /*actual fun RegisterFragment(clsName: String, func: KCallable<ILuaFragment>) {
-           dev.topping.android.LuaEvent.RegisterFragment(clsName, func.toLuaTranslator(null))
+       /*actual fun registerFragment(clsName: String, func: KCallable<ILuaFragment>) {
+           dev.topping.android.LuaEvent.registerFragment(clsName, func.toLuaTranslator(null))
        }*/
-       actual fun RegisterFragment(clsName: String, func: (Any) -> ILuaFragment) {
-           dev.topping.android.LuaEvent.RegisterFragment(clsName, func.toLuaTranslator(null))
+       actual fun registerFragment(clsName: String, func: (Any) -> ILuaFragment) {
+           dev.topping.android.LuaEvent.registerFragment(clsName, func.toLuaTranslator(null))
        }
    }
     open override fun GetNativeObject(): Any?

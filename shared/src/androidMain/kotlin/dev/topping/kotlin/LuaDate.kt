@@ -4,77 +4,77 @@ actual open class LuaDate : KTInterface
 {
    var luaDate: dev.topping.android.LuaDate? = null
    actual companion object {
-        actual fun Now(): LuaDate {
+        actual fun now(): LuaDate {
             val pobj = LuaDate()
-            val pres = dev.topping.android.LuaDate.Now()
+            val pres = dev.topping.android.LuaDate.now()
             pobj.SetNativeObject(pres)
             return pobj
         }
-        actual fun CreateDate(day: Int, month: Int, year: Int): LuaDate {
+        actual fun createDate(day: Int, month: Int, year: Int): LuaDate {
             val pobj = LuaDate()
-            val pres = dev.topping.android.LuaDate.CreateDate(day, month, year)
+            val pres = dev.topping.android.LuaDate.createDate(day, month, year)
             pobj.SetNativeObject(pres)
             return pobj
         }
-        actual fun CreateDateWithTime(day: Int, month: Int, year: Int, hour: Int, minute: Int, second: Int): LuaDate {
+        actual fun createDateWithTime(day: Int, month: Int, year: Int, hour: Int, minute: Int, second: Int): LuaDate {
             val pobj = LuaDate()
-            val pres = dev.topping.android.LuaDate.CreateDateWithTime(day, month, year, hour, minute, second)
+            val pres = dev.topping.android.LuaDate.createDateWithTime(day, month, year, hour, minute, second)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun GetDay(): Int {
-       return luaDate?.GetDay()!!
+   actual fun getDay(): Int {
+       return luaDate?.getDay()!!
    }
-   actual fun SetDay(v: Int)
+   actual fun setDay(v: Int)
    {
-       luaDate?.SetDay(v)
+       luaDate?.setDay(v)
    }
-   actual fun GetMonth(): Int {
-       return luaDate?.GetMonth()!!
+   actual fun getMonth(): Int {
+       return luaDate?.getMonth()!!
    }
-   actual fun SetMonth(v: Int)
+   actual fun setMonth(v: Int)
    {
-       luaDate?.SetMonth(v)
+       luaDate?.setMonth(v)
    }
-   actual fun GetYear(): Int {
-       return luaDate?.GetYear()!!
+   actual fun getYear(): Int {
+       return luaDate?.getYear()!!
    }
-   actual fun SetYear(v: Int)
+   actual fun setYear(v: Int)
    {
-       luaDate?.SetYear(v)
+       luaDate?.setYear(v)
    }
-   actual fun GetHour(): Int {
-       return luaDate?.GetHour()!!
+   actual fun getHour(): Int {
+       return luaDate?.getHour()!!
    }
-   actual fun SetHour(v: Int)
+   actual fun setHour(v: Int)
    {
-       luaDate?.SetHour(v)
+       luaDate?.setHour(v)
    }
-   actual fun GetMinute(): Int {
-       return luaDate?.GetMinute()!!
+   actual fun getMinute(): Int {
+       return luaDate?.getMinute()!!
    }
-   actual fun SetMinute(v: Int)
+   actual fun setMinute(v: Int)
    {
-       luaDate?.SetMinute(v)
+       luaDate?.setMinute(v)
    }
-   actual fun GetSecond(): Int {
-       return luaDate?.GetSecond()!!
+   actual fun getSecond(): Int {
+       return luaDate?.getSecond()!!
    }
-   actual fun SetSecond(v: Int)
+   actual fun setSecond(v: Int)
    {
-       luaDate?.SetSecond(v)
+       luaDate?.setSecond(v)
    }
-   actual fun GetMilliSecond(): Int {
-       return luaDate?.GetMilliSecond()!!
+   actual fun getMilliSecond(): Int {
+       return luaDate?.getMilliSecond()!!
    }
-   actual fun SetMilliSecond(v: Int)
+   actual fun setMilliSecond(v: Int)
    {
-       luaDate?.SetMilliSecond(v)
+       luaDate?.setMilliSecond(v)
    }
-   actual fun ToString(frmt: String): String?
+   actual fun toString(frmt: String): String?
    {
-       return luaDate?.ToString(frmt)
+       return luaDate?.toString(frmt)
    }
     open override fun GetNativeObject(): Any?
    {

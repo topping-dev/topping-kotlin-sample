@@ -5,77 +5,77 @@ import kotlinx.cinterop.StableRef
 actual open class LGToolbar : LGView()
 {
    var lgToolbar: cocoapods.Topping.LGToolbar? = null
-    actual fun SetMenu(ref: LuaRef?)
+    actual fun setMenu(ref: LuaRef?)
     {
-        lgToolbar?.SetMenu(ref?.GetNativeObject() as cocoapods.Topping.LuaRef)
+        lgToolbar?.setMenu(ref?.luaRef)
     }
-    actual fun SetLogo(logo: LuaRef?)
+    actual fun setLogo(logo: LuaRef?)
     {
-        lgToolbar?.SetLogo(logo?.luaRef)
+        lgToolbar?.setLogo(logo?.luaRef)
     }
-    actual fun SetNavigationIcon(logo: LuaRef?)
+    actual fun setNavigationIcon(logo: LuaRef?)
     {
-        lgToolbar?.SetNavigationIcon(logo?.luaRef)
+        lgToolbar?.setNavigationIcon(logo?.luaRef)
     }
-    actual fun SetOverflowIcon(logo: LuaRef?)
+    actual fun setOverflowIcon(logo: LuaRef?)
     {
-        lgToolbar?.SetOverflowIcon(logo?.luaRef)
+        lgToolbar?.setOverflowIcon(logo?.luaRef)
     }
-    actual fun GetTitle() : String?
+    actual fun getTitle() : String?
     {
-        return lgToolbar?.GetTitle()
+        return lgToolbar?.getTitle()
     }
-    actual fun SetTitleInternal(text: String?)
+    actual fun setTitleInternal(text: String?)
     {
-        lgToolbar?.SetTitleInternal(text)
+        lgToolbar?.setTitleInternal(text)
     }
-    actual fun SetTitle(ref: LuaRef?)
+    actual fun setTitle(ref: LuaRef?)
     {
-        lgToolbar?.SetTitle(ref?.luaRef)
+        lgToolbar?.setTitle(ref?.luaRef)
     }
-    actual fun SetTitleTextColor(ref: LuaRef?)
+    actual fun setTitleTextColor(ref: LuaRef?)
     {
-        lgToolbar?.SetTitleTextColor(ref?.luaRef)
+        lgToolbar?.setTitleTextColor(ref?.luaRef)
     }
-    actual fun SetTitleTextApperance(ref: LuaRef?)
+    actual fun setTitleTextApperance(ref: LuaRef?)
     {
-        lgToolbar?.SetTitleTextApperance(ref?.luaRef)
+        lgToolbar?.setTitleTextApperance(ref?.luaRef)
     }
-    actual fun GetSubtitle() : String?
+    actual fun getSubtitle() : String?
     {
-        return lgToolbar?.GetSubtitle()
+        return lgToolbar?.getSubtitle()
     }
-    actual fun SetSubtitleInternal(text: String?)
+    actual fun setSubtitleInternal(text: String?)
     {
-        lgToolbar?.SetSubtitleInternal(text)
+        lgToolbar?.setSubtitleInternal(text)
     }
-    actual fun SetSubtitle(ref: LuaRef?)
+    actual fun setSubtitle(ref: LuaRef?)
     {
-        lgToolbar?.SetSubtitle(ref?.luaRef)
+        lgToolbar?.setSubtitle(ref?.luaRef)
     }
-    actual fun SetSubtitleTextColor(ref: LuaRef?)
+    actual fun setSubtitleTextColor(ref: LuaRef?)
     {
-        lgToolbar?.SetSubtitleTextColor(ref?.luaRef)
+        lgToolbar?.setSubtitleTextColor(ref?.luaRef)
     }
-    actual fun SetSubtitleTextApperance(ref: LuaRef?)
+    actual fun setSubtitleTextApperance(ref: LuaRef?)
     {
-        lgToolbar?.SetSubtitleTextApperance(ref?.luaRef)
+        lgToolbar?.setSubtitleTextApperance(ref?.luaRef)
     }
-    actual fun SetNavigationOnClickListener(func: ((LGToolbar) -> Unit)?)
+    actual fun setNavigationOnClickListener(func: ((LGToolbar) -> Unit)?)
     {
         val kt: KTWrap = KTWrap()
         val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
         lt.nobj = StableRef.create(kt).asCPointer()
         lt.kFRetF = kt.Init(this, func)
-        lgToolbar?.SetNavigationOnClickListener(lt)
+        lgToolbar?.setNavigationOnClickListener(lt)
     }
-    actual fun SetMenuItemClickListener(func: ((LGToolbar) -> Unit)?)
+    actual fun setMenuItemClickListener(func: ((LGToolbar) -> Unit)?)
     {
         val kt: KTWrap = KTWrap()
         val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
         lt.nobj = StableRef.create(kt).asCPointer()
         lt.kFRetF = kt.Init(this, func)
-        lgToolbar?.SetMenuItemClickListener(lt)
+        lgToolbar?.setMenuItemClickListener(lt)
     }
     open override fun GetNativeObject(): Any?
    {

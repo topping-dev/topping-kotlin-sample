@@ -18,8 +18,8 @@ expect open class LuaEvent
         val UI_EVENT_KEYDOWN: Int
         val UI_EVENT_KEYUP: Int
         val UI_EVENT_NFC: Int
-        fun RegisterUIEvent(luaId: LuaRef, event: Int, func: Function<Any?>)
-        fun RegisterForm(clsName: String, func: (Any) -> ILuaForm)
-        fun RegisterFragment(clsName: String, func: (Any) -> ILuaFragment)
+        fun registerUIEvent(luaId: LuaRef, event: Int, func: Function<Any?>)
+        fun registerForm(clsName: String, func: (Any) -> ILuaForm)
+        fun registerFragment(clsName: String, func: (Any) -> ILuaFragment)
    }
 }

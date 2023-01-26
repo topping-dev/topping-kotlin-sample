@@ -4,9 +4,9 @@ actual open class LGConstraintLayout : LGViewGroup()
 {
    var lgConstraintLayout: cocoapods.Topping.LGConstraintLayout? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGConstraintLayout {
+        actual fun create(lc: LuaContext): LGConstraintLayout {
             val pobj = LGConstraintLayout()
-            val pres = cocoapods.Topping.LGConstraintLayout.Create(lc.luaContext!!)
+            val pres = cocoapods.Topping.LGConstraintLayout.create(lc.luaContext!!)
             pobj.SetNativeObject(pres)
             return pobj
         }

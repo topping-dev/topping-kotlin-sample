@@ -4,24 +4,24 @@ actual open class LGEditText : LGTextView()
 {
    var lgEditText: android.widget.LGEditText? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGEditText {
+        actual fun create(lc: LuaContext): LGEditText {
             val pobj = LGEditText()
-            val pres = android.widget.LGEditText.Create(lc.luaContext)
+            val pres = android.widget.LGEditText.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-    actual fun SetTextChangedListener(func: ((LGEditText, String) -> Unit)?)
+    actual fun setTextChangedListener(func: ((LGEditText, String) -> Unit)?)
     {
-        lgEditText?.SetTextChangedListener(func.toLuaTranslator(this))
+        lgEditText?.setTextChangedListener(func.toLuaTranslator(this))
     }
-    actual fun SetBeforeTextChangedListener(func: ((LGEditText, String) -> Unit)?)
+    actual fun setBeforeTextChangedListener(func: ((LGEditText, String) -> Unit)?)
     {
-        lgEditText?.SetBeforeTextChangedListener(func.toLuaTranslator(this))
+        lgEditText?.setBeforeTextChangedListener(func.toLuaTranslator(this))
     }
-    actual fun SetAfterTextChangedListener(func: ((LGEditText, String) -> Unit)?)
+    actual fun setAfterTextChangedListener(func: ((LGEditText, String) -> Unit)?)
     {
-        lgEditText?.SetAfterTextChangedListener(func.toLuaTranslator(this))
+        lgEditText?.setAfterTextChangedListener(func.toLuaTranslator(this))
     }
     open override fun GetNativeObject(): Any?
    {

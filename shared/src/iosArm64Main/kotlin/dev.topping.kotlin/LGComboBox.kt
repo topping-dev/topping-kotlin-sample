@@ -6,36 +6,36 @@ actual open class LGComboBox : LGEditText()
 {
    var lgComboBox: cocoapods.Topping.LGComboBox? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGComboBox {
+        actual fun create(lc: LuaContext): LGComboBox {
             val pobj = LGComboBox()
-            val pres = cocoapods.Topping.LGComboBox.Create(lc.luaContext)
+            val pres = cocoapods.Topping.LGComboBox.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun AddItem(id: String, tag: Any)
+   actual fun addItem(id: String, tag: Any)
    {
-       lgComboBox?.AddItem(id, tag as NSObject)
+       lgComboBox?.addItem(id, tag as NSObject)
    }
-    actual fun SetItems(map: Map<String, Any>)
+    actual fun setItems(map: Map<String, Any>)
     {
         map.forEach {
-            lgComboBox?.AddItem(it.key, it.value as NSObject)
+            lgComboBox?.addItem(it.key, it.value as NSObject)
         }
     }
-   actual fun SetSelected(index: Int)
+   actual fun setSelectedIndex(index: Int)
    {
-       lgComboBox?.SetSelected(index)
+       lgComboBox?.setSelectedIndex(index)
    }
-   actual fun GetSelectedName(): String? {
-       return lgComboBox?.GetSelectedName()
+   actual fun getSelectedName(): String? {
+       return lgComboBox?.getSelectedName()
    }
-   actual fun GetSelectedTag(): Any? {
-       return lgComboBox?.GetSelectedTag()
+   actual fun getSelectedTag(): Any? {
+       return lgComboBox?.getSelectedTag()
    }
-   actual fun SetOnComboChangedListener(func: ((LGComboBox, LuaContext, String, Any) -> Unit)?)
+   actual fun setOnComboChangedListener(func: ((LGComboBox, LuaContext, String, Any) -> Unit)?)
    {
-       lgComboBox?.SetOnComboChangedListener(func.toLuaTranslator(this))
+       lgComboBox?.setOnComboChangedListener(func.toLuaTranslator(this))
    }
     open override fun GetNativeObject(): Any?
    {

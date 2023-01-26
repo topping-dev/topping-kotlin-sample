@@ -4,10 +4,10 @@ actual open class LGAbsListView : LGViewGroup()
 {
    var lgAbsListView: android.widget.LGAbsListView? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGAbsListView?
+        actual fun create(lc: LuaContext): LGAbsListView?
         {
             val pobj = LGAbsListView()
-            val pres = android.widget.LGAbsListView.Create(lc.luaContext)
+            val pres = android.widget.LGAbsListView.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

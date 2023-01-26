@@ -4,38 +4,38 @@ actual open class LuaResource : KTInterface
 {
    var luaResource: dev.topping.android.LuaResource? = null
    actual companion object {
-        actual fun GetResourceAssetSd(path: String, resName: String): LuaStream?
+        actual fun getResourceAssetSd(path: String, resName: String): LuaStream?
         {
             val pobj = LuaStream()
-            val pres = dev.topping.android.LuaResource.GetResourceAssetSd(path, resName)
+            val pres = dev.topping.android.LuaResource.getResourceAssetSd(path, resName)
             pobj.SetNativeObject(pres)
             return pobj
         }
-        actual fun GetResourceSdAsset(path: String, resName: String): LuaStream?
+        actual fun getResourceSdAsset(path: String, resName: String): LuaStream?
         {
             val pobj = LuaStream()
-            val pres = dev.topping.android.LuaResource.GetResourceSdAsset(path, resName)
+            val pres = dev.topping.android.LuaResource.getResourceSdAsset(path, resName)
             pobj.SetNativeObject(pres)
             return pobj
         }
-        actual fun GetResourceAsset(path: String, resName: String): LuaStream?
+        actual fun getResourceAsset(path: String, resName: String): LuaStream?
         {
             val pobj = LuaStream()
-            val pres = dev.topping.android.LuaResource.GetResourceAsset(path, resName)
+            val pres = dev.topping.android.LuaResource.getResourceAsset(path, resName)
             pobj.SetNativeObject(pres)
             return pobj
         }
-        actual fun GetResourceSd(path: String, resName: String): LuaStream?
+        actual fun getResourceSd(path: String, resName: String): LuaStream?
         {
             val pobj = LuaStream()
-            val pres = dev.topping.android.LuaResource.GetResourceSd(path, resName)
+            val pres = dev.topping.android.LuaResource.getResourceSd(path, resName)
             pobj.SetNativeObject(pres)
             return pobj
         }
-        actual fun GetResource(path: String, resName: String): LuaStream?
+        actual fun getResource(path: String, resName: String): LuaStream?
         {
             val pobj = LuaStream()
-            val pres = dev.topping.android.LuaResource.GetResource(path, resName)
+            val pres = dev.topping.android.LuaResource.getResource(path, resName)
             pobj.SetNativeObject(pres)
             return pobj
         }

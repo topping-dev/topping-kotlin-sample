@@ -4,40 +4,32 @@ actual open class LuaThread : KTInterface
 {
    var luaThread: cocoapods.Topping.LuaThread? = null
    actual companion object {
-        actual fun RunOnUIThread(func: () -> Unit)
+        actual fun runOnUIThread(func: () -> Unit)
         {
-            cocoapods.Topping.LuaThread.RunOnUIThread(func.toLuaTranslator(null))
+            cocoapods.Topping.LuaThread.runOnUIThread(func.toLuaTranslator(null))
         }
-        actual fun RunOnBackground(func: () -> Unit)
+        actual fun runOnBackground(func: () -> Unit)
         {
-            cocoapods.Topping.LuaThread.RunOnBackground(func.toLuaTranslator(null))
+            cocoapods.Topping.LuaThread.runOnBackground(func.toLuaTranslator(null))
         }
-        actual fun New(func: () -> Unit): LuaThread {
+        actual fun new(func: () -> Unit): LuaThread {
             val pobj = LuaThread()
-            val pres = cocoapods.Topping.LuaThread.New(func.toLuaTranslator(null))
+            val pres = cocoapods.Topping.LuaThread.new(func.toLuaTranslator(null))
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun Run()
+   actual fun start()
    {
-       luaThread?.Run()
+       luaThread?.run()
    }
-   actual fun Wait(milliseconds: Long)
+   actual fun interrupt()
    {
-       luaThread?.Wait(milliseconds)
+       luaThread?.interrupt()
    }
-   actual fun Notify()
-   {
-       luaThread?.Notify()
-   }
-   actual fun Interrupt()
-   {
-       luaThread?.Interrupt()
-   }
-    actual fun Sleep(milliseconds: Long)
+    actual fun sleep(milliseconds: Long)
     {
-        luaThread?.Sleep(milliseconds)
+        luaThread?.sleep(milliseconds)
     }
     open override fun GetNativeObject(): Any?
    {

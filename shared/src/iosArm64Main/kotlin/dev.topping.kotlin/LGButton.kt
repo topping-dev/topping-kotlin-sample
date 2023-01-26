@@ -4,9 +4,9 @@ actual open class LGButton : LGTextView()
 {
    var lgButton: cocoapods.Topping.LGButton? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGButton {
+        actual fun create(lc: LuaContext): LGButton {
             val pobj = LGButton()
-            val pres = cocoapods.Topping.LGButton.Create(lc.luaContext)
+            val pres = cocoapods.Topping.LGButton.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -14,7 +14,7 @@ actual open class LGButton : LGTextView()
 
     override fun SetOnClickListenerInternal(func: ((LGView, LuaContext) -> Unit)?): Boolean
     {
-        lgButton?.SetOnClickListener(func.toLuaTranslator(this))
+        lgButton?.setOnClickListener(func.toLuaTranslator(this))
         return true
     }
 

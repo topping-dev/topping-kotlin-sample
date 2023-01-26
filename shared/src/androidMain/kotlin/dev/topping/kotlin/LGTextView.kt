@@ -4,28 +4,28 @@ actual open class LGTextView : LGView()
 {
    var lgTextView: android.widget.LGTextView? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGTextView {
+        actual fun create(lc: LuaContext): LGTextView {
             val pobj = LGTextView()
-            val pres = android.widget.LGTextView.Create(lc.luaContext)
+            val pres = android.widget.LGTextView.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun SetText(v: LuaRef?)
+   actual fun setText(v: LuaRef?)
    {
-       lgTextView?.SetText(v?.luaRef)
+       lgTextView?.setText(v?.luaRef)
    }
-   actual fun SetTextInternal(str: String?)
+   actual fun setTextInternal(str: String?)
    {
-       lgTextView?.SetTextInternal(str)
+       lgTextView?.setTextInternal(str)
    }
-   actual fun GetText(): String?
+   actual fun getText(): String?
    {
-       return lgTextView?.GetText()
+       return lgTextView?.getText()
    }
-    actual fun SetTextColor(ref: LuaRef?)
+    actual fun setTextColor(ref: LuaRef?)
     {
-        lgTextView?.SetTextColor(ref?.luaRef)
+        lgTextView?.setTextColor(ref?.luaRef)
     }
     open override fun GetNativeObject(): Any?
    {

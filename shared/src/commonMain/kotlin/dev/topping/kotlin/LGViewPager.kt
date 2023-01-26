@@ -3,8 +3,8 @@ package dev.topping.kotlin
 expect open class LGViewPager : LGViewGroup
 {
    companion object {
-        fun Create(lc: LuaContext): LGViewPager
+        fun create(lc: LuaContext): LGViewPager
    }
-    fun SetAdapter(lgFragmentStateAdapter: LGFragmentStateAdapter)
-    fun SetTabLayout(lgTabLayout: LGTabLayout, func: (Int) -> LuaTab)
+    fun setAdapter(lgFragmentStateAdapter: LGFragmentStateAdapter)
+    fun setTabLayout(lgTabLayout: LGTabLayout, func: (Int) -> LuaTab)
 }

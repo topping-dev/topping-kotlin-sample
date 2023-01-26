@@ -4,27 +4,27 @@ actual open class LuaTab : KTInterface
 {
    var luaTab: dev.topping.android.LuaTab? = null
     actual companion object {
-        actual fun Create(): LuaTab {
+        actual fun create(): LuaTab {
             val pobj = LuaTab()
-            val pres = dev.topping.android.LuaTab.Create()
+            val pres = dev.topping.android.LuaTab.create()
             pobj.SetNativeObject(pres as dev.topping.android.LuaTab)
             return pobj
         }
     }
-    actual fun SetText(text: String) {
-        luaTab?.SetText(text)
+    actual fun setText(text: String) {
+        luaTab?.setText(text)
     }
-    actual fun SetText(text: LuaRef) {
-        luaTab?.SetTextRef(text.luaRef)
+    actual fun setText(text: LuaRef) {
+        luaTab?.setTextRef(text.luaRef)
     }
-    actual fun SetIcon(icon: LuaRef) {
-        luaTab?.SetIcon(icon.luaRef)
+    actual fun setIcon(icon: LuaRef) {
+        luaTab?.setIcon(icon.luaRef)
     }
-    actual fun SetIcon(icon: LuaStream) {
-        luaTab?.SetIconStream(icon.luaStream)
+    actual fun setIcon(icon: LuaStream) {
+        luaTab?.setIconStream(icon.luaStream)
     }
-    actual fun SetCustomView(view: LGView) {
-        luaTab?.SetCustomView(view.lgView)
+    actual fun setCustomView(view: LGView) {
+        luaTab?.setCustomView(view.lgView)
     }
     open override fun GetNativeObject(): Any?
    {

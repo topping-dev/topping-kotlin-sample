@@ -4,16 +4,16 @@ actual open class LGRadioGroup : LGLinearLayout()
 {
    var lgRadioGroup: android.widget.LGRadioGroup? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGRadioGroup {
+        actual fun create(lc: LuaContext): LGRadioGroup {
             val pobj = LGRadioGroup()
-            val pres = android.widget.LGRadioGroup.Create(lc.luaContext)
+            val pres = android.widget.LGRadioGroup.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun SetOnCheckedChangedListener(func: ((Int, Boolean) -> Unit)?)
+   actual fun setOnCheckedChangedListener(func: ((Int, Boolean) -> Unit)?)
    {
-       lgRadioGroup?.SetOnCheckedChangedListener(func.toLuaTranslator(this))
+       lgRadioGroup?.setOnCheckedChangedListener(func.toLuaTranslator(this))
    }
    override open fun GetNativeObject(): android.widget.LGRadioGroup?
    {

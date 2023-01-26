@@ -4,42 +4,42 @@ actual open class LGComboBox : LGEditText()
 {
    var lgComboBox: android.widget.LGComboBox? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGComboBox {
+        actual fun create(lc: LuaContext): LGComboBox {
             val pobj = LGComboBox()
-            val pres = android.widget.LGComboBox.Create(lc.luaContext)
+            val pres = android.widget.LGComboBox.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun AddItem(id: String, tag: Any)
+   actual fun addItem(id: String, tag: Any)
    {
-       lgComboBox?.AddItem(id, tag)
+       lgComboBox?.addItem(id, tag)
    }
-    actual fun SetItems(map: Map<String, Any>)
+    actual fun setItems(map: Map<String, Any>)
     {
-        lgComboBox?.SetItems(map)
+        lgComboBox?.setItems(map)
     }
    fun ShowCustom(value: Int?)
    {
-       lgComboBox?.ShowCustom(value)
+       lgComboBox?.showCustom(value)
    }
    fun ShowDelete(value: Int?)
    {
-       lgComboBox?.ShowDelete(value)
+       lgComboBox?.showDelete(value)
    }
-   actual fun SetSelected(index: Int)
+   actual fun setSelectedIndex(index: Int)
    {
-       lgComboBox?.SetSelected(index)
+       lgComboBox?.setSelectedIndex(index)
    }
-   actual fun GetSelectedName(): String? {
-       return lgComboBox?.GetSelectedName()
+   actual fun getSelectedName(): String? {
+       return lgComboBox?.getSelectedName()
    }
-   actual fun GetSelectedTag(): Any? {
-       return lgComboBox?.GetSelectedTag()
+   actual fun getSelectedTag(): Any? {
+       return lgComboBox?.getSelectedTag()
    }
-   actual fun SetOnComboChangedListener(func: ((LGComboBox, LuaContext, String, Any) -> Unit)?)
+   actual fun setOnComboChangedListener(func: ((LGComboBox, LuaContext, String, Any) -> Unit)?)
    {
-       lgComboBox?.SetOnComboChangedListener(func.toLuaTranslator(this))
+       lgComboBox?.setOnComboChangedListener(func.toLuaTranslator(this))
    }
     open override fun GetNativeObject(): Any?
    {

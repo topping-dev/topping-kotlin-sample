@@ -6,13 +6,13 @@ actual open class LuaToast : KTInterface
    actual companion object {
         actual val TOAST_SHORT: Int = 2000
         actual val TOAST_LONG: Int = 5000
-       actual fun Show(context: LuaContext, text: LuaRef, duration: Int)
+       actual fun show(context: LuaContext, text: LuaRef, duration: Int)
        {
-           cocoapods.Topping.LuaToast.Show(context.luaContext, text.luaRef, duration)
+           cocoapods.Topping.LuaToast.show(context.luaContext, text.luaRef, duration)
        }
-        actual fun Show(context: LuaContext, text: String, duration: Int)
+        actual fun show(context: LuaContext, text: String, duration: Int)
         {
-            cocoapods.Topping.LuaToast.ShowInternal(context.luaContext, text, duration)
+            cocoapods.Topping.LuaToast.showInternal(context.luaContext, text, duration)
         }
    }
     open override fun GetNativeObject(): Any?

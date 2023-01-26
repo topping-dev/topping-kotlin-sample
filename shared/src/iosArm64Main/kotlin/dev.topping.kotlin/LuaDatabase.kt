@@ -4,65 +4,65 @@ actual open class LuaDatabase : KTInterface
 {
    var luaDatabase: cocoapods.Topping.LuaDatabase? = null
    actual companion object {
-        actual fun Create(context: LuaContext): LuaDatabase {
+        actual fun create(context: LuaContext): LuaDatabase {
             val pobj = LuaDatabase()
-            val pres = cocoapods.Topping.LuaDatabase.Create(context.luaContext)
+            val pres = cocoapods.Topping.LuaDatabase.create(context.luaContext)
             pobj.SetNativeObject(pres as cocoapods.Topping.LuaDatabase)
             return pobj
         }
    }
-   actual fun CheckAndCreateDatabase()
+   actual fun checkAndCreateDatabase()
    {
-       luaDatabase?.CheckAndCreateDatabase()
+       luaDatabase?.checkAndCreateDatabase()
    }
-   actual fun Open(): LuaObjectStore?
+   actual fun open(): LuaObjectStore?
    {
        val pobj = LuaObjectStore()
-       val obj = luaDatabase?.Open()
+       val obj = luaDatabase?.open()
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual fun Query(conn: LuaObjectStore?, str: String): LuaObjectStore?
+   actual fun query(conn: LuaObjectStore?, str: String): LuaObjectStore?
    {
        val pobj = LuaObjectStore()
-       val obj = luaDatabase?.Query(conn?.luaObjectStore, str)
+       val obj = luaDatabase?.query(conn?.luaObjectStore, str)
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual fun Insert(conn: LuaObjectStore?, str: String): LuaObjectStore?
+   actual fun insert(conn: LuaObjectStore?, str: String): LuaObjectStore?
    {
        val pobj = LuaObjectStore()
-       val obj = luaDatabase?.Insert(conn?.luaObjectStore, str)
+       val obj = luaDatabase?.insert(conn?.luaObjectStore, str)
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual fun Finalize(stmt: LuaObjectStore?)
+   actual fun finalize(stmt: LuaObjectStore?)
    {
-       luaDatabase?.Finalize(stmt?.luaObjectStore)
+       luaDatabase?.finalize(stmt?.luaObjectStore)
    }
-   actual fun Close(conn: LuaObjectStore?)
+   actual fun close(conn: LuaObjectStore?)
    {
-       luaDatabase?.Close(conn?.luaObjectStore)
+       luaDatabase?.close(conn?.luaObjectStore)
    }
-   actual fun GetInt(stmt: LuaObjectStore?, column: Int): Int?
+   actual fun getInt(stmt: LuaObjectStore?, column: Int): Int?
    {
-       return luaDatabase?.GetInt(stmt?.luaObjectStore, column)
+       return luaDatabase?.getInt(stmt?.luaObjectStore, column)
    }
-   actual fun GetFloat(stmt: LuaObjectStore?, column: Int): Float?
+   actual fun getFloat(stmt: LuaObjectStore?, column: Int): Float?
    {
-       return luaDatabase?.GetFloat(stmt?.luaObjectStore, column)
+       return luaDatabase?.getFloat(stmt?.luaObjectStore, column)
    }
-   actual fun GetString(stmt: LuaObjectStore?, column: Int): String?
+   actual fun getString(stmt: LuaObjectStore?, column: Int): String?
    {
-       return luaDatabase?.GetString(stmt?.luaObjectStore, column)
+       return luaDatabase?.getString(stmt?.luaObjectStore, column)
    }
-   actual fun GetDouble(stmt: LuaObjectStore?, column: Int): Double?
+   actual fun getDouble(stmt: LuaObjectStore?, column: Int): Double?
    {
-       return luaDatabase?.GetDouble(stmt?.luaObjectStore, column)
+       return luaDatabase?.getDouble(stmt?.luaObjectStore, column)
    }
-   actual fun GetLong(stmt: LuaObjectStore?, column: Int): Long?
+   actual fun getLong(stmt: LuaObjectStore?, column: Int): Long?
    {
-       return luaDatabase?.GetLong(stmt?.luaObjectStore, column)
+       return luaDatabase?.getLong(stmt?.luaObjectStore, column)
    }
     open override fun GetNativeObject(): Any?
    {

@@ -4,28 +4,28 @@ actual open class LuaStore : KTInterface
 {
    var luaStore: dev.topping.android.LuaStore? = null
    actual companion object {
-        actual fun SetString(key: String, value: String?)
+        actual fun setString(key: String, value: String?)
         {
-            dev.topping.android.LuaStore.SetString(key, value)
+            dev.topping.android.LuaStore.setString(key, value)
         }
-        actual fun SetNumber(key: String, value: Double)
+        actual fun setNumber(key: String, value: Double)
         {
-            dev.topping.android.LuaStore.SetNumber(key, value)
+            dev.topping.android.LuaStore.setNumber(key, value)
         }
-        actual fun Get(key: String): Any?
+        actual fun get(key: String): Any?
         {
             val pobj = LuaStore()
-            val pres = dev.topping.android.LuaStore.Get(key)
+            val pres = dev.topping.android.LuaStore.get(key)
             pobj.SetNativeObject(pres as dev.topping.android.LuaStore)
             return pobj
         }
-        actual fun GetString(key: String): String?
+        actual fun getString(key: String): String?
         {
-            return dev.topping.android.LuaStore.GetString(key)
+            return dev.topping.android.LuaStore.getString(key)
         }
-        actual fun GetNumber(key: String): Double?
+        actual fun getNumber(key: String): Double?
         {
-            return dev.topping.android.LuaStore.GetNumber(key)
+            return dev.topping.android.LuaStore.getNumber(key)
         }
    }
     open override fun GetNativeObject(): Any?

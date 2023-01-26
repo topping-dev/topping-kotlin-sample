@@ -4,16 +4,16 @@ actual open class LGCheckBox : LGCompoundButton()
 {
    var lgCheckBox: android.widget.LGCheckBox? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGCheckBox {
+        actual fun create(lc: LuaContext): LGCheckBox {
             val pobj = LGCheckBox()
-            val pres = android.widget.LGCheckBox.Create(lc.luaContext)
+            val pres = android.widget.LGCheckBox.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun SetOnCheckedChangedListener(func: ((LGCheckBox, LuaContext, Boolean) -> Unit)?)
+   actual fun setOnCheckedChangedListener(func: ((LGCheckBox, LuaContext, Boolean) -> Unit)?)
    {
-       lgCheckBox?.SetOnCheckedChangedListener(func.toLuaTranslator(this))
+       lgCheckBox?.setOnCheckedChangedListener(func.toLuaTranslator(this))
    }
     open override fun GetNativeObject(): Any?
    {

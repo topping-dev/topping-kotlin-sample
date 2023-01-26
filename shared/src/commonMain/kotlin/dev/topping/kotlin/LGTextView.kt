@@ -3,10 +3,10 @@ package dev.topping.kotlin
 expect open class LGTextView : LGView
 {
    companion object {
-        fun Create(lc: LuaContext): LGTextView
+        fun create(lc: LuaContext): LGTextView
    }
-   fun SetText(v: LuaRef?)
-   fun SetTextInternal(str: String?)
-   fun GetText(): String?
-   fun SetTextColor(ref: LuaRef?)
+   fun setText(v: LuaRef?)
+   fun setTextInternal(str: String?)
+   fun getText(): String?
+   fun setTextColor(ref: LuaRef?)
 }

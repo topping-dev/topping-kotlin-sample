@@ -4,18 +4,18 @@ actual open class LGViewPager : LGViewGroup()
 {
    var lgViewPager: android.widget.LGViewPager? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGViewPager {
+        actual fun create(lc: LuaContext): LGViewPager {
             val pobj = LGViewPager()
-            val pres = android.widget.LGViewPager.Create(lc.luaContext)
+            val pres = android.widget.LGViewPager.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-    actual fun SetAdapter(lgFragmentStateAdapter: LGFragmentStateAdapter) {
-        lgViewPager?.SetAdapter(lgFragmentStateAdapter.lgFragmentStateAdapter)
+    actual fun setAdapter(lgFragmentStateAdapter: LGFragmentStateAdapter) {
+        lgViewPager?.setAdapter(lgFragmentStateAdapter.lgFragmentStateAdapter)
     }
-    actual fun SetTabLayout(lgTabLayout: LGTabLayout, func: (Int) -> LuaTab) {
-        lgViewPager?.SetTabLayout(lgTabLayout.lgTabLayout, func.toLuaTranslator(null))
+    actual fun setTabLayout(lgTabLayout: LGTabLayout, func: (Int) -> LuaTab) {
+        lgViewPager?.setTabLayout(lgTabLayout.lgTabLayout, func.toLuaTranslator(null))
     }
     open override fun GetNativeObject(): Any?
    {

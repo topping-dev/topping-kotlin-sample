@@ -4,18 +4,18 @@ actual open class LGBottomNavigationView : LGFrameLayout()
 {
    var lgBottomNavigationView: cocoapods.Topping.LGBottomNavigationView? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGBottomNavigationView {
+        actual fun create(lc: LuaContext): LGBottomNavigationView {
             val pobj = LGBottomNavigationView()
-            val pres = cocoapods.Topping.LGBottomNavigationView.Create(lc.luaContext)
+            val pres = cocoapods.Topping.LGBottomNavigationView.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-    actual fun SetTabSelectedListener(func: ((LGBottomNavigationView, Int) -> Unit)?) {
-        lgBottomNavigationView?.SetTabSelectedListener(func.toLuaTranslator(this));
+    actual fun setTabSelectedListener(func: ((LGBottomNavigationView, Int) -> Unit)?) {
+        lgBottomNavigationView?.setTabSelectedListener(func.toLuaTranslator(this));
     }
-    actual fun SetCanSelectTab(func: ((LGBottomNavigationView, Int) -> Boolean)?) {
-        lgBottomNavigationView?.SetCanSelectTab(func.toLuaTranslator(this));
+    actual fun setCanSelectTab(func: ((LGBottomNavigationView, Int) -> Boolean)?) {
+        lgBottomNavigationView?.setCanSelectTab(func.toLuaTranslator(this));
     }
     open override fun GetNativeObject(): Any?
    {

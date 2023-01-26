@@ -3,20 +3,20 @@ package dev.topping.kotlin
 actual open class LGRecyclerView : LGView()
 {
    var lgRecyclerView: cocoapods.Topping.LGRecyclerView? = null
-   actual fun GetAdapter(): LGRecyclerViewAdapter?
+   actual fun getAdapter(): LGRecyclerViewAdapter?
    {
        val pobj = LGRecyclerViewAdapter()
-       val obj = lgRecyclerView?.GetAdapter()
+       val obj = lgRecyclerView?.getAdapter()
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual fun SetAdapter(adapter: LGRecyclerViewAdapter?)
+   actual fun setAdapter(adapter: LGRecyclerViewAdapter?)
    {
-       lgRecyclerView?.SetAdapter(adapter?.lgRecyclerViewAdapter)
+       lgRecyclerView?.setAdapter(adapter?.lgRecyclerViewAdapter)
    }
-    actual fun SetAdapter(ltInit: LuaTranslator)
+    actual fun setAdapter(ltInit: LuaTranslator)
     {
-        lgRecyclerView?.SetAdapterInterface(ltInit.luaTranslator)
+        lgRecyclerView?.setAdapterInterface(ltInit.luaTranslator)
     }
     open override fun GetNativeObject(): Any?
    {

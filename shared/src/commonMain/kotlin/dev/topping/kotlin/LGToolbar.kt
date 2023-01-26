@@ -2,21 +2,21 @@ package dev.topping.kotlin
 
 expect open class LGToolbar : LGView
 {
-    fun SetMenu(ref: LuaRef?)
-    fun SetLogo(logo: LuaRef?)
-    fun SetNavigationIcon(logo: LuaRef?)
-    fun SetOverflowIcon(logo: LuaRef?)
-    fun GetTitle() : String?
-    fun SetTitleInternal(text: String?)
-    fun SetTitle(ref: LuaRef?)
-    fun SetTitleTextColor(ref: LuaRef?)
-    fun SetTitleTextApperance(ref: LuaRef?)
-    fun GetSubtitle() : String?
-    fun SetSubtitleInternal(text: String?)
-    fun SetSubtitle(ref: LuaRef?)
-    fun SetSubtitleTextColor(ref: LuaRef?)
-    fun SetSubtitleTextApperance(ref: LuaRef?)
-    fun SetNavigationOnClickListener(func: ((LGToolbar) -> Unit)?)
-    fun SetMenuItemClickListener(func: ((LGToolbar) -> Unit)?)
+    fun setMenu(ref: LuaRef?)
+    fun setLogo(logo: LuaRef?)
+    fun setNavigationIcon(logo: LuaRef?)
+    fun setOverflowIcon(logo: LuaRef?)
+    fun getTitle() : String?
+    fun setTitleInternal(text: String?)
+    fun setTitle(ref: LuaRef?)
+    fun setTitleTextColor(ref: LuaRef?)
+    fun setTitleTextApperance(ref: LuaRef?)
+    fun getSubtitle() : String?
+    fun setSubtitleInternal(text: String?)
+    fun setSubtitle(ref: LuaRef?)
+    fun setSubtitleTextColor(ref: LuaRef?)
+    fun setSubtitleTextApperance(ref: LuaRef?)
+    fun setNavigationOnClickListener(func: ((LGToolbar) -> Unit)?)
+    fun setMenuItemClickListener(func: ((LGToolbar) -> Unit)?)
 
 }

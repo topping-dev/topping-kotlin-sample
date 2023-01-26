@@ -4,67 +4,67 @@ actual open class LuaHttpClient : KTInterface
 {
    var luaHttpClient: dev.topping.android.LuaHttpClient? = null
    actual companion object {
-        actual fun Create(tag: String): LuaHttpClient {
+        actual fun create(tag: String): LuaHttpClient {
             val pobj = LuaHttpClient()
-            val pres = dev.topping.android.LuaHttpClient.Create(tag)
+            val pres = dev.topping.android.LuaHttpClient.create(tag)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun SetContentType(type: String)
+   actual fun setContentType(type: String)
    {
-       luaHttpClient?.SetContentType(type)
+       luaHttpClient?.setContentType(type)
    }
-   actual fun StartForm(): LuaObjectStore?
+   actual fun startForm(): LuaObjectStore?
    {
        val pobj = LuaObjectStore()
-       val obj = luaHttpClient?.StartForm()
+       val obj = luaHttpClient?.startForm()
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual fun AppendPostData(formData: Any?, name: String?, value: String?)
+   actual fun appendPostData(formData: Any?, name: String?, value: String?)
    {
-       luaHttpClient?.AppendPostData(formData, name, value)
+       luaHttpClient?.appendPostData(formData, name, value)
    }
-   actual fun AppendFileData(formData: Any?, name: String?, file: Any?)
+   actual fun appendFileData(formData: Any?, name: String?, file: Any?)
    {
-       luaHttpClient?.AppendFileData(formData, name, file)
+       luaHttpClient?.appendFileData(formData, name, file)
    }
-   actual fun EndForm(formData: Any?)
+   actual fun endForm(formData: Any?)
    {
-       luaHttpClient?.EndForm(formData)
+       luaHttpClient?.endForm(formData)
    }
-   actual fun StartAsyncLoadForm(url: String?, formData: Any?, tag: String?)
+   actual fun startAsyncLoadForm(url: String?, formData: Any?, tag: String?)
    {
-       luaHttpClient?.StartAsyncLoadForm(url, formData, tag)
+       luaHttpClient?.startAsyncLoadForm(url, formData, tag)
    }
-   actual fun StartAsyncLoad(url: String?, data: String?, tag: String?)
+   actual fun startAsyncLoad(url: String?, data: String?, tag: String?)
    {
-       luaHttpClient?.StartAsyncLoad(url, data, tag)
+       luaHttpClient?.startAsyncLoad(url, data, tag)
    }
-   actual fun StartAsyncLoadGet(url: String?, tag: String?)
+   actual fun startAsyncLoadGet(url: String?, tag: String?)
    {
-       luaHttpClient?.StartAsyncLoadGet(url, tag)
+       luaHttpClient?.startAsyncLoadGet(url, tag)
    }
-   actual fun StartLoad(url: String?, data: String?): String?
+   actual fun startLoad(url: String?, data: String?): String?
    {
-       return luaHttpClient?.StartLoad(url, data)
+       return luaHttpClient?.startLoad(url, data)
    }
-   actual fun StartLoadGet(url: String?): String?
+   actual fun startLoadGet(url: String?): String?
    {
-       return luaHttpClient?.StartLoadGet(url)
+       return luaHttpClient?.startLoadGet(url)
    }
-   actual fun SetTimeout(timeout: Int?)
+   actual fun setTimeout(timeout: Int?)
    {
-       luaHttpClient?.SetTimeout(timeout)
+       luaHttpClient?.setTimeout(timeout)
    }
-   actual fun SetOnFinishListener(func: ((LuaHttpClient, String) -> Unit)?)
+   actual fun setOnFinishListener(func: ((LuaHttpClient, String) -> Unit)?)
    {
-       luaHttpClient?.SetOnFinishListener(func.toLuaTranslator(this))
+       luaHttpClient?.setOnFinishListener(func.toLuaTranslator(this))
    }
-   actual fun SetOnFailListener(func: ((LuaHttpClient, String) -> Unit)?)
+   actual fun setOnFailListener(func: ((LuaHttpClient, String) -> Unit)?)
    {
-       luaHttpClient?.SetOnFailListener(func.toLuaTranslator(this))
+       luaHttpClient?.setOnFailListener(func.toLuaTranslator(this))
    }
     open override fun GetNativeObject(): Any?
    {

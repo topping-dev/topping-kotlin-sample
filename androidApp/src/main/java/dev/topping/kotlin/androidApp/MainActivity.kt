@@ -11,7 +11,7 @@ class MainActivity : LuaForm(), LuaInterface {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.empty)
 
-        Platform.Init(this, object : GenericOnComplete {
+        Platform.init(this, object : GenericOnComplete {
             override fun onComplete() {
 
             }

@@ -13,28 +13,28 @@ actual class Platform actual constructor() {
         private var bindingMap: HashMap<Any, Any>? = null
         private var retBindingMap: HashMap<Any, Any>? = null
 
-        actual fun Init(activityOrWindow: Any, onComplete: GenericOnComplete) {
-            luaContext = dev.topping.android.luagui.LuaContext.CreateLuaContext(activityOrWindow as Activity?)
+        actual fun init(activityOrWindow: Any, onComplete: GenericOnComplete) {
+            luaContext = dev.topping.android.luagui.LuaContext.createLuaContext(activityOrWindow as Activity?)
 
             val luaEngine = dev.topping.android.ToppingEngine.getInstance()
-            ToppingEngine.getInstance().SetContext(luaContext?.GetContext())
+            ToppingEngine.getInstance().setContext(luaContext?.getContext())
             KTEntry.Init()
             val ht = HandlerThread("Lua Loader Thread", Process.THREAD_PRIORITY_URGENT_DISPLAY)
             ht.start()
 
             val handler: dev.topping.android.backend.LuaLoadHandler = object : dev.topping.android.backend.LuaLoadHandler(activityOrWindow as Activity?, ht.looper) {
-                override fun OnFinished() {
+                override fun onFinished() {
                     val lf: dev.topping.android.LuaForm = activityOrWindow as dev.topping.android.LuaForm;
-                    luaId = luaEngine.GetMainForm()
-                    val initUI = luaEngine.GetMainUI()
+                    luaId = luaEngine.mainForm
+                    val initUI = luaEngine.mainUI
                     if (initUI.compareTo("") != 0) {
                         val inflater = dev.topping.android.luagui.LuaViewInflator(luaContext)
-                        val view: android.widget.LGView? = inflater.ParseFile(initUI, null)
-                        lf.SetView(view)
+                        val view: android.widget.LGView? = inflater.parseFile(initUI, null)
+                        lf.setView(view)
                         lf.setContentView(view?.view);
                     }
                     lf.runOnUiThread {
-                        dev.topping.android.LuaEvent.OnUIEvent(lf, dev.topping.android.LuaEvent.UI_EVENT_CREATE, luaContext)
+                        dev.topping.android.LuaEvent.onUIEvent(lf, dev.topping.android.LuaEvent.UI_EVENT_CREATE, luaContext)
                     }
                     ht.quit()
                     onComplete.onComplete();
@@ -43,11 +43,11 @@ actual class Platform actual constructor() {
             handler.sendEmptyMessage(dev.topping.android.backend.LuaLoadHandler.INIT_MESSAGE)
         }
 
-        actual fun GetRetBindings(): HashMap<Any, Any>? {
+        actual fun getRetBindings(): HashMap<Any, Any>? {
             return retBindingMap
         }
 
-        actual fun GetBindings(): HashMap<Any, Any>? {
+        actual fun getBindings(): HashMap<Any, Any>? {
             if(bindingMap == null)
             {
                 bindingMap = hashMapOf(

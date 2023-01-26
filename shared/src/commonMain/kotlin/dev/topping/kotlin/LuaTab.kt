@@ -3,11 +3,11 @@ package dev.topping.kotlin
 expect open class LuaTab
 {
    companion object {
-        fun Create(): LuaTab
+        fun create(): LuaTab
    }
-    fun SetText(text: String)
-    fun SetText(text: LuaRef)
-    fun SetIcon(icon: LuaRef)
-    fun SetIcon(icon: LuaStream)
-    fun SetCustomView(view: LGView)
+    fun setText(text: String)
+    fun setText(text: LuaRef)
+    fun setIcon(icon: LuaRef)
+    fun setIcon(icon: LuaStream)
+    fun setCustomView(view: LGView)
 }

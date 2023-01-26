@@ -4,9 +4,9 @@ actual open class LGRelativeLayout : LGViewGroup()
 {
    var lgRelativeLayout: cocoapods.Topping.LGRelativeLayout? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGRelativeLayout {
+        actual fun create(lc: LuaContext): LGRelativeLayout {
             val pobj = LGRelativeLayout()
-            val pres = cocoapods.Topping.LGRelativeLayout.Create(lc.luaContext)
+            val pres = cocoapods.Topping.LGRelativeLayout.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

@@ -8,25 +8,25 @@ import dev.topping.kotlinsample.MenuFragment
 class KTEntry {
     companion object {
         fun Init() {
-            LuaEvent.RegisterFragment("menuFragment", ::MenuFragment)
-            LuaEvent.RegisterForm("Main", ::MainForm)
-            /*LuaEvent.RegisterUIEvent(
+            LuaEvent.registerFragment("menuFragment", ::MenuFragment)
+            LuaEvent.registerForm("Main", ::MainForm)
+            /*LuaEvent.registerUIEvent(
                 LR.id.ListViewTest,
                 LuaEvent.UI_EVENT_VIEW_CREATE,
                 TestBed::ListViewTest_Constructor
             )
-            LuaEvent.RegisterUIEvent(
+            LuaEvent.registerUIEvent(
                 LR.id.formTestLL,
                 LuaEvent.UI_EVENT_VIEW_CREATE,
                 Form::FormTestLL_Constructor
             )
-            LuaEvent.RegisterUIEvent(
+            LuaEvent.registerUIEvent(
                 LR.id.Main,
                 LuaEvent.UI_EVENT_CREATE,
                 Form::Main_Constructor
             )*/
-            //LuaEvent.RegisterUIEvent(LR.id.menuFragment, LuaEvent.UI_EVENT_FRAGMENT_CREATE_VIEW, Form::MenuFragment_Create_View)
-            LuaEvent.RegisterUIEvent(LR.id.receiveFragment, LuaEvent.UI_EVENT_FRAGMENT_CREATE_VIEW, Form::ReceiveFragment_Create_View)
+            //LuaEvent.registerUIEvent(LR.id.menuFragment, LuaEvent.UI_EVENT_FRAGMENT_CREATE_VIEW, Form::MenuFragment_Create_View)
+            LuaEvent.registerUIEvent(LR.id.receiveFragment, LuaEvent.UI_EVENT_FRAGMENT_CREATE_VIEW, Form::ReceiveFragment_Create_View)
         }
     }
 }

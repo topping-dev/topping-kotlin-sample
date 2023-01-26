@@ -4,38 +4,38 @@ actual open class LuaResource : KTInterface
 {
    var luaResource: cocoapods.Topping.LuaResource? = null
    actual companion object {
-        actual fun GetResourceAssetSd(path: String, resName: String): LuaStream?
+        actual fun getResourceAssetSd(path: String, resName: String): LuaStream?
         {
             val pobj = LuaStream()
-            val pres = cocoapods.Topping.LuaResource.GetResourceAssetSd(path, resName)
+            val pres = cocoapods.Topping.LuaResource.getResourceAssetSd(path, resName)
             pobj.SetNativeObject(pres)
             return pobj
         }
-        actual fun GetResourceSdAsset(path: String, resName: String): LuaStream?
+        actual fun getResourceSdAsset(path: String, resName: String): LuaStream?
         {
             val pobj = LuaStream()
-            val pres = cocoapods.Topping.LuaResource.GetResourceSdAsset(path, resName)
+            val pres = cocoapods.Topping.LuaResource.getResourceSdAsset(path, resName)
             pobj.SetNativeObject(pres)
             return pobj
         }
-        actual fun GetResourceAsset(path: String, resName: String): LuaStream?
+        actual fun getResourceAsset(path: String, resName: String): LuaStream?
         {
             val pobj = LuaStream()
-            val pres = cocoapods.Topping.LuaResource.GetResourceAsset(path, resName)
+            val pres = cocoapods.Topping.LuaResource.getResourceAsset(path, resName)
             pobj.SetNativeObject(pres)
             return pobj
         }
-        actual fun GetResourceSd(path: String, resName: String): LuaStream?
+        actual fun getResourceSd(path: String, resName: String): LuaStream?
         {
             val pobj = LuaStream()
-            val pres = cocoapods.Topping.LuaResource.GetResourceSd(path, resName)
+            val pres = cocoapods.Topping.LuaResource.getResourceSd(path, resName)
             pobj.SetNativeObject(pres)
             return pobj
         }
-        actual fun GetResource(path: String, resName: String): LuaStream?
+        actual fun getResource(path: String, resName: String): LuaStream?
         {
             val pobj = LuaStream()
-            val pres = cocoapods.Topping.LuaResource.GetResource(path, resName)
+            val pres = cocoapods.Topping.LuaResource.getResource(path, resName)
             pobj.SetNativeObject(pres)
             return pobj
         }

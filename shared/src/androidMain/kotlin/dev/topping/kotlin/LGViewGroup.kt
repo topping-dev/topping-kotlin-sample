@@ -4,9 +4,9 @@ actual open class LGViewGroup : LGView()
 {
    var lgViewGroup: android.widget.LGViewGroup? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGViewGroup {
+        actual fun create(lc: LuaContext): LGViewGroup {
             val pobj = LGViewGroup()
-            val pres = android.widget.LGViewGroup.Create(lc.luaContext)
+            val pres = android.widget.LGViewGroup.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

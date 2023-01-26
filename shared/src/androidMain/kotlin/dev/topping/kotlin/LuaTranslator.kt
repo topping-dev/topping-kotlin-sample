@@ -4,10 +4,10 @@ actual open class LuaTranslator : KTInterface
 {
    var luaTranslator: dev.topping.android.LuaTranslator? = null
    actual companion object {
-        actual fun Register(obj: Any?, functionName: String?): LuaTranslator?
+        actual fun register(obj: Any?, functionName: String?): LuaTranslator?
         {
             val pobj = LuaTranslator()
-            val pres = dev.topping.android.LuaTranslator.Register(obj, functionName)
+            val pres = dev.topping.android.LuaTranslator.register(obj, functionName)
             pobj.SetNativeObject(pres)
             return pobj
         }
@@ -26,14 +26,14 @@ actual open class LuaTranslator : KTInterface
 fun <V> KCallable<V>.toLuaTranslator(obj: Any?): dev.topping.android.LuaTranslator
 {
     val kt = KTWrap<V>()
-    return dev.topping.android.LuaTranslator(kt, kt.Init(obj, this))
+    return dev.topping.android.LuaTranslator(kt, kt.init(obj, this))
 }
 
 fun <V> KCallable<V>?.toLuaTranslator(obj: Any?): dev.topping.android.LuaTranslator? {
     if(this == null)
         return null
     val kt = KTWrap<V>()
-    return dev.topping.android.LuaTranslator(kt, kt.Init(obj, this))
+    return dev.topping.android.LuaTranslator(kt, kt.init(obj, this))
 }*/
 
 @JvmName("toLuaTranslatorR")

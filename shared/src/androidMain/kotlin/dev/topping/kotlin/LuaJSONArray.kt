@@ -3,42 +3,42 @@ package dev.topping.kotlin
 actual open class LuaJSONArray : KTInterface
 {
    var luaJSONArray: dev.topping.android.LuaJSONArray? = null
-   actual fun Count(): Int {
-       return luaJSONArray?.Count()!!
+   actual fun count(): Int {
+       return luaJSONArray?.count()!!
    }
-   actual fun GetJSONObject(index: Int): LuaJSONObject?
+   actual fun getJSONObject(index: Int): LuaJSONObject?
    {
        val pobj = LuaJSONObject()
-       val obj = luaJSONArray?.GetJSONObject(index)
+       val obj = luaJSONArray?.getJSONObject(index)
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual fun GetJSONArray(index: Int): LuaJSONArray?
+   actual fun getJSONArray(index: Int): LuaJSONArray?
    {
        val pobj = LuaJSONArray()
-       val obj = luaJSONArray?.GetJSONArray(index)
+       val obj = luaJSONArray?.getJSONArray(index)
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual fun GetString(index: Int): String?
+   actual fun getString(index: Int): String?
    {
-       return luaJSONArray?.GetString(index)
+       return luaJSONArray?.getString(index)
    }
-   actual fun GetInt(index: Int): Int?
+   actual fun getInt(index: Int): Int?
    {
-       return luaJSONArray?.GetInt(index)
+       return luaJSONArray?.getInt(index)
    }
-   actual fun GetDouble(index: Int): Double?
+   actual fun getDouble(index: Int): Double?
    {
-       return luaJSONArray?.GetDouble(index)
+       return luaJSONArray?.getDouble(index)
    }
-   actual fun GetFloat(index: Int): Float?
+   actual fun getFloat(index: Int): Float?
    {
-       return luaJSONArray?.GetFloat(index)
+       return luaJSONArray?.getFloat(index)
    }
-   actual fun GetBool(index: Int): Boolean?
+   actual fun getBool(index: Int): Boolean?
    {
-       return luaJSONArray?.GetBool(index)
+       return luaJSONArray?.getBool(index)
    }
     open override fun GetNativeObject(): Any?
    {

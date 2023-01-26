@@ -4,28 +4,28 @@ actual open class LuaPoint : KTInterface
 {
    var luaPoint: dev.topping.android.LuaPoint? = null
    actual companion object {
-        actual fun CreatePoint(): LuaPoint {
+        actual fun createPoint(): LuaPoint {
             val pobj = LuaPoint()
-            val pres = dev.topping.android.LuaPoint.CreatePoint()
+            val pres = dev.topping.android.LuaPoint.createPoint()
             pobj.SetNativeObject(pres)
             return pobj
         }
-        actual fun CreatePointPar(x: Float, y: Float): LuaPoint {
+        actual fun createPointPar(x: Float, y: Float): LuaPoint {
             val pobj = LuaPoint()
-            val pres = dev.topping.android.LuaPoint.CreatePointPar(x, y)
+            val pres = dev.topping.android.LuaPoint.createPointPar(x, y)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun Set(x: Float, y: Float)
+   actual fun set(x: Float, y: Float)
    {
-       luaPoint?.Set(x, y)
+       luaPoint?.set(x, y)
    }
-   actual fun GetX(): Float {
-       return luaPoint?.GetX()!!
+   actual fun getX(): Float {
+       return luaPoint?.getX()!!
    }
-   actual fun GetY(): Float {
-       return luaPoint?.GetY()!!
+   actual fun getY(): Float {
+       return luaPoint?.getY()!!
    }
     open override fun GetNativeObject(): Any?
    {

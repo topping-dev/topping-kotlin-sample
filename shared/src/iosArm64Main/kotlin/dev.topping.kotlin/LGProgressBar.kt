@@ -4,24 +4,24 @@ actual open class LGProgressBar : LGView()
 {
    var lgProgressBar: cocoapods.Topping.LGProgressBar? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGProgressBar {
+        actual fun create(lc: LuaContext): LGProgressBar {
             val pobj = LGProgressBar()
-            val pres = cocoapods.Topping.LGProgressBar.Create(lc.luaContext)
+            val pres = cocoapods.Topping.LGProgressBar.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun SetProgress(v: Int)
+   actual fun setProgress(v: Int)
    {
-       lgProgressBar?.SetProgress(v)
+       lgProgressBar?.setProgress(v)
    }
-   actual fun SetMax(v: Int)
+   actual fun setMax(v: Int)
    {
-       lgProgressBar?.SetMax(v)
+       lgProgressBar?.setMax(v)
    }
-   actual fun SetIndeterminate(v: Boolean)
+   actual fun setIndeterminate(v: Boolean)
    {
-       lgProgressBar?.SetIndeterminate(v)
+       lgProgressBar?.setIndeterminate(v)
    }
     open override fun GetNativeObject(): Any?
    {

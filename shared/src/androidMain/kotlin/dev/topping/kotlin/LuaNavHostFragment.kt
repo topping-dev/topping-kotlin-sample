@@ -3,42 +3,42 @@ package dev.topping.kotlin
 actual open class LuaNavHostFragment : LuaFragment()
 {
    var luaNavHostFragment: dev.topping.android.LuaNavHostFragment? = null
-   actual override fun GetContext(): LuaContext {
+   actual override fun getContext(): LuaContext {
        val pobj = LuaContext()
-       val obj = luaNavHostFragment?.GetContext()
+       val obj = luaNavHostFragment?.getContext()
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual override fun IsInitialized(): Boolean {
-       return luaNavHostFragment?.IsInitialized()!!
+   actual override fun isInitialized(): Boolean {
+       return luaNavHostFragment?.isInitialized()!!
    }
-   actual override fun GetViewById(lId: LuaRef): LGView?
+   actual override fun getViewById(lId: LuaRef): LGView?
    {
-       return KTWrap.Wrap(luaNavHostFragment?.GetViewById(lId.luaRef!!)) as LGView?
+       return KTWrap.Wrap(luaNavHostFragment?.getViewById(lId.luaRef!!)) as LGView?
    }
-   actual override fun GetView(): LGView?
+   actual override fun getView(): LGView?
    {
-       return KTWrap.Wrap(luaNavHostFragment?.GetView()) as LGView?
+       return KTWrap.Wrap(luaNavHostFragment?.getView()) as LGView?
    }
-   actual override fun SetView(v: LGView?)
+   actual override fun setView(v: LGView?)
    {
-       luaNavHostFragment?.SetView(v?.lgView!!)
+       luaNavHostFragment?.setLGView(v?.lgView!!)
    }
-   actual override fun SetViewXML(xml: LuaRef)
+   actual override fun setViewXML(xml: LuaRef)
    {
-       luaNavHostFragment?.SetViewXML(xml.luaRef)
+       luaNavHostFragment?.setViewXML(xml.luaRef)
    }
-   actual override fun SetViewId(luaId: String)
+   actual override fun setViewId(luaId: String)
    {
-       luaNavHostFragment?.SetViewId(luaId)
+       luaNavHostFragment?.setViewId(luaId)
    }
-   actual override fun SetTitle(str: String)
+   actual override fun setTitle(str: String)
    {
-       luaNavHostFragment?.SetTitle(str)
+       luaNavHostFragment?.setTitle(str)
    }
-   actual override fun Close()
+   actual override fun close()
    {
-       luaNavHostFragment?.Close()
+       luaNavHostFragment?.close()
    }
     actual override fun getNavController(): LuaNavController {
         return KTWrap.Wrap(luaNavHostFragment?.getNavControllerInternal()) as LuaNavController

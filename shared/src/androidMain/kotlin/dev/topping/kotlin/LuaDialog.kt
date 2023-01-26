@@ -9,92 +9,92 @@ actual open class LuaDialog : KTInterface
         actual val DIALOG_TYPE_PROGRESS_INDETERMINATE: Int = 0x6
         actual val DIALOG_TYPE_DATEPICKER: Int = 0x08
         actual val DIALOG_TYPE_TIMEPICKER: Int = 0x10
-        actual fun MessageBox(context: LuaContext, title: LuaRef, content: LuaRef)
+        actual fun messageBox(context: LuaContext, title: LuaRef, content: LuaRef)
         {
-            dev.topping.android.LuaDialog.MessageBox(context.luaContext, title.luaRef, content.luaRef)
+            dev.topping.android.LuaDialog.messageBox(context.luaContext, title.luaRef, content.luaRef)
         }
-        actual fun MessageBoxInternal(context: LuaContext, title: String, content: String)
+        actual fun messageBoxInternal(context: LuaContext, title: String, content: String)
         {
-            dev.topping.android.LuaDialog.MessageBoxInternal(context.luaContext, title, content)
+            dev.topping.android.LuaDialog.messageBoxInternal(context.luaContext, title, content)
         }
-        actual fun Create(context: LuaContext, dialogType: Int): LuaDialog {
+        actual fun create(context: LuaContext, dialogType: Int): LuaDialog {
             val pobj = LuaDialog()
-            val pres = dev.topping.android.LuaDialog.Create(context.luaContext, dialogType)
+            val pres = dev.topping.android.LuaDialog.create(context.luaContext, dialogType)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-    actual fun SetPositiveButton(title: LuaRef, action: LuaTranslator?)
+    actual fun setPositiveButton(title: LuaRef, action: LuaTranslator?)
     {
-        luaDialog?.SetPositiveButton(title.luaRef, action?.luaTranslator)
+        luaDialog?.setPositiveButton(title.luaRef, action?.luaTranslator)
     }
-   actual fun SetPositiveButtonInternal(title: String, action: LuaTranslator?)
+   actual fun setPositiveButtonInternal(title: String, action: LuaTranslator?)
    {
-       luaDialog?.SetPositiveButtonInternal(title, action?.luaTranslator)
+       luaDialog?.setPositiveButtonInternal(title, action?.luaTranslator)
    }
-    actual fun SetNegativeButton(title: LuaRef, action: LuaTranslator?)
+    actual fun setNegativeButton(title: LuaRef, action: LuaTranslator?)
     {
-        luaDialog?.SetNegativeButton(title.luaRef, action?.luaTranslator)
+        luaDialog?.setNegativeButton(title.luaRef, action?.luaTranslator)
     }
-   actual fun SetNegativeButtonInternal(title: String, action: LuaTranslator?)
+   actual fun setNegativeButtonInternal(title: String, action: LuaTranslator?)
    {
-       luaDialog?.SetNegativeButtonInternal(title, action?.luaTranslator)
+       luaDialog?.setNegativeButtonInternal(title, action?.luaTranslator)
    }
-   actual fun SetTitle(title: String)
+   actual fun setTitle(title: String)
    {
-       luaDialog?.SetTitle(title)
+       luaDialog?.setTitle(title)
    }
-   actual fun SetTitle(titleRef: LuaRef)
+   actual fun setTitle(titleRef: LuaRef)
    {
-       luaDialog?.SetTitleRef(titleRef.luaRef)
+       luaDialog?.setTitleRef(titleRef.luaRef)
    }
-   actual fun SetMessage(message: String)
+   actual fun setMessage(message: String)
    {
-       luaDialog?.SetMessage(message)
+       luaDialog?.setMessage(message)
    }
-   actual fun SetMessage(messageRef: LuaRef)
+   actual fun setMessage(messageRef: LuaRef)
    {
-       luaDialog?.SetMessage(messageRef.luaRef)
+       luaDialog?.setMessage(messageRef.luaRef)
    }
-   actual fun SetProgress(value: Int)
+   actual fun setProgress(value: Int)
    {
-       luaDialog?.SetProgress(value)
+       luaDialog?.setProgress(value)
    }
-   actual fun SetMax(value: Int)
+   actual fun setMax(value: Int)
    {
-       luaDialog?.SetMax(value)
+       luaDialog?.setMax(value)
    }
-   actual fun SetDate(date: LuaDate)
+   actual fun setDate(date: LuaDate)
    {
-       luaDialog?.SetDate(date.luaDate)
+       luaDialog?.setDate(date.luaDate)
    }
-   actual fun SetDateManual(day: Int, month: Int, year: Int)
+   actual fun setDateManual(day: Int, month: Int, year: Int)
    {
-       luaDialog?.SetDateManual(day, month, year)
+       luaDialog?.setDateManual(day, month, year)
    }
-   actual fun SetTime(date: LuaDate)
+   actual fun setTime(date: LuaDate)
    {
-       luaDialog?.SetTime(date.luaDate)
+       luaDialog?.setTime(date.luaDate)
    }
-   actual fun SetTimeManual(hour: Int, minute: Int)
+   actual fun setTimeManual(hour: Int, minute: Int)
    {
-       luaDialog?.SetTimeManual(hour, minute)
+       luaDialog?.setTimeManual(hour, minute)
    }
-   actual fun Show()
+   actual fun show()
    {
-       luaDialog?.Show()
+       luaDialog?.show()
    }
-   actual fun Dismiss()
+   actual fun dismiss()
    {
-       luaDialog?.Dismiss()
+       luaDialog?.dismiss()
    }
-   actual fun SetDateSelectedListener(func: ((LuaDialog, Int, Int, Int) -> Unit)?)
+   actual fun setDateSelectedListener(func: ((LuaDialog, Int, Int, Int) -> Unit)?)
    {
-       luaDialog?.SetDateSelectedListener(func.toLuaTranslator(this))
+       luaDialog?.setDateSelectedListener(func.toLuaTranslator(this))
    }
-   actual fun SetTimeSelectedListener(func: ((LuaDialog, Int, Int, Int) -> Unit)?)
+   actual fun setTimeSelectedListener(func: ((LuaDialog, Int, Int, Int) -> Unit)?)
    {
-       luaDialog?.SetTimeSelectedListener(func.toLuaTranslator(this))
+       luaDialog?.setTimeSelectedListener(func.toLuaTranslator(this))
    }
     open override fun GetNativeObject(): Any?
    {

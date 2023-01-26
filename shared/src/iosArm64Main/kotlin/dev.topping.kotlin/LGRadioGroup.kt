@@ -6,20 +6,20 @@ actual open class LGRadioGroup : LGLinearLayout()
 {
    var lgRadioGroup: cocoapods.Topping.LGRadioGroup? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGRadioGroup {
+        actual fun create(lc: LuaContext): LGRadioGroup {
             val pobj = LGRadioGroup()
-            val pres = cocoapods.Topping.LGRadioGroup.Create(lc.luaContext)
+            val pres = cocoapods.Topping.LGRadioGroup.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun SetOnCheckedChangedListener(func: ((Int, Boolean) -> Unit)?)
+   actual fun setOnCheckedChangedListener(func: ((Int, Boolean) -> Unit)?)
    {
        val kt: KTWrap = KTWrap()
        val lt: cocoapods.Topping.LuaTranslator = cocoapods.Topping.LuaTranslator()
        lt.nobj = StableRef.create(kt).asCPointer()
        lt.kFRetF = kt.Init(this, func)
-       lgRadioGroup?.SetOnCheckedChangedListener(lt)
+       lgRadioGroup?.setOnCheckedChangedListener(lt)
    }
    override open fun GetNativeObject(): cocoapods.Topping.LGRadioGroup?
    {

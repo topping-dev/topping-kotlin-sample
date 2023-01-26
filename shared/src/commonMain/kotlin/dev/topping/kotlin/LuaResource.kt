@@ -3,10 +3,10 @@ package dev.topping.kotlin
 expect open class LuaResource
 {
    companion object {
-        fun GetResourceAssetSd(path: String, resName: String): LuaStream?
-        fun GetResourceSdAsset(path: String, resName: String): LuaStream?
-        fun GetResourceAsset(path: String, resName: String): LuaStream?
-        fun GetResourceSd(path: String, resName: String): LuaStream?
-        fun GetResource(path: String, resName: String): LuaStream?
+        fun getResourceAssetSd(path: String, resName: String): LuaStream?
+        fun getResourceSdAsset(path: String, resName: String): LuaStream?
+        fun getResourceAsset(path: String, resName: String): LuaStream?
+        fun getResourceSd(path: String, resName: String): LuaStream?
+        fun getResource(path: String, resName: String): LuaStream?
    }
 }

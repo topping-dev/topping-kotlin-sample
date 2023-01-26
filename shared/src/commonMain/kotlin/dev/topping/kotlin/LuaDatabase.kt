@@ -3,17 +3,17 @@ package dev.topping.kotlin
 expect open class LuaDatabase
 {
    companion object {
-        fun Create(context: LuaContext): LuaDatabase
+        fun create(context: LuaContext): LuaDatabase
    }
-   fun CheckAndCreateDatabase()
-   fun Open(): LuaObjectStore?
-   fun Query(conn: LuaObjectStore?, str: String): LuaObjectStore?
-   fun Insert(conn: LuaObjectStore?, str: String): LuaObjectStore?
-   fun Finalize(stmt: LuaObjectStore?)
-   fun Close(conn: LuaObjectStore?)
-   fun GetInt(stmt: LuaObjectStore?, column: Int): Int?
-   fun GetFloat(stmt: LuaObjectStore?, column: Int): Float?
-   fun GetString(stmt: LuaObjectStore?, column: Int): String?
-   fun GetDouble(stmt: LuaObjectStore?, column: Int): Double?
-   fun GetLong(stmt: LuaObjectStore?, column: Int): Long?
+   fun checkAndCreateDatabase()
+   fun open(): LuaObjectStore?
+   fun query(conn: LuaObjectStore?, str: String): LuaObjectStore?
+   fun insert(conn: LuaObjectStore?, str: String): LuaObjectStore?
+   fun finalize(stmt: LuaObjectStore?)
+   fun close(conn: LuaObjectStore?)
+   fun getInt(stmt: LuaObjectStore?, column: Int): Int?
+   fun getFloat(stmt: LuaObjectStore?, column: Int): Float?
+   fun getString(stmt: LuaObjectStore?, column: Int): String?
+   fun getDouble(stmt: LuaObjectStore?, column: Int): Double?
+   fun getLong(stmt: LuaObjectStore?, column: Int): Long?
 }

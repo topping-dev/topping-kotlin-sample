@@ -4,9 +4,9 @@ actual open class LGViewGroup : LGView()
 {
    var lgViewGroup: cocoapods.Topping.LGViewGroup? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGViewGroup {
+        actual fun create(lc: LuaContext): LGViewGroup {
             val pobj = LGViewGroup()
-            val pres = cocoapods.Topping.LGViewGroup.Create(lc.luaContext)
+            val pres = cocoapods.Topping.LGViewGroup.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }

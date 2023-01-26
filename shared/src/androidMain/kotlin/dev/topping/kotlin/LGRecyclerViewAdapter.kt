@@ -4,44 +4,44 @@ actual open class LGRecyclerViewAdapter : KTInterface
 {
    var lgRecyclerViewAdapter: android.widget.LGRecyclerViewAdapter? = null
    actual companion object {
-        actual fun Create(lc: LuaContext, id: String): LGRecyclerViewAdapter {
+        actual fun create(lc: LuaContext, id: String): LGRecyclerViewAdapter {
             val pobj = LGRecyclerViewAdapter()
-            val pres = android.widget.LGRecyclerViewAdapter.Create(lc.luaContext, id)
+            val pres = android.widget.LGRecyclerViewAdapter.create(lc.luaContext, id)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun AddValue(value: Any)
+   actual fun addValue(value: Any)
    {
-       lgRecyclerViewAdapter?.AddValue(value)
+       lgRecyclerViewAdapter?.addValue(value)
    }
-   actual fun RemoveValue(value: Any)
+   actual fun removeValue(value: Any)
    {
-       lgRecyclerViewAdapter?.RemoveValue(value)
+       lgRecyclerViewAdapter?.removeValue(value)
    }
-   actual fun Clear()
+   actual fun clear()
    {
-       lgRecyclerViewAdapter?.Clear()
+       lgRecyclerViewAdapter?.clear()
    }
-   actual fun Notify()
+   actual fun notifyData()
    {
-       lgRecyclerViewAdapter?.Notify()
+       lgRecyclerViewAdapter?.notifyData()
    }
-   actual fun SetOnItemSelected(func: ((LGRecyclerViewAdapter, LGView, LGView, Int, Any) -> Unit)?)
+   actual fun setOnItemSelected(func: ((LGRecyclerViewAdapter, LGView, LGView, Int, Any) -> Unit)?)
    {
-       lgRecyclerViewAdapter?.SetOnItemSelected(func.toLuaTranslator(this))
+       lgRecyclerViewAdapter?.setOnItemSelected(func.toLuaTranslator(this))
    }
-   actual fun SetOnCreateViewHolder(func: ((LGRecyclerViewAdapter, LGView, Int, LuaContext) -> LGView)?)
+   actual fun setOnCreateViewHolder(func: ((LGRecyclerViewAdapter, LGView, Int, LuaContext) -> LGView)?)
    {
-       lgRecyclerViewAdapter?.SetOnCreateViewHolder(func.toLuaTranslator(this))
+       lgRecyclerViewAdapter?.setOnCreateViewHolder(func.toLuaTranslator(this))
    }
-   actual fun SetOnBindViewHolder(func: ((LGRecyclerViewAdapter, LGView, Int, Any) -> Unit)?)
+   actual fun setOnBindViewHolder(func: ((LGRecyclerViewAdapter, LGView, Int, Any) -> Unit)?)
    {
-       lgRecyclerViewAdapter?.SetOnBindViewHolder(func.toLuaTranslator(this))
+       lgRecyclerViewAdapter?.setOnBindViewHolder(func.toLuaTranslator(this))
    }
-   actual fun SetGetItemViewType(func: ((LGRecyclerViewAdapter, Int) -> Int)?)
+   actual fun setGetItemViewType(func: ((LGRecyclerViewAdapter, Int) -> Int)?)
    {
-       lgRecyclerViewAdapter?.SetGetItemViewType(func.toLuaTranslator(this))
+       lgRecyclerViewAdapter?.setGetItemViewType(func.toLuaTranslator(this))
    }
     open override fun GetNativeObject(): Any?
    {

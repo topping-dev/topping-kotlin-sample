@@ -16,31 +16,31 @@ actual open class LuaColor : KTInterface
         actual val TRANSPARENT: Int = 0x00000000
         actual val WHITE: Int = 0xffffffff.toInt()
         actual val YELLOW: Int = 0xffffff00.toInt()
-        actual fun FromString(colorStr: String): LuaColor?
+        actual fun fromString(colorStr: String): LuaColor?
         {
             val pobj = LuaColor()
-            val pres = cocoapods.Topping.LuaColor.FromString(colorStr)
+            val pres = cocoapods.Topping.LuaColor.fromString(colorStr)
             pobj.SetNativeObject(pres)
             return pobj
         }
-        actual fun CreateFromARGB(alpha: Int, red: Int, green: Int, blue: Int): LuaColor?
+        actual fun createFromARGB(alpha: Int, red: Int, green: Int, blue: Int): LuaColor?
         {
             val pobj = LuaColor()
-            val pres = cocoapods.Topping.LuaColor.CreateFromARGB(alpha, red, green, blue)
+            val pres = cocoapods.Topping.LuaColor.createFromARGB(alpha, red, green, blue)
             pobj.SetNativeObject(pres)
             return pobj
         }
-        actual fun CreateFromRGB(red: Int, green: Int, blue: Int): LuaColor?
+        actual fun createFromRGB(red: Int, green: Int, blue: Int): LuaColor?
         {
             val pobj = LuaColor()
-            val pres = cocoapods.Topping.LuaColor.CreateFromRGB(red, green, blue)
+            val pres = cocoapods.Topping.LuaColor.createFromRGB(red, green, blue)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun GetColorValue(): Int?
+   actual fun getColorValue(): Int?
    {
-       return luaColor?.GetColorValue()
+       return luaColor?.getColorValue()
    }
     open override fun GetNativeObject(): Any?
    {

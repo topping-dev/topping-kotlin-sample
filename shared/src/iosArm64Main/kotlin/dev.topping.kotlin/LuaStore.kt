@@ -4,28 +4,28 @@ actual open class LuaStore : KTInterface
 {
    var luaStore: cocoapods.Topping.LuaStore? = null
    actual companion object {
-        actual fun SetString(key: String, value: String?)
+        actual fun setString(key: String, value: String?)
         {
-            cocoapods.Topping.LuaStore.SetString(key, value)
+            cocoapods.Topping.LuaStore.setString(key, value)
         }
-        actual fun SetNumber(key: String, value: Double)
+        actual fun setNumber(key: String, value: Double)
         {
-            cocoapods.Topping.LuaStore.SetNumber(key, value)
+            cocoapods.Topping.LuaStore.setNumber(key, value)
         }
-        actual fun Get(key: String): Any?
+        actual fun get(key: String): Any?
         {
             val pobj = LuaStore()
-            val pres = cocoapods.Topping.LuaStore.Get(key)
+            val pres = cocoapods.Topping.LuaStore.get(key)
             pobj.SetNativeObject(pres as cocoapods.Topping.LuaStore)
             return pobj
         }
-        actual fun GetString(key: String): String?
+        actual fun getString(key: String): String?
         {
-            return cocoapods.Topping.LuaStore.GetString(key)
+            return cocoapods.Topping.LuaStore.getString(key)
         }
-        actual fun GetNumber(key: String): Double?
+        actual fun getNumber(key: String): Double?
         {
-            return cocoapods.Topping.LuaStore.GetNumber(key)
+            return cocoapods.Topping.LuaStore.getNumber(key)
         }
    }
     open override fun GetNativeObject(): Any?

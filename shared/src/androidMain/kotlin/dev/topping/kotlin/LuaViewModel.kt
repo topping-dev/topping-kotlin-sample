@@ -7,14 +7,14 @@ actual open class LuaViewModel : KTInterface
     actual val viewModelScope: LuaCoroutineScope
         get() = KTWrap.Wrap(luaViewModel?.viewModelScope) as LuaCoroutineScope
 
-    actual fun SetObject(key: String, obj: Any?)
+    actual fun setObject(key: String, obj: Any?)
     {
-        luaViewModel?.SetObject(key, obj)
+        luaViewModel?.setObject(key, obj)
     }
 
-    actual fun GetObject(key: String) : Any?
+    actual fun getObject(key: String) : Any?
     {
-        return luaViewModel?.GetObject(key)
+        return luaViewModel?.getObject(key)
     }
 
     open override fun GetNativeObject(): Any?

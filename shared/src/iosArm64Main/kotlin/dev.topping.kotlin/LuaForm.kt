@@ -4,60 +4,60 @@ actual open class LuaForm : KTInterface
 {
    var luaForm: cocoapods.Topping.LuaForm? = null
    actual companion object {
-        actual fun Create(lc: LuaContext, luaId: LuaRef)
+        actual fun create(lc: LuaContext, luaId: LuaRef)
         {
-            cocoapods.Topping.LuaForm.Create(lc.luaContext, luaId.luaRef)
+            cocoapods.Topping.LuaForm.create(lc.luaContext, luaId.luaRef)
         }
-        actual fun CreateWithUI(lc: LuaContext, luaId: LuaRef, ui: LuaRef)
+        actual fun createWithUI(lc: LuaContext, luaId: LuaRef, ui: LuaRef)
         {
-            cocoapods.Topping.LuaForm.CreateWithUI(lc.luaContext, luaId.luaRef, ui.luaRef)
+            cocoapods.Topping.LuaForm.createWithUI(lc.luaContext, luaId.luaRef, ui.luaRef)
         }
-        actual fun GetActiveForm(): LuaForm?
+        actual fun getActiveForm(): LuaForm?
         {
             val pobj = LuaForm()
-            val pres = cocoapods.Topping.LuaForm.GetActiveForm()
+            val pres = cocoapods.Topping.LuaForm.getActiveForm()
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun GetContext(): LuaContext?
+   actual fun getContext(): LuaContext?
    {
        val pobj = LuaContext()
-       val obj = luaForm?.GetContext()
+       val obj = luaForm?.getContext()
        pobj.SetNativeObject(obj)
        return pobj
    }
-    actual fun GetViewById(lId: LuaRef?): LGView?
+    actual fun getViewById(lId: LuaRef?): LGView?
     {
-        return KTWrap.Wrap(luaForm?.GetViewById((lId?.luaRef!!))) as LGView?
+        return KTWrap.Wrap(luaForm?.getViewById((lId?.luaRef!!))) as LGView?
     }
-    actual fun GetBindings(): Map<String, LGView>?
+    actual fun getBindings(): Map<String, LGView>?
     {
-        return luaForm?.GetBindings()?.entries?.associate {
+        return luaForm?.getBindings()?.entries?.associate {
             it.key.toString() to (KTWrap.Wrap(it.value) as LGView)
         }
     }
-   actual fun GetView(): LGView?
+   actual fun getView(): LGView?
    {
-       return KTWrap.Wrap(luaForm?.GetView()) as LGView?
+       return KTWrap.Wrap(luaForm?.getLuaView()) as LGView?
    }
-   actual fun SetView(v: LGView?)
+   actual fun setView(v: LGView?)
    {
-       luaForm?.SetView(v?.lgView)
+       luaForm?.setLuaView(v?.lgView)
    }
-   actual fun SetViewXML(xml: LuaRef)
+   actual fun setViewXML(xml: LuaRef)
    {
-       luaForm?.SetViewXML(xml.luaRef)
+       luaForm?.setViewXML(xml.luaRef)
    }
-   actual fun SetTitle(str: String)
+   actual fun setTitle(str: String)
    {
-       luaForm?.SetTitle(str)
+       luaForm?.setTitle(str)
    }
-   actual fun Close()
+   actual fun close()
    {
-       luaForm?.Close()
+       luaForm?.close()
    }
-    actual fun GetLifecycle() : LuaLifecycle?
+    actual fun getLifecycle() : LuaLifecycle?
     {
         return KTWrap.Wrap(luaForm?.getLifecycleInner()) as LuaLifecycle
     }

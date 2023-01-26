@@ -4,47 +4,47 @@ actual open class LuaJSONObject : KTInterface
 {
    var luaJSONObject: dev.topping.android.LuaJSONObject? = null
    actual companion object {
-        actual fun CreateJSOFromString(str: String): LuaJSONObject?
+        actual fun createJSOFromString(str: String): LuaJSONObject?
         {
             val pobj = LuaJSONObject()
-            val pres = dev.topping.android.LuaJSONObject.CreateJSOFromString(str)
+            val pres = dev.topping.android.LuaJSONObject.createJSOFromString(str)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun GetJSONObject(name: String): LuaJSONObject?
+   actual fun getJSONObject(name: String): LuaJSONObject?
    {
        val pobj = LuaJSONObject()
-       val obj = luaJSONObject?.GetJSONObject(name)
+       val obj = luaJSONObject?.getJSONObject(name)
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual fun GetJSONArray(name: String): LuaJSONArray?
+   actual fun getJSONArray(name: String): LuaJSONArray?
    {
        val pobj = LuaJSONArray()
-       val obj = luaJSONObject?.GetJSONArray(name)
+       val obj = luaJSONObject?.getJSONArray(name)
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual fun GetString(name: String): String?
+   actual fun getString(name: String): String?
    {
-       return luaJSONObject?.GetString(name)
+       return luaJSONObject?.getString(name)
    }
-   actual fun GetInt(name: String): Int?
+   actual fun getInt(name: String): Int?
    {
-       return luaJSONObject?.GetInt(name)
+       return luaJSONObject?.getInt(name)
    }
-   actual fun GetDouble(name: String): Double?
+   actual fun getDouble(name: String): Double?
    {
-       return luaJSONObject?.GetDouble(name)
+       return luaJSONObject?.getDouble(name)
    }
-   actual fun GetFloat(name: String): Float?
+   actual fun getFloat(name: String): Float?
    {
-       return luaJSONObject?.GetFloat(name)
+       return luaJSONObject?.getFloat(name)
    }
-   actual fun GetBool(name: String): Boolean?
+   actual fun getBool(name: String): Boolean?
    {
-       return luaJSONObject?.GetBool(name)
+       return luaJSONObject?.getBool(name)
    }
     open override fun GetNativeObject(): Any?
    {

@@ -4,38 +4,38 @@ actual open class LGAdapterView : KTInterface
 {
    var lgAdapterView: android.widget.LGAdapterView? = null
    actual companion object {
-        actual fun Create(lc: LuaContext, id: String): LGAdapterView {
+        actual fun create(lc: LuaContext, id: String): LGAdapterView {
             val pobj = LGAdapterView()
             val pres = android.widget.LGAdapterView.Create(lc.luaContext, id)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-   actual fun AddSection(header: String, id: String): LGAdapterView {
+   actual fun addSection(header: String, id: String): LGAdapterView {
        val pobj = LGAdapterView()
-       val obj = lgAdapterView?.AddSection(header, id)
+       val obj = lgAdapterView?.addSection(header, id)
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual fun RemoveSection(header: String)
+   actual fun removeSection(header: String)
    {
-       lgAdapterView?.RemoveSection(header)
+       lgAdapterView?.removeSection(header)
    }
-   actual fun AddValue(value: Any)
+   actual fun addValue(value: Any)
    {
-       lgAdapterView?.AddValue(value)
+       lgAdapterView?.addValue(value)
    }
-   actual fun RemoveValue(value: Any)
+   actual fun removeValue(value: Any)
    {
-       lgAdapterView?.RemoveValue(value)
+       lgAdapterView?.removeValue(value)
    }
-   actual fun Clear()
+   actual fun clear()
    {
-       lgAdapterView?.Clear()
+       lgAdapterView?.clear()
    }
-   actual fun SetOnAdapterView(func: (LGAdapterView, LGView, Int, Any, LGView, LuaContext) -> LGView)
+   actual fun setOnAdapterView(func: (LGAdapterView, LGView, Int, Any, LGView, LuaContext) -> LGView)
    {
-       lgAdapterView?.SetOnAdapterView(func.toLuaTranslator(this))
+       lgAdapterView?.setOnAdapterView(func.toLuaTranslator(this))
    }
     open override fun GetNativeObject(): Any?
    {

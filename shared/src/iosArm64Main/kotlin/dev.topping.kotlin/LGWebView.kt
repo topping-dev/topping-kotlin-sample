@@ -4,51 +4,51 @@ actual open class LGWebView : LGView()
 {
    var lgWebView: cocoapods.Topping.LGWebView? = null
    actual companion object {
-        actual fun Create(lc: LuaContext): LGWebView {
+        actual fun create(lc: LuaContext): LGWebView {
             val pobj = LGWebView()
-            val pres = cocoapods.Topping.LGButton.Create(lc.luaContext)
+            val pres = cocoapods.Topping.LGButton.create(lc.luaContext)
             pobj.SetNativeObject(pres)
             return pobj
         }
    }
-    actual fun SetConfiguration(enableJavascript: Boolean, enableDomStorage: Boolean) {
-        lgWebView?.SetConfiguration(enableJavascript, enableDomStorage)
+    actual fun setConfiguration(enableJavascript: Boolean, enableDomStorage: Boolean) {
+        lgWebView?.setConfiguration(enableJavascript, enableDomStorage)
     }
 
-    actual fun Load(url: String) {
-        lgWebView?.Load(url)
+    actual fun load(url: String) {
+        lgWebView?.load(url)
     }
 
-    actual fun LoadData(data: String, mimeType: String, encoding: String, baseUrl: String) {
-        lgWebView?.LoadData(data, mimeType, encoding, baseUrl)
+    actual fun loadData(data: String, mimeType: String, encoding: String, baseUrl: String) {
+        lgWebView?.loadData(data, mimeType, encoding, baseUrl)
     }
 
-    actual fun StopLoading() {
-        lgWebView?.StopLoading()
+    actual fun stopLoading() {
+        lgWebView?.stopLoading()
     }
 
-    actual fun IsLoading(): Boolean {
-        return lgWebView?.IsLoading()!!
+    actual fun isLoading(): Boolean {
+        return lgWebView?.isLoading()!!
     }
 
-    actual fun CanGoBack(): Boolean {
-        return lgWebView?.CanGoBack()!!
+    actual fun canGoBack(): Boolean {
+        return lgWebView?.canGoBack()!!
     }
 
-    actual fun CanGoForward(): Boolean {
-        return lgWebView?.CanGoForward()!!
+    actual fun canGoForward(): Boolean {
+        return lgWebView?.canGoForward()!!
     }
 
-    actual fun GoBack() {
-        lgWebView?.GoBack()
+    actual fun goBack() {
+        lgWebView?.goBack()
     }
 
-    actual fun GoForward() {
-        lgWebView?.GoForward()
+    actual fun goForward() {
+        lgWebView?.goForward()
     }
 
-    actual fun SetReqestAction(func: ((LGWebView, String) -> Boolean)?) {
-        lgWebView?.SetRequestAction(func.toLuaTranslator(this))
+    actual fun setReqestAction(func: ((LGWebView, String) -> Boolean)?) {
+        lgWebView?.setRequestAction(func.toLuaTranslator(this))
     }
 
     open override fun GetNativeObject(): Any?

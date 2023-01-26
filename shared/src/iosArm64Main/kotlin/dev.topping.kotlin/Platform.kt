@@ -87,16 +87,16 @@ actual class Platform actual constructor() {
         )
         private val retBindingMap: HashMap<Any, Any>? = null
 
-        actual fun Init(activityOrWindow: Any, onComplete: GenericOnComplete) {
+        actual fun init(activityOrWindow: Any, onComplete: GenericOnComplete) {
             KTEntry.Init()
-            cocoapods.Topping.CommonDelegate.GetInstance()?.InitMain(activityOrWindow as UIWindow, null)
+            cocoapods.Topping.CommonDelegate.getInstance()?.initMain(activityOrWindow as UIWindow, null)
         }
 
-        actual fun GetRetBindings(): HashMap<Any, Any>? {
+        actual fun getRetBindings(): HashMap<Any, Any>? {
             return retBindingMap
         }
 
-        actual fun GetBindings(): HashMap<Any, Any>? {
+        actual fun getBindings(): HashMap<Any, Any>? {
             /*if(bindingMap == null)
             {
                 retBindingMap = HashMap<Any, Any>()

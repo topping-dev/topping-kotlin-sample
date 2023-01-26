@@ -3,32 +3,32 @@ package dev.topping.kotlin
 actual open class LuaStream : KTInterface
 {
    var luaStream: dev.topping.android.LuaStream? = null
-   actual fun GetStream(): LuaObjectStore?
+   actual fun getStream(): LuaObjectStore?
    {
        val pobj = LuaObjectStore()
-       val obj = luaStream?.GetStream()
+       val obj = luaStream?.getStream()
        pobj.SetNativeObject(obj)
        return pobj
    }
-   actual fun SetStream(stream: LuaObjectStore?)
+   actual fun setStream(stream: LuaObjectStore?)
    {
-       luaStream?.SetStream(stream?.luaObjectStore)
+       luaStream?.setStream(stream?.luaObjectStore)
    }
-   actual fun ReadOne(): Int?
+   actual fun readOne(): Int?
    {
-       return luaStream?.ReadOne()
+       return luaStream?.readOne()
    }
-   actual fun Read(bufferO: LuaBuffer, offset: Int, length: Int)
+   actual fun read(bufferO: LuaBuffer, offset: Int, length: Int)
    {
-       luaStream?.Read(bufferO.luaBuffer, offset, length)
+       luaStream?.read(bufferO.luaBuffer, offset, length)
    }
-   actual fun WriteOne(oneByte: Int)
+   actual fun writeOne(oneByte: Int)
    {
-       luaStream?.WriteOne(oneByte)
+       luaStream?.writeOne(oneByte)
    }
-   actual fun Write(bufferO: LuaBuffer, offset: Int, length: Int)
+   actual fun write(bufferO: LuaBuffer, offset: Int, length: Int)
    {
-       luaStream?.Write(bufferO.luaBuffer, offset, length)
+       luaStream?.write(bufferO.luaBuffer, offset, length)
    }
     open override fun GetNativeObject(): Any?
    {

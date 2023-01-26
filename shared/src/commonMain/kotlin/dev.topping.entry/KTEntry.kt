@@ -6,8 +6,23 @@ import dev.topping.kotlinsample.MainForm
 import dev.topping.kotlinsample.MenuFragment
 
 class KTEntry {
+    interface OnCompletePlatform {
+        fun onComplete()
+    }
     companion object {
-        fun Init() {
+        fun initFromPlatform(activityOrWindow: Any, onComplete: OnCompletePlatform) {
+            Platform.init(activityOrWindow, object : OnBeforeInit {
+                override fun onBeforeInit() {
+                    init()
+                }
+
+            }, object : OnComplete {
+                override fun onComplete() {
+                    onComplete.onComplete()
+                }
+            })
+        }
+        fun init() {
             LuaEvent.registerFragment("menuFragment", ::MenuFragment)
             LuaEvent.registerForm("Main", ::MainForm)
             /*LuaEvent.registerUIEvent(

@@ -20,22 +20,18 @@ kotlin {
         ios.deploymentTarget = "11.0"
         frameworkName = "shared"
         podfile = project.file("../iosApp/Podfile")
-        specRepos {
-            url("https://github.com/Deadknight/dk-specs.git")
-        }
-        pod("Topping", "0.1.7")
     }
 
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(kotlin("reflect"))
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
+                implementation("dev.topping:toppingkotlin:0.5.0")
             }
         }
         commonMain.kotlin.srcDir("../androidApp/build/generated/toppingviewbinding")
         val androidMain by getting {
-            dependencies {
+            /*dependencies {
                 implementation ("androidx.appcompat:appcompat:1.3.0")
                 implementation ("androidx.recyclerview:recyclerview:1.2.1")
                 implementation ("androidx.fragment:fragment:1.3.5")
@@ -45,9 +41,8 @@ kotlin {
                 implementation ("androidx.navigation:navigation-ui-ktx:2.3.5")
                 implementation ("androidx.navigation:navigation-dynamic-features-fragment:2.3.5")
                 implementation ("com.google.android.material:material:1.4.0")
-                implementation(files("../../topping-android/toppingAndroid/build/outputs/aar/toppingAndroid-debug.aar"))
-                //implementation("dev.topping:toppingandroid:0.5.0")
-            }
+                implementation("dev.topping:toppingandroid:0.5.0")
+            }*/
         }
         val iosX64Main by getting
         val iosArm64Main by getting
@@ -63,13 +58,11 @@ kotlin {
     }
 }
 android {
-    compileSdkVersion(31)
+    compileSdk = 31
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdkVersion(24)
-        targetSdkVersion(31)
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = 24
+        targetSdk = 31
     }
     buildTypes {
         getByName("release") {

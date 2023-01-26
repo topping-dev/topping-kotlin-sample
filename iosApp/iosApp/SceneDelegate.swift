@@ -17,12 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             self.window = window
-            class Complete:GenericOnComplete {
+            class Complete:KTEntryOnCompletePlatform {
                 func onComplete() {
                     
                 }
             }
-            Platform.Companion().Init(activityOrWindow: self.window as Any, onComplete: Complete())
+            KTEntry.Companion().doInitFromPlatform(activityOrWindow: self.window as Any, onComplete: Complete())
             window.makeKeyAndVisible()
         }
     }

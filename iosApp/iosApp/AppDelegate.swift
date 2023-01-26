@@ -16,12 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             let frame = UIScreen.main.bounds;
             self.window = UIWindow.init(frame: frame);
-            class Complete:GenericOnComplete {
+            class Complete:KTEntryOnCompletePlatform {
                 func onComplete() {
                     
                 }
             }
-            Platform.Companion().Init(activityOrWindow: self.window as Any, onComplete: Complete())
+            KTEntry.Companion().doInitFromPlatform(activityOrWindow: self.window as Any, onComplete: Complete())
         }
         return true
     }

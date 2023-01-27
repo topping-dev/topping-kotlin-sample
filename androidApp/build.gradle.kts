@@ -29,17 +29,15 @@ dependencies {
     implementation ("androidx.core:core-ktx:1.3.2")
     implementation ("androidx.fragment:fragment:1.3.5")
     implementation ("androidx.fragment:fragment-ktx:1.3.5")
-    //implementation(files("../shared/libs/toppingAndroid-debug.aar"))
-    implementation(files("../../topping-android/toppingAndroid/build/outputs/aar/toppingAndroid-debug.aar"))
-    //implementation("dev.topping:toppingandroid:0.1.1")
+    implementation ("dev.topping:toppingandroid:0.5.0")
 }
 
 android {
-    compileSdkVersion(29)
+    compileSdk = 31
     defaultConfig {
         applicationId = "dev.topping.kotlin.androidApp"
-        minSdkVersion(24)
-        targetSdkVersion(29)
+        minSdk = 24
+        targetSdk = 31
         versionCode = 1
         versionName = "1.0"
     }

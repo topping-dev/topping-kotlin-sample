@@ -30,20 +30,7 @@ kotlin {
             }
         }
         commonMain.kotlin.srcDir("../androidApp/build/generated/toppingviewbinding")
-        val androidMain by getting {
-            /*dependencies {
-                implementation ("androidx.appcompat:appcompat:1.3.0")
-                implementation ("androidx.recyclerview:recyclerview:1.2.1")
-                implementation ("androidx.fragment:fragment:1.3.5")
-                implementation ("androidx.fragment:fragment-ktx:1.3.5")
-                implementation ("androidx.lifecycle:lifecycle-common-java8:2.3.1")
-                implementation ("androidx.navigation:navigation-fragment-ktx:2.3.5")
-                implementation ("androidx.navigation:navigation-ui-ktx:2.3.5")
-                implementation ("androidx.navigation:navigation-dynamic-features-fragment:2.3.5")
-                implementation ("com.google.android.material:material:1.4.0")
-                implementation("dev.topping:toppingandroid:0.5.0")
-            }*/
-        }
+        val androidMain by getting
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -58,6 +45,7 @@ kotlin {
     }
 }
 android {
+    namespace = "dev.topping.kotlin"
     compileSdk = 31
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {

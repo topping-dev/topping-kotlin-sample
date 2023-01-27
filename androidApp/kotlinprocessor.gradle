@@ -63,15 +63,23 @@ project.afterEvaluate {
 }
 
 gradle.taskGraph.afterTask { Task task, TaskState state ->
-    if(task.path.contains("generateDebugResources")
-            || task.path.contains("generateReleaseResources"))
+    if(task.path.contains("process") && task.path.contains("ManifestForPackage"))
     {
-        def val = applicationId.replace(".", "/");
-
+        println "Generating View Bindings"
+        String cmd = "java -jar ${projectDir}/viewbinding.jar ${projectDir}/src/ ${buildDir}/generated/toppingviewbinding/ ${buildDir}/intermediates/merged_res_blame_folder/${currentVariant}/out/single/${currentVariant}.json"
+        def os = org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.currentOperatingSystem
+        String[] args = null
+        if(os.toFamilyName().equalsIgnoreCase("windows"))
+            args = ["cmd", "/c", cmd]
+        else
+            args = ["sh", "-c", cmd]
+        def proc = args.execute()
+        proc.in.eachLine {line -> println line}
+        //proc.out.eachLine {line -> println line}
+        proc.err.eachLine {line -> println 'ERROR: ' + line}
+        proc.waitFor()
     }
-}
 
-gradle.taskGraph.afterTask { Task task, TaskState state ->
     if(task.path.contains("process") && task.path.contains("Resources"))
     {
         println "Generating LR"
@@ -89,18 +97,6 @@ gradle.taskGraph.afterTask { Task task, TaskState state ->
         proc.in.eachLine {line -> println line}
         //proc.out.eachLine {line -> println line}
         //proc.err.eachLine {line -> println 'ERROR: ' + line}
-        proc.waitFor()
-
-        println "Generating View Bindings"
-        String cmd = "java -jar ${projectDir}/viewbinding.jar ${projectDir}/src/ ${buildDir}/generated/toppingviewbinding/ ${buildDir}/intermediates/merged_res_blame_folder/${currentVariant}/out/single/${currentVariant}.json"
-        if(os.toFamilyName().equalsIgnoreCase("windows"))
-            args = ["cmd", "/c", cmd]
-        else
-            args = ["sh", "-c", cmd]
-        proc = args.execute()
-        proc.in.eachLine {line -> println line}
-        //proc.out.eachLine {line -> println line}
-        proc.err.eachLine {line -> println 'ERROR: ' + line}
         proc.waitFor()
     }
 }

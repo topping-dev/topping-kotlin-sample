@@ -65,38 +65,44 @@ project.afterEvaluate {
 gradle.taskGraph.afterTask { Task task, TaskState state ->
     if(task.path.contains("process") && task.path.contains("ManifestForPackage"))
     {
-        println "Generating View Bindings"
-        String cmd = "java -jar ${projectDir}/viewbinding.jar ${projectDir}/src/ ${buildDir}/generated/toppingviewbinding/ ${buildDir}/intermediates/merged_res_blame_folder/${currentVariant}/out/single/${currentVariant}.json"
-        def os = org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.currentOperatingSystem
-        String[] args = null
-        if(os.toFamilyName().equalsIgnoreCase("windows"))
-            args = ["cmd", "/c", cmd]
-        else
-            args = ["sh", "-c", cmd]
-        def proc = args.execute()
-        proc.in.eachLine {line -> println line}
-        //proc.out.eachLine {line -> println line}
-        proc.err.eachLine {line -> println 'ERROR: ' + line}
-        proc.waitFor()
+
     }
 
     if(task.path.contains("process") && task.path.contains("Resources"))
     {
-        println "Generating LR"
-        def outputType = "debug"
-        if(task.path.contains("Release"))
-            outputType = "release"
-        println "java -jar ${projectDir}/parser.jar 2 ${buildDir}/intermediates/compile_and_runtime_not_namespaced_r_class_jar/" + outputType + "/R.jar ${projectDir}/../shared/src/commonMain/kotlin/dev/topping/kotlin/ " + applicationId + ".R"
-        def os = org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.currentOperatingSystem
-        String[] args = null
-        if(os.toFamilyName().equalsIgnoreCase("windows"))
-            args = ["cmd", "/c", "java -jar ${projectDir}/parser.jar 2 ${buildDir}/intermediates/compile_and_runtime_not_namespaced_r_class_jar/" + outputType + "/R.jar ${projectDir}/../shared/src/commonMain/kotlin/dev/topping/kotlin/ " + applicationId + ".R"]
-        else
-            args = ["sh", "-c", "java -jar ${projectDir}/parser.jar 2 ${buildDir}/intermediates/compile_and_runtime_not_namespaced_r_class_jar/" + outputType + "/R.jar ${projectDir}/../shared/src/commonMain/kotlin/dev/topping/kotlin/ " + applicationId + ".R"]
-        def proc = args.execute()
-        proc.in.eachLine {line -> println line}
-        //proc.out.eachLine {line -> println line}
-        //proc.err.eachLine {line -> println 'ERROR: ' + line}
-        proc.waitFor()
+        {
+            println "Generating LR"
+            def outputType = "debug"
+            if (task.path.contains("Release"))
+                outputType = "release"
+            println "java -jar ${projectDir}/parser.jar 2 ${buildDir}/intermediates/compile_and_runtime_not_namespaced_r_class_jar/" + outputType + "/R.jar ${projectDir}/../shared/src/commonMain/kotlin/dev/topping/kotlin/ " + applicationId + ".R"
+            def os = org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.currentOperatingSystem
+            String[] args = null
+            if (os.toFamilyName().equalsIgnoreCase("windows"))
+                args = ["cmd", "/c", "java -jar ${projectDir}/parser.jar 2 ${buildDir}/intermediates/compile_and_runtime_not_namespaced_r_class_jar/" + outputType + "/R.jar ${projectDir}/../shared/src/commonMain/kotlin/dev/topping/kotlin/ " + applicationId + ".R"]
+            else
+                args = ["sh", "-c", "java -jar ${projectDir}/parser.jar 2 ${buildDir}/intermediates/compile_and_runtime_not_namespaced_r_class_jar/" + outputType + "/R.jar ${projectDir}/../shared/src/commonMain/kotlin/dev/topping/kotlin/ " + applicationId + ".R"]
+            def proc = args.execute()
+            proc.in.eachLine { line -> println line }
+            //proc.out.eachLine {line -> println line}
+            //proc.err.eachLine {line -> println 'ERROR: ' + line}
+            proc.waitFor()
+        }
+
+        {
+            println "Generating View Bindings"
+            String cmd = "java -jar ${projectDir}/viewbinding.jar ${projectDir}/src/ ${buildDir}/generated/toppingviewbinding/ ${buildDir}/intermediates/merged_res_blame_folder/${currentVariant}/out/single/${currentVariant}.json"
+            def os = org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.currentOperatingSystem
+            String[] args = null
+            if(os.toFamilyName().equalsIgnoreCase("windows"))
+                args = ["cmd", "/c", cmd]
+            else
+                args = ["sh", "-c", cmd]
+            def proc = args.execute()
+            proc.in.eachLine {line -> println line}
+            //proc.out.eachLine {line -> println line}
+            proc.err.eachLine {line -> println 'ERROR: ' + line}
+            proc.waitFor()
+        }
     }
 }

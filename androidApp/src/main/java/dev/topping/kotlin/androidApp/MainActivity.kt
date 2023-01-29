@@ -1,6 +1,7 @@
 package dev.topping.kotlin.androidApp
 
 import android.os.Bundle
+import dev.topping.android.LuaEvent
 import dev.topping.android.LuaForm
 import dev.topping.android.backend.LuaInterface
 import dev.topping.entry.KTEntry
@@ -12,7 +13,6 @@ class MainActivity : LuaForm(), LuaInterface {
 
         KTEntry.initFromPlatform(this, object : KTEntry.OnCompletePlatform {
             override fun onComplete() {
-
             }
         })
     }

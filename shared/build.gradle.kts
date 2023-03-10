@@ -30,6 +30,7 @@ kotlin {
             }
         }
         commonMain.kotlin.srcDir("../androidApp/build/generated/toppingviewbinding")
+        commonMain.kotlin.srcDir("../androidApp/build/generated/toppingresource")
         val androidMain by getting
         val iosX64Main by getting
         val iosArm64Main by getting

@@ -40,6 +40,9 @@ def getCurrentVariant() {
     else
         tskReqStr = tskReqStr.substring("generate".length(), tskReqStr.length())
 
+    if(tskReqStr == "rt")
+        tskReqStr = "debug"
+
     return tskReqStr.toLowerCase()
 }
 
@@ -68,8 +71,15 @@ gradle.taskGraph.afterTask { Task task, TaskState state ->
 
     }
 
-    if(task.path.contains("process") && task.path.contains("Resources"))
+    if(task.path.contains("process") && task.path.contains("Resources")
+            || task.path.contains("iosAppPodInstall")
+            || task.path.contains("runCommonizer"))
     {
+        def cV = currentVariant
+        if(task.path.contains("iosAppPodInstall")
+                || task.path.contains("runCommonizer")) {
+            cV = "debug"
+        }
         {
             println "${projectDir}"
             println "Generating LR"
@@ -93,7 +103,7 @@ gradle.taskGraph.afterTask { Task task, TaskState state ->
 
         {
             println "Generating View Bindings"
-            String cmd = "java -jar ${projectDir}/viewbinding.jar ${projectDir}/src/ ${buildDir}/generated/toppingviewbinding/ ${buildDir}/intermediates/merged_res_blame_folder/${currentVariant}/out/single/${currentVariant}.json"
+            String cmd = "java -jar ${projectDir}/viewbinding.jar ${projectDir}/src/ ${buildDir}/generated/toppingviewbinding/ ${buildDir}/intermediates/merged_res_blame_folder/${cV}/out/single/${cV}.json"
             def os = org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.currentOperatingSystem
             String[] args = null
             if(os.toFamilyName().equalsIgnoreCase("windows"))

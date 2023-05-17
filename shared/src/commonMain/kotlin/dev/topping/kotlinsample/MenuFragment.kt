@@ -23,12 +23,12 @@ class MenuFragment(fragment: Any) : ILuaFragment(fragment) {
         binding.formTestCheckBox.setOnCheckedChangedListener { lgCheckBox, luaContext, isChecked ->
             LuaToast.show(luaContext, "CheckBox value is $isChecked", 1000)
         }
-        val combobox = binding.formTestComboBox
+        /*val combobox = binding.formTestComboBox
         combobox.addItem("Item 1", 1)
         combobox.addItem("Item 2", 2)
         combobox.addItem("Item 3", 3)
         combobox.addItem("Item 4", 4)
-        combobox.setOnComboChangedListener(Form.Companion::TestComboBox_Changed)
+        combobox.setOnComboChangedListener(Form.Companion::TestComboBox_Changed)*/
         binding.formTestProgressBar.setMax(100)
         binding.formTestProgressBar.setProgress(15)
         return binding.getRoot()

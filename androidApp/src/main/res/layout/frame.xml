@@ -20,6 +20,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="asdasd"
-        android:background="#00FF00"
+        android:background="#0000FF"
         android:layout_gravity="left|bottom"/>
+    <!--TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="asdasd"
+        android:background="#000000"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center"/-->
 </FrameLayout>

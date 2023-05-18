@@ -26,7 +26,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
-                implementation("dev.topping:toppingkotlin:0.5.0")
+                implementation("dev.topping:toppingkotlin:0.5.1")
             }
         }
         commonMain.kotlin.srcDir("../androidApp/build/generated/toppingviewbinding")

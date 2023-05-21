@@ -22,12 +22,12 @@ class Form {
             button.setOnClickListener(Companion::TestButton_Click)
             val checkbox = pGUI.getViewById(LR.id.formTestCheckBox) as LGCheckBox
             checkbox.setOnCheckedChangedListener(Companion::TestCheckBox_CheckedChanged)
-            val combobox = pGUI.getViewById(LR.id.formTestComboBox) as LGComboBox
+            /*val combobox = pGUI.getViewById(LR.id.formTestComboBox) as LGComboBox
             combobox.addItem("Item 1", 1)
             combobox.addItem("Item 2", 2)
             combobox.addItem("Item 3", 3)
             combobox.addItem("Item 4", 4)
-            combobox.setOnComboChangedListener(Companion::TestComboBox_Changed)
+            combobox.setOnComboChangedListener(Companion::TestComboBox_Changed)*/
             val edittext = pGUI.getViewById(LR.id.formTestEt) as LGEditText
             val pb = pGUI.getViewById(LR.id.formTestProgressBar) as LGProgressBar
             pb.setMax(100)

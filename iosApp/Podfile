@@ -1,4 +1,4 @@
-#source 'https://github.com/Deadknight/dk-specs.git'
+source 'https://github.com/Deadknight/dk-specs.git'
 source 'https://github.com/CocoaPods/Specs'
 
 use_frameworks!
@@ -7,7 +7,7 @@ platform :ios, '13.0'
 
 target 'iosApp' do
   pod 'shared', :path => '../shared'
-  pod 'Topping', '0.5.2'
+  pod 'Topping', '0.5.3'
 end
 
 post_install do |installer|

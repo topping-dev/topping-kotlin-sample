@@ -30,7 +30,7 @@ dependencies {
     implementation ("androidx.core:core-ktx:1.3.2")
     implementation ("androidx.fragment:fragment:1.3.5")
     implementation ("androidx.fragment:fragment-ktx:1.3.5")
-    implementation ("dev.topping:toppingandroid:0.5.2")
+    implementation ("dev.topping:toppingandroid:0.5.3")
 }
 
 android {

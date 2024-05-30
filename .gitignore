@@ -5,3 +5,6 @@ build
 shared/build
 iosApp/Pods
 iosApp/Podfile.lock
+androidApp/kotlinprocessor.gradle
+androidApp/parser.jar
+androidApp/viewbinding.jar
